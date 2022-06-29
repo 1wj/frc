@@ -1,0 +1,74 @@
+
+~
+java:S1488"^Immediately return this expression instead of assigning it to the temporary variable "result".(¹­†Óıÿÿÿÿ8”‹¯–‘0
+U
+java:S4719":Replace Charset.forName() call with StandardCharsets.UTF_8(¼˜¿8”‹¯–‘0
+=
+java:S1118"Hide this public constructor.(ª³‘«üÿÿÿÿ8”‹¯–‘0
+z
+java:S1149"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(í…Ò‰8”‹¯–‘0
+C	java:S108")Either remove or fill this block of code.(µšË÷8”‹¯–‘0
+L
+java:S3011",This accessibility bypass should be removed.(ÿÂô—ùÿÿÿÿ8˜ß¬–‘0
+J
+java:S3740"/Provide the parametrized type for this generic.(£Å„Ç8”‹¯–‘0
+S	java:S106"9Replace this use of System.out or System.err by a logger.(œœÖİ8”‹¯–‘0
+8
+java:S2119"Save and re-use this "Random".(¼İÅf8”‹¯–‘0
+:
+java:S2129" Remove this "String" constructor(¦ú×D8”‹¯–‘0
+H	java:S108")Either remove or fill this block of code.(öé”şÿÿÿÿ8”‹¯–‘0
+¡
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(©Ô³–ÿÿÿÿÿ8”‹¯–‘0
+~
+java:S1488"^Immediately return this expression instead of assigning it to the temporary variable "result".(Ÿ¼øüÿÿÿÿ8”‹¯–‘0
+G
+java:S3011",This accessibility update should be removed.(˜ÂÓ˜8”‹¯–‘0
+z
+java:S1149"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(í…Ò‰8”‹¯–‘0
+8
+java:S1165"Make this "code" field final.(íÖ‡¨8˜ß¬–‘0
+W
+java:S1905"7Remove this unnecessary cast to "PermissionCollection".(Š Î†üÿÿÿÿ8”‹¯–‘0
+=
+java:S1118"Hide this public constructor.(©Ô³–ÿÿÿÿÿ8”‹¯–‘0
+h	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°¿åù8”‹¯–‘0
+L
+java:S3011",This accessibility update should be removed.(„«µ”ùÿÿÿÿ8”‹¯–‘0
+
+java:S1149"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(„»è¼øÿÿÿÿ8”‹¯–‘0
+M
+java:S1905"-Remove this unnecessary cast to "Permission".(â½†Óşÿÿÿÿ8Ù†°–‘0
+L
+java:S3011",This accessibility bypass should be removed.(•ïÈƒùÿÿÿÿ8˜ß¬–‘0
+e	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Ñ ¤™üÿÿÿÿ8”‹¯–‘0
+z
+java:S1149"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(í…Ò‰8”‹¯–‘0
+:
+java:S1165"Make this "msgMap" field final.(£Å„Ç8”‹¯–‘0
+A
+java:S3329"'Use a dynamically-generated, random IV.(Ò»ˆV8”‹¯–‘0
+R	java:S106"9Replace this use of System.out or System.err by a logger.(ƒÚáB8”‹¯–‘0
+¡
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ª³‘«üÿÿÿÿ8”‹¯–‘0
+
+java:S1488"_Immediately return this expression instead of assigning it to the temporary variable "byteArr".(ä˜Ïÿÿÿÿÿ8”‹¯–‘0
+U
+java:S4719":Replace Charset.forName() call with StandardCharsets.UTF_8(¼˜¿8”‹¯–‘0
+D
+java:S1905")Remove this unnecessary cast to "String".(ŒÊçÑ8”‹¯–‘0
+7
+java:S1643"Use a StringBuilder instead.(úŞñõ8”‹¯–‘0
+F
+java:S1905"&Remove this unnecessary cast to "Map".(Ù½Àÿÿÿÿÿ8”‹¯–‘0
+`	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(–ŠÆ©8”‹¯–‘0
+t
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(™µè©8”‹¯–‘0
+J
+java:S3740"/Provide the parametrized type for this generic.(ÒÒ½½8”‹¯–‘0
+G
+java:S3011",This accessibility update should be removed.(˜ÂÓ˜8”‹¯–‘0
+N
+java:S1068".Remove this unused "BLOCK_SIZE" private field.(ÑÇì³ùÿÿÿÿ8”‹¯–‘0
+G
+java:S3329"'Use a dynamically-generated, random IV.(«Û‘ÿÿÿÿÿ8”‹¯–‘0

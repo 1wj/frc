@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.digiwin.app.frc.service.athena.mtw.mapper.QuestionReasonMapper">
+
+    <sql id="Base_Column_List">
+        oid,
+        tenantsid,
+        classification_no,
+        classification_name,
+        reason_code,
+        reason_name,
+        manage_status,
+        remarks,
+        create_time,
+        create_name,
+        update_time,
+        update_name
+    </sql>
+
+    <insert id="addQuestionReasonInfo" parameterType="java.util.List">
+        INSERT INTO frc_reason_code
+        (
+            <include refid="Base_Column_List"/>
+        )
+        VALUES
+        <foreach collection="list" item="item" index="index"
+                 separator=",">
+        (
+            #{item.oid},
+            #{item.tenantSid},
+            #{item.classificationNo},
+            #{item.classificationName},
+            #{item.reasonCode},
+            #{item.reasonName},
+            #{item.manageStatus},
+            #{item.remarks},
+            #{item.createTime},
+            #{item.createName},
+            #{item.updateTime},
+            #{item.updateName}
+        )
+        </foreach>
+    </insert>
+
+
+    <delete id="deleteQuestionReasonInfo"
+                parameterType="java.util.List">
+        DELETE FROM frc_reason_code
+        WHERE oid IN
+        <foreach collection="list" item="oid" index="index" open="(" close=")" separator=",">
+            #{oid}
+        </foreach>
+    </delete>
+
+    <update id="updateBatch" parameterType="java.util.List">
+       <foreach collection="list" item="item" index="index" close="" open="" separator=";">
+           UPDATE frc_reason_code
+           <set>
+               <if test="item.classificationNo != null and '' != item.classificationNo">
+                   classification_no = #{item.classificationNo},
+               </if>
+               <if test="item.classificationName != null and '' != item.classificationName">
+                   classification_name = #{item.classificationName},
+               </if>
+               <if test="item.reasonCode != null and '' != item.reasonCode">
+                   reason_code = #{item.reasonCode},
+               </if>
+               <if test="item.reasonName != null and '' != item.reasonName">
+                   reason_name = #{item.reasonName},
+               </if>
+               <if test='item.manageStatus != null and "" != item.manageStatus and (item.manageStatus == "Y" || item.manageStatus == "V")'>
+                   manage_status = #{item.manageStatus},
+               </if>
+               <if test="item.remarks != null">
+                   remarks = #{item.remarks},
+               </if>
+               update_name = #{item.updateName},
+               update_time = #{item.updateTime}
+           </set>
+           WHERE oid = #{item.oid} AND tenantsid = #{item.tenantSid}
+       </foreach>
+    </update>
+
+
+    <select id="getQuestionReasonInfo"
+            resultType="com.digiwin.app.frc.service.athena.mtw.domain.entity.QuestionReasonEntity">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM frc_reason_code
+        WHERE tenantsid = #{tenantSid}
+        <if test="null != classificationNo and '' != classificationNo">
+            AND classification_no LIKE '%${classificationNo}%'
+        </if>
+        <if test="null != classificationName and '' != classificationName">
+            AND classification_name LIKE '%${classificationName}%'
+        </if>
+        <if test="null != reasonCode and '' != reasonCode">
+            AND reason_code LIKE '%${reasonCode}%'
+        </if>
+        <if test="null != reasonName and '' != reasonName">
+            AND reason_name LIKE '%${reasonName}%'
+        </if>
+        <if test="null != manageStatus and '' != manageStatus">
+            AND manage_status = #{manageStatus}
+        </if>
+        <if test="null != remarks and '' != remarks">
+            AND remarks LIKE '%${remarks}%'
+        </if>
+        ORDER BY create_time ASC
+    </select>
+
+    <select id="queryAllCategoryNos" resultType="string">
+        SELECT classification_no FROM frc_reason_code  WHERE tenantsid = #{tenantSid}
+    </select>
+
+</mapper>

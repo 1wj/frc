@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.digiwin.app.frc.service.athena.app.mapper.OpenSyncBizDataMapper">
+  <resultMap id="BaseResultMap" type="com.digiwin.app.frc.service.athena.app.entity.OpenSyncBizData">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmt_create" />
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmt_modified" />
+    <result column="subscribe_id" jdbcType="VARCHAR" property="subscribe_id" />
+    <result column="corp_id" jdbcType="VARCHAR" property="corp_id" />
+    <result column="biz_id" jdbcType="VARCHAR" property="biz_id" />
+    <result column="biz_type" jdbcType="INTEGER" property="biz_type" />
+    <result column="open_cursor" jdbcType="BIGINT" property="open_cursor" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.digiwin.app.frc.service.athena.app.entity.OpenSyncBizData">
+    <result column="biz_data" jdbcType="LONGVARCHAR" property="biz_data" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, gmt_create, gmt_modified, subscribe_id, corp_id, biz_id, biz_type, open_cursor, 
+    status
+  </sql>
+  <sql id="Blob_Column_List">
+    biz_data
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from open_sync_biz_data
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from open_sync_biz_data
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.digiwin.app.frc.service.athena.app.entity.OpenSyncBizData">
+      REPLACE into open_sync_biz_data (id, gmt_create, gmt_modified,
+      subscribe_id, corp_id, biz_id, 
+      biz_type, open_cursor, status, 
+      biz_data)
+    values (#{id,jdbcType=BIGINT}, #{gmt_create,jdbcType=TIMESTAMP}, #{gmt_modified,jdbcType=TIMESTAMP}, 
+      #{subscribe_id,jdbcType=VARCHAR}, #{corp_id,jdbcType=VARCHAR}, #{biz_id,jdbcType=VARCHAR}, 
+      #{biz_type,jdbcType=INTEGER}, #{open_cursor,jdbcType=BIGINT}, #{status,jdbcType=INTEGER}, 
+      #{biz_data,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.digiwin.app.frc.service.athena.app.entity.OpenSyncBizData">
+    REPLACE into open_sync_biz_data
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="gmt_create != null">
+        gmt_create,
+      </if>
+      <if test="gmt_modified != null">
+        gmt_modified,
+      </if>
+      <if test="subscribe_id != null">
+        subscribe_id,
+      </if>
+      <if test="corp_id != null">
+        corp_id,
+      </if>
+      <if test="biz_id != null">
+        biz_id,
+      </if>
+      <if test="biz_type != null">
+        biz_type,
+      </if>
+      <if test="open_cursor != null">
+        open_cursor,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="biz_data != null">
+        biz_data,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="gmt_create != null">
+        #{gmt_create,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmt_modified != null">
+        #{gmt_modified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="subscribe_id != null">
+        #{subscribe_id,jdbcType=VARCHAR},
+      </if>
+      <if test="corp_id != null">
+        #{corp_id,jdbcType=VARCHAR},
+      </if>
+      <if test="biz_id != null">
+        #{biz_id,jdbcType=VARCHAR},
+      </if>
+      <if test="biz_type != null">
+        #{biz_type,jdbcType=INTEGER},
+      </if>
+      <if test="open_cursor != null">
+        #{open_cursor,jdbcType=BIGINT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="biz_data != null">
+        #{biz_data,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.digiwin.app.frc.service.athena.app.entity.OpenSyncBizData">
+    update open_sync_biz_data
+    <set>
+      <if test="gmt_create != null">
+        gmt_create = #{gmt_create,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmt_modified != null">
+        gmt_modified = #{gmt_modified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="subscribe_id != null">
+        subscribe_id = #{subscribe_id,jdbcType=VARCHAR},
+      </if>
+      <if test="corp_id != null">
+        corp_id = #{corp_id,jdbcType=VARCHAR},
+      </if>
+      <if test="biz_id != null">
+        biz_id = #{biz_id,jdbcType=VARCHAR},
+      </if>
+      <if test="biz_type != null">
+        biz_type = #{biz_type,jdbcType=INTEGER},
+      </if>
+      <if test="open_cursor != null">
+        open_cursor = #{open_cursor,jdbcType=BIGINT},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="biz_data != null">
+        biz_data = #{biz_data,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.digiwin.app.frc.service.athena.app.entity.OpenSyncBizData">
+    update open_sync_biz_data
+    set gmt_create = #{gmt_create,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmt_modified,jdbcType=TIMESTAMP},
+      subscribe_id = #{subscribe_id,jdbcType=VARCHAR},
+      corp_id = #{corp_id,jdbcType=VARCHAR},
+      biz_id = #{biz_id,jdbcType=VARCHAR},
+      biz_type = #{biz_type,jdbcType=INTEGER},
+      open_cursor = #{open_cursor,jdbcType=BIGINT},
+      status = #{status,jdbcType=INTEGER},
+      biz_data = #{biz_data,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.digiwin.app.frc.service.athena.app.entity.OpenSyncBizData">
+    update open_sync_biz_data
+    set gmt_create = #{gmt_create,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmt_modified,jdbcType=TIMESTAMP},
+      subscribe_id = #{subscribe_id,jdbcType=VARCHAR},
+      corp_id = #{corp_id,jdbcType=VARCHAR},
+      biz_id = #{biz_id,jdbcType=VARCHAR},
+      biz_type = #{biz_type,jdbcType=INTEGER},
+      open_cursor = #{open_cursor,jdbcType=BIGINT},
+      status = #{status,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="selectByType" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from open_sync_biz_data
+    where biz_type in
+    <foreach collection="types" item="item" index="index" open="(" separator="," close=")">
+      #{item}
+    </foreach>
+  </select>
+  <select id="selectTypeByCorpId" resultMap="ResultMapWithBLOBs">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from open_sync_biz_data
+    where biz_type in
+    <foreach collection="types" item="item" index="index" open="(" separator="," close=")">
+      #{item}
+    </foreach>
+    and corp_id = #{corpId}
+  </select>
+</mapper>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.digiwin.app.frc.service.athena.qdh.mapper.EightDQuestionMapper">
+
+
+    <select id="queryPersonPendingQuestionNum"
+            resultType="com.digiwin.app.frc.service.athena.solutions.domain.vo.eightD.PersonPendingNumVo">
+        SELECT
+            liable_person_id AS userId,
+            liable_person_name AS userName,
+            count(*) AS pendingNums
+        FROM
+            frc_question_action_trace
+        WHERE
+            question_process_status = 2
+            AND question_process_result = 1
+        <if test="tenantSid != null">
+            AND tenantsid = #{tenantSid}
+        </if>
+        <if test="userId != null">
+            AND liable_person_id = #{userId}
+        </if>
+    </select>
+
+
+</mapper>
+

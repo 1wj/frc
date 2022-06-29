@@ -1,0 +1,37 @@
+
+K
+java:S3740õ"/Provide the parametrized type for this generic.(è‡ô–ûÿÿÿÿ
+J
+java:S1066Y"/Merge this if statement with the enclosing one.(ô¬Ãøùÿÿÿÿ
+m
+java:S1192“"WDefine a constant instead of duplicating this literal "acceptance_description" 3 times.(©‰¿-
+s
+java:S1192É"WDefine a constant instead of duplicating this literal "question_identify_info" 3 times.(¬šá†üÿÿÿÿ
+F
+java:S3740ø"/Provide the parametrized type for this generic.(½Îó
+~
+java:S1128"cRemove this unused import 'com.digiwin.app.frc.service.athena.common.enums.qdh.QuestionUpdateEnum'.(Ášºôÿÿÿÿÿ
+O
+java:S1128#"4Remove this unused import 'org.bson.types.ObjectId'.(Ü¡‰çıÿÿÿÿ
+o
+java:S1192S"YDefine a constant instead of duplicating this literal "question_acceptance_info" 4 times.(§…×„
+\
+java:S3252†"EUse static access with "com.alibaba.fastjson.JSON" for "parseObject".(çü‰Ã
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¨ÿœö
+k
+java:S1192Ê"TDefine a constant instead of duplicating this literal "question_basic_info" 3 times.(Â»Ô«
+I
+java:S1128*".Remove this unused import 'java.util.HashMap'.(™˜”€ùÿÿÿÿ
+a
+java:S3252æ"EUse static access with "com.alibaba.fastjson.JSON" for "parseObject".(ÙÆÈ«üÿÿÿÿ
+`
+java:S3252L"EUse static access with "com.alibaba.fastjson.JSON" for "parseObject".(‚ï€áşÿÿÿÿ
+E
+java:S1128-"*Remove this unused import 'java.util.Map'.(¼è½Òşÿÿÿÿ
+l
+java:S1192Ë"UDefine a constant instead of duplicating this literal "question_detail_info" 3 times.(Í³È²
+g	java:S117š"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Àë É
+y
+java:S1128	"dRemove this unused import 'com.digiwin.app.frc.service.athena.common.enums.qdh.Question8DSolveEnum'.(«úİC
+]
+java:S3252¶"FUse static access with "com.alibaba.fastjson.JSON" for "toJSONString".(­æ®ê

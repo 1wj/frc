@@ -1,0 +1,63 @@
+
+d
+java:S1192m"GDefine a constant instead of duplicating this literal "status" 3 times.(¾±8‰É”Ó0
+_
+java:S2259m"BA "NullPointerException" could be thrown; "body" is nullable here.(¾±8ÿÉÓÒ0
+^
+java:S2259Ü"BA "NullPointerException" could be thrown; "body" is nullable here.(É½Œüÿÿÿÿ
+E
+java:S3740?"/Provide the parametrized type for this generic.(Œ­ƒ
+M
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8Ğëõù0
+U
+java:S1118)":Add a private constructor to hide the implicit public one.(ÊØûÑÿÿÿÿÿ
+f
+java:S1192A"PDefine a constant instead of duplicating this literal "statusCode: %s" 10 times.(ŸåÉÖ
+[	java:S1121"FDefine and throw a dedicated exception instead of using a generic one.(ó±Ü×
+o
+java:S2095ø"QUse try-with-resources or close this "CloseableHttpClient" in a "finally" clause.(™ıÄ“8şÜıü0
+~
+java:S1488q"\Immediately return this expression instead of assigning it to the temporary variable "data".(¶Íá´øÿÿÿÿ8˜·Ò0
+k
+java:S1128	"ORemove this unused import 'org.apache.http.client.entity.UrlEncodedFormEntity'.(³à‡48Ğëõù0
+W	java:S125Ş"<This block of commented-out lines of code should be removed.(–«³ÿÿÿÿÿ
+L
+java:S3740e"/Provide the parametrized type for this generic.(Œ­ƒ8˜·Ò0
+\	java:S112¬"FDefine and throw a dedicated exception instead of using a generic one.(‚Şìş
+c
+java:S11925"FDefine a constant instead of duplicating this literal "token" 4 times.(Å€ÖÄ8˜·Ò0
+]
+java:S2259G"BA "NullPointerException" could be thrown; "body" is nullable here.(É½Œüÿÿÿÿ
+z
+java:S1488¡"\Immediately return this expression instead of assigning it to the temporary variable "data".(ı¹”©8‰É”Ó0
+g	java:S112|"FDefine and throw a dedicated exception instead of using a generic one.(şàæÿÿÿÿÿ8‰É”Ó0
+F
+java:S3740Ô"/Provide the parametrized type for this generic.(Œ­ƒ
+\	java:S112Å"FDefine and throw a dedicated exception instead of using a generic one.(†ò¯ä
+V
+java:S1128":Remove this unused import 'org.apache.http.NameValuePair'.(ß²óH8Ğëõù0
+i
+java:S1128"GRemove this unused import 'org.apache.http.message.BasicNameValuePair'.(³öÖøşÿÿÿÿ8Ğëõù0
+k
+java:S1192G"IDefine a constant instead of duplicating this literal "response" 6 times.(É½Œüÿÿÿÿ8˜·Ò0
+k
+java:S1128"IRemove this unused import 'com.digiwin.app.container.DWContainerContext'.(Ã÷ü›úÿÿÿÿ8úœğ0
+B
+java:S1481İ"+Remove this unused "status" local variable.(¾±
+`
+java:S2259–"BA "NullPointerException" could be thrown; "body" is nullable here.(¾±8õ¥ÒÓ0
+R
+java:S2864€"4Iterate over the "entrySet" instead of the "keySet".(÷¤Äò8şÜıü0
+o
+java:S11924"MDefine a constant instead of duplicating this literal "Content-Type" 4 times.(î¤Ìÿÿÿÿÿ8˜·Ò0
+o
+java:S2095¦"QUse try-with-resources or close this "CloseableHttpClient" in a "finally" clause.(ıê”Ê8şÜıü0
+Q
+java:S1854İ":Remove this useless assignment to local variable "status".(¾±
+d
+java:S2259¶"FA "NullPointerException" could be thrown; "response" is nullable here.(Âì“¡8şÜıü0
+w
+java:S1488L"\Immediately return this expression instead of assigning it to the temporary variable "data".(ÿàöÃüÿÿÿÿ
+b	java:S112W"FDefine and throw a dedicated exception instead of using a generic one.(Á”¯…8˜·Ò0
+M
+java:S3740"/Provide the parametrized type for this generic.(Óüö§8Ê‘çÓ0

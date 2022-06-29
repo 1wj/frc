@@ -1,0 +1,23 @@
+[
+  {
+    "appId": "iam",
+    "enable": true,
+    "paths": [
+      {
+        "path": "/**/identity/token/analyze",
+        "enable": true,
+        "retry": {
+          "retries": 3,
+          "statuses": "502",
+          "methods": "POST",
+          "backoff": {
+            "type": "simple",
+            "firstBackoff": "500",
+            "maxBackoff": "50000",
+            "factor": 2
+          }
+        }
+      }
+    ]
+  }
+]

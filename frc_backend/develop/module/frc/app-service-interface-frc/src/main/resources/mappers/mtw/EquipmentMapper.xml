@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.digiwin.app.frc.service.athena.mtw.mapper.EquipmentMapper">
+
+    <sql id="Base_Column_List">
+        oid,
+        tenantsid,
+        equipment_no,
+        equipment_name,
+        equipment_type,
+        department_id,
+        department_name,
+        manage_status,
+        remarks,
+        create_time,
+        create_name,
+        update_time,
+        update_name
+    </sql>
+
+
+    <insert id="addEquipmentInfo" parameterType="java.util.List">
+        INSERT INTO frc_equipment
+        (
+        <include refid="Base_Column_List"/>
+        )
+        VALUES
+        <foreach collection="list" item="item" index="index"
+                 separator=",">
+            (
+            #{item.oid},
+            #{item.tenantSid},
+            #{item.equipmentNo},
+            #{item.equipmentName},
+            #{item.equipmentType},
+            #{item.departmentId},
+            #{item.departmentName},
+            #{item.manageStatus},
+            #{item.remarks},
+            #{item.createTime},
+            #{item.createName},
+            #{item.updateTime},
+            #{item.updateName}
+            )
+        </foreach>
+    </insert>
+
+    <delete id="deleteEquipmentInfo" parameterType="java.util.List">
+        DELETE FROM frc_equipment
+        WHERE oid IN
+        <foreach collection="list" item="oid" index="index" open="(" close=")" separator=",">
+            #{oid}
+        </foreach>
+    </delete>
+
+    <update id="updateBatch" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" close="" open="" separator=";">
+            UPDATE frc_equipment
+            <set>
+                <if test="item.equipmentNo != null and '' != item.equipmentNo">
+                    equipment_no = #{item.equipmentNo},
+                </if>
+                <if test="item.equipmentName != null and '' != item.equipmentName">
+                    equipment_name = #{item.equipmentName},
+                </if>
+                <if test="item.equipmentType != null and '' != item.equipmentType">
+                    equipment_type = #{item.equipmentType},
+                </if>
+                <if test="item.departmentId != null and '' != item.departmentId">
+                    department_id = #{item.departmentId},
+                </if>
+                <if test="item.departmentName != null and '' != item.departmentName">
+                    department_name = #{item.departmentName},
+                </if>
+                <if test='item.manageStatus != null and "" != item.manageStatus and (item.manageStatus == "Y" || item.manageStatus == "V")'>
+                    manage_status = #{item.manageStatus},
+                </if>
+                <if test="item.remarks != null">
+                    remarks = #{item.remarks},
+                </if>
+                update_name = #{item.updateName},
+                update_time = #{item.updateTime}
+            </set>
+            WHERE oid = #{item.oid} AND tenantsid = #{item.tenantSid}
+        </foreach>
+    </update>
+
+    <select id="getEquipmentInfo"
+            resultType="com.digiwin.app.frc.service.athena.mtw.domain.entity.EquipmentEntity">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM frc_equipment
+        WHERE tenantsid = #{tenantSid}
+        <if test="null != equipmentNo and '' != equipmentNo">
+            AND equipment_no LIKE '%${equipmentNo}%'
+        </if>
+        <if test="null != equipmentName and '' != equipmentName">
+            AND equipment_name LIKE '%${equipmentName}%'
+        </if>
+        <if test="null != manageStatus and '' != manageStatus">
+            AND manage_status = #{manageStatus}
+        </if>
+        ORDER BY create_time ASC
+    </select>
+
+    <select id="queryAllWorkStationIds" resultType="string">
+        SELECT equipment_no FROM frc_equipment WHERE tenantsid = #{tenantSid}
+    </select>
+</mapper>

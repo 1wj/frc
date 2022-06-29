@@ -1,0 +1,26 @@
+
+„
+java:S1192n"gDefine a constant instead of duplicating this literal "è°ƒç”¨é’‰é’‰è·å–tokenæ¥å£å¤±è´¥ï¼š" 3 times.(®¸ôà8¿ªÑ¡0
+V
+java:S4719´"9Replace charset name argument with StandardCharsets.UTF_8(åÁÆp8ÅßÂ™0
+X	java:S125("<This block of commented-out lines of code should be removed.(üçÓ—8ÒÚÃ¤0
+R
+java:S1191"5Use classes from the Java API instead of Sun classes.(ëŞï®8ß…ñŸ0
+c
+java:S2259P"AA "NullPointerException" could be thrown; "rsp" is nullable here.(ú‚øÃúÿÿÿÿ8†°Ò¡0
+€
+java:S1488q"cImmediately return this expression instead of assigning it to the temporary variable "accessToken".(·ßºû8æ¡¤0
+\
+java:S4719³"9Replace charset name argument with StandardCharsets.UTF_8(Âñ¢”ûÿÿÿÿ8ÊñÃ™0
+]	java:S125h"<This block of commented-out lines of code should be removed.(ÖáøÙûÿÿÿÿ8´øœ¤0
+]	java:S1250"<This block of commented-out lines of code should be removed.(­±¸øÿÿÿÿ8ÓËÅ¤0
+i
+java:S1192³"FDefine a constant instead of duplicating this literal "UTF-8" 3 times.(Âñ¢”ûÿÿÿÿ8¤¢Õ™0
+O
+java:S1144Ë",Remove this unused private "getTime" method.(¨ÛÀ–øÿÿÿÿ8ÒÚÃ¤0
+†
+java:S1192›"hDefine a constant instead of duplicating this literal "è°ƒç”¨é’‰é’‰æ¶ˆæ¯å‘é€æ¥å£å¤±è´¥ï¼š" 3 times.(Ø…‰‹8òÌÓ¡0
+
+java:S1192J"nDefine a constant instead of duplicating this literal "è°ƒç”¨é’‰é’‰è·å–ä¼ä¸šæˆæƒæ¥å£å¤±è´¥ï¼š" 4 times.(ú‚øÃúÿÿÿÿ8Ğ”Ò¡0
+c
+java:S1128"ARemove this unused import 'org.apache.commons.lang3.StringUtils'.(Øœ¼ºúÿÿÿÿ8–âå¡0

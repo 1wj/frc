@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="app-service-interface-frm" />
+        <module name="app-service-interface-demo" />
+        <module name="app-service-impl-frm" />
+        <module name="app-service-impl-demo" />
+        <module name="app-service-interface-frc" />
+        <module name="app-service-impl-frc" />
+        <module name="dwapiplatform-thirdpartylibrary" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="app-service-impl-demo" target="1.8" />
+      <module name="app-service-impl-frc" target="1.8" />
+      <module name="app-service-impl-frm" target="1.8" />
+      <module name="app-service-impl-ksc" target="1.8" />
+      <module name="app-service-impl-qa" target="1.8" />
+      <module name="app-service-interface-demo" target="1.8" />
+      <module name="app-service-interface-frc" target="1.8" />
+      <module name="app-service-interface-frm" target="1.8" />
+      <module name="app-service-interface-ksc" target="1.8" />
+      <module name="app-service-interface-qa" target="1.8" />
+      <module name="demo" target="1.8" />
+      <module name="dwapiplatform-thirdpartylibrary" target="1.8" />
+      <module name="frc" target="1.8" />
+      <module name="frm" target="1.8" />
+      <module name="KSC" target="1.8" />
+      <module name="module" target="1.8" />
+      <module name="QA" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="app-service-impl-demo" options="-parameters" />
+      <module name="app-service-impl-frc" options="-parameters" />
+      <module name="app-service-impl-frm" options="-parameters" />
+      <module name="app-service-impl-ksc" options="-parameters" />
+      <module name="app-service-impl-qa" options="-parameters" />
+      <module name="app-service-interface-demo" options="-parameters" />
+      <module name="app-service-interface-frc" options="-parameters" />
+      <module name="app-service-interface-frm" options="-parameters" />
+      <module name="app-service-interface-ksc" options="-parameters" />
+      <module name="app-service-interface-qa" options="-parameters" />
+      <module name="dwapiplatform-thirdpartylibrary" options="-parameters" />
+    </option>
+  </component>
+</project>

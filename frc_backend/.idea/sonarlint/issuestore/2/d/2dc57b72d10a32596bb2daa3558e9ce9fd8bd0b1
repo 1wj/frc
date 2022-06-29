@@ -1,0 +1,27 @@
+
+K
+java:S3740ê"/Provide the parametrized type for this generic.(Ä²Œëıÿÿÿÿ
+d
+java:S1192¤"MDefine a constant instead of duplicating this literal "plan_arrange" 5 times.(¼áù
+o
+java:S1192S"TDefine a constant instead of duplicating this literal "containment_measure" 4 times.(¦ôÀ×ùÿÿÿÿ
+F
+java:S1066í"/Merge this if statement with the enclosing one.(²£˜¡
+F
+java:S1066î"/Merge this if statement with the enclosing one.(¡³‡
+\	java:S112Š"FDefine and throw a dedicated exception instead of using a generic one.(ë‘¯ø
+U
+java:S1155î">Use isEmpty() to check whether the collection is empty or not.(¡³‡
+U
+java:S1155ñ">Use isEmpty() to check whether the collection is empty or not.(Áüİ„
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(»¶®Êùÿÿÿÿ
+z
+java:S1488W"dImmediately return this expression instead of assigning it to the temporary variable "resultObject".(¨Îƒş
+y
+java:S1488"bImmediately return this expression instead of assigning it to the temporary variable "dataDetail".(´šÁ¶
+ƒ
+java:S1130Š"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(ë‘¯ø
+[
+java:S3252§"DUse static access with "com.alibaba.fastjson.JSON" for "parseArray".(Æ„Ï˜
+h
+java:S3776Æ"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(å´Üu

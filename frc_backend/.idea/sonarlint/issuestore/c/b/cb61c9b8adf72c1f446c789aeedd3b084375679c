@@ -1,0 +1,24 @@
+
+n
+java:S1192j"SDefine a constant instead of duplicating this literal "corrective_measure" 4 times.(¢õ±¦ÿÿÿÿÿ
+y
+java:S1488º"bImmediately return this expression instead of assigning it to the temporary variable "dataDetail".(´šÁ¶
+—
+java:S1128"€Remove this unused import 'com.digiwin.app.frc.service.athena.qdh.domain.model.solution.general.update.other.QuestionInfoModel'.(Ã‹
+7
+java:S11169"Remove this empty statement.(˜Üòùüÿÿÿÿ
+d
+java:S1192Œ"MDefine a constant instead of duplicating this literal "process_date" 4 times.(¦’’
+r
+java:S1192—"[Define a constant instead of duplicating this literal "containment_measure_verify" 4 times.(öù²˜
+o
+java:S1192i"TDefine a constant instead of duplicating this literal "key_reason_analysis" 4 times.(ğÂ½îøÿÿÿÿ
+‡
+java:S1128"qRemove this unused import 'com.digiwin.app.frc.service.athena.solutions.domain.model.eightD.QuestionInfo8DModel'.(ğ²µ°
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(»¶®Êùÿÿÿÿ
+
+java:S1488m"dImmediately return this expression instead of assigning it to the temporary variable "resultObject".(÷Ğˆûÿÿÿÿ
+k
+java:S1192‘"TDefine a constant instead of duplicating this literal "containment_measure" 3 times.(»îşÀ
+h
+java:S3776r"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(™ñßÅ

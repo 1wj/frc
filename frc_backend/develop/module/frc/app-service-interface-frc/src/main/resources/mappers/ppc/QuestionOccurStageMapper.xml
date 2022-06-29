@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.digiwin.app.frc.service.athena.ppc.mapper.QuestionOccurStageMapper">
+    <sql id="Base_Column_List">
+        oid,
+        tenantsid,
+        occur_stage_no,
+        occur_stage_name,
+        attribution_no,
+        source_oid,
+        classification_oid,
+        manage_status,
+        remarks,
+        create_time,
+        create_name,
+        update_time,
+        update_name
+    </sql>
+    <select id="getAllQesOccurStageIds" resultType="string">
+        select oid from frc_question_occur_stage where tenantsid = #{tenantSid}
+    </select>
+    <select id="getAllQesOccurStageNos" resultType="string">
+        select occur_stage_no from frc_question_occur_stage where tenantsid = #{tenantSid}
+    </select>
+    <select id="getAllQesOccurStageNames" resultType="string">
+        select occur_stage_name from frc_question_occur_stage where tenantsid = #{tenantSid}
+    </select>
+    <insert id="addQuestionOccurStageInfo" parameterType="java.util.List" >
+        insert into
+        frc_question_occur_stage
+        ( <include refid="Base_Column_List"></include>)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.oid},
+            #{item.tenantSid},
+            #{item.occurStageNo},
+            #{item.occurStageName},
+            #{item.attributionNo},
+            #{item.sourceOid},
+            #{item.classificationOid},
+            #{item.manageStatus},
+            #{item.remarks},
+            #{item.createTime},
+            #{item.createName},
+            #{item.updateTime},
+            #{item.updateName}
+            )
+        </foreach>
+    </insert>
+
+    <delete id="deleteQuestionOccurStageInfo" >
+        delete  from frc_question_occur_stage
+        where oid in
+        <foreach collection="idList" item="oid" index="index" open="(" close=")" separator=",">
+            #{oid}
+        </foreach>
+        and tenantsid =#{tenantSid}
+    </delete>
+
+    <update id="updateQuesOccurStageInfo" >
+        <foreach collection="list" index="index" item="item" separator=";">
+            update frc_question_occur_stage
+            <set>
+                <if test="item.occurStageNo !=null and ''!= item.occurStageNo">
+                    occur_stage_no = #{item.occurStageNo},
+                </if>
+                <if test="item.occurStageName !=null and ''!= item.occurStageName">
+                    occur_stage_name = #{item.occurStageName},
+                </if>
+                <if test="item.attributionNo !=null and ''!= item.attributionNo">
+                    attribution_no = #{item.attributionNo},
+                </if>
+                <if test="item.sourceOid !=null and ''!= item.sourceOid">
+                    source_oid = #{item.sourceOid},
+                </if>
+                <if test="item.classificationOid !=null and ''!= item.classificationOid">
+                    classification_oid = #{item.classificationOid},
+                </if>
+                <if test="item.remarks !=null and ''!= item.remarks">
+                    remarks = #{item.remarks},
+                </if>
+                <if test="item.manageStatus !=null and ''!= item.manageStatus">
+                    manage_status = #{item.manageStatus},
+                </if>
+            </set>
+            where oid = #{item.oid} and tenantsid = #{tenantSid}
+        </foreach>
+    </update>
+    <select id="getQuesOccurStageInfo" resultType="com.digiwin.app.frc.service.athena.ppc.domain.entity.QuestionOccurStageEntity">
+        select <include refid="Base_Column_List"/>
+        from frc_question_occur_stage
+        where tenantsid =#{tenantSid}
+        <if test="occurStageNo !=null and ''!= occurStageNo">
+            and occur_stage_no like '%${occurStageNo}%'
+        </if>
+        <if test="occurStageName !=null and ''!= occurStageName">
+            and occur_stage_name like '%${occurStageName}%'
+        </if>
+        <if test="manageStatus !=null and ''!= manageStatus">
+            and manage_status = #{manageStatus}
+        </if>
+        <if test="classificationOid !=null and ''!= classificationOid">
+            and classification_oid = #{classificationOid}
+        </if>
+        <if test="sourceOid !=null and ''!= sourceOid">
+            and source_oid = #{sourceOid}
+        </if>
+        <if test="attributionNo !=null and ''!= attributionNo">
+            and attribution_no = #{attributionNo}
+        </if>
+        ORDER BY create_time ASC
+    </select>
+</mapper>

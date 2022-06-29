@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.digiwin.app.frc.service.athena.mtw.mapper.KeyBoardFieldMapper">
+
+    <sql id="Base_Column_List">
+        oid,
+        tenantsid,
+        keyboard_template_oid,
+        field_id,
+        field_name,
+        manage_status,
+        remarks,
+        create_time,
+        create_name,
+        update_time,
+        update_name
+    </sql>
+
+
+    <insert id="addKeyBoardFieldInfo"
+            parameterType="com.digiwin.app.frc.service.athena.mtw.domain.entity.KeyBoardFieldEntity">
+        INSERT INTO frc_keyboard_field_edit
+        (
+        <include refid="Base_Column_List"/>
+        )
+        VALUES
+        (
+            #{oid},
+            #{tenantSid},
+            #{keyBoardTemplateOid},
+            #{fieldId},
+            #{fieldName},
+            #{manageStatus},
+            #{remarks},
+            #{createTime},
+            #{createName},
+            #{updateTime},
+            #{updateName}
+        )
+    </insert>
+
+    <select id="queryFieldInfoByConditions"
+            resultType="com.digiwin.app.frc.service.athena.mtw.domain.entity.KeyBoardFieldEntity">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM frc_keyboard_field_edit
+        WHERE keyboard_template_oid = #{templateOid}
+        <if test="null != fieldName and '' != fieldName">
+            AND field_name LIKE '%${fieldName}%'
+        </if>
+        <if test="null != manageStatus and '' != manageStatus">
+            AND manage_status = #{manageStatus}
+        </if>
+        <if test="null != remarks and '' != remarks">
+            AND remarks LIKE '%${remarks}%'
+        </if>
+        ORDER BY field_id ASC
+    </select>
+
+
+    <delete id="deleteKeyBoardFieldByTemplateOid">
+        DELETE FROM frc_keyboard_field_edit
+        WHERE keyboard_template_oid = #{templateOid}
+    </delete>
+
+
+    <update id="updateKeyBoardFieldByEditOid">
+        UPDATE frc_keyboard_field_edit
+        <set>
+            <if test="fieldEntity.fieldId != null and '' != fieldEntity.fieldId">
+                field_id = #{fieldEntity.fieldId},
+            </if>
+            <if test="fieldEntity.fieldName != null and '' != fieldEntity.fieldName">
+                field_name = #{fieldEntity.fieldName},
+            </if>
+            <if test='fieldEntity.manageStatus != null and "" != fieldEntity.manageStatus and (fieldEntity.manageStatus == "Y" || fieldEntity.manageStatus == "V")'>
+                manage_status = #{fieldEntity.manageStatus},
+            </if>
+            <if test="fieldEntity.remarks != null">
+                remarks = #{fieldEntity.remarks},
+            </if>
+            update_name = #{fieldEntity.updateName},
+            update_time = #{fieldEntity.updateTime}
+        </set>
+        WHERE keyboard_template_oid = #{templateOid}
+        AND oid = #{fieldOid} and tenantsid = #{tenantSid}
+    </update>
+
+
+    <select id="queryFieldInfoByTemplateId"
+            resultType="com.digiwin.app.frc.service.athena.mtw.domain.entity.KeyBoardFieldEntity">
+        SELECT <include refid="Base_Column_List"/>
+        FROM frc_keyboard_field_edit
+        WHERE keyboard_template_oid = #{templateId} AND tenantsid = #{tenantSid}
+        ORDER BY  field_id ASC
+    </select>
+
+    <select id="queryAllFieldNosByPrefix" resultType="string">
+        SELECT
+            field_id
+        FROM
+            frc_keyboard_field_edit
+        WHERE
+            field_id LIKE '${modelNo}%' AND tenantsid = #{tenantSid}
+        ORDER BY
+            field_id
+        ASC
+    </select>
+
+    <delete id="deleteKeyBoardFieldById" >
+        DELETE FROM frc_keyboard_field_edit WHERE oid = #{fieldOid}
+    </delete>
+
+</mapper>

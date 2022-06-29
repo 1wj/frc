@@ -1,0 +1,23 @@
+
+E
+java:S10669"/Merge this if statement with the enclosing one.(Œê—´
+n	java:S135*"YReduce the total number of break and continue statements in this loop to use at most one.(¼ßð¥
+U
+java:S1118":Add a private constructor to hide the implicit public one.(äØìÈøÿÿÿÿ
+h
+java:S3776'"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(íÌ÷¯
+B
+java:S3011+",This accessibility update should be removed.(˜ÂÓ˜
+_
+java:S2147M"DCombine this catch with the one at line 73, which has the same body.(µØ¯®øÿÿÿÿ
+V	java:S1253"<This block of commented-out lines of code should be removed.(šÂ¿òýÿÿÿÿ
+B
+java:S3011;",This accessibility update should be removed.(ØÃÃ«
+Q	java:S125D"<This block of commented-out lines of code should be removed.(ÐƒüÙ
+Q	java:S125J"<This block of commented-out lines of code should be removed.(†€éˆ
+B
+java:S1172[",Remove this unused method parameter "field".(ßÀŒß
+7	java:S131]""Add a default case to this switch.(Á«†Ë
+V	java:S125_"<This block of commented-out lines of code should be removed.(²éˆüÿÿÿÿ
+E
+java:S1068"*Remove this unused "logger" private field.(„ÄŠãøÿÿÿÿ

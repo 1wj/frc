@@ -1,0 +1,13 @@
+
+|
+java:S14884"fImmediately return this expression instead of assigning it to the temporary variable "purchaseOrders".(úÓ£
+
+java:S1488X"dImmediately return this expression instead of assigning it to the temporary variable "responseBody".(é–œÿÿÿÿÿ
+U
+java:S1118":Add a private constructor to hide the implicit public one.(ş…Êªùÿÿÿÿ
+=
+java:S19054"'Remove this unnecessary cast to "List".(úÓ£
+[
+java:S32524"EUse static access with "com.alibaba.fastjson.JSON" for "parseObject".(úÓ£
+S
+java:S1874U"8Remove this use of "handleHttpStatus"; it is deprecated.(ÿà§ÿÿÿÿÿ

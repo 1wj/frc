@@ -1,0 +1,59 @@
+
+`
+java:S1124/"EReorder the modifiers to comply with the Java Language Specification.(›ÀıĞûÿÿÿÿ
+F
+java:S3740¡"/Provide the parametrized type for this generic.(Í’‰ë
+[
+java:S3252E"EUse static access with "com.alibaba.fastjson.JSON" for "parseObject".(£ Åí
+N
+java:S1135‚"2Complete the task associated to this TODO comment.(ÜäıÆùÿÿÿÿ
+R	java:S125ç"<This block of commented-out lines of code should be removed.(áÉ¿
+W	java:S125¾"<This block of commented-out lines of code should be removed.(·¹‰ÿÿÿÿÿ
+`
+java:S3252X"EUse static access with "com.alibaba.fastjson.JSON" for "parseObject".(¬ä„Ëøÿÿÿÿ
+R	java:S125ä"<This block of commented-out lines of code should be removed.(êÒªÏ
+K
+java:S3740¤"/Provide the parametrized type for this generic.(üšÕùÿÿÿÿ
+Z
+java:S1155œ">Use isEmpty() to check whether the collection is empty or not.(Í¢†ûÿÿÿÿ
+B
+java:S1168"+Return an empty collection instead of null.(¥¹ï
+i
+java:S1192"MDefine a constant instead of duplicating this literal "dmcFRCBucket" 3 times.(ØÙ¯Üùÿÿÿÿ
+M
+java:S1135P"2Complete the task associated to this TODO comment.(İ¥ºõøÿÿÿÿ
+[
+java:S11240"EReorder the modifiers to comply with the Java Language Specification.(Ó›‚
+q
+java:S1192l"TDefine a constant instead of duplicating this literal "question_basic_info" 6 times.(â´—8ÿÄëÑ0
+l
+java:S1192S"PDefine a constant instead of duplicating this literal "question_result" 3 times.(õõæc8ÿÄëÑ0
+
+java:S1128"nRemove this unused import 'com.digiwin.app.frc.service.athena.mtw.domain.entity.QuestionClassificationEntity'.(­ñèÅşÿÿÿÿ8ÿÄëÑ0
+ˆ
+java:S1128	"kRemove this unused import 'com.digiwin.app.frc.service.athena.mtw.domain.vo.QuestionClassificationQueryVo'.(¶ûğı8ÿÄëÑ0
+ˆ
+java:S1128
+"fRemove this unused import 'com.digiwin.app.frc.service.athena.mtw.domain.vo.QuestionClassificationVo'.(ø¨Î§ıÿÿÿÿ8ÿÄëÑ0
+„
+java:S1128"gRemove this unused import 'com.digiwin.app.frc.service.athena.mtw.mapper.QuestionClassificationMapper'.(ÔŠÑİ8ÿÄëÑ0
+g
+java:S11241"EReorder the modifiers to comply with the Java Language Specification.(›‘ß úÿÿÿÿ8ÿÄëÑ0
+a
+java:S3252S"EUse static access with "com.alibaba.fastjson.JSON" for "parseObject".(õõæc8ÿÄëÑ0
+g
+java:S3252V"EUse static access with "com.alibaba.fastjson.JSON" for "parseObject".(ùË¯©øÿÿÿÿ8ÿÄëÑ0
+]	java:S125Z"<This block of commented-out lines of code should be removed.(îôª¸ûÿÿÿÿ8ÿÄëÑ0
+b
+java:S3252`"EUse static access with "com.alibaba.fastjson.JSON" for "parseObject".(£ Åí8ÿÄëÑ0
+]	java:S125t"<This block of commented-out lines of code should be removed.(˜Û§Õÿÿÿÿÿ8ÿÄëÑ0
+Y
+java:S1854²";Remove this useless assignment to local variable "jsonStr".(†ü‰ø8ÿÄëÑ0
+b
+java:S3252²"DUse static access with "com.alibaba.fastjson.JSON" for "parseArray".(†ü‰ø8ÿÄëÑ0
+[	java:S106Ì"9Replace this use of System.out or System.err by a logger.(å¯êÏşÿÿÿÿ8ÿÄëÑ0
+[	java:S106Ğ"9Replace this use of System.out or System.err by a logger.(ïÑ®Øıÿÿÿÿ8ÿÄëÑ0
+^	java:S125Ó"<This block of commented-out lines of code should be removed.(ƒ¾†—şÿÿÿÿ8ÿÄëÑ0
+^	java:S125×"<This block of commented-out lines of code should be removed.(¥”Ùäıÿÿÿÿ8ÿÄëÑ0
+J
+java:S1481²",Remove this unused "jsonStr" local variable.(†ü‰ø8ÿÄëÑ0

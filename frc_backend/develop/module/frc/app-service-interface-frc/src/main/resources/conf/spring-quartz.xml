@@ -1,0 +1,49 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <context:property-placeholder location="classpath:module.properties" ignore-unresolvable="true"/>
+    <!-- 任务调度相关配置 -->
+    <!-- job -->
+    <bean id="createNoticeJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="createNoticeHandler"></property>
+        <property name="targetMethod" value="run"></property>
+    </bean>
+    <!-- trigger -->
+    <!--这边注意一下有问题-->
+ <!--   <bean id="createNoticeTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="createNoticeJob"></property>
+        <property name="cronExpression" value="${frc.createNotice.cronExpression}"></property>
+        <property name="startDelay" value="${frc.createNotice.startDelay}"></property>
+    </bean>-->
+    <bean id="createNoticeTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="createNoticeJob"></property>
+        <property name="cronExpression" value="0 0 0 13 * ? *"></property>
+        <property name="startDelay" value="0"></property>
+    </bean>
+    <!-- 任务调度器 -->
+    <bean id="taskScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean" lazy-init="false" autowire="no">
+        <property name="triggers">
+            <list>
+                <ref bean="createNoticeTrigger"/>
+            </list>
+        </property>
+        <property name="startupDelay" value="0"></property>
+        <property name="quartzProperties">
+            <props>
+                <prop key="org.quartz.threadPool.class">org.quartz.simpl.SimpleThreadPool</prop>
+                <prop key="org.quartz.threadPool.threadCount">5</prop>
+            </props>
+        </property>
+    </bean>
+</beans>

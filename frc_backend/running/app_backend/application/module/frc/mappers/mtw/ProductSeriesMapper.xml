@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.digiwin.app.frc.service.athena.mtw.mapper.ProductSeriesMapper">
+
+    <sql id="Base_Column_List">
+       oid,
+       tenantsid,
+       series_no,
+       series_name, 
+       manage_status, 
+       remarks,
+       create_time,
+       create_name,
+       update_time,
+       update_name 
+    </sql>
+    
+    <insert id="addProductSeriesInfo" parameterType="java.util.List">
+        INSERT INTO frc_product_series
+        (
+        <include refid="Base_Column_List"/>
+        )
+        VALUES
+        <foreach collection="list" item="item" index="index"
+                 separator=",">
+            (
+            #{item.oid},
+            #{item.tenantSid},
+            #{item.seriesNo},
+            #{item.seriesName},
+            #{item.manageStatus},
+            #{item.remarks},
+            #{item.createTime},
+            #{item.createName},
+            #{item.updateTime},
+            #{item.updateName}
+            )
+        </foreach>
+    </insert>
+
+
+    <delete id="deleteProductSeriesInfo" parameterType="java.util.List">
+        DELETE FROM frc_product_series
+        WHERE oid IN
+        <foreach collection="list" item="oid" index="index" open="(" close=")" separator=",">
+            #{oid}
+        </foreach>
+    </delete>
+
+
+    <update id="updateBatch" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" close="" open="" separator=";">
+            UPDATE frc_product_series
+            <set>
+                <if test="item.seriesNo != null and '' != item.seriesNo">
+                    series_no = #{item.seriesNo},
+                </if>
+                <if test="item.seriesName != null and '' != item.seriesName">
+                    series_name = #{item.seriesName},
+                </if>
+                <if  test='item.manageStatus != null and "" != item.manageStatus and (item.manageStatus == "Y" || item.manageStatus == "V")'>
+                    manage_status = #{item.manageStatus},
+                </if>
+                <if test="item.remarks != null">
+                    remarks = #{item.remarks},
+                </if>
+                update_name = #{item.updateName},
+                update_time = #{item.updateTime}
+            </set>
+            WHERE oid = #{item.oid} AND tenantsid = #{item.tenantSid}
+        </foreach>
+    </update>
+
+    <select id="getProductSeriesInfo"
+            resultType="com.digiwin.app.frc.service.athena.mtw.domain.entity.ProductSeriesEntity">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM frc_product_series
+        WHERE tenantsid = #{tenantSid}
+        <if test="null != seriesNo and '' != seriesNo">
+            AND series_no  LIKE '%${seriesNo}%'
+        </if>
+        <if test="null != seriesName and '' != seriesName">
+            AND series_name  LIKE '%${seriesName}%'
+        </if>
+        <if test="null != manageStatus and '' != manageStatus">
+            AND manage_status = #{manageStatus}
+        </if>
+        <if test="null != remarks and '' != remarks">
+            AND remarks LIKE '%${remarks}%'
+        </if>
+        ORDER BY create_time ASC
+    </select>
+
+    <select id="queryAllProductNos" resultType="string">
+        SELECT series_no FROM frc_product_series WHERE tenantsid = #{tenantSid}
+    </select>
+
+</mapper>

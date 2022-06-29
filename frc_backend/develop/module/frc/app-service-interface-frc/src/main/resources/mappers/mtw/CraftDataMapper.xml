@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.digiwin.app.frc.service.athena.mtw.mapper.CraftDataMapper">
+
+    <sql id="Base_Column_List">
+        oid,
+        tenantsid,
+        craft_no,
+        craft_name,
+        craft_type,
+        department_id,
+        department_name,
+        manage_status,
+        remarks,
+        create_time,
+        create_name,
+        update_time,
+        update_name
+    </sql>
+
+    <insert id="addCraftDataInfo" parameterType="java.util.List">
+        INSERT INTO frc_craft
+        (
+            <include refid="Base_Column_List"/>
+        )
+        VALUES
+        <foreach collection="list" item="item" index="index"
+                separator=",">
+        (
+            #{item.oid},
+            #{item.tenantSid},
+            #{item.craftNo},
+            #{item.craftName},
+            #{item.craftType},
+            #{item.departmentId},
+            #{item.departmentName},
+            #{item.manageStatus},
+            #{item.remarks},
+            #{item.createTime},
+            #{item.createName},
+            #{item.updateTime},
+            #{item.updateName}
+         )
+        </foreach>
+    </insert>
+
+    <delete id="deleteCraftDataInfo" parameterType="java.util.List">
+        DELETE FROM frc_craft
+        WHERE oid IN
+        <foreach collection="list" item="oid" index="index" open="(" close=")" separator=",">
+            #{oid}
+        </foreach>
+    </delete>
+
+    <update id="updateBatch" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            UPDATE frc_craft
+            <set>
+                <if test="item.craftNo != null and '' != item.craftNo">
+                    craft_no = #{item.craftNo},
+                </if>
+                <if test="item.craftName != null and '' != item.craftName">
+                    craft_name = #{item.craftName},
+                </if>
+                <if test="item.craftType != null and '' != item.craftType">
+                    craft_type = #{item.craftType},
+                </if>
+                <if test="item.departmentId != null and '' != item.departmentId">
+                    department_id = #{item.departmentId},
+                </if>
+                <if test="item.departmentName != null and '' != item.departmentName">
+                    department_name = #{item.departmentName},
+                </if>
+                <if test='item.manageStatus != null and "" != item.manageStatus and (item.manageStatus == "Y" || item.manageStatus == "V")'>
+                    manage_status = #{item.manageStatus},
+                </if>
+                <if test="item.remarks != null">
+                    remarks = #{item.remarks},
+                </if>
+                update_name = #{item.updateName},
+                update_time = #{item.updateTime}
+            </set>
+            WHERE oid = #{item.oid} AND tenantsid = #{item.tenantSid}
+        </foreach>
+    </update>
+
+
+    <select id="getCraftDataInfo"
+            resultType="com.digiwin.app.frc.service.athena.mtw.domain.entity.CraftDataEntity">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM frc_craft
+        WHERE tenantsid = #{tenantSid}
+        <if test="null != craftNo and '' != craftNo">
+            AND craft_no  LIKE '%${craftNo}%'
+        </if>
+        <if test="null != craftName and '' != craftName">
+            AND craft_name LIKE '%${craftName}%'
+        </if>
+        <if test="null != manageStatus and '' != manageStatus">
+            AND manage_status = #{manageStatus}
+        </if>
+        ORDER BY create_time ASC
+    </select>
+
+    <select id="queryAllOpNos" resultType="string">
+        SELECT craft_no FROM frc_craft WHERE tenantsid = #{tenantSid}
+    </select>
+
+
+</mapper>

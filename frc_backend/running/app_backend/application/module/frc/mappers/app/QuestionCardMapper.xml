@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.digiwin.app.frc.service.athena.app.mapper.QuestionCardMapper">
+
+    <!--APP取任务卡列表数据-->
+    <select id="queryQuestionList" resultType="com.alibaba.fastjson.JSONObject">
+        select
+        ins.data_content content,
+        trace.question_process_step,
+        trace.question_solve_step,
+        DATE_FORMAT(trace.expect_complete_date,'%Y-%m-%d %H:%i:%s') expect_complete_date,
+        trace.question_description,
+        trace.question_process_status,
+        trace.return_flag_id,
+        trace.question_process_result,
+        DATE_FORMAT(trace.create_date,'%Y-%m-%d %H:%i:%s') create_date,
+        DATE_FORMAT(now(),'%Y-%m-%d %H:%i:%s') compareDate,
+        DATE_FORMAT(trace.update_date,'%Y-%m-%d %H:%i:%s') update_date,
+        trace.oid question_id,
+        qct.question_process_result processResult,
+        qct.question_process_status processStatus
+        from frc_question_action_trace trace
+        left join frc_data_instance ins on trace.data_instance_oid = ins.oid
+        left join
+        (select question_process_step,question_no,
+        ANY_VALUE(question_process_status) question_process_status,
+        ANY_VALUE(principal_step) principal_step,
+        ANY_VALUE(question_process_result) question_process_result
+        from frc_question_action_trace
+        where question_process_step = 'QA'
+        group by question_process_step,question_no
+        order by principal_step desc ) qct
+        on trace.question_no = qct.question_no
+        where 1=1
+        <if test="status != null and status != '' and status == 1">
+            AND trace.question_process_status = 2 and trace.question_process_result = 1
+        </if>
+        <if test="status != null and status != '' and status == 2">
+            AND ((trace.question_process_status = 4 and trace.question_process_result = 2)
+            OR (trace.question_process_status = 5 and trace.question_process_result = 3)
+            OR (trace.question_process_status = 8 and trace.question_process_result = 2)
+            OR (trace.question_process_status = 6 and trace.question_process_result = 5))
+        </if>
+        AND
+
+        <foreach collection="query_flag" item="item" index="index" open="(" separator="or" close=")">
+            <choose>
+                <when test="item == 1">
+                    trace.expect_complete_date IS NULL
+                    or
+                    (unix_timestamp(trace.expect_complete_date) &lt; unix_timestamp(now()) )
+                </when>
+                <when test="item == 2">
+                    (unix_timestamp(trace.expect_complete_date) > unix_timestamp(now())
+                    and date_format(trace.expect_complete_date,'%Y-%m-%d') = date_format(now(),'%Y-%m-%d'))
+                </when>
+                <when test="item == 3">
+                    date_format(trace.expect_complete_date,'%Y-%m-%d') > date_format(now(),'%Y-%m-%d')
+                </when>
+                <when test="item == 4">
+                    date_format(trace.update_date,'%Y-%m') = date_format(now(),'%Y-%m')
+                </when>
+                <when test="item == 5">
+                    date_format(trace.update_date,'%Y-%m') &lt; date_format(now(),'%Y-%m')
+                </when>
+            </choose>
+        </foreach>
+
+        AND (trace.question_process_step IN
+        <foreach collection="process_step" item="item" index="index" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        or trace.question_solve_step IN
+        <foreach collection="solve_step" item="item" index="index" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        )
+        <if test="liable_person_id != null and liable_person_id != ''">
+            and trace.liable_person_id = #{liable_person_id}
+        </if>
+        <if test="tenantSid != null and tenantSid != ''">
+            and trace.tenantsid = #{tenantSid}
+        </if>
+        order by trace.update_date desc
+    </select>
+
+    <!--获取需要产生消息的数据-->
+    <select id="queryQuestionNewsList" resultType="com.alibaba.fastjson.JSONObject">
+        select
+        trace.oid,
+        ins.data_content content,
+        trace.question_process_step,
+        trace.question_solve_step,
+        trace.tenantsid,
+        DATE_FORMAT(trace.expect_complete_date,'%Y-%m-%d %H:%i:%s') expect_complete_date,
+        trace.question_description,
+        trace.question_process_status,
+        trace.return_flag_id,
+        trace.question_process_result,
+        trace.liable_person_id,
+        DATE_FORMAT(trace.create_date,'%Y-%m-%d %H:%i:%s') create_date,
+        DATE_FORMAT(now(),'%Y-%m-%d %H:%i:%s') compareDate,
+        DATE_FORMAT(trace.update_date,'%Y-%m-%d %H:%i:%s') update_date,
+        trace.oid question_id
+        from frc_question_action_trace trace
+        left join frc_data_instance ins on trace.data_instance_oid = ins.oid
+
+        where trace.question_process_status = 2 and trace.question_process_result = 1
+        AND (trace.question_process_step IN
+        <foreach collection="process_step" item="item" index="index" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        OR trace.question_solve_step IN
+        <foreach collection="solve_step" item="item" index="index" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        )
+        <if test="startDate != null and startDate != ''">
+        AND trace.create_date > #{startDate}
+        </if>
+        <if test="endDate != null and endDate != ''">
+        AND trace.create_date &lt;= #{endDate}
+        </if>
+        order by trace.create_date
+    </select>
+
+</mapper>

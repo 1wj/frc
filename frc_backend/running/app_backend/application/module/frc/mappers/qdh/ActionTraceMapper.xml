@@ -1,0 +1,720 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.digiwin.app.frc.service.athena.qdh.mapper.ActionTraceMapper">
+
+    <resultMap id="BaseResultMap" type="com.digiwin.app.frc.service.athena.qdh.domain.entity.QuestionActionTraceEntity" >
+        <result column="oid" property="oid" />
+        <result column="tenantsid" property="tenantsid" />
+        <result column="question_record_oid" property="questionRecordOid" />
+        <result column="question_process_step" property="questionProcessStep" />
+        <result column="question_solve_step" property="questionSolveStep" />
+        <result column="question_no" property="questionNo" />
+        <result column="question_description" property="questionDescription" />
+        <result column="question_process_status" property="questionProcessStatus" />
+        <result column="question_process_result" property="questionProcessResult" />
+        <result column="handle_comment" property="handleComment" />
+        <result column="return_flag_id" property="returnFlagId" />
+        <result column="return_flag_name" property="returnFlagName" />
+        <result column="return_no" property="returnNo" />
+        <result column="data_instance_oid" property="dataInstanceOid" />
+        <result column="start_time" property="startTime" />
+        <result column="expect_complete_date" property="expectCompleteDate" />
+        <result column="actual_complete_date" property="actualCompleteDate" />
+        <result column="principal_step" property="principalStep" />
+        <result column="liable_person_id" property="liablePersonId" />
+        <result column="liable_person_name" property="liablePersonName" />
+        <result column="liable_person_position_id" property="liablePersonPositionId" />
+        <result column="liable_person_position_name" property="liablePersonPositionName" />
+        <result column="create_date" property="createTime" />
+        <result column="create_name" property="createName" />
+        <result column="update_date" property="updateTime" />
+        <result column="update_name" property="updateName" />
+        <result column="res01" property="res01" />
+        <result column="res02" property="res02" />
+        <result column="res03" property="res03" />
+        <result column="res04" property="res04" />
+        <result column="res05" property="res05" />
+        <result column="return_reason" property="returnReason" />
+        <result column="return_step_no" property="returnStepNo" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+                oid,
+                tenantsid,
+                question_record_oid,
+                question_process_step,
+                question_solve_step,
+                question_no,
+                question_description,
+                question_process_status,
+                question_process_result,
+                handle_comment,
+                return_flag_id,
+                return_flag_name,
+                return_no,
+                data_instance_oid,
+                start_time,
+                expect_complete_date,
+                actual_complete_date,
+                principal_step,
+                liable_person_id,
+                liable_person_name,
+                liable_person_position_id,
+                liable_person_position_name,
+                create_date,
+                create_name,
+                update_date,
+                update_name,
+                res01,
+                res02,
+                res03,
+                res04,
+                res05,
+                return_reason,
+                return_step_no
+    </sql>
+
+    <sql id="Base_Column_List2">
+            oid,
+            tenantsid,
+            question_record_oid,
+            question_process_step,
+            question_solve_step,
+            question_no,
+            question_description,
+            question_process_status,
+            question_process_result,
+            handle_comment,
+            return_flag_id,
+            return_flag_name,
+            return_no,
+            return_id,
+            return_name,
+            data_instance_oid,
+            principal_step,
+            liable_person_id,
+            liable_person_name,
+            liable_person_position_id,
+            liable_person_position_name,
+            create_id,
+            create_date,
+            create_name,
+            expect_complete_date,
+            start_time
+    </sql>
+
+    <update id="updateActionTrace" parameterType="com.digiwin.app.frc.service.athena.qdh.domain.entity.QuestionActionTraceEntity">
+        UPDATE frc_question_action_trace
+        <set>
+            <if test="questionProcessStatus != 0">question_process_status = #{questionProcessStatus},</if>
+            <if test="questionProcessResult != 0">question_process_result = #{questionProcessResult},</if>
+            <if test="null != liablePersonId and '' != liablePersonId">liable_person_id = #{liablePersonId},</if>
+            <if test="null != liablePersonName and '' != liablePersonName">liable_person_name = #{liablePersonName},</if>
+            <if test="null != liablePersonPositionId and '' != liablePersonPositionId">liable_person_position_id = #{liablePersonPositionId},</if>
+            <if test="null != liablePersonPositionName and '' != liablePersonPositionName">liable_person_position_name = #{liablePersonPositionName},</if>
+            <if test="expectCompleteDate != null">expect_complete_date = #{expectCompleteDate},</if>
+            <if test="actualCompleteDate != null">actual_complete_date = #{actualCompleteDate},</if>
+            <if test="updateTime != null">update_date = #{updateTime},</if>
+            <if test="null != updateName and '' != updateName">update_name = #{updateName},</if>
+            <if test="null != returnNo and '' != returnNo">return_no = #{returnNo},</if>
+            <if test="null != closeReason and '' != closeReason">close_reason = #{closeReason},</if>
+            <if test="null != returnStepNo and '' != returnStepNo">return_step_no = #{returnStepNo},</if>
+            <if test="null != returnReason and '' != returnReason">return_reason = #{returnReason}</if>
+        </set>
+        WHERE oid = #{oid} and tenantsid = #{tenantsid}
+    </update>
+
+    <select id="getBeforeQuestionTrace" resultType="com.digiwin.app.frc.service.athena.qdh.domain.vo.BeforeQuestionVo">
+        SELECT q.oid as oid,q.tenantsid as tenantsid,q.question_solve_step as questionSolveStep,q.question_process_status as processStatus,q.question_process_result as processResult,
+        q.liable_person_id as liablePersonId,
+        q.liable_person_name as liablePersonName,q.actual_complete_date as actualCompleteDate,q.expect_complete_date as expectCompleteDate,q.expect_complete_date as expectCompleteDate,a.data_content as dataContent
+        FROM frc_question_action_trace q
+        inner join frc_data_instance a on q.oid = a.question_trace_oid
+        <where>
+            <if test="tenantsid != null and '' != tenantsid">
+                and q.tenantsid = #{tenantsid,jdbcType = BIGINT}
+            </if>
+            <if test="questionNo != null and '' != questionNo">
+                and q.question_no = #{questionNo}
+            </if>
+            <if test="questionProcessStep != null and '' != questionProcessStep">
+                and q.question_process_step = #{questionProcessStep}
+            </if>
+            <if test="questionSolveStep != null and '' != questionSolveStep">
+                and q.question_solve_step = #{questionSolveStep}
+            </if>
+            <if test="questionRecordOid != null and '' != questionRecordOid">
+                and q.question_record_oid = #{questionRecordOid}
+            </if>
+        </where>
+        order by q.create_date desc
+    </select>
+
+    <select id="getBeforeQuestionTraceGrey" resultType="com.digiwin.app.frc.service.athena.qdh.domain.vo.BeforeQuestionVo">
+        SELECT q.oid as oid,q.tenantsid as tenantsid,q.question_solve_step as questionSolveStep,q.question_process_status as processStatus,q.question_process_result as processResult,
+        q.liable_person_id as liablePersonId,
+        q.liable_person_name as liablePersonName,q.actual_complete_date as actualCompleteDate,q.expect_complete_date as expectCompleteDate,q.expect_complete_date as expectCompleteDate,a.data_content as dataContent
+        FROM frc_question_action_trace q
+        inner join frc_data_instance a on q.oid = a.question_trace_oid
+        <where>
+            <if test="tenantsid != null and '' != tenantsid">
+                and q.tenantsid = #{tenantsid,jdbcType = BIGINT}
+            </if>
+            <if test="questionNo != null and '' != questionNo">
+                and q.question_no = #{questionNo}
+            </if>
+            <if test="questionProcessStep != null and '' != questionProcessStep">
+                and q.question_process_step = #{questionProcessStep}
+            </if>
+            <if test="questionSolveStep != null and '' != questionSolveStep">
+                and q.question_solve_step = #{questionSolveStep}
+            </if>
+            <if test="questionRecordOid != null and '' != questionRecordOid">
+                and q.question_record_oid = #{questionRecordOid}
+            </if>
+            <if test="principalStep != null and '' != principalStep">
+                and  <![CDATA[ q.principal_step < #{principalStep,jdbcType=INTEGER}]]>
+            </if>
+        </where>
+        order by q.create_date desc
+    </select>
+
+    <select id="getBeforeQuestionTraceForIdentity" resultType="com.digiwin.app.frc.service.athena.qdh.domain.vo.BeforeQuestionVo">
+        SELECT q.oid as oid,q.tenantsid as tenantsid,q.question_solve_step as questionSolveStep,q.return_flag_id as returnFlagId,q.return_flag_name as returnFlagName,q.return_no as returnNo,q.liable_person_id as liablePersonId,
+        q.liable_person_name as liablePersonName,q.actual_complete_date as actualCompleteDate,q.expect_complete_date as expectCompleteDate,a.data_content as dataContent
+        FROM frc_question_action_trace q
+        inner join frc_data_instance a on q.oid = a.question_trace_oid
+        <where>
+            <if test="tenantsid != null and '' != tenantsid">
+                and q.tenantsid = #{tenantsid,jdbcType = BIGINT}
+            </if>
+            <if test="questionNo != null and '' != questionNo">
+                and q.question_no = #{questionNo}
+            </if>
+            <if test="questionProcessStep != null and '' != questionProcessStep">
+                and q.question_process_step = #{questionProcessStep}
+            </if>
+            <if test="questionSolveStep != null and '' != questionSolveStep">
+                and q.question_solve_step = #{questionSolveStep}
+            </if>
+        </where>
+        order by q.create_date desc
+    </select>
+
+    <select id="getSolutionStep" resultType="com.digiwin.app.frc.service.athena.qdh.domain.vo.SolutionStepVo">
+        SELECT s.oid as solutionStepId,s.measure_no as stepId,s.measure_name as stepName,s.principal_id as processPersonId,s.principal_name as processPersonName,
+        s.expect_complete_time as expectCompleteDays
+        from frc_solution_edit e
+        left join frc_solution_measure s on e.oid = s.solution_edit_oid
+        <where>
+            <if test="tenantsid != null and '' != tenantsid">
+                and e.tenantsid = #{tenantsid,jdbcType = BIGINT}
+            </if>
+            <if test="solutionId != null and '' != solutionId">
+                and e.solution_no = #{solutionId}
+            </if>
+        </where>
+    </select>
+
+    <select id="getBeforeQuestionTraceForList" resultType="com.digiwin.app.frc.service.athena.qdh.domain.vo.BeforeQuestionVo">
+        SELECT q.oid as oid,q.tenantsid as tenantsid,q.question_solve_step as questionSolveStep,q.liable_person_id as liablePersonId,
+        q.liable_person_name as liablePersonName,q.actual_complete_date as actualCompleteDate,a.data_content as dataContent
+        FROM frc_question_action_trace q
+        inner join frc_data_instance a on q.oid = a.question_trace_oid
+        <where>
+            <if test="tenantsid != null and '' != tenantsid">
+                and q.tenantsid = #{tenantsid,jdbcType = BIGINT}
+            </if>
+            <if test="questionNo != null and '' != questionNo">
+                and q.question_no = #{questionNo}
+            </if>
+            <if test="questionProcessStep != null and '' != questionProcessStep">
+                and q.question_process_step = #{questionProcessStep}
+            </if>
+            <if test="questionSolveStep != null and '' != questionSolveStep">
+                and q.question_solve_step = #{questionSolveStep}
+            </if>
+            <if test="step != 0">
+                 and q.principal_step > #{step} and q.question_process_status = 4 and q.question_process_result = 2
+            </if>
+        </where>
+        order by q.create_date desc
+
+    </select>
+
+    <select id="getBeforeQuestionTraceForList1" resultType="com.digiwin.app.frc.service.athena.qdh.domain.vo.BeforeQuestionVo">
+        SELECT q.oid as oid,q.tenantsid as tenantsid,q.question_solve_step as questionSolveStep,q.principal_step as principalStep,q.liable_person_id as liablePersonId,
+        q.liable_person_name as liablePersonName,q.actual_complete_date as actualCompleteDate,a.data_content as dataContent
+        FROM frc_question_action_trace q
+        inner join frc_data_instance a on q.oid = a.question_trace_oid
+        <where>
+            <if test="tenantsid != null and '' != tenantsid">
+                and q.tenantsid = #{tenantsid,jdbcType = BIGINT}
+            </if>
+            <if test="questionNo != null and '' != questionNo">
+                and q.question_no = #{questionNo}
+            </if>
+            <if test="questionProcessStep != null and '' != questionProcessStep">
+                and q.question_process_step = #{questionProcessStep}
+            </if>
+            <if test="questionSolveStep != null and '' != questionSolveStep">
+                and q.question_solve_step = #{questionSolveStep}
+            </if>
+        </where>
+        order by q.create_date desc
+    </select>
+
+    
+    <select id="getLastStep" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM frc_question_action_trace
+        <where>
+            <if test="tenantsid != null and '' != tenantsid">
+                and tenantsid = #{tenantsid,jdbcType = BIGINT}
+            </if>
+            <if test="questionNo != null and '' != questionNo">
+                and question_no = #{questionNo}
+            </if>
+            <if test="questionRecordOid != null and '' != questionRecordOid">
+                and question_record_oid = #{questionRecordOid}
+            </if>
+        </where>
+        order by principal_step desc
+    </select>
+
+    <select id="getLastStepForIdentity" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM frc_question_action_trace
+        <where>
+            <if test="tenantsid != null and '' != tenantsid">
+                and tenantsid = #{tenantsid,jdbcType = BIGINT}
+            </if>
+            <if test="questionNo != null and '' != questionNo">
+                and question_no = #{questionNo}
+            </if>
+        </where>
+        order by principal_step desc
+    </select>
+
+
+    <select id="getQuestionDetails" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM frc_question_action_trace
+        <where>
+            <if test="oid != null and '' != oid">
+                and oid = #{oid}
+            </if>
+        </where>
+    </select>
+
+    <select id="getQuestionTrace" resultType="com.digiwin.app.frc.service.athena.qdh.domain.vo.QuestionDetailVo">
+        SELECT a.oid as questionId,a.question_solve_step as questionSolveStep,a.question_process_step as questionProcessStep,a.question_process_status as questionProcessStatus,a.question_process_result as questionProcessResult,
+        a.question_no as questionNo,a.question_description as questionDescription,a.liable_person_id as liablePersonId,a.liable_person_name as liablePersonName,
+        a.liable_person_position_id as liablePersonPositionId,a.liable_person_position_name as liablePersonPositionName,a.create_date as createDate,a.close_reason as closeReason,
+        a.question_record_oid as questionRecordId,a.return_flag_id as returnFlagId,a.return_flag_name as returnFlagName,a.expect_complete_date as expectCompleteDate,a.return_no as returnNo,a.return_id as returnId,a.return_name as returnName,
+        d.oid as dataInstanceOid,d.data_content as dataContent,a.return_step_no as returnStepNo,a.return_reason as returnReason
+        FROM frc_question_action_trace a
+        INNER JOIN frc_data_instance d on a.oid = d.question_trace_oid
+        <where>
+            <if test="oid != null and '' != oid">
+                and a.oid = #{oid}
+            </if>
+        </where>
+    </select>
+
+    <insert id="insertActionTrace"  parameterType="com.digiwin.app.frc.service.athena.qdh.domain.entity.QuestionActionTraceEntity">
+        INSERT INTO frc_question_action_trace
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="null != oid and '' != oid">
+                oid,
+            </if>
+            <if test="null != tenantsid and '' != tenantsid">
+                tenantsid,
+            </if>
+            <if test="null != questionRecordOid and '' != questionRecordOid">
+                question_record_oid,
+            </if>
+            <if test="questionProcessStep != null ">
+                question_process_step,
+            </if>
+            <if test="questionSolveStep != null and '' != questionSolveStep">
+                 question_solve_step,
+            </if>
+            <if test="null != questionNo and '' != questionNo">
+                question_no,
+            </if>
+            <if test="null != questionDescription and '' != questionDescription">
+                question_description,
+            </if>
+            <if test="null != questionProcessStatus and '' != questionProcessStatus">
+                question_process_status,
+            </if>
+            <if test="null != questionProcessResult and '' != questionProcessResult">
+                question_process_result,
+            </if>
+            <if test="null != handleComment and '' != handleComment">
+                handle_comment,
+            </if>
+            <if test="null != returnFlagId and '' != returnFlagId">
+                return_flag_id,
+            </if>
+            <if test="null != returnFlagName and '' != returnFlagName">
+                return_flag_name,
+            </if>
+            <if test="null != returnNo and '' != returnNo">
+                return_no,
+            </if>
+            <if test="null != returnId and '' != returnId">
+                return_id,
+            </if>
+            <if test="null != returnName and '' != returnName">
+                return_name,
+            </if>
+            <if test="null != dataInstanceOid and '' != dataInstanceOid">
+                data_instance_oid,
+            </if>
+
+            <if test="null != principalStep">
+                principal_step,
+            </if>
+            <if test="null != liablePersonId and '' != liablePersonId">
+                liable_person_id,
+            </if>
+            <if test="null != liablePersonName and '' != liablePersonName">
+                liable_person_name,
+            </if>
+            <if test="null != liablePersonPositionId and '' != liablePersonPositionId">
+                liable_person_position_id,
+            </if>
+            <if test="null != liablePersonPositionName and '' != liablePersonPositionName">
+                liable_person_position_name,
+            </if>
+            <if test="createTime != null">
+                create_date,
+            </if>
+            <if test="createName != null">
+                create_name,
+            </if>
+            <if test="expectCompleteDate != null">
+                expect_complete_date,
+            </if>
+            <if test="startTime != null">
+                start_time,
+            </if>
+
+            <if test="returnStepNo != null">
+                return_step_no,
+            </if>
+            <if test="returnReason != null">
+                return_reason
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="null != oid and '' != oid">
+                #{oid},
+            </if>
+            <if test="null != tenantsid and '' != tenantsid">
+                #{tenantsid},
+            </if>
+            <if test="null != questionRecordOid and '' != questionRecordOid">
+                #{questionRecordOid},
+            </if>
+            <if test="null != questionProcessStep and '' != questionProcessStep">
+                #{questionProcessStep},
+            </if>
+            <if test="null != questionSolveStep and '' != questionSolveStep">
+                #{questionSolveStep},
+            </if>
+            <if test="null != questionNo and '' != questionNo">
+                #{questionNo},
+            </if>
+            <if test="null != questionDescription and '' != questionDescription">
+                #{questionDescription},
+            </if>
+            <if test="null != questionProcessStatus and '' != questionProcessStatus">
+                #{questionProcessStatus},
+            </if>
+            <if test="null != questionProcessResult and '' != questionProcessResult">
+                #{questionProcessResult},
+            </if>
+            <if test="null != handleComment and '' != handleComment">
+                #{handleComment},
+            </if>
+            <if test="null != returnFlagId and '' != returnFlagId">
+                #{returnFlagId},
+            </if>
+            <if test="null != returnFlagName and '' != returnFlagName">
+                #{returnFlagName},
+            </if>
+            <if test="null != returnNo and '' != returnNo">
+                #{returnNo},
+            </if>
+            <if test="null != returnId and '' != returnId">
+                #{returnId},
+            </if>
+            <if test="null != returnName and '' != returnName">
+                #{returnName},
+            </if>
+            <if test="null != dataInstanceOid and '' != dataInstanceOid">
+                #{dataInstanceOid},
+            </if>
+            <if test="null != principalStep">
+                #{principalStep},
+            </if>
+            <if test="null != liablePersonId and '' != liablePersonId">
+                #{liablePersonId},
+            </if>
+            <if test="null != liablePersonName and '' != liablePersonName">
+                #{liablePersonName},
+            </if>
+            <if test="null != liablePersonPositionId and '' != liablePersonPositionId">
+                #{liablePersonPositionId},
+            </if>
+            <if test="null != liablePersonPositionName and '' != liablePersonPositionName">
+                #{liablePersonPositionName},
+            </if>
+            <if test="createTime != null">
+                #{createTime},
+            </if>
+            <if test="createName != null">
+                #{createName},
+            </if>
+            <if test="expectCompleteDate != null">
+                #{expectCompleteDate},
+            </if>
+            <if test="startTime != null">
+                #{startTime},
+            </if>
+
+            <if test="returnStepNo != null and '' != returnStepNo">
+                #{returnStepNo},
+            </if>
+            <if test="returnReason != null and '' != returnReason">
+                #{returnReason}
+            </if>
+        </trim>
+    </insert>
+
+    <insert id="insertBatchActionTrace" parameterType="java.util.List">
+        INSERT INTO frc_question_action_trace
+        (
+        <include refid="Base_Column_List2"/>
+        )
+        values
+        <foreach collection="list" item="item" index="index"
+                 separator=",">
+            (
+            #{item.oid},
+            #{item.tenantsid},
+            #{item.questionRecordOid},
+            #{item.questionProcessStep},
+            #{item.questionSolveStep},
+            #{item.questionNo},
+            #{item.questionDescription},
+            #{item.questionProcessStatus},
+            #{item.questionProcessResult},
+            #{item.handleComment},
+            #{item.returnFlagId},
+            #{item.returnFlagName},
+            #{item.returnNo},
+            #{item.returnId},
+            #{item.returnName},
+            #{item.dataInstanceOid},
+            #{item.principalStep},
+            #{item.liablePersonId},
+            #{item.liablePersonName},
+            #{item.liablePersonPositionId},
+            #{item.liablePersonPositionName},
+            #{item.createId},
+            #{item.createTime},
+            #{item.createName},
+            #{item.expectCompleteDate},
+            #{item.startTime}
+            )
+        </foreach>
+    </insert>
+
+    <insert id="insertInitActionTrace"  parameterType="com.digiwin.app.frc.service.athena.qdh.domain.entity.QuestionActionTraceEntity">
+        INSERT INTO frc_question_action_trace
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="null != oid and '' != oid">
+                oid,
+            </if>
+            <if test="null != tenantsid and '' != tenantsid">
+                tenantsid,
+            </if>
+            <if test="null != questionRecordOid and '' != questionRecordOid">
+                question_record_oid,
+            </if>
+            <if test="questionProcessStep != null ">
+                question_process_step,
+            </if>
+            <if test="questionSolveStep != null and '' != questionSolveStep">
+                question_solve_step,
+            </if>
+            <if test="null != questionNo and '' != questionNo">
+                question_no,
+            </if>
+            <if test="null != questionDescription and '' != questionDescription">
+                question_description,
+            </if>
+            <if test="null != questionProcessStatus and '' != questionProcessStatus">
+                question_process_status,
+            </if>
+            <if test="null != questionProcessResult and '' != questionProcessResult">
+                question_process_result,
+            </if>
+            <if test="null != handleComment and '' != handleComment">
+                handle_comment,
+            </if>
+            <if test="null != returnFlagId and '' != returnFlagId">
+                return_flag_id,
+            </if>
+            <if test="null != returnFlagName and '' != returnFlagName">
+                return_flag_name,
+            </if>
+            <if test="null != dataInstanceOid and '' != dataInstanceOid">
+                data_instance_oid,
+            </if>
+
+            <if test="null != principalStep">
+                principal_step,
+            </if>
+            <if test="null != liablePersonId and '' != liablePersonId">
+                liable_person_id,
+            </if>
+            <if test="null != liablePersonName and '' != liablePersonName">
+                liable_person_name,
+            </if>
+            <if test="null != liablePersonPositionId and '' != liablePersonPositionId">
+                liable_person_position_id,
+            </if>
+            <if test="null != liablePersonPositionName and '' != liablePersonPositionName">
+                liable_person_position_name,
+            </if>
+            <if test="createTime != null">
+                create_date,
+            </if>
+            <if test="createId != null">
+                create_id,
+            </if>
+            <if test="createName != null">
+                create_name,
+            </if>
+            <if test="expectCompleteDate != null">
+                expect_complete_date,
+            </if>
+            <if test="startTime != null">
+                start_time
+            </if>
+
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="null != oid and '' != oid">
+                #{oid},
+            </if>
+            <if test="null != tenantsid and '' != tenantsid">
+                #{tenantsid},
+            </if>
+            <if test="null != questionRecordOid and '' != questionRecordOid">
+                #{questionRecordOid},
+            </if>
+            <if test="null != questionProcessStep and '' != questionProcessStep">
+                #{questionProcessStep},
+            </if>
+            <if test="null != questionSolveStep and '' != questionSolveStep">
+                #{questionSolveStep},
+            </if>
+            <if test="null != questionNo and '' != questionNo">
+                #{questionNo},
+            </if>
+            <if test="null != questionDescription and '' != questionDescription">
+                #{questionDescription},
+            </if>
+            <if test="null != questionProcessStatus and '' != questionProcessStatus">
+                #{questionProcessStatus},
+            </if>
+            <if test="null != questionProcessResult and '' != questionProcessResult">
+                #{questionProcessResult},
+            </if>
+            <if test="null != handleComment and '' != handleComment">
+                #{handleComment},
+            </if>
+            <if test="null != returnFlagId and '' != returnFlagId">
+                #{returnFlagId},
+            </if>
+            <if test="null != returnFlagName and '' != returnFlagName">
+                #{returnFlagName},
+            </if>
+            <if test="null != dataInstanceOid and '' != dataInstanceOid">
+                #{dataInstanceOid},
+            </if>
+
+            <if test="null != principalStep">
+                #{principalStep},
+            </if>
+            <if test="null != liablePersonId and '' != liablePersonId">
+                #{liablePersonId},
+            </if>
+            <if test="null != liablePersonName and '' != liablePersonName">
+                #{liablePersonName},
+            </if>
+            <if test="null != liablePersonPositionId and '' != liablePersonPositionId">
+                #{liablePersonPositionId},
+            </if>
+            <if test="null != liablePersonPositionName and '' != liablePersonPositionName">
+                #{liablePersonPositionName},
+            </if>
+            <if test="createTime != null">
+                #{createTime},
+            </if>
+            <if test="createId != null">
+                #{createId},
+            </if>
+            <if test="createName != null">
+                #{createName},
+            </if>
+            <if test="expectCompleteDate != null">
+                #{expectCompleteDate},
+            </if>
+            <if test="startTime != null">
+                #{startTime}
+            </if>
+
+        </trim>
+    </insert>
+
+    <select id="getHistoricalData" resultType="com.digiwin.app.frc.service.athena.qdh.domain.vo.BeforeQuestionVo">
+        SELECT q.oid as oid,q.tenantsid as tenantsid,q.question_solve_step as questionSolveStep,q.question_process_status as processStatus,q.question_process_result as processResult,
+        q.liable_person_id as liablePersonId,
+        q.liable_person_name as liablePersonName,q.actual_complete_date as actualCompleteDate,q.expect_complete_date as expectCompleteDate,q.expect_complete_date as expectCompleteDate,a.data_content as dataContent
+        FROM frc_question_action_trace q
+        inner join frc_data_instance a on q.oid = a.question_trace_oid
+        WHERE
+            q.question_process_status = 4 AND q.question_process_result = 2
+            <if test="tenantsid != null and '' != tenantsid">
+                and q.tenantsid = #{tenantsid,jdbcType = BIGINT}
+            </if>
+            <if test="questionNo != null and '' != questionNo">
+                and q.question_no = #{questionNo}
+            </if>
+            <if test="questionProcessStep != null and '' != questionProcessStep">
+                and q.question_process_step = #{questionProcessStep}
+            </if>
+            <if test="questionSolveStep != null and '' != questionSolveStep">
+                and q.question_solve_step = #{questionSolveStep}
+            </if>
+            <if test="questionRecordOid != null and '' != questionRecordOid">
+                and q.question_record_oid = #{questionRecordOid}
+            </if>
+            <if test="principalStep != null">
+                and q.principal_step &lt;= #{principalStep}
+            </if>
+
+        order by q.create_date desc
+    </select>
+</mapper>

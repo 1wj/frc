@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.digiwin.app.frc.service.athena.rqi.mapper.ActionTraceInfoMapper">
+
+
+    <select id="queryQuestionNoByTime" resultType="map">
+        SELECT question_no,create_date,create_name,create_id
+        FROM frc_question_action_trace
+        WHERE question_no in (
+        SELECT question_no
+        FROM
+        frc_question_action_trace
+        WHERE
+        tenantsid = #{tenantSid} and  question_process_step = 'QF'
+        and liable_person_id = #{responsiblePersonId}
+        GROUP BY
+        question_no
+        )
+        and question_process_step = 'QFL' and tenantsid = #{tenantSid}
+        <if test="startTime != null">
+            AND create_date &gt;= #{startTime}
+        </if>
+        <if test="endTime != null">
+            AND create_date &lt;= #{endTime}
+        </if>
+        <if test="questionNo != null and questionNo != ''">
+            and question_no LIKE '%${questionNo}%'
+        </if>
+    </select>
+
+
+
+    <select id="queryQuestionNoByProposerId" resultType="map">
+        SELECT * FROM (
+        SELECT question_no,create_date
+        FROM frc_question_action_trace
+        WHERE question_process_step = 'QFL'
+        and tenantsid = #{tenantSid}
+        <if test="startTime != null">
+            AND create_date &gt;= #{startTime}
+        </if>
+        <if test="endTime != null">
+            AND create_date &lt;= #{endTime}
+        </if>
+        <if test="proposerId != null and '' != proposerId">
+            AND create_id = #{proposerId}
+        </if>
+        GROUP BY question_no
+        ) as t
+        where 1=1
+        <if test="questionNo != null and ''!= questionNo">
+            AND  t.question_no LIKE '%${questionNo}%'
+        </if>
+    </select>
+
+    <select id="queryQuestionTrackProcessorInfo"
+            resultType="com.digiwin.app.frc.service.athena.rqi.domain.entity.QuestionTrackProcessorEntity">
+        SELECT
+        s.data_content AS dataContent,
+        t.question_no AS questionNo,
+        t.question_description AS questionDescription,
+        t.create_date AS questionReceiveDate,
+        t.question_process_step AS questionProcessStep,
+        t.question_solve_step AS questionSolveStep,
+        t.question_process_status AS questionProcessStatus,
+        t.question_process_result AS questionProcessResult,
+        t.return_flag_id AS returnFlagId,
+        t.expect_complete_date AS expectCompleteTime,
+        t.start_time AS startTime,
+        t.oid AS questionId
+        FROM
+        frc_question_action_trace t
+        INNER JOIN
+        frc_data_instance s ON t.oid = s.question_trace_oid
+        WHERE t.tenantsid = #{tenantSid} and t.liable_person_id = #{processorId}
+        <if test="oid != null and oid.size>0 ">
+            AND t.oid IN
+            <foreach collection="oid" item="item" index="index" open="(" separator="," close=")"> #{item} </foreach>
+        </if>
+
+        <if test="model.questionDescription != null and '' != model.questionDescription">
+            AND t.question_description  LIKE  '%${model.questionDescription}%'
+        </if>
+
+        <if test="model.questionProcessStage != null and '' != model.questionProcessStage">
+            <if test="model.questionProcessStage == 'QI' ">
+                AND (t.question_process_step = 'QIA' OR t.question_process_step = 'QIR')
+            </if>
+            <if test="model.questionProcessStage != 'QI' ">
+                AND t.question_process_step = #{model.questionProcessStage}
+            </if>
+        </if>
+        ORDER BY t.create_date DESC
+    </select>
+
+
+    <select id="queryQuestionTrackProposerInfo"
+            resultType="com.digiwin.app.frc.service.athena.rqi.domain.entity.QuestionTrackProposerEntity">
+        SELECT
+        s.data_content AS dataContent,
+        t.question_no AS questionNo,
+        t.question_description AS questionDescription,
+        t.create_date AS questionReceiveDate,
+        t.question_process_step AS questionProcessStep,
+        t.question_solve_step AS questionSolveStep,
+        t.question_process_status AS questionProcessStatus,
+        t.question_process_result AS questionProcessResult,
+        t.return_flag_id AS returnFlagId,
+        t.liable_person_id AS processPersonId,
+        t.liable_person_name AS processPersonName,
+        t.expect_complete_date AS expectCompleteTime,
+        t.start_time AS startTime,
+        t.oid AS questionId
+        FROM
+        frc_question_action_trace t
+        INNER JOIN
+        frc_data_instance s ON t.oid = s.question_trace_oid
+        WHERE
+        t.tenantsid = #{tenantSid}
+        <if test="oid != null and oid.size>0 ">
+            AND t.oid IN
+            <foreach collection="oid" item="item" index="index" open="(" separator="," close=")"> #{item} </foreach>
+        </if>
+
+        <if test="model.questionDescription != null and '' != model.questionDescription">
+            AND t.question_description  LIKE  '%${model.questionDescription}%'
+        </if>
+
+        <if test="model.questionProcessStage != null and '' != model.questionProcessStage">
+            <if test="model.questionProcessStage == 'QI' ">
+                AND (t.question_process_step = 'QIA' OR t.question_process_step = 'QIR')
+            </if>
+            <if test="model.questionProcessStage != 'QI' ">
+                AND t.question_process_step = #{model.questionProcessStage}
+            </if>
+        </if>
+        ORDER BY t.create_date DESC
+    </select>
+
+
+    <select id="queryCompleteOidByNos" resultType="com.digiwin.app.frc.service.athena.rqi.domain.entity.QuestionTrackResponsibleEntity">
+        SELECT
+        s.data_content AS dataContent,
+        t.question_no AS questionNo,
+        t.question_description AS questionDescription,
+        t.create_date AS questionReceiveDate,
+        t.question_process_step AS questionProcessStep,
+        t.question_solve_step AS questionSolveStep,
+        t.question_process_status AS questionProcessStatus,
+        t.question_process_result AS questionProcessResult,
+        t.return_flag_id AS returnFlagId,
+        t.liable_person_id AS processPersonId,
+        t.liable_person_name AS processPersonName,
+        t.create_name AS proposerName,
+        t.expect_complete_date AS expectCompleteTime,
+        t.start_time AS startTime,
+        t.oid AS questionId,
+        t.actual_complete_date AS actualCompleteDate FROM
+        (
+        SELECT * FROM
+        (
+        SELECT * FROM frc_question_action_trace
+        WHERE tenantsid = #{tenantSid} and
+        question_no
+        IN
+        <if test="questionNos != null and questionNos.size>0 ">
+            <foreach collection="questionNos" item="item" index="index" open="(" separator="," close=")"> #{item} </foreach>
+        </if>
+        AND
+        (
+        (question_process_status = 5 and question_process_result = 3)
+        OR (question_process_status = 8 AND question_process_result = 2)
+        )
+        <if test="liablePersonId != null and liablePersonId != ''">
+            AND liable_person_id = #{liablePersonId}
+        </if>
+        <!--删除“LIMIT 10000000000000”会导致下面的“GROUP BY b.question_no”无法正确获取到principal_step最大值的数据-->
+        ORDER BY principal_step DESC LIMIT 10000000000000
+        ) as b
+        GROUP BY b.question_no
+        )  AS t
+        INNER JOIN
+        frc_data_instance s ON t.oid = s.question_trace_oid
+        WHERE 1 = 1
+        <if test="questionProcessStage != null and '' != questionProcessStage">
+            <if test="questionProcessStage == 'QI' ">
+                AND (t.question_process_step = 'QIA' OR t.question_process_step = 'QIR')
+            </if>
+            <if test="questionProcessStage != 'QI' ">
+                AND t.question_process_step = #{questionProcessStage}
+            </if>
+        </if>
+        <if test="questionDescription != null and '' != questionDescription">
+            AND t.question_description  LIKE  '%${questionDescription}%'
+        </if>
+        ORDER BY t.create_date DESC
+    </select>
+
+    <select id="queryUnderwayOidByNos" resultType="com.digiwin.app.frc.service.athena.rqi.domain.entity.QuestionTrackResponsibleEntity">
+
+        SELECT
+        s.data_content AS dataContent,
+        t.question_no AS questionNo,
+        t.question_description AS questionDescription,
+        t.create_date AS questionReceiveDate,
+        t.question_process_step AS questionProcessStep,
+        t.question_solve_step AS questionSolveStep,
+        t.question_process_status AS questionProcessStatus,
+        t.question_process_result AS questionProcessResult,
+        t.return_flag_id AS returnFlagId,
+        t.liable_person_id AS processPersonId,
+        t.liable_person_name AS processPersonName,
+        t.create_name AS proposerName,
+        t.expect_complete_date AS expectCompleteTime,
+        t.start_time AS startTime,
+        t.oid AS questionId,
+        t.actual_complete_date AS actualCompleteDate FROM
+        (
+        SELECT * FROM
+        frc_question_action_trace WHERE tenantsid = #{tenantSid} and
+        question_no
+        IN
+        <if test="questionNos != null and questionNos.size>0 ">
+            <foreach collection="questionNos" item="item" index="index" open="(" separator="," close=")"> #{item} </foreach>
+        </if>
+        <if test="liablePersonId != null and liablePersonId != ''">
+            AND liable_person_id = #{liablePersonId}
+        </if>
+        and question_process_status = 2
+        and question_process_result = 1
+        )AS t
+        INNER JOIN
+        frc_data_instance s ON t.oid = s.question_trace_oid
+        WHERE 1 = 1
+        <if test="questionProcessStage != null and '' != questionProcessStage">
+            <if test="questionProcessStage == 'QI' ">
+                AND (t.question_process_step = 'QIA' OR t.question_process_step = 'QIR')
+            </if>
+            <if test="questionProcessStage != 'QI' ">
+                AND t.question_process_step = #{questionProcessStage}
+            </if>
+        </if>
+        <if test="questionDescription != null and '' != questionDescription">
+            AND t.question_description  LIKE  '%${questionDescription}%'
+        </if>
+
+        ORDER BY t.create_date DESC
+    </select>
+
+    <select id="queryQuestionNoByProcessorId" resultType="map">
+        SELECT question_no,create_date,create_name,create_id from frc_question_action_trace
+        where question_no in (
+        SELECT question_no
+        FROM
+        frc_question_action_trace
+        WHERE
+        tenantsid = #{tenantSid}
+        and liable_person_id = #{processorId}
+        GROUP BY
+        question_no
+        )
+        and question_process_step = 'QFL'
+        <if test="questionNo != null and ''!= questionNo">
+            AND  question_no LIKE '%${questionNo}%'
+        </if>
+        <if test="startTime != null">
+            AND create_date &gt;= #{startTime}
+        </if>
+        <if test="endTime != null">
+            AND create_date &lt;= #{endTime}
+        </if>
+        <if test="feedbackIds != null and feedbackIds.size() != 0">
+            and create_id in
+            <foreach collection="feedbackIds" item="item" index="index" open="(" separator="," close=")"> #{item} </foreach>
+        </if>
+    </select>
+
+    <select id="queryQuestionNosByResponsibleId" resultType="string">
+        SELECT question_no
+        FROM
+        frc_question_record
+        WHERE tenantsid = #{tenantSid}
+        and question_process_stage = 'QH' and
+        liable_person_id = #{responsibleId}
+        GROUP BY
+        question_no
+    </select>
+
+    <select id="queryQuestionTrackResponsibleInfo"
+            resultType="com.digiwin.app.frc.service.athena.rqi.domain.entity.QuestionTrackResponsibleEntity">
+        SELECT
+        s.data_content AS dataContent,
+        t.question_no AS questionNo,
+        t.question_description AS questionDescription,
+        t.create_date AS questionReceiveDate,
+        t.question_process_step AS questionProcessStep,
+        t.question_solve_step AS questionSolveStep,
+        t.question_process_status AS questionProcessStatus,
+        t.question_process_result AS questionProcessResult,
+        t.return_flag_id AS returnFlagId,
+        t.liable_person_id AS processPersonId,
+        t.liable_person_name AS processPersonName,
+        t.create_name AS proposerName,
+        t.expect_complete_date AS expectCompleteTime,
+        t.start_time AS startTime,
+        t.oid AS questionId,
+        t.actual_complete_date AS actualCompleteDate
+        FROM
+        frc_question_action_trace t
+        INNER JOIN
+        frc_data_instance s ON t.oid = s.question_trace_oid
+        WHERE
+        t.tenantsid = #{tenantSid}
+        <if test="oid != null and oid.size>0 ">
+            AND t.oid IN
+            <foreach collection="oid" item="item" index="index" open="(" separator="," close=")"> #{item} </foreach>
+        </if>
+
+        <if test="model.questionProcessStage != null and '' != model.questionProcessStage">
+            <if test="model.questionProcessStage == 'QI' ">
+                AND (t.question_process_step = 'QIA' OR t.question_process_step = 'QIR')
+            </if>
+            <if test="model.questionProcessStage != 'QI' ">
+                AND t.question_process_step = #{model.questionProcessStage}
+            </if>
+        </if>
+        ORDER BY t.create_date DESC
+    </select>
+
+
+    <select id="vagueQueryQuestionNos" resultType="string">
+        SELECT
+        question_no
+        FROM
+        frc_question_action_trace
+        WHERE
+        tenantsid = #{tenantSid}
+        <if test="questionNo != null and ''!= questionNo">
+            AND  question_no LIKE '%${questionNo}%'
+        </if>
+        GROUP BY question_no
+    </select>
+
+
+
+    <select id="queryOidAndLiableInfoByNos" resultType="map">
+        SELECT t.oid,t.liable_person_id,t.liable_person_name FROM
+        (
+        SELECT * FROM frc_question_action_trace WHERE tenantsid = #{tenantSid} and
+        question_no
+        IN
+        <if test="questionNos != null and questionNos.size>0 ">
+            <foreach collection="questionNos" item="item" index="index" open="(" separator="," close=")"> #{item} </foreach>
+        </if>
+        ORDER BY principal_step DESC LIMIT 10000000000000
+        ) AS t
+        WHERE t.tenantsid = #{tenantSid}
+        GROUP BY t.question_no
+    </select>
+
+
+    <select id="queryOidAndLiableInfoByNos2" resultType="map">
+        SELECT oid,liable_person_id,liable_person_name FROM
+        frc_question_action_trace WHERE tenantsid = #{tenantSid} and
+        question_no
+        IN
+        <if test="questionNos != null and questionNos.size>0 ">
+            <foreach collection="questionNos" item="item" index="index" open="(" separator="," close=")"> #{item} </foreach>
+        </if>
+        and question_process_status = 2
+        and question_process_result = 1
+
+    </select>
+
+    <select id="queryShotTermByQuestionNo"
+            resultType="com.digiwin.app.frc.service.athena.rqi.domain.entity.QuestionTrackResponsibleEntity">
+        SELECT
+        s.data_content AS dataContent,
+        t.question_no AS questionNo,
+        t.question_description AS questionDescription,
+        t.create_date AS questionReceiveDate,
+        t.question_process_step AS questionProcessStep,
+        t.question_solve_step AS questionSolveStep,
+        t.question_process_status AS questionProcessStatus,
+        t.question_process_result AS questionProcessResult,
+        t.return_flag_id AS returnFlagId,
+        t.liable_person_id AS processPersonId,
+        t.liable_person_name AS processPersonName,
+        t.create_name AS proposerName,
+        t.expect_complete_date AS expectCompleteTime,
+        t.start_time AS startTime,
+        t.oid AS questionId FROM
+        frc_question_action_trace t
+        INNER JOIN
+        frc_data_instance s ON t.oid = s.question_trace_oid
+        WHERE s.tenantsid = #{tenantSid}
+        and question_solve_step in ('SE001014','SE003005')
+        and question_no IN
+        <if test="questionNos != null and questionNos.size > 0 ">
+            <foreach collection="questionNos" item="item" index="index" open="(" separator="," close=")"> #{item} </foreach>
+        </if>
+        and question_process_status = 4
+        and question_process_result = 2
+    </select>
+</mapper>

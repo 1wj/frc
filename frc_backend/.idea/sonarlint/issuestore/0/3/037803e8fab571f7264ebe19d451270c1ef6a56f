@@ -1,0 +1,20 @@
+
+g
+java:S1128"ERemove this unused import 'org.springframework.beans.BeansException'.(Æ¢ùìüÿÿÿÿ8ª¶–0
+l
+java:S1128	"JRemove this unused import 'org.springframework.boot.ApplicationArguments'.(·ıˆóÿÿÿÿÿ8İ…áŒ0
+W	java:S110"<This class has 6 parents which is greater than 5 authorized.(õäß<8ÌŠ–0
+S
+java:S1128"6Remove this unused import 'lombok.extern.slf4j.Slf4j'.(ûúÄ®8Ï÷Œ0
+h
+java:S1128"KRemove this unused import 'org.springframework.context.ApplicationContext'.(»Ô»¿8±Ï–0
+G
+java:S1181!"%Catch Exception instead of Throwable.(À˜§üÿÿÿÿ8Ï÷Œ0
+J	java:S108!")Either remove or fill this block of code.(À˜§üÿÿÿÿ8Ï÷Œ0
+y
+java:S1128"\Remove this unused import 'com.digiwin.app.frc.service.athena.util.qdh.SpringContextHolder'.(˜ÊŞ8”©ûŒ0
+c
+java:S1128
+"GRemove this unused import 'org.springframework.boot.ApplicationRunner'.(ÃëòN8Ô¦ÓŒ0
+m
+java:S1128"PRemove this unused import 'org.springframework.context.ApplicationContextAware'.(’ïı·8Ö´•0

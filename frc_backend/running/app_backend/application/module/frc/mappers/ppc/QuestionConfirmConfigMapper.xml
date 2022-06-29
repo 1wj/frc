@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.digiwin.app.frc.service.athena.ppc.mapper.QuestionConfirmConfigMapper">
+
+    <sql id="Base_Column_List">
+        oid,
+        tenantsid,
+        attribution_no,
+        source_oid,
+        classification_oid,
+        feedback_departments,
+        liable_person_id,
+        liable_person_name,
+        create_time,
+        create_name,
+        update_time,
+        update_name
+    </sql>
+
+
+    <insert id="addQuestionConfirmConfigInfo" parameterType="java.util.List">
+        INSERT INTO frc_question_confirm_config
+        (
+        <include refid="Base_Column_List"/>
+        )
+        VALUES
+        <foreach collection="list" item="item" index="index"
+                 separator=",">
+            (
+            #{item.oid},
+            #{item.tenantSid},
+            #{item.attributionNo},
+            #{item.sourceId},
+            #{item.classificationId},
+            #{item.feedbackDepartmentMessage},
+            #{item.liablePersonId},
+            #{item.liablePersonName},
+            #{item.createTime},
+            #{item.createName},
+            #{item.updateTime},
+            #{item.updateName}
+            )
+        </foreach>
+
+    </insert>
+
+    
+    <delete id="deleteQuestionConfirmConfigInfo">
+        DELETE FROM frc_question_confirm_config
+        WHERE tenantsid = #{tenantSid}
+        AND oid IN
+        <foreach collection="oidList" item="oid" index="index" open="(" close=")" separator=",">
+            #{oid}
+        </foreach>
+    </delete>
+    
+    <update id="updateBatch" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            UPDATE frc_question_confirm_config
+            <set>
+                <if test="item.attributionNo != null and '' != item.attributionNo">
+                    attribution_no = #{item.attributionNo},
+                </if>
+                <if test="item.sourceId != null and '' != item.sourceId">
+                    source_oid = #{item.sourceId},
+                </if>
+                <if test="item.classificationId != null and '' != item.classificationId">
+                    classification_oid = #{item.classificationId},
+                </if>
+                <if test="item.liablePersonId != null and '' != item.liablePersonId">
+                    liable_person_id = #{item.liablePersonId},
+                </if>
+                <if test="item.liablePersonName != null and '' != item.liablePersonName">
+                    liable_person_name = #{item.liablePersonName},
+                </if>
+                feedback_departments = #{item.feedbackDepartmentMessage},
+                update_name = #{item.updateName},
+                update_time = #{item.updateTime}
+            </set>
+            WHERE oid = #{item.oid} AND tenantsid = #{item.tenantSid}
+        </foreach>
+    </update>
+
+    
+    
+    <resultMap id="confirmRiskResultMap"
+               type="com.digiwin.app.frc.service.athena.ppc.domain.vo.QuestionConfirmConfigVo">
+        <id property="oid" column="confirmConfigOid" />
+        <result property="attributionNo" column="attributionNo" />
+        <result property="sourceId" column="sourceId" />
+        <result property="sourceName" column="sourceName" />
+        <result property="classificationId" column="classificationId" />
+        <result property="classificationName" column="classificationName" />
+        <result property="liablePersonId" column="liablePersonId" />
+        <result property="liablePersonName" column="liablePersonName" />
+        <result property="feedbackDepartmentMessage" column="feedbackDepartment" />
+        <!-- 配置一对多的关系 -->
+        <collection property="riskVos" javaType="list"
+                    ofType="com.digiwin.app.frc.service.athena.ppc.domain.vo.RiskLevelVo">
+            <!-- 配置主键，是关联风险等级表的唯一标识 -->
+            <id property="riskLevelId" column="riskLevelOid" />
+            <result property="riskLevelName" column="riskLevelName" />
+        </collection>
+    </resultMap>
+    
+    
+    <select id="getQuestionConfirmConfig" resultMap="confirmRiskResultMap">
+        SELECT
+            c.oid as confirmConfigOid,
+            c.attribution_no as attributionNo,
+            s.oid as sourceId,
+            s.source_name as  sourceName,
+            a.oid as classificationId,
+            a.classification_name as classificationName,
+            c.liable_person_id as liablePersonId,
+            c.liable_person_name as liablePersonName,
+            c.feedback_departments as feedbackDepartment,
+            r.oid as riskLevelOid,
+            r.risk_level_name as riskLevelName
+        FROM
+            frc_question_confirm_config c
+            LEFT JOIN frc_question_risk_level r ON c.oid = r.question_confirm_config_oid
+            LEFT JOIN frc_question_source s ON c.source_oid = s.oid
+            LEFT JOIN frc_question_classification a ON c.classification_oid = a.oid
+        WHERE c.tenantsid = #{tenantSid}
+        <if test="model.riskLevelId != null and '' != model.riskLevelId">
+            AND r.oid = #{model.riskLevelId}
+        </if>
+        <if test="model.attributionNo != null and '' != model.attributionNo">
+            AND c.attribution_no = #{model.attributionNo}
+        </if>
+        <if test="model.sourceId != null and '' != model.sourceId">
+            AND c.source_oid = #{model.sourceId}
+        </if>
+        <if test="model.classificationId != null and '' != model.classificationId">
+            AND c.classification_oid = #{model.classificationId}
+        </if>
+        <if test="feedBackInfo != null and '' != feedBackInfo">
+            AND c.feedback_departments LIKE   '%${feedBackInfo}%'
+        </if>
+        ORDER BY c.create_time ASC
+    </select>
+
+</mapper>

@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="taobao-sdk-java-auto_1479188381469-20180525">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/develop/module/frc/app-service-interface-frc/src/main/resources/lib/taobao-sdk-java-auto_1479188381469-20180525.jar!/" />
+      <root url="jar://$PROJECT_DIR$/develop/module/frc/app-service-interface-frc/src/main/resources/lib/lippi-oapi-encrpt.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

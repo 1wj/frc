@@ -1,0 +1,36 @@
+
+q
+java:S32527"OUse static access with "com.github.pagehelper.page.PageMethod" for "startPage".( ÊÜÄúÿÿÿÿ8ê›¤û0
+l
+java:S1192‘"NDefine a constant instead of duplicating this literal "question_info" 5 times.(áËø›8Óæğş0
+a
+java:S1155•">Use isEmpty() to check whether the collection is empty or not.(Â›„ºùÿÿÿÿ8Óæğş0
+a
+java:S1854)"?Remove this useless assignment to local variable "processStep".(Ãéº€ùÿÿÿÿ8ê›¤û0
+Z
+java:S18542"8Remove this useless assignment to local variable "list".(ûºÒ”ÿÿÿÿÿ8ê›¤û0
+P
+java:S1481'".Remove this unused "queryFlag" local variable.(Ğëô”øÿÿÿÿ8äñÂÊ0
+d
+java:S11921"HDefine a constant instead of duplicating this literal "page_no" 3 times.(êŠ’%8ê›¤û0
+R
+java:S1481)"0Remove this unused "processStep" local variable.(Ãéº€ùÿÿÿÿ8ê›¤û0
+g
+java:S11920"JDefine a constant instead of duplicating this literal "page_size" 3 times.(éÉ˜ñ8ê›¤û0
+r	java:S117W"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(èœÇíûÿÿÿÿ8ê›¤û0
+\
+java:S1155˜">Use isEmpty() to check whether the collection is empty or not.(ûçõı8Óæğş0
+r	java:S117V"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹ç¯¹úÿÿÿÿ8Óæğş0
+Y	java:S125Ô"<This block of commented-out lines of code should be removed.(ØæíÀ8Óæğş0
+X
+java:S1854Õ":Remove this useless assignment to local variable "result".(ÓøÿÕ8Óæğş0
+i
+java:S1192%"GDefine a constant instead of duplicating this literal "status" 3 times.(åŸÏÄùÿÿÿÿ8ê›¤û0
+d
+java:S1192‘"FDefine a constant instead of duplicating this literal "total" 5 times.(áËø›8Óæğş0
+_
+java:S1854'"=Remove this useless assignment to local variable "queryFlag".(Ğëô”øÿÿÿÿ8äñÂÊ0
+I
+java:S1481É"+Remove this unused "result" local variable.(àı¿Õ8Óæğş0
+t
+java:S3776""RRefactor this method to reduce its Cognitive Complexity from 42 to the 15 allowed.(ó®ß³ùÿÿÿÿ8ê›¤û0

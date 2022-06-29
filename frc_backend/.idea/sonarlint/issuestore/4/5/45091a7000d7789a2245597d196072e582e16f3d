@@ -1,0 +1,27 @@
+
+`
+java:S3252C"EUse static access with "com.alibaba.fastjson.JSON" for "parseObject".(‚ï€áşÿÿÿÿ
+\
+java:S3252ı"EUse static access with "com.alibaba.fastjson.JSON" for "parseObject".(çü‰Ã
+F
+java:S3740Ê"/Provide the parametrized type for this generic.(½Îó
+o
+java:S1192J"YDefine a constant instead of duplicating this literal "question_acceptance_info" 3 times.(§…×„
+l
+java:S1192â"UDefine a constant instead of duplicating this literal "question_detail_info" 3 times.(Í³È²
+k
+java:S1192á"TDefine a constant instead of duplicating this literal "question_basic_info" 3 times.(Â»Ô«
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(»¶®Êùÿÿÿÿ
+a
+java:S3252¸"EUse static access with "com.alibaba.fastjson.JSON" for "parseObject".(ÙÆÈ«üÿÿÿÿ
+s
+java:S1192À"WDefine a constant instead of duplicating this literal "acceptance_description" 3 times.(¾ÎÓìıÿÿÿÿ
+s
+java:S1192à"WDefine a constant instead of duplicating this literal "question_identify_info" 3 times.(¬šá†üÿÿÿÿ
+]
+java:S3252©"FUse static access with "com.alibaba.fastjson.JSON" for "toJSONString".(­æ®ê
+K
+java:S3740Ç"/Provide the parametrized type for this generic.(è‡ô–ûÿÿÿÿ
+J
+java:S1066P"/Merge this if statement with the enclosing one.(ô¬Ãøùÿÿÿÿ
+g	java:S117‘"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Àë É

@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.digiwin.app.frc.service.athena.mtw.mapper.QuestionClassificationMapper">
+
+
+    <sql id="Base_Column_List">
+        oid,
+        tenantsid,
+        classification_no,
+        classification_name,
+        question_attribution,
+        manage_status,
+        remarks,
+        create_time,
+        create_name,
+        update_time,
+        update_name
+    </sql>
+
+    <insert id="addQuestionClassificationInfo"
+                        parameterType="java.util.List">
+        INSERT INTO frc_question_classification
+        (
+            <include refid="Base_Column_List"/>
+        )
+        VALUES
+        <foreach collection="list" item="item" index="index"
+                 separator=",">
+        (
+            #{item.oid},
+            #{item.tenantSid},
+            #{item.classificationNo},
+            #{item.classificationName},
+            #{item.questionAttribution},
+            #{item.manageStatus},
+            #{item.remarks},
+            #{item.createTime},
+            #{item.createName},
+            #{item.updateTime},
+            #{item.updateName}
+        )
+        </foreach>
+    </insert>
+
+    <delete id="deleteQuestionClassificationInfo"
+            parameterType="java.util.List">
+        DELETE FROM frc_question_classification
+        WHERE oid IN
+        <foreach collection="list" item="oid" index="index" open="(" close=")" separator=",">
+            #{oid}
+        </foreach>
+    </delete>
+
+
+
+
+    <update id="updateBatch"  parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" close="" open="" separator=";">
+            UPDATE frc_question_classification
+            <set>
+                <if test="item.classificationNo != null and '' != item.classificationNo">
+                    classification_no = #{item.classificationNo},
+                </if>
+                <if test="item.classificationName != null and '' != item.classificationName">
+                    classification_name = #{item.classificationName},
+                </if>
+                <if test='item.questionAttribution != null and "" != item.questionAttribution and (item.questionAttribution == "1" || item.questionAttribution == "2" || item.questionAttribution == "3")'>
+                    question_attribution = #{item.questionAttribution},
+                </if>
+                <if test='item.manageStatus != null and "" != item.manageStatus and (item.manageStatus == "Y" || item.manageStatus == "V")'>
+                    manage_status = #{item.manageStatus},
+                </if>
+                <if test="item.remarks != null">
+                    remarks = #{item.remarks},
+                </if>
+                update_name = #{item.updateName},
+                update_time = #{item.updateTime}
+            </set>
+            WHERE oid = #{item.oid} AND tenantsid = #{item.tenantSid}
+        </foreach>
+    </update>
+
+
+    <resultMap id="classificationSourceResultMap"
+               type="com.digiwin.app.frc.service.athena.mtw.domain.vo.QuestionClassificationQueryVo">
+        <id property="oid" column="classificationId" />
+        <result property="questionAttribution" column="questionAttribution" />
+        <result property="classificationNo" column="classificationNo" />
+        <result property="classificationName" column="classificationName" />
+        <result property="manageStatus" column="manageStatus" />
+        <result property="remarks" column="remarks" />
+        <!-- 配置一对多的关系 -->
+        <collection property="sourceVos" javaType="list"
+                    ofType="com.digiwin.app.frc.service.athena.mtw.domain.vo.SourceVo">
+            <!-- 配置主键，是关联问题来源的唯一标识 -->
+            <id property="oid" column="sourceId" />
+            <result property="sourceName" column="sourceName" />
+            <result property="sourceNo" column="sourceNo" />
+        </collection>
+    </resultMap>
+
+    <select id="getQuestionClassificationInfo"
+            resultMap="classificationSourceResultMap">
+
+        SELECT
+        c.oid as classificationId,
+        c.classification_no as classificationNo,
+        c.classification_name as classificationName,
+        c.manage_status as manageStatus,
+        c.question_attribution as questionAttribution,
+        c.remarks as remarks,
+        s.oid as sourceId,
+        s.source_name as sourceName,
+        s.source_no as sourceNo
+        FROM
+        frc_question_classification c
+        LEFT JOIN   frc_question_classification_source qc ON qc.classification_oid = c.oid
+        LEFT JOIN frc_question_source s ON qc.source_oid = s.oid
+        WHERE c.tenantsid = #{tenantSid}
+        <if test="null != vo.classificationNo and '' != vo.classificationNo">
+            AND c.classification_no LIKE '%${vo.classificationNo}%'
+        </if>
+        <if test="null != vo.classificationName and '' != vo.classificationName">
+            AND c.classification_name LIKE '%${vo.classificationName}%'
+        </if>
+        <if test="null != vo.questionAttribution and '' != vo.questionAttribution">
+            AND c.question_attribution IN
+            <foreach collection="vo.questionAttribution.split(',')" item="item" index="index" open="(" separator="," close=")"> #{item} </foreach>
+        </if>
+        <if test='vo.manageStatus != null and "" != vo.manageStatus and (vo.manageStatus == "Y" || vo.manageStatus == "V")'>
+            AND c.manage_status = #{vo.manageStatus}
+        </if>
+        <if test="null != vo.remarks and '' != vo.remarks">
+            AND c.remarks LIKE '%${vo.remarks}%'
+        </if>
+        <if test="null != vo.sourceName and '' != vo.sourceName">
+            AND s.source_name LIKE '%${vo.sourceName}%'
+        </if>
+        <if test="null != vo.sourceNo and '' != vo.sourceNo">
+            AND s.source_no = #{vo.sourceNo}
+        </if>
+        ORDER BY c.create_time ASC
+    </select>
+
+    <select id="queryAllClassificationNos" resultType="string">
+        SELECT classification_no FROM frc_question_classification  WHERE tenantsid = #{tenantSid}
+    </select>
+
+    <update id="deleteAnalysisConfigIds">
+        UPDATE frc_question_classification
+        SET question_analysis_config_oid = NULL
+        WHERE tenantsid = #{tenantSid} AND question_analysis_config_oid in
+        <foreach collection="oidList" item="oid" index="index" open="(" close=")" separator=",">
+            #{oid}
+        </foreach>
+    </update>
+
+    <update id="updateAnalysisConfigId">
+        UPDATE frc_question_classification
+        SET question_analysis_config_oid = #{analysisConfigId}
+        WHERE tenantsid = #{tenantSid} AND oid in
+        <foreach collection="classificationIds" item="oid" index="index" open="(" close=")" separator=",">
+            #{oid}
+        </foreach>
+    </update>
+
+    <select id="queryAll" resultType="com.digiwin.app.frc.service.athena.mtw.domain.entity.QuestionClassificationEntity">
+        select <include refid="Base_Column_List"></include>
+        from frc_question_classification
+        where tenantsid = #{tenantSid}
+    </select>
+
+
+    <update id="updateAcceptanceConfigId">
+        UPDATE frc_question_classification
+        SET question_acceptance_config_oid = #{acceptanceConfigId}
+        WHERE tenantsid = #{tenantSid} AND oid in
+        <foreach collection="classificationIds" item="oid" index="index" open="(" close=")" separator=",">
+            #{oid}
+        </foreach>
+    </update>
+
+    <update id="updateAnalysisConfigIdInfo">
+        UPDATE frc_question_classification
+        SET question_analysis_config_oid = NULL
+        WHERE tenantsid = #{tenantSid} AND  question_analysis_config_oid = #{analysisConfigId}
+    </update>
+
+
+    <update id="deleteAcceptanceConfigIds">
+        UPDATE frc_question_classification
+        SET question_acceptance_config_oid = NULL
+        WHERE tenantsid = #{tenantSid} AND question_acceptance_config_oid in
+        <foreach collection="oidList" item="oid" index="index" open="(" close=")" separator=",">
+            #{oid}
+        </foreach>
+    </update>
+
+    <update id="updateAcceptanceConfigIdInfo">
+        UPDATE frc_question_classification
+        SET question_acceptance_config_oid = NULL
+        WHERE tenantsid = #{tenantSid} AND  question_acceptance_config_oid = #{acceptanceConfigId}
+    </update>
+
+    <update id="updateProcessConfigId" >
+        UPDATE frc_question_classification
+        SET question_process_config_oid = #{processConfigId}
+        WHERE tenantsid = #{tenantSid} AND oid in
+        <foreach collection="classificationIds" item="oid" index="index" open="(" close=")" separator=",">
+            #{oid}
+        </foreach>
+    </update>
+
+    <update id="updateProcessConfigIdInfo">
+        UPDATE frc_question_classification
+        SET question_process_config_oid = NULL
+        WHERE tenantsid = #{tenantSid} AND  question_process_config_oid = #{processConfigId}
+    </update>
+
+    <update id="updateProcessConfigIdByDelete">
+        UPDATE frc_question_classification
+        SET question_process_config_oid = NULL
+        WHERE tenantsid = #{tenantSid} AND question_process_config_oid in
+        <foreach collection="oidList" item="oid" index="index" open="(" close=")" separator=",">
+            #{oid}
+        </foreach>
+    </update>
+
+
+    <delete id="deleteClassificationSourceInfo">
+        DELETE FROM frc_question_classification_source
+        WHERE tenantsid = #{tenantSid} AND classification_oid IN
+        <foreach collection="classificationIds" item="oid" index="index" open="(" close=")" separator=",">
+            #{oid}
+        </foreach>
+    </delete>
+
+    <delete id="deleteClassificationSourceInfoByClassificationId">
+        DELETE FROM frc_question_classification_source
+        WHERE tenantsid = #{tenantSid} AND  classification_oid = #{classificationId}
+    </delete>
+
+
+    <sql id="Base_Column_List2">
+        oid,
+        tenantsid,
+        source_oid,
+        classification_oid,
+        create_time,
+        create_name,
+        update_time,
+        update_name
+    </sql>
+
+    <insert id="addClassificationSourceMidInfo">
+        INSERT INTO frc_question_classification_source
+        (
+        <include refid="Base_Column_List2"/>
+        )
+        VALUES
+        <foreach collection="list" item="item" index="index"
+                 separator=",">
+            (
+            #{item.oid},
+            #{item.tenantSid},
+            #{item.sourceOid},
+            #{item.classificationOid},
+            #{item.createTime},
+            #{item.createName},
+            #{item.updateTime},
+            #{item.updateName}
+            )
+        </foreach>
+    </insert>
+
+
+    <delete id="deleteClassificationSourceInfoBySourceIds">
+        DELETE FROM frc_question_classification_source
+        WHERE tenantsid = #{tenantSid} AND source_oid IN
+        <foreach collection="sourceIds" item="oid" index="index" open="(" close=")" separator=",">
+            #{oid}
+        </foreach>
+    </delete>
+
+    <delete id="deleteClassificationSourceInfoBySourceId">
+        DELETE FROM frc_question_classification_source
+        WHERE tenantsid = #{tenantSid} AND  source_oid = #{sourceId}
+    </delete>
+
+
+
+
+
+    <update id="deleteLiablePersonOidByIds"
+            parameterType="java.util.List">
+        UPDATE  frc_question_classification
+        SET liable_person_config_oid = null
+        WHERE tenantsid = #{tenantSid} AND liable_person_config_oid IN
+        <foreach collection="list" item="oid" index="index" open="(" close=")" separator=",">
+            #{oid}
+        </foreach>
+    </update>
+
+    <update id="updateLiablePersonOidByIds" parameterType="java.util.List">
+        UPDATE  frc_question_classification
+        SET liable_person_config_oid = #{liablePersonOid}
+        WHERE tenantsid = #{tenantSid} AND oid IN
+        <foreach collection="list" item="oid" index="index" open="(" close=")" separator=",">
+            #{oid}
+        </foreach>
+    </update>
+
+</mapper>

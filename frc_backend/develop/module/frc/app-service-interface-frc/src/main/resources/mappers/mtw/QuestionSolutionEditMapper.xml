@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.digiwin.app.frc.service.athena.mtw.mapper.QuestionSolutionEditMapper">
+
+    <sql id="Base_Column_List">
+        oid,
+        tenantsid,
+        solution_no,
+        solution_name,
+        manage_status,
+        default_choice,
+        director_id,
+        director_name,
+        create_time,
+        create_name,
+        update_time,
+        update_name
+    </sql>
+
+    <insert id="addQuestionSolutionEditInfo" useGeneratedKeys="true" keyColumn="oid" keyProperty="oid"
+            parameterType="com.digiwin.app.frc.service.athena.mtw.domain.entity.QuestionSolutionEditEntity">
+        INSERT INTO frc_solution_edit
+        (
+            <include refid="Base_Column_List"/>
+        )
+        VALUES
+        (
+            #{oid},
+            #{tenantSid},
+            #{solutionNo},
+            #{solutionName},
+            #{manageStatus},
+            #{defaultChoice},
+            #{directorId},
+            #{directorName},
+            #{createTime},
+            #{createName},
+            #{updateTime},
+            #{updateName}
+        )
+    </insert>
+
+
+
+    <delete id="deleteQuestionSolutionEditById">
+        DELETE FROM frc_solution_edit WHERE oid = #{oid}
+    </delete>
+
+
+    <update id="updateQuestionSolutionEditInfo"
+            parameterType="com.digiwin.app.frc.service.athena.mtw.domain.entity.QuestionSolutionEditEntity">
+        UPDATE frc_solution_edit
+        <set>
+            <if test="entity.solutionNo != null and '' != entity.solutionNo">
+                solution_no = #{entity.solutionNo},
+            </if>
+            <if test="entity.solutionName != null and '' != entity.solutionName">
+                solution_name = #{entity.solutionName},
+            </if>
+            <if test='entity.manageStatus != null and "" != entity.manageStatus and (entity.manageStatus == "Y" || entity.manageStatus == "V")'>
+                manage_status = #{entity.manageStatus},
+            </if>
+            <if test="entity.defaultChoice != null and (entity.defaultChoice == 1 || entity.defaultChoice == 0)">
+                default_choice = #{entity.defaultChoice},
+            </if>
+            <if test="entity.directorId != null ">
+                director_id = #{entity.directorId},
+            </if>
+            <if test="entity.directorName != null">
+                director_name = #{entity.directorName},
+            </if>
+            update_name = #{entity.updateName},
+            update_time = #{entity.updateTime}
+        </set>
+        WHERE oid = #{entity.oid} and tenantsid = #{tenantSid}
+    </update>
+
+
+    <select id="getQuestionSolutionEditInfo"
+            resultType="com.digiwin.app.frc.service.athena.mtw.domain.entity.QuestionSolutionEditEntity">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM frc_solution_edit
+        WHERE tenantsid = #{tenantSid}
+        <if test="null != solutionNo and '' != solutionNo">
+            AND solution_no LIKE '%${solutionNo}%'
+        </if>
+        <if test="null != solutionName and '' != solutionName">
+            AND solution_name LIKE '%${solutionName}%'
+        </if>
+        <if test="null != manageStatus and '' != manageStatus">
+            AND manage_status = #{manageStatus}
+        </if>
+        <if test="null != defaultChoice and '' != defaultChoice">
+            AND default_choice = #{defaultChoice}
+        </if>
+        <if test="null != directorId and '' != directorId">
+            AND director_id = #{directorId}
+        </if>
+        <if test="null != directorName and '' != directorName">
+            AND director_name LIKE '%${directorName}%'
+        </if>
+        ORDER BY solution_no ASC
+    </select>
+
+    <select id="queryAllSolutionNames" resultType="string">
+        SELECT solution_name FROM frc_solution_edit  WHERE tenantsid = #{tenantSid}
+    </select>
+
+    <select id="queryAllSolutionIds" resultType="string">
+        SELECT
+            solution_no
+        FROM
+            frc_solution_edit
+        WHERE
+            tenantsid = #{tenantSid}
+        ORDER BY
+            solution_no
+        ASC
+    </select>
+
+
+    <select id="querySolutionEditById"
+            resultType="com.digiwin.app.frc.service.athena.mtw.domain.entity.QuestionSolutionEditEntity">
+        SELECT <include refid="Base_Column_List"/>
+        FROM frc_solution_edit
+        WHERE oid = #{solutionKeyId} AND tenantsid = #{tenantSid}
+    </select>
+
+
+    <select id="getSolutionNoByDeletedKeyId" resultType="string">
+        SELECT solution_no FROM frc_solution_edit WHERE oid = #{oid} AND tenantsid = #{tenantSid}
+    </select>
+
+    <select id="getQuestionSolutionEditInfoByEditNo"
+            resultType="com.digiwin.app.frc.service.athena.mtw.domain.entity.QuestionSolutionEditEntity" >
+        SELECT <include refid="Base_Column_List"/>  FROM frc_solution_edit WHERE tenantsid = #{tenantSid}
+        AND solution_no = #{editNo}
+    </select>
+</mapper>

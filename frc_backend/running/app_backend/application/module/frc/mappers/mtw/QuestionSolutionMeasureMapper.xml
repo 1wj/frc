@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.digiwin.app.frc.service.athena.mtw.mapper.QuestionSolutionMeasureMapper">
+
+    <sql id="Base_Column_List">
+        oid,
+        tenantsid,
+        solution_edit_oid,
+        measure_no,
+        measure_name,
+        principal_id,
+        principal_name,
+        expect_complete_time,
+        create_time,
+        create_name,
+        update_time,
+        update_name
+    </sql>
+
+
+    <insert id="addQuestionMeasureInfo"
+            parameterType="com.digiwin.app.frc.service.athena.mtw.domain.entity.QuestionSolutionMeasureEntity">
+        INSERT INTO frc_solution_measure
+        (
+            <include refid="Base_Column_List"/>
+        )
+        VALUES
+        (
+            #{oid},
+            #{tenantSid},
+            #{solutionEditOid},
+            #{measureNo},
+            #{measureName},
+            #{principalId},
+            #{principalName},
+            #{expectCompleteTime},
+            #{createTime},
+            #{createName},
+            #{updateTime},
+            #{updateName}
+        )
+    </insert>
+
+
+    <delete id="deleteQuestionSolutionMeasureByEditOid">
+        DELETE FROM frc_solution_measure WHERE solution_edit_oid = #{solutionEditOid}
+    </delete>
+
+    <update id="updateQuestionMeasureByEditOid" >
+        UPDATE frc_solution_measure
+        <set>
+            <if test="measureEntity.measureNo != null and '' != measureEntity.measureNo">
+                measure_no = #{measureEntity.measureNo},
+            </if>
+            <if test="measureEntity.measureName != null and '' != measureEntity.measureName">
+                measure_name = #{measureEntity.measureName},
+            </if>
+            <if test="measureEntity.principalId != null and '' != measureEntity.principalId">
+                principal_id = #{measureEntity.principalId},
+            </if>
+            <if test="measureEntity.principalName != null and '' != measureEntity.principalName">
+                principal_name = #{measureEntity.principalName},
+            </if>
+            <if test="measureEntity.expectCompleteTime != null and '' != measureEntity.expectCompleteTime">
+                expect_complete_time = #{measureEntity.expectCompleteTime},
+            </if>
+            update_name = #{measureEntity.updateName},
+            update_time = #{measureEntity.updateTime}
+        </set>
+        WHERE solution_edit_oid = #{editOid}
+        AND oid = #{measureOid} AND tenantsid = #{tenantSid}
+    </update>
+
+
+    <select id="queryMeasureInfoByEditOid"
+            resultType="com.digiwin.app.frc.service.athena.mtw.domain.entity.QuestionSolutionMeasureEntity">
+        SELECT
+            <include refid="Base_Column_List"/>
+        FROM
+            frc_solution_measure
+        WHERE
+            solution_edit_oid = #{editOid} AND tenantsid = #{tenantSid}
+        ORDER BY
+            measure_no
+        ASC
+    </select>
+
+    <select id="queryAllMeasureNosByPrefix"  resultType="string">
+        SELECT
+            measure_no
+        FROM
+            frc_solution_measure
+        WHERE
+            measure_no LIKE '${solutionId}%' AND tenantsid = #{tenantSid}
+        ORDER BY
+            measure_no
+        ASC
+    </select>
+
+    <delete id="deleteQuestionSolutionMeasureById" >
+        DELETE FROM frc_solution_measure WHERE oid = #{measureOid}
+    </delete>
+
+</mapper>

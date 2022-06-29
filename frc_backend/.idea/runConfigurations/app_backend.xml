@@ -1,0 +1,14 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="app_backend" type="Application" factoryName="Application">
+    <option name="ALTERNATIVE_JRE_PATH" value="java-1.8.0-openjdk" />
+    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+    <option name="MAIN_CLASS_NAME" value="com.digiwin.gateway.DWApiGatewayApplication" />
+    <module name="app_backend" />
+    <option name="PROGRAM_PARAMETERS" value="dev" />
+    <shortenClasspath name="MANIFEST" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/running/app_backend" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

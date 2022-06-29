@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+	<!-- header repository -->
+	<bean id="localHeaderRepository" class="com.digiwin.app.container.local.DWLocalHeaderRepository"></bean>
+	<bean id="DWHeaderRepository" class="com.digiwin.app.container.DWHeaderRepositoryList">
+		<property name="repositories">
+			<list>
+				<ref bean="localHeaderRepository" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- local service repository -->	
+	<bean id="localServiceRepository" class="com.digiwin.app.container.local.DWLocalServiceRepository" />
+	<!-- dubbo service repository -->
+	<!-- <bean id="dubboServiceRepository" class="com.digiwin.app.container.dubbo.DWDubboServiceRepository" /> -->
+	<!-- rest service repository -->
+	<!--<bean id="restfulServiceRepository" class="com.digiwin.app.container.restful.DWRestfulServiceRepository" />-->
+	<!-- queue service repository -->	
+<!-- 	<bean id="queueServiceRepository" class="com.digiwin.app.container.queue.DWQueueServiceRepository">
+		<constructor-arg ref="DWQueueMethodDefiner" />
+	</bean> -->
+	
+	<bean id="DWServiceRepository" class="com.digiwin.app.container.DWServiceRepositoryList">
+		<property name="repositories">
+			<list>
+				<!-- <ref bean="queueServiceRepository" /> -->
+				<ref bean="localServiceRepository" />
+				<!-- <ref bean="dubboServiceRepository" /> -->
+			</list>
+		</property>
+	</bean>
+	
+	<!-- container context -->
+	<bean id="DWContainerContext" class="com.digiwin.app.container.DWContainerContext">
+		<constructor-arg ref="DWHeaderRepository"/>
+		<constructor-arg ref="DWServiceRepository"/>
+		<constructor-arg>
+			<list>
+				<ref bean="DWModuleServiceInvocationProcessor" />
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean id="DWModuleServiceInvocationProcessor" class="com.digiwin.app.module.DWModuleServiceInvocationProcessor"></bean>
+</beans>

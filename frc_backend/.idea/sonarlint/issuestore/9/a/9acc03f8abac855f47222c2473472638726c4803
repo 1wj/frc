@@ -1,0 +1,14 @@
+
+]
+java:S2142¦"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+I
+java:S1128".Remove this unused import 'java.util.HashMap'.(™˜”€ùÿÿÿÿ
+K
+java:S3740”"/Provide the parametrized type for this generic.(û‘ŽÃüÿÿÿÿ
+Q	java:S125T"<This block of commented-out lines of code should be removed.(ê€Çü
+a
+java:S3252z"FUse static access with "com.alibaba.fastjson.JSON" for "toJSONString".(´Ú„¾úÿÿÿÿ
+`
+java:S3252f"EUse static access with "com.alibaba.fastjson.JSON" for "parseObject".(ô¨”ðúÿÿÿÿ
+\
+java:S3252X"FUse static access with "com.alibaba.fastjson.JSON" for "toJSONString".(Ã—Ä®

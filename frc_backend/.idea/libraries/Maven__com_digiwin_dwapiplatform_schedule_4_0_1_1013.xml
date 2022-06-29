@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.digiwin:dwapiplatform-schedule:4.0.1.1013">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/digiwin/dwapiplatform-schedule/4.0.1.1013/dwapiplatform-schedule-4.0.1.1013.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/digiwin/dwapiplatform-schedule/4.0.1.1013/dwapiplatform-schedule-4.0.1.1013-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/digiwin/dwapiplatform-schedule/4.0.1.1013/dwapiplatform-schedule-4.0.1.1013-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

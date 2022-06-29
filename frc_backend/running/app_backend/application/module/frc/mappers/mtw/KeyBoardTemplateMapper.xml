@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.digiwin.app.frc.service.athena.mtw.mapper.KeyBoardTemplateMapper">
+
+    <sql id="Base_Column_List">
+        oid,
+        tenantsid,
+        model_no,
+        model_name,
+        manage_status,
+        default_choice,
+        remarks,
+        create_time,
+        create_name,
+        update_time,
+        update_name
+    </sql>
+
+
+    <insert id="addKeyBoardTemplateInfo"
+            parameterType="com.digiwin.app.frc.service.athena.mtw.domain.entity.KeyBoardTemplateEntity">
+        INSERT INTO frc_keyboard_template
+        (
+        <include refid="Base_Column_List"/>
+        )
+        VALUES
+        (
+            #{oid},
+            #{tenantSid},
+            #{modelNo},
+            #{modelName},
+            #{manageStatus},
+            #{defaultChoice},
+            #{remarks},
+            #{createTime},
+            #{createName},
+            #{updateTime},
+            #{updateName}
+        )
+    </insert>
+
+    <delete id="deleteKeyBoardTemplateById">
+        DELETE FROM frc_keyboard_template WHERE oid = #{templateOid}
+    </delete>
+
+    <update id="updateKeyBoardTemplateInfo"
+            parameterType="com.digiwin.app.frc.service.athena.mtw.domain.entity.KeyBoardTemplateEntity">
+        UPDATE frc_keyboard_template
+        <set>
+            <if test="entity.modelName != null and '' != entity.modelName">
+                model_name = #{entity.modelName},
+            </if>
+            <if test='entity.manageStatus != null and "" != entity.manageStatus and (entity.manageStatus == "Y" || entity.manageStatus == "V")'>
+                manage_status = #{entity.manageStatus},
+            </if>
+            <if test="entity.defaultChoice != null and (entity.defaultChoice == 1 || entity.defaultChoice == 0)">
+                default_choice = #{entity.defaultChoice},
+            </if>
+            <if test="entity.remarks != null">
+                remarks = #{entity.remarks},
+            </if>
+            update_name = #{entity.updateName},
+            update_time = #{entity.updateTime}
+        </set>
+        WHERE oid = #{entity.oid} and tenantsid = #{tenantSid}
+    </update>
+
+    <select id="getKeyBoardTemplateInfo"
+            resultType="com.digiwin.app.frc.service.athena.mtw.domain.entity.KeyBoardTemplateEntity">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM frc_keyboard_template
+        WHERE tenantsid = #{tenantSid}
+        <if test="null != modelName and '' != modelName">
+            AND model_name LIKE '%${modelName}%'
+        </if>
+        <if test="null != manageStatus and '' != manageStatus">
+            AND manage_status = #{manageStatus}
+        </if>
+        <if test="null != defaultChoice">
+            AND default_choice = #{defaultChoice}
+        </if>
+        <if test="null != remarks and '' != remarks">
+            AND remarks LIKE '%${remarks}%'
+        </if>
+        ORDER BY model_no ASC
+    </select>
+
+    <select id="queryTemplateById"
+            resultType="com.digiwin.app.frc.service.athena.mtw.domain.entity.KeyBoardTemplateEntity">
+        SELECT <include refid="Base_Column_List"/>
+        FROM  frc_keyboard_template
+        WHERE oid = #{templateId} AND tenantsid = #{tenantSid}
+        ORDER BY model_no ASC
+    </select>
+
+
+    <select id="queryAllTemplateNos" resultType="string">
+        SELECT
+            model_no
+        FROM
+            frc_keyboard_template
+        WHERE tenantsid = #{tenantSid}
+        ORDER BY
+            model_no
+        ASC
+    </select>
+</mapper>

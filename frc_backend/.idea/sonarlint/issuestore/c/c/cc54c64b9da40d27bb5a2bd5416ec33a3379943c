@@ -1,0 +1,17 @@
+
+e
+java:S1192°"IDefine a constant instead of duplicating this literal "notExist" 5 times.(Œß‰€þÿÿÿÿ
+`
+java:S1192:"JDefine a constant instead of duplicating this literal "tenantSid" 4 times.(ïäÁÀ
+t
+java:S1192—"]Define a constant instead of duplicating this literal "question_classification_info" 3 times.(óÄäÄ
+ˆ
+java:S1128	"sRemove this unused import 'com.digiwin.app.frc.service.athena.mtw.common.constants.QuestionClassificationConstant'.(¹©¦j
+a
+java:S3252…"EUse static access with "com.alibaba.fastjson.JSON" for "parseObject".(Ë›Öºúÿÿÿÿ
+\
+java:S3252–"EUse static access with "com.alibaba.fastjson.JSON" for "parseObject".(€¹ÓÂ
+n
+java:S3776¨"RRefactor this method to reduce its Cognitive Complexity from 28 to the 15 allowed.(¤©ö÷üÿÿÿÿ
+d
+java:S3252²"MUse static access with "cn.hutool.core.collection.CollUtil" for "isNotEmpty".(°ÖÄå

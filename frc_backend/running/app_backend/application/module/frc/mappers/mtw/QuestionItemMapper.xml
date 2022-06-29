@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.digiwin.app.frc.service.athena.mtw.mapper.QuestionItemMapper">
+
+    <sql id="Base_Column_List">
+        oid,
+        tenantsid,
+        item_no,
+        item_name,
+        create_time,
+        create_name,
+        update_time,
+        update_name
+    </sql>
+
+
+    <insert id="addQuestionItemInfo" parameterType="java.util.List">
+        INSERT INTO frc_item
+        (
+            <include refid="Base_Column_List"/>
+        )
+        VALUES
+        <foreach collection="list" item="item" index="index"
+                 separator=",">
+        (
+            #{item.oid},
+            #{item.tenantSid},
+            #{item.itemNo},
+            #{item.itemName},
+            #{item.createTime},
+            #{item.createName},
+            #{item.updateTime},
+            #{item.updateName}
+        )
+        </foreach>
+    </insert>
+
+    <delete id="deleteQuestionItemInfo" parameterType="java.util.List">
+        DELETE FROM frc_item
+        WHERE oid IN
+        <foreach collection="list" item="oid" index="index" open="(" close=")" separator=",">
+            #{oid}
+        </foreach>
+    </delete>
+
+
+    <update id="updateBatch" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" close="" open="" separator=";">
+            UPDATE frc_item
+            <set>
+                <if test="item.itemNo != null and '' != item.itemNo">
+                    item_no = #{item.itemNo},
+                </if>
+                <if test="item.itemName != null and '' != item.itemName">
+                    item_name = #{item.itemName},
+                </if>
+                update_name = #{item.updateName},
+                update_time = #{item.updateTime}
+            </set>
+            WHERE oid = #{item.oid} AND tenantsid = #{item.tenantSid}
+        </foreach>
+    </update>
+
+
+    <select id="getQuestionItemInfo"
+            resultType="com.digiwin.app.frc.service.athena.mtw.domain.entity.QuestionItemEntity">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM frc_item
+        WHERE tenantsid = #{tenantSid}
+        <if test="null != itemNo and '' != itemNo">
+            AND item_no  LIKE '%${itemNo}%'
+        </if>
+        <if test="null != itemName and '' != itemName">
+            AND item_name LIKE '%${itemName}%'
+        </if>
+        ORDER BY create_time ASC
+    </select>
+
+
+    <select id="queryAllItemNos" resultType="string">
+        SELECT item_no FROM frc_item  WHERE tenantsid = #{tenantSid}
+    </select>
+
+</mapper>

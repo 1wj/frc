@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.digiwin.app.frc.service.athena.qdh.mapper.DataInstanceMapper">
+    <resultMap id="BaseResultMap" type="com.digiwin.app.frc.service.athena.qdh.domain.entity.DataInstanceEntity" >
+        <result column="oid" property="oid" />
+        <result column="tenantsid" property="tenantsid" />
+        <result column="question_trace_oid" property="questionTraceOid" />
+        <result column="data_content" property="dataContent" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+                oid,
+                tenantsid,
+                question_trace_oid,
+                data_content,
+                create_date,
+                create_name,
+                update_date,
+                update_name
+    </sql>
+
+    <sql id="Base_Column_List2">
+                oid,
+                tenantsid,
+                question_trace_oid,
+                data_content,
+                create_date,
+                create_name,
+                update_date,
+                update_name
+    </sql>
+
+    <select id="getQuestionDetail" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM frc_data_instance
+        <where>
+            <if test="tenantsid != null">
+                and tenantsid = #{tenantsid,jdbcType = BIGINT}
+            </if>
+            <if test="questionId != null">
+                and question_trace_oid = #{questionId}
+            </if>
+        </where>
+    </select>
+
+    <select id="getQuestionDetailForQuestionNo" resultType="com.digiwin.app.frc.service.athena.qdh.domain.vo.DataInstanceVo">
+        SELECT q.tenantsid as tenantsid,q.question_no as questionNo,q.question_process_step as questionProcessStep,q.question_record_oid as recordOId,a.oid as oid , a.data_content as dataContent
+        FROM frc_question_action_trace q
+        inner join frc_data_instance a on q.oid = a.question_trace_oid
+        <where>
+            <if test="questionId != null">
+                and q.oid = #{questionId}
+            </if>
+        </where>
+    </select>
+
+    <update id="updateDataInstance" parameterType="com.digiwin.app.frc.service.athena.qdh.domain.entity.DataInstanceEntity">
+        UPDATE frc_data_instance
+        <set>
+            <if test="null != dataContent and '' != dataContent">data_content = #{dataContent},</if>
+            <if test="updateTime != null">update_date = #{updateTime},</if>
+            <if test="null != updateName and '' != updateName">update_name = #{updateName}</if>
+        </set>
+        WHERE oid = #{oid} and tenantsid = #{tenantsid}
+    </update>
+
+    <insert id="insertDataInstance" useGeneratedKeys="true" keyColumn="id" keyProperty="id" parameterType="com.digiwin.app.frc.service.athena.qdh.domain.entity.DataInstanceEntity">
+        INSERT INTO frc_data_instance
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="null != oid and '' != oid">
+                oid,
+            </if>
+            <if test="null != tenantsid and '' != tenantsid">
+                tenantsid,
+            </if>
+            <if test="null != questionTraceOid and '' != questionTraceOid">
+                question_trace_oid,
+            </if>
+            <if test="null != dataContent and '' != dataContent">
+                data_content,
+            </if>
+            <if test="createTime != null">
+                create_date,
+            </if>
+            <if test="null != createName and '' != createName">
+                create_name,
+            </if>
+            <if test="updateTime != null">
+            update_date,
+            </if>
+            <if test="null != updateName and '' != updateName">
+            update_name
+            </if>
+
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="null != oid and '' != oid">
+                #{oid},
+            </if>
+            <if test="null != tenantsid and '' != tenantsid">
+                #{tenantsid},
+            </if>
+            <if test="null != questionTraceOid and '' != questionTraceOid">
+                #{questionTraceOid},
+            </if>
+            <if test="null != dataContent and '' != dataContent">
+                #{dataContent},
+            </if>
+            <if test="createTime != null">
+                #{createTime},
+            </if>
+            <if test="null != createName and '' != createName">
+                #{createName},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime},
+            </if>
+            <if test="null != updateName and '' != updateName">
+                #{updateName}
+            </if>
+
+        </trim>
+    </insert>
+
+    <insert id="insertBatchDataInstance" parameterType="java.util.List">
+        INSERT INTO frc_data_instance
+        (
+        <include refid="Base_Column_List"/>
+        )
+        values
+        <foreach collection="list" item="item" index="index"
+                 separator=",">
+            (
+            #{item.oid},
+            #{item.tenantsid},
+            #{item.questionTraceOid},
+            #{item.dataContent},
+            #{item.createTime},
+            #{item.createName},
+            #{item.updateTime},
+            #{item.updateName}
+            )
+        </foreach>
+    </insert>
+</mapper>

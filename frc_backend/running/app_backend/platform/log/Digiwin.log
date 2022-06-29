@@ -1,0 +1,1402 @@
+2022/06/28 11:19:51 INFO  [] log level: INFO
+2022/06/28 11:19:52 WARN  [] app.id is not available from System Property and /META-INF/app.properties. It is set to null
+2022/06/28 11:19:52 INFO  [] Environment is set to null. Because it is not available in either (1) JVM system property 'env', (2) OS env variable 'ENV' nor (3) property 'env' from the properties InputStream.
+2022/06/28 11:19:52 WARN  [] Meta server address fallback to http://apollo.meta for env UNKNOWN, because it is not available in all MetaServerProviders
+2022/06/28 11:20:07 INFO  [] is hook remote log4j2.xml: true
+2022/06/28 11:20:07 INFO  [] LogFactory implement: commons-logging
+2022/06/28 11:20:07 INFO  [] Log implement: DWExtendedLogger
+2022/06/28 11:20:07 INFO  [] [ConfigPool] policy: LOCAL_FIRST, isRemoteConfigOn: false, isGroupConfigOn: false
+2022/06/28 11:20:07 INFO  [] config center url: 
+2022/06/28 11:20:07 INFO  [] config center app ID: 
+2022/06/28 11:20:07 INFO  [] platform version: 
+2022/06/28 11:20:07 INFO  [] application version: 
+2022/06/28 11:20:07 INFO  [] config center group app ID: 
+2022/06/28 11:20:07 INFO  [] appId=frm
+2022/06/28 11:20:07 INFO  [] appToken=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IkZSQyIsInNpZCI6Mzc0MzM4Mjc1NzQ2MzY4fQ.Y0uDwsN0eD6PyTwtCt3Wis-PkWG_xC28XgQ3PAzjILc
+2022/06/28 11:20:07 INFO  [] dw-server:serverHttpTokenmode:IAM
+2022/06/28 11:20:07 INFO  [] dw-server:tenantEnabled=true
+2022/06/28 11:20:07 INFO  [] dw-server:tenantColumnname=tenantsid
+2022/06/28 11:20:08 INFO  [] HV000001: Hibernate Validator 6.0.9.Final
+2022/06/28 11:20:09 INFO  [] Starting DWApiGatewayApplication v4.0.0.1001 on H-17783 with PID 16660 (D:\frc\frc_backend\running\app_backend\platform\lib\dwapiplatform-springboot-4.0.0.1001.jar started by Wj in D:\frc\frc_backend\running\app_backend)
+2022/06/28 11:20:09 INFO  [] The following profiles are active: Saas,Heartbeat,RestfulService,RestfulStandard,EAI,bio,tomcat
+2022/06/28 11:20:09 INFO  [] Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@7186333e: startup date [Tue Jun 28 11:20:09 CST 2022]; root of context hierarchy
+2022/06/28 11:20:10 INFO  [] Overriding bean definition for bean 'websocketContainerCustomizer' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.websocket.servlet.WebSocketServletAutoConfiguration$UndertowWebSocketConfiguration; factoryMethodName=websocketContainerCustomizer; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/websocket/servlet/WebSocketServletAutoConfiguration$UndertowWebSocketConfiguration.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.websocket.servlet.WebSocketServletAutoConfiguration$TomcatWebSocketConfiguration; factoryMethodName=websocketContainerCustomizer; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/websocket/servlet/WebSocketServletAutoConfiguration$TomcatWebSocketConfiguration.class]]
+2022/06/28 11:20:11 INFO  [] log level: INFO
+2022/06/28 11:20:11 INFO  [] DWModuleDWServiceProcessor start to search DWService...
+2022/06/28 11:20:12 INFO  [] >>> Found Header 1.group=frc, service name=ICallbackService, type=com.digiwin.app.frc.service.athena.app.dingding.ICallbackService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 2.group=frc, service name=IDingLoginServer, type=com.digiwin.app.frc.service.athena.app.service.IDingLoginServer
+2022/06/28 11:20:12 INFO  [] >>> Found Header 3.group=frc, service name=IDingRegisterServer, type=com.digiwin.app.frc.service.athena.app.service.IDingRegisterServer
+2022/06/28 11:20:12 INFO  [] >>> Found Header 4.group=frc, service name=IQuestionTaskService, type=com.digiwin.app.frc.service.athena.app.service.IQuestionTaskService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 5.group=frc, service name=IPdfService, type=com.digiwin.app.frc.service.athena.file.service.IPdfService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 6.group=frc, service name=ICraftDataService, type=com.digiwin.app.frc.service.athena.mtw.service.ICraftDataService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 7.group=frc, service name=ICustomerService, type=com.digiwin.app.frc.service.athena.mtw.service.ICustomerService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 8.group=frc, service name=IDefectCodeService, type=com.digiwin.app.frc.service.athena.mtw.service.IDefectCodeService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 9.group=frc, service name=IEquipmentService, type=com.digiwin.app.frc.service.athena.mtw.service.IEquipmentService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 10.group=frc, service name=IESPCraftDataService, type=com.digiwin.app.frc.service.athena.mtw.service.IESPCraftDataService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 11.group=frc, service name=IESPCustomerService, type=com.digiwin.app.frc.service.athena.mtw.service.IESPCustomerService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 12.group=frc, service name=IESPDefectCodeService, type=com.digiwin.app.frc.service.athena.mtw.service.IESPDefectCodeService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 13.group=frc, service name=IESPEquipmentService, type=com.digiwin.app.frc.service.athena.mtw.service.IESPEquipmentService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 14.group=frc, service name=IESPKanbanFoolproofService, type=com.digiwin.app.frc.service.athena.mtw.service.IESPKanbanFoolproofService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 15.group=frc, service name=IESPKeyBoardAuthorityService, type=com.digiwin.app.frc.service.athena.mtw.service.IESPKeyBoardAuthorityService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 16.group=frc, service name=IESPKeyBoardDisplayService, type=com.digiwin.app.frc.service.athena.mtw.service.IESPKeyBoardDisplayService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 17.group=frc, service name=IESPKeyBoardTemplateService, type=com.digiwin.app.frc.service.athena.mtw.service.IESPKeyBoardTemplateService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 18.group=frc, service name=IESPProductSeriesService, type=com.digiwin.app.frc.service.athena.mtw.service.IESPProductSeriesService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 19.group=frc, service name=IESPQuestionBackService, type=com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionBackService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 20.group=frc, service name=IESPQuestionClassificationService, type=com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionClassificationService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 21.group=frc, service name=IESPQuestionConfigInfoService, type=com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionConfigInfoService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 22.group=frc, service name=IESPQuestionIdentifyConfigService, type=com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionIdentifyConfigService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 23.group=frc, service name=IESPQuestionItemService, type=com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionItemService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 24.group=frc, service name=IESPQuestionReasonService, type=com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionReasonService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 25.group=frc, service name=IESPQuestionSolutionService, type=com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionSolutionService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 26.group=frc, service name=IESPQuestionSourceService, type=com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionSourceService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 27.group=frc, service name=IKanbanFoolproofService, type=com.digiwin.app.frc.service.athena.mtw.service.IKanbanFoolproofService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 28.group=frc, service name=IKeyBoardAuthorityService, type=com.digiwin.app.frc.service.athena.mtw.service.IKeyBoardAuthorityService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 29.group=frc, service name=IKeyBoardDisplayService, type=com.digiwin.app.frc.service.athena.mtw.service.IKeyBoardDisplayService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 30.group=frc, service name=IKeyBoardTemplateService, type=com.digiwin.app.frc.service.athena.mtw.service.IKeyBoardTemplateService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 31.group=frc, service name=IProductSeriesService, type=com.digiwin.app.frc.service.athena.mtw.service.IProductSeriesService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 32.group=frc, service name=IQuestionBackService, type=com.digiwin.app.frc.service.athena.mtw.service.IQuestionBackService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 33.group=frc, service name=IQuestionClassificationService, type=com.digiwin.app.frc.service.athena.mtw.service.IQuestionClassificationService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 34.group=frc, service name=IQuestionConfigInfoService, type=com.digiwin.app.frc.service.athena.mtw.service.IQuestionConfigInfoService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 35.group=frc, service name=IQuestionIdentifyConfigService, type=com.digiwin.app.frc.service.athena.mtw.service.IQuestionIdentifyConfigService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 36.group=frc, service name=IQuestionItemService, type=com.digiwin.app.frc.service.athena.mtw.service.IQuestionItemService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 37.group=frc, service name=IQuestionReasonService, type=com.digiwin.app.frc.service.athena.mtw.service.IQuestionReasonService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 38.group=frc, service name=IQuestionSolutionService, type=com.digiwin.app.frc.service.athena.mtw.service.IQuestionSolutionService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 39.group=frc, service name=IQuestionSourceService, type=com.digiwin.app.frc.service.athena.mtw.service.IQuestionSourceService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 40.group=frc, service name=IESPLiablePersonConfigService, type=com.digiwin.app.frc.service.athena.ppc.service.IESPLiablePersonConfigService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 41.group=frc, service name=IESPQuestionAcceptanceConfigService, type=com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionAcceptanceConfigService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 42.group=frc, service name=IESPQuestionAnalysisConfigService, type=com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionAnalysisConfigService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 43.group=frc, service name=IESPQuestionConfirmConfigService, type=com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionConfirmConfigService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 44.group=frc, service name=IESPQuestionLiablePersonDepartmentLatitudeConfigService, type=com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionLiablePersonDepartmentLatitudeConfigService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 45.group=frc, service name=IESPQuestionOccurStageService, type=com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionOccurStageService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 46.group=frc, service name=IESPQuestionProcessConfigService, type=com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionProcessConfigService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 47.group=frc, service name=IESPQuestionRiskLevelService, type=com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionRiskLevelService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 48.group=frc, service name=ILiablePersonConfigService, type=com.digiwin.app.frc.service.athena.ppc.service.ILiablePersonConfigService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 49.group=frc, service name=IQuestionAcceptanceConfigService, type=com.digiwin.app.frc.service.athena.ppc.service.IQuestionAcceptanceConfigService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 50.group=frc, service name=IQuestionAnalysisConfigService, type=com.digiwin.app.frc.service.athena.ppc.service.IQuestionAnalysisConfigService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 51.group=frc, service name=IQuestionConfirmConfigService, type=com.digiwin.app.frc.service.athena.ppc.service.IQuestionConfirmConfigService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 52.group=frc, service name=IQuestionLiablePersonDepartmentLatitudeConfigService, type=com.digiwin.app.frc.service.athena.ppc.service.IQuestionLiablePersonDepartmentLatitudeConfigService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 53.group=frc, service name=IQuestionOccurStageService, type=com.digiwin.app.frc.service.athena.ppc.service.IQuestionOccurStageService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 54.group=frc, service name=IQuestionProcessConfigService, type=com.digiwin.app.frc.service.athena.ppc.service.IQuestionProcessConfigService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 55.group=frc, service name=IQuestionRiskLevelService, type=com.digiwin.app.frc.service.athena.ppc.service.IQuestionRiskLevelService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 56.group=frc, service name=IESPService, type=com.digiwin.app.frc.service.athena.qdh.service.IESPService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 57.group=frc, service name=ITestService, type=com.digiwin.app.frc.service.athena.qdh.service.ITestService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 58.group=frc, service name=IESPKanbanInfoDisplayService, type=com.digiwin.app.frc.service.athena.rqi.service.IESPKanbanInfoDisplayService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 59.group=frc, service name=IESPReportQueryService, type=com.digiwin.app.frc.service.athena.rqi.service.IESPReportQueryService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 60.group=frc, service name=IFileOperationService, type=com.digiwin.app.frc.service.athena.rqi.service.IFileOperationService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 61.group=frc, service name=IKanbanInfoDisplayService, type=com.digiwin.app.frc.service.athena.rqi.service.IKanbanInfoDisplayService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 62.group=frc, service name=IReportQueryService, type=com.digiwin.app.frc.service.athena.rqi.service.IReportQueryService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 63.group=frc, service name=IESPServiceForIteration8D, type=com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D
+2022/06/28 11:20:12 INFO  [] >>> Found Header 64.group=frc, service name=IESPServiceForIterationUniversal, type=com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIterationUniversal
+2022/06/28 11:20:12 INFO  [] >>> Found Header 65.group=frc, service name=ITest8DService, type=com.digiwin.app.frc.service.athena.solutions.service.ITest8DService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 66.group=frc, service name=ITestUniversalService, type=com.digiwin.app.frc.service.athena.solutions.service.ITestUniversalService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 67.group=RequestHelper, service name=IModuleInfoService, type=com.digiwin.app.requesthelper.service.IModuleInfoService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 68.group=DWSys, service name=ILoginService, type=com.digiwin.dwapi.dwsys.service.ILoginService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 69.group=DWSys, service name=ITestJobService, type=com.digiwin.dwapi.dwsys.service.ITestJobService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 70.group=DWSys, service name=ISystemInfoService, type=com.digiwin.dwapi.dwsys.service.ISystemInfoService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 71.group=DWSys, service name=IOrgService, type=com.digiwin.dwapi.dwsys.service.IOrgService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 72.group=DWSys, service name=IQueryService, type=com.digiwin.dwapi.dwsys.service.IQueryService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 73.group=DWSys, service name=IFunctionPermissionService, type=com.digiwin.dwapi.dwsys.service.IFunctionPermissionService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 74.group=DWSys, service name=ICheckJob, type=com.digiwin.dwapi.dwsys.service.ICheckJob
+2022/06/28 11:20:12 INFO  [] >>> Found Header 75.group=DWSys, service name=IMyHomeService, type=com.digiwin.dwapi.dwsys.service.IMyHomeService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 76.group=DWSys, service name=IDMCService, type=com.digiwin.dwapi.dwsys.service.IDMCService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 77.group=DWSys, service name=IThemeService, type=com.digiwin.dwapi.dwsys.service.IThemeService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 78.group=DWSys, service name=IServiceInfoService, type=com.digiwin.dwapi.dwsys.service.IServiceInfoService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 79.group=DWSys, service name=IMetadataService, type=com.digiwin.dwapi.dwsys.service.IMetadataService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 80.group=DWSys, service name=IUserService, type=com.digiwin.dwapi.dwsys.service.IUserService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 81.group=DWSys, service name=IHealthCheckingService, type=com.digiwin.dwapi.dwsys.service.IHealthCheckingService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 82.group=DWSys, service name=IReportService, type=com.digiwin.dwapi.dwsys.service.IReportService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 83.group=DWSys, service name=IOnPremisesUpdateService, type=com.digiwin.dwapi.dwsys.service.IOnPremisesUpdateService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 84.group=DWSys, service name=IReleaseService, type=com.digiwin.dwapi.dwsys.service.IReleaseService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 85.group=DWSys, service name=IDocumentIdService, type=com.digiwin.dwapi.dwsys.service.IDocumentIdService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 86.group=DWSys, service name=ICheckResultReceiverService, type=com.digiwin.dwapi.dwsys.service.ICheckResultReceiverService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 87.group=DWSys, service name=IMenuService, type=com.digiwin.dwapi.dwsys.service.IMenuService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 88.group=DWSys, service name=IScheduleService, type=com.digiwin.dwapi.dwsys.service.IScheduleService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 89.group=DWSys, service name=ICustomColumnService, type=com.digiwin.dwapi.dwsys.service.ICustomColumnService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 90.group=DWSys, service name=ILogService, type=com.digiwin.dwapi.dwsys.service.ILogService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 91.group=DWSys, service name=ICustomizeFieldService, type=com.digiwin.dwapi.dwsys.service.ICustomizeFieldService
+2022/06/28 11:20:12 INFO  [] >>> Found Header 92.group=DWSys, service name=ITenantScheduleBatchService, type=com.digiwin.dwapi.dwsys.service.ITenantScheduleBatchService
+2022/06/28 11:20:12 INFO  [] Register DWLocalHeaderRepository, group name=frc, header count=66
+2022/06/28 11:20:12 INFO  [] Register DWLocalHeaderRepository, group name=RequestHelper, header count=1
+2022/06/28 11:20:12 INFO  [] Register DWLocalHeaderRepository, group name=DWSys, header count=25
+2022/06/28 11:20:12 INFO  [] Register DWRestfulHeaderRepository, group name=frc, header count=36
+2022/06/28 11:20:12 INFO  []   |_____com.digiwin.app.frc.service.athena.app.dingding.ICallbackService
+2022/06/28 11:20:12 INFO  []   |_____com.digiwin.app.frc.service.athena.app.service.IDingLoginServer
+2022/06/28 11:20:12 INFO  []   |_____com.digiwin.app.frc.service.athena.app.service.IDingRegisterServer
+2022/06/28 11:20:12 INFO  []   |_____com.digiwin.app.frc.service.athena.app.service.IQuestionTaskService
+2022/06/28 11:20:12 INFO  []   |_____com.digiwin.app.frc.service.athena.file.service.IPdfService
+2022/06/28 11:20:12 INFO  []   |_____com.digiwin.app.frc.service.athena.mtw.service.ICraftDataService
+2022/06/28 11:20:12 INFO  []   |_____com.digiwin.app.frc.service.athena.mtw.service.ICustomerService
+2022/06/28 11:20:12 INFO  []   |_____com.digiwin.app.frc.service.athena.mtw.service.IDefectCodeService
+2022/06/28 11:20:12 INFO  []   |_____com.digiwin.app.frc.service.athena.mtw.service.IEquipmentService
+2022/06/28 11:20:12 INFO  []   |_____com.digiwin.app.frc.service.athena.mtw.service.IKanbanFoolproofService
+2022/06/28 11:20:12 INFO  []   |_____com.digiwin.app.frc.service.athena.mtw.service.IKeyBoardAuthorityService
+2022/06/28 11:20:12 INFO  []   |_____com.digiwin.app.frc.service.athena.mtw.service.IKeyBoardDisplayService
+2022/06/28 11:20:12 INFO  []   |_____com.digiwin.app.frc.service.athena.mtw.service.IKeyBoardTemplateService
+2022/06/28 11:20:12 INFO  []   |_____com.digiwin.app.frc.service.athena.mtw.service.IProductSeriesService
+2022/06/28 11:20:12 INFO  []   |_____com.digiwin.app.frc.service.athena.mtw.service.IQuestionBackService
+2022/06/28 11:20:12 INFO  []   |_____com.digiwin.app.frc.service.athena.mtw.service.IQuestionClassificationService
+2022/06/28 11:20:12 INFO  []   |_____com.digiwin.app.frc.service.athena.mtw.service.IQuestionConfigInfoService
+2022/06/28 11:20:12 INFO  []   |_____com.digiwin.app.frc.service.athena.mtw.service.IQuestionIdentifyConfigService
+2022/06/28 11:20:12 INFO  []   |_____com.digiwin.app.frc.service.athena.mtw.service.IQuestionItemService
+2022/06/28 11:20:12 INFO  []   |_____com.digiwin.app.frc.service.athena.mtw.service.IQuestionReasonService
+2022/06/28 11:20:12 INFO  []   |_____com.digiwin.app.frc.service.athena.mtw.service.IQuestionSolutionService
+2022/06/28 11:20:12 INFO  []   |_____com.digiwin.app.frc.service.athena.mtw.service.IQuestionSourceService
+2022/06/28 11:20:12 INFO  []   |_____com.digiwin.app.frc.service.athena.ppc.service.ILiablePersonConfigService
+2022/06/28 11:20:12 INFO  []   |_____com.digiwin.app.frc.service.athena.ppc.service.IQuestionAcceptanceConfigService
+2022/06/28 11:20:12 INFO  []   |_____com.digiwin.app.frc.service.athena.ppc.service.IQuestionAnalysisConfigService
+2022/06/28 11:20:12 INFO  []   |_____com.digiwin.app.frc.service.athena.ppc.service.IQuestionConfirmConfigService
+2022/06/28 11:20:12 INFO  []   |_____com.digiwin.app.frc.service.athena.ppc.service.IQuestionLiablePersonDepartmentLatitudeConfigService
+2022/06/28 11:20:12 INFO  []   |_____com.digiwin.app.frc.service.athena.ppc.service.IQuestionOccurStageService
+2022/06/28 11:20:12 INFO  []   |_____com.digiwin.app.frc.service.athena.ppc.service.IQuestionProcessConfigService
+2022/06/28 11:20:12 INFO  []   |_____com.digiwin.app.frc.service.athena.ppc.service.IQuestionRiskLevelService
+2022/06/28 11:20:12 INFO  []   |_____com.digiwin.app.frc.service.athena.qdh.service.ITestService
+2022/06/28 11:20:12 INFO  []   |_____com.digiwin.app.frc.service.athena.rqi.service.IFileOperationService
+2022/06/28 11:20:12 INFO  []   |_____com.digiwin.app.frc.service.athena.rqi.service.IKanbanInfoDisplayService
+2022/06/28 11:20:12 INFO  []   |_____com.digiwin.app.frc.service.athena.rqi.service.IReportQueryService
+2022/06/28 11:20:12 INFO  []   |_____com.digiwin.app.frc.service.athena.solutions.service.ITest8DService
+2022/06/28 11:20:12 INFO  []   |_____com.digiwin.app.frc.service.athena.solutions.service.ITestUniversalService
+2022/06/28 11:20:12 INFO  [] Register DWEAIHeaderRepository, group name=frc, header count=169
+2022/06/28 11:20:12 INFO  []   |_____id=op.info.get, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPCraftDataService.getCraftDataInfo
+2022/06/28 11:20:12 INFO  []   |_____id=op.info.delete, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPCraftDataService.postDeleteCraftDataInfo
+2022/06/28 11:20:12 INFO  []   |_____id=op.info.update, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPCraftDataService.postUpdateCraftDataInfo
+2022/06/28 11:20:12 INFO  []   |_____id=op.info.create, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPCraftDataService.postAddCraftDataInfo
+2022/06/28 11:20:12 INFO  []   |_____id=dealer.contact.person.info.get, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPCustomerService.getCustomerServiceInfo
+2022/06/28 11:20:12 INFO  []   |_____id=dealer.contact.person.info.create, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPCustomerService.postAddCustomerServiceInfo
+2022/06/28 11:20:12 INFO  []   |_____id=dealer.contact.person.info.delete, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPCustomerService.postDeleteCustomerServiceInfo
+2022/06/28 11:20:12 INFO  []   |_____id=dealer.contact.person.info.update, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPCustomerService.postUpdateCustomerServiceInfo
+2022/06/28 11:20:12 INFO  []   |_____id=defect.info.delete, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPDefectCodeService.postDeleteDefectCodeInfo
+2022/06/28 11:20:12 INFO  []   |_____id=defect.info.create, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPDefectCodeService.postAddDefectCodeInfo
+2022/06/28 11:20:12 INFO  []   |_____id=defect.info.get, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPDefectCodeService.getDefectCodeInfo
+2022/06/28 11:20:12 INFO  []   |_____id=defect.info.update, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPDefectCodeService.postUpdateDefectCodeInfo
+2022/06/28 11:20:12 INFO  []   |_____id=workstation.info.get, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPEquipmentService.getEquipmentInfo
+2022/06/28 11:20:12 INFO  []   |_____id=workstation.info.create, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPEquipmentService.postAddEquipmentInfo
+2022/06/28 11:20:12 INFO  []   |_____id=workstation.info.delete, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPEquipmentService.postDeleteEquipmentInfo
+2022/06/28 11:20:12 INFO  []   |_____id=workstation.info.update, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPEquipmentService.postUpdateEquipmentInfo
+2022/06/28 11:20:12 INFO  []   |_____id=wait.delete.kanban.solution.info.get, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPKanbanFoolproofService.getKanbanFoolproofInfo
+2022/06/28 11:20:12 INFO  []   |_____id=kanban.permissions.info.create, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPKeyBoardAuthorityService.postAddKeyBoardAuthorityInfo
+2022/06/28 11:20:12 INFO  []   |_____id=kanban.permissions.info.get, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPKeyBoardAuthorityService.getKeyBoardAuthorityInfo
+2022/06/28 11:20:12 INFO  []   |_____id=kanban.permissions.info.delete, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPKeyBoardAuthorityService.postDeleteKeyBoardAuthorityInfo
+2022/06/28 11:20:12 INFO  []   |_____id=kanban.permissions.info.update, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPKeyBoardAuthorityService.postUpdateKeyBoardAuthorityInfo
+2022/06/28 11:20:12 INFO  []   |_____id=kanban.template.display.info.create, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPKeyBoardDisplayService.postAddKeyBoardDisplayInfo
+2022/06/28 11:20:12 INFO  []   |_____id=kanban.template.display.info.delete, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPKeyBoardDisplayService.postDeleteKeyBoardDisplayInfo
+2022/06/28 11:20:12 INFO  []   |_____id=kanban.template.display.info.get, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPKeyBoardDisplayService.getKeyBoardDisplayInfo
+2022/06/28 11:20:12 INFO  []   |_____id=kanban.template.display.info.update, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPKeyBoardDisplayService.postUpdateKeyBoardDisplayInfo
+2022/06/28 11:20:12 INFO  []   |_____id=kanban.template.field.info.delete, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPKeyBoardTemplateService.postDeleteKeyBoardModeInfo
+2022/06/28 11:20:12 INFO  []   |_____id=kanban.template.field.info.update, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPKeyBoardTemplateService.postUpdateKeyBoardModeInfo
+2022/06/28 11:20:12 INFO  []   |_____id=kanban.template.field.info.create, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPKeyBoardTemplateService.postAddKeyBoardModelInfo
+2022/06/28 11:20:12 INFO  []   |_____id=kanban.template.field.info.get, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPKeyBoardTemplateService.getKeyBoardModeInfo
+2022/06/28 11:20:12 INFO  []   |_____id=product.series.info.delete, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPProductSeriesService.postDeleteProductSeriesInfo
+2022/06/28 11:20:12 INFO  []   |_____id=product.series.info.update, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPProductSeriesService.postUpdateProductSeriesInfo
+2022/06/28 11:20:12 INFO  []   |_____id=product.series.info.create, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPProductSeriesService.postAddProductSeriesInfo
+2022/06/28 11:20:12 INFO  []   |_____id=product.series.info.get, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPProductSeriesService.getProductSeriesInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.return.info.update, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionBackService.postUpdateQuestionBackInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.return.info.create, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionBackService.postAddQuestionBackInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.return.info.delete, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionBackService.postDeleteQuestionBackInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.return.info.get, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionBackService.getQuestionBackInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.classification.info.update, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionClassificationService.postUpdateQuestionClassificationInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.classification.info.delete, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionClassificationService.postDeleteQuestionClassificationInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.classification.info.create, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionClassificationService.postAddQuestionClassificationInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.classification.info.get, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionClassificationService.getQuestionClassificationInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.liable.person.config.info.get, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionConfigInfoService.getQuestionLiablePersonConfigInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.identify.config.info.create, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionIdentifyConfigService.postAddQuestionIdentifyConfigInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.identify.config.info.delete, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionIdentifyConfigService.postDeleteQuestionIdentifyConfigInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.identify.config.info.update, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionIdentifyConfigService.postUpdateQuestionIdentifyConfigInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.identify.config.info.get, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionIdentifyConfigService.getQuestionIdentifyConfigInfo
+2022/06/28 11:20:12 INFO  []   |_____id=item.basic.info.delete, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionItemService.postDeleteQuestionItemInfo
+2022/06/28 11:20:12 INFO  []   |_____id=item.basic.info.create, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionItemService.postAddQuestionItemInfo
+2022/06/28 11:20:12 INFO  []   |_____id=item.basic.info.update, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionItemService.postUpdateQuestionItemInfo
+2022/06/28 11:20:12 INFO  []   |_____id=item.basic.info.get, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionItemService.getQuestionItemInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.reason.info.update, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionReasonService.postUpdateQuestionReasonInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.reason.info.get, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionReasonService.getQuestionReasonInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.reason.info.delete, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionReasonService.postDeleteQuestionReasonInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.reason.info.create, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionReasonService.postAddQuestionReasonInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.solution.info.create, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionSolutionService.postAddQuestionSolutionInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.solution.info.delete, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionSolutionService.postDeleteQuestionSolutionInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.solution.info.update, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionSolutionService.postUpdateQuestionSolutionInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.solution.info.get, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionSolutionService.getQuestionSolutionInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.source.info.get, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionSourceService.getQuestionSourceInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.source.info.create, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionSourceService.postAddQuestionSourceInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.source.info.update, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionSourceService.postUpdateQuestionSourceInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.source.info.delete, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionSourceService.postDeleteQuestionSourceInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.liable.person.question.latitude.config.info.update, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPLiablePersonConfigService.postUpdateLiablePersonConfigInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.liable.person.question.latitude.config.info.delete, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPLiablePersonConfigService.postDeleteLiablePersonConfigInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.liable.person.question.latitude.config.info.create, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPLiablePersonConfigService.postAddLiablePersonConfigInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.liable.person.question.latitude.config.info.get, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPLiablePersonConfigService.getLiablePersonConfigInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.acceptance.config.info.delete, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionAcceptanceConfigService.postDeleteQuestionAcceptanceConfigInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.acceptance.config.info.create, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionAcceptanceConfigService.postAddQuestionAcceptanceConfigInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.acceptance.config.info.update, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionAcceptanceConfigService.postUpdateQuestionAcceptanceConfigInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.acceptance.config.info.get, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionAcceptanceConfigService.getQuestionAcceptanceConfigInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.analysis.config.info.create, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionAnalysisConfigService.postAddQuestionAnalysisConfigInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.analysis.config.info.delete, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionAnalysisConfigService.postDeleteQuestionAnalysisConfigInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.analysis.config.info.update, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionAnalysisConfigService.postUpdateQuestionAnalysisConfigInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.analysis.config.info.get, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionAnalysisConfigService.getQuestionAnalysisConfigInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.confirm.config.info.delete, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionConfirmConfigService.postDeleteQuestionConfirmConfigInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.confirm.config.info.update, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionConfirmConfigService.postUpdateQuestionConfirmConfigInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.confirm.config.info.create, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionConfirmConfigService.postAddQuestionConfirmConfigInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.confirm.config.info.get, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionConfirmConfigService.getQuestionConfirmConfigInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.liable.person.department.latitude.config.info.delete, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionLiablePersonDepartmentLatitudeConfigService.postDeleteQuestionLiablePersonDepartmentLatitudeConfigInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.liable.person.department.latitude.config.info.update, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionLiablePersonDepartmentLatitudeConfigService.postUpdateQuestionLiablePersonDepartmentLatitudeConfigInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.liable.person.department.latitude.config.info.get, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionLiablePersonDepartmentLatitudeConfigService.postGetQuestionLiablePersonDepartmentLatitudeConfigInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.liable.person.department.latitude.config.info.create, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionLiablePersonDepartmentLatitudeConfigService.postAddQuestionLiablePersonDepartmentLatitudeConfigInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.occur.stage.info.update, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionOccurStageService.postUpdateQuestionOccurStageInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.occur.stage.info.get, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionOccurStageService.getQuestionOccurStageInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.occur.stage.info.delete, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionOccurStageService.postDeleteQuestionOccurStageInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.occur.stage.info.create, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionOccurStageService.postAddQuestionOccurStageInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.process.config.info.delete, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionProcessConfigService.postDeleteQuestionProcessConfigInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.process.config.info.update, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionProcessConfigService.postUpdateQuestionProcessConfigInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.process.config.info.create, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionProcessConfigService.postAddQuestionProcessConfigInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.process.config.info.get, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionProcessConfigService.getUniversalSolutionInfo
+2022/06/28 11:20:12 INFO  []   |_____id=risk.level.info.create, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionRiskLevelService.postAddQuestionRiskLevelInfo
+2022/06/28 11:20:12 INFO  []   |_____id=risk.level.info.delete, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionRiskLevelService.postDeleteQuestionRiskLevelInfo
+2022/06/28 11:20:12 INFO  []   |_____id=risk.level.info.update, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionRiskLevelService.postUpdateQuestionRiskLevelInfo
+2022/06/28 11:20:12 INFO  []   |_____id=risk.level.info.get, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionRiskLevelService.getQuestionRiskLevelInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.record.info.get, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.getRecord
+2022/06/28 11:20:12 INFO  []   |_____id=solution.step.info.get, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.getSolutionStep
+2022/06/28 11:20:12 INFO  []   |_____id=curb.distribution.info.update, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.postQuestionCurbDistributionUpdate
+2022/06/28 11:20:12 INFO  []   |_____id=question.initiate.info.create, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.initQuestion
+2022/06/28 11:20:12 INFO  []   |_____id=data.change.get, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.dataChange
+2022/06/28 11:20:12 INFO  []   |_____id=curb.detail.info.get, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.getCurbDetail
+2022/06/28 11:20:12 INFO  []   |_____id=question.close.info.get, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.getCloseDetail
+2022/06/28 11:20:12 INFO  []   |_____id=question.identify.info.get, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.getIdentifyDetail
+2022/06/28 11:20:12 INFO  []   |_____id=question.record.info.update, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.postQuestionRecordUpdate
+2022/06/28 11:20:12 INFO  []   |_____id=pending.approve.curb.info.create, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.postApprovedCurbQuestion
+2022/06/28 11:20:12 INFO  []   |_____id=curb.verify.info.get, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.getCurbVerifyDetail
+2022/06/28 11:20:12 INFO  []   |_____id=curb.info.update, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.postQuestionCurbUpdate
+2022/06/28 11:20:12 INFO  []   |_____id=curb.verify.info.update, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.postQuestionCurbVerifyUpdate
+2022/06/28 11:20:12 INFO  []   |_____id=question.identify.info.update, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.postQuestionIdentifyUpdate
+2022/06/28 11:20:12 INFO  []   |_____id=question.acceptance.info.update, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.postQuestionAcceptanceUpdate
+2022/06/28 11:20:12 INFO  []   |_____id=question.feedback.detail.info.get, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.getFeedBackDetail
+2022/06/28 11:20:12 INFO  []   |_____id=question.acceptance.detail.info.get, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.getAcceptanceDetail
+2022/06/28 11:20:12 INFO  []   |_____id=question.feedback.info.update, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.postQuestionFeedbackUpdate
+2022/06/28 11:20:12 INFO  []   |_____id=curb.distribution.info.get, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.getCurbDistributionDetail
+2022/06/28 11:20:12 INFO  []   |_____id=question.record.info.create, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.postQuestionRecord
+2022/06/28 11:20:12 INFO  []   |_____id=question.distribution.info.get, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.getDistributionDetail
+2022/06/28 11:20:12 INFO  []   |_____id=question.distribution.info.update, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.postQuestionDistributionUpdate
+2022/06/28 11:20:12 INFO  []   |_____id=pending.approve.question.info.create, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.postApprovedQuestion
+2022/06/28 11:20:12 INFO  []   |_____id=question.close.info.update, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.postQuestionCloseUpdate
+2022/06/28 11:20:12 INFO  []   |_____id=issue.management.matrix.overview.get, is callback=false, com.digiwin.app.frc.service.athena.rqi.service.IESPKanbanInfoDisplayService.getIssueManagementMatrixOverviewInfo
+2022/06/28 11:20:12 INFO  []   |_____id=kanban.info.get, is callback=false, com.digiwin.app.frc.service.athena.rqi.service.IESPKanbanInfoDisplayService.getKanbanInfo
+2022/06/28 11:20:12 INFO  []   |_____id=issue.management.matrix.get, is callback=false, com.digiwin.app.frc.service.athena.rqi.service.IESPKanbanInfoDisplayService.getIssueManagementMatrixInfo
+2022/06/28 11:20:12 INFO  []   |_____id=kanban.search.field.info.get, is callback=false, com.digiwin.app.frc.service.athena.rqi.service.IESPKanbanInfoDisplayService.getKanbanSearchFieldInfo
+2022/06/28 11:20:12 INFO  []   |_____id=proposer.question.track.info.get, is callback=false, com.digiwin.app.frc.service.athena.rqi.service.IESPReportQueryService.getQuestionTrackProposerInfo
+2022/06/28 11:20:12 INFO  []   |_____id=processor.question.track.info.get, is callback=false, com.digiwin.app.frc.service.athena.rqi.service.IESPReportQueryService.getQuestionTrackProcessorInfo
+2022/06/28 11:20:12 INFO  []   |_____id=responsible.question.track.info.get, is callback=false, com.digiwin.app.frc.service.athena.rqi.service.IESPReportQueryService.getQuestionTrackResponsibleInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.prevention.measure.verify.info.update, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.updateQuestionPreventionMeasureVerifyInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.prevention.measure.info.update, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.updateQuestionPreventionMeasureInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.key.reason.rectify.info.update, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.updateQuestionKeyReasonRectifyInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.prevention.measure.execute.info.update, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.updateQuestionPreventionMeasureExecuteInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.prevention.measure.execute.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.getQuestionPreventionMeasureExecuteInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.prevention.measure.verify.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.getQuestionPreventionMeasureVerifyInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.containment.measure.execute.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.getQuestionContainmentMeasureExecuteInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.containment.measure.execute.info.update, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.updateContainmentMeasureExecuteInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.containment.measure.execute.verify.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.getQuestionContainmentMeasureExecuteVerifyInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.containment.measure.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.getQuestionContainmentMeasureInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.containment.measure.execute.verify.info.update, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.updateQuestionContainmentMeasureExecuteVerifyInfo
+2022/06/28 11:20:12 INFO  []   |_____id=generate.pending.question.info.process, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.postApprovedQuestion
+2022/06/28 11:20:12 INFO  []   |_____id=question.containment.measure.info.update, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.updateContainmentMeasureInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.rectify.execute.info.update, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.updateQuestionRectifyExecuteInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.team.building.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.getQuestionTeamBuildInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.rectify.execute.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.getQuestionRectifyExecuteInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.confirm.info.update, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.updateQuestionConfirmInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.rectify.verify.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.getQuestionRectifyVerifyInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.rectify.verify.info.update, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.updateQuestionRectifyVerifyInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.confirm.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.getQuestionConfirmInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.prevention.measure.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.getQuestionPreventionMeasureInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.key.reason.rectify.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.getQuestionKeyReasonRectifyInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.team.building.info.update, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.postQuestionTeamBuildUpdate
+2022/06/28 11:20:12 INFO  []   |_____id=personnel.pending.question.count.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.getPersonPendingQuestionNumInfo
+2022/06/28 11:20:12 INFO  []   |_____id=containment.measure.feedback.person.verify.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.getFeedBackPersonVerifyInfo
+2022/06/28 11:20:12 INFO  []   |_____id=containment.measure.feedback.person.verify.info.update, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.updateFeedBackPersonVerifyInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.temporary.measure.execute.info.update, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIterationUniversal.postTemporaryMeasureexEcuteInfoUpdate
+2022/06/28 11:20:12 INFO  []   |_____id=question.temporary.measure.execute.verify.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIterationUniversal.getTemporaryMeasureexEcuteVerifyInfo
+2022/06/28 11:20:12 INFO  []   |_____id=general.solution.short.term.close.verify.info.update, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIterationUniversal.postSolutionShortTermCloseVerifyInfoUpdate
+2022/06/28 11:20:12 INFO  []   |_____id=general.solution.short.term.close.verify.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIterationUniversal.getSolutionShortTermCloseVerifyInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.lasting.measure.execute.info.update, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIterationUniversal.updatePermanentMeasureExecuteInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.lasting.measure.execute.verify.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIterationUniversal.getPermanentMeasureExecuteVerifyInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.lasting.measure.execute.verify.info.update, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIterationUniversal.updatePermanentMeasureExecuteVerifyInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.temporary.measure.execute.verify.info.update, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIterationUniversal.postTemporaryMeasureexEcuteVerifyInfoUpdate
+2022/06/28 11:20:12 INFO  []   |_____id=question.lasting.measure.info.update, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIterationUniversal.updatePermanentMeasureInfo
+2022/06/28 11:20:12 INFO  []   |_____id=general.solution.confirm.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIterationUniversal.getSolutionConfirmInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.temporary.measure.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIterationUniversal.getTemporaryMeasureInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.temporary.measure.info.update, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIterationUniversal.postTemporaryMeasureInfoUpdate
+2022/06/28 11:20:12 INFO  []   |_____id=general.solution.confirm.info.update, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIterationUniversal.updateSolutionConfirmInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.lasting.measure.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIterationUniversal.getPermanentMeasureInfo
+2022/06/28 11:20:12 INFO  []   |_____id=general.solution.plan.arrange.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIterationUniversal.getPlanArrangeInfo
+2022/06/28 11:20:12 INFO  []   |_____id=general.solution.plan.arrange.info.update, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIterationUniversal.postPlanArrangeInfoUpdate
+2022/06/28 11:20:12 INFO  []   |_____id=question.temporary.measure.execute.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIterationUniversal.getTemporaryMeasureexEcuteInfo
+2022/06/28 11:20:12 INFO  []   |_____id=question.lasting.measure.execute.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIterationUniversal.getPermanentMeasureExecuteInfo
+2022/06/28 11:20:12 INFO  [] Overriding bean definition for bean 'eaiController' with a different definition: replacing [Generic bean: class [com.digiwin.gateway.controller.EaiController]; scope=singleton; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [jar:file:/D:/frc/frc_backend/running/app_backend/platform/lib/dwapiplatform-springboot-4.0.0.1001.jar!/com/digiwin/gateway/controller/EaiController.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=com.digiwin.app.autoconfigure.DWEAIRestfulUrlRegisterAutoConfiguration$BioConfiguration; factoryMethodName=eaiController; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/digiwin/app/autoconfigure/DWEAIRestfulUrlRegisterAutoConfiguration$BioConfiguration.class]]
+2022/06/28 11:20:13 INFO  [] Multiple Spring Data modules found, entering strict repository configuration mode!
+2022/06/28 11:20:14 INFO  [] No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2022/06/28 11:20:14 WARN  [] Cannot enhance @Configuration bean definition 'com.digiwin.app.autoconfigure.DWDefaultServiceAutoConfiguration' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+2022/06/28 11:20:14 WARN  [] Cannot enhance @Configuration bean definition 'com.digiwin.app.autoconfigure.DWRestfulStandardServiceAutoConfiguration' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+2022/06/28 11:20:14 WARN  [] Cannot enhance @Configuration bean definition 'com.digiwin.app.autoconfigure.DWEAIServiceAutoConfiguration' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+2022/06/28 11:20:15 INFO  [] -DWMobileInitializationEvent-check required property's key->mobileApiInit=
+2022/06/28 11:20:16 INFO  [] No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2022/06/28 11:20:16 INFO  [] No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2022/06/28 11:20:16 INFO  [] JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2022/06/28 11:20:16 INFO  [] Bean 'com.digiwin.app.autoconfigure.DWModuleValidationAutoConfiguration' of type [com.digiwin.app.autoconfigure.DWModuleValidationAutoConfiguration$$EnhancerBySpringCGLIB$$d962f4c2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022/06/28 11:20:16 INFO  [] Bean 'dao-LocalValidatorFactoryBean' of type [org.springframework.validation.beanvalidation.LocalValidatorFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022/06/28 11:20:16 INFO  [] Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$2bc12378] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022/06/28 11:20:16 INFO  [] Bean 'com.digiwin.app.autoconfigure.DWDaoAutoConfiguration' of type [com.digiwin.app.autoconfigure.DWDaoAutoConfiguration$$EnhancerBySpringCGLIB$$842b2c0f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022/06/28 11:20:16 INFO  [] Bean 'daoMultiTenancyInterceptor' of type [com.digiwin.app.dao.MultiTenancyInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022/06/28 11:20:16 INFO  [] Bean 'daoMultiTenancyAdvisor' of type [org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022/06/28 11:20:16 INFO  [] Bean 'com.digiwin.app.autoconfigure.DWCacheAutoConfiguration' of type [com.digiwin.app.autoconfigure.DWCacheAutoConfiguration$$EnhancerBySpringCGLIB$$e15564df] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022/06/28 11:20:17 INFO  [] Bean 'dwCacheKeyGenerator' of type [org.springframework.beans.factory.support.NullBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022/06/28 11:20:17 INFO  [] Bean 'org.springframework.cache.jcache.config.ProxyJCacheConfiguration' of type [org.springframework.cache.jcache.config.ProxyJCacheConfiguration$$EnhancerBySpringCGLIB$$4e08e5f6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022/06/28 11:20:17 INFO  [] Bean 'org.springframework.cache.annotation.ProxyCachingConfiguration' of type [org.springframework.cache.annotation.ProxyCachingConfiguration$$EnhancerBySpringCGLIB$$74d35996] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022/06/28 11:20:17 INFO  [] Bean 'org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration' of type [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration$$EnhancerBySpringCGLIB$$69471e3a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022/06/28 11:20:17 INFO  [] Bean 'org.springframework.boot.context.properties.ConversionServiceDeducer$Factory' of type [org.springframework.boot.context.properties.ConversionServiceDeducer$Factory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022/06/28 11:20:17 INFO  [] Bean 'spring.cache-org.springframework.boot.autoconfigure.cache.CacheProperties' of type [org.springframework.boot.autoconfigure.cache.CacheProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022/06/28 11:20:17 INFO  [] Bean 'org.springframework.boot.autoconfigure.cache.NoOpCacheConfiguration' of type [org.springframework.boot.autoconfigure.cache.NoOpCacheConfiguration$$EnhancerBySpringCGLIB$$26c0e6eb] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022/06/28 11:20:17 INFO  [] Bean 'cacheManager' of type [org.springframework.cache.support.NoOpCacheManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022/06/28 11:20:17 INFO  [] Bean 'cacheAutoConfigurationValidator' of type [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration$CacheManagerValidator] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022/06/28 11:20:17 INFO  [] Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration$$EnhancerBySpringCGLIB$$96b2dea7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022/06/28 11:20:20 INFO  [] Tomcat initialized with port(s): 8090 (http)
+2022/06/28 11:20:20 INFO  [] Root WebApplicationContext: initialization completed in 11650 ms
+2022/06/28 11:20:25 INFO  [] Mapping filter: 'sidecarProtocalFilter' to urls: [/sidecar/*]
+2022/06/28 11:20:25 INFO  [] Mapping filter: 'characterEncodingFilter' to: [/*]
+2022/06/28 11:20:25 INFO  [] Mapping filter: 'standardHeaderFilter' to urls: [/restful/*, /api/app/initialize, /api/app/tenant/expired/notices, /api/app/tenant/renew/notices, /api/app/tenant/datasource/update]
+2022/06/28 11:20:25 INFO  [] Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2022/06/28 11:20:25 INFO  [] Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2022/06/28 11:20:25 INFO  [] Mapping filter: 'requestContextFilter' to: [/*]
+2022/06/28 11:20:25 INFO  [] Mapping filter: 'serviceUrlRuleFilter' to urls: [/restful/service/*]
+2022/06/28 11:20:25 INFO  [] Mapping filter: 'DWMethodLocateFilter' to urls: [/restful/service/*]
+2022/06/28 11:20:25 INFO  [] Mapping filter: 'DWRestfulMethodLocateFilter' to urls: [/restful/standard/*]
+2022/06/28 11:20:25 INFO  [] Mapping filter: 'eaiHealthCheckFilter' to urls: [/eai]
+2022/06/28 11:20:25 INFO  [] Mapping filter: 'DWEaiServiceMethodLocateFilter' to urls: [/eai]
+2022/06/28 11:20:25 INFO  [] Mapping filter: 'DWEaiCallbackMethodLocateFilter' to urls: [/eai/callback]
+2022/06/28 11:20:25 INFO  [] Mapping filter: 'allowAnonymousFilter' to urls: [/restful/service/*, /restful/standard/*, /eai, /eai/callback]
+2022/06/28 11:20:25 INFO  [] Mapping filter: 'tokenFilter' to urls: [/restful/service/*, /restful/standard/*, /eai, /eai/callback]
+2022/06/28 11:20:25 INFO  [] Mapping filter: 'requestStandardizationFilter' to urls: [/restful/service/*]
+2022/06/28 11:20:25 INFO  [] Mapping filter: 'httpTraceFilter' to: [/*]
+2022/06/28 11:20:25 INFO  [] Mapping filter: 'webMvcMetricsFilter' to: [/*]
+2022/06/28 11:20:25 INFO  [] Servlet dispatcherServlet mapped to [/]
+2022/06/28 11:20:25 INFO  [] Mapped "{[/api/app/tenant/datasource/update],methods=[POST]}" onto public java.lang.Object com.digiwin.gateway.controller.DWTenantDataSourceController.updateDataSource() throws java.lang.Exception
+2022/06/28 11:20:25 INFO  [] Mapped "{[/api/app/tenant/renew/notices],methods=[POST]}" onto public java.lang.Object com.digiwin.gateway.controller.DWTenantScheduleController.startSchedule() throws java.lang.Exception
+2022/06/28 11:20:25 INFO  [] Mapped "{[/api/app/tenant/expired/notices],methods=[POST]}" onto public java.lang.Object com.digiwin.gateway.controller.DWTenantScheduleController.stopSchedule() throws java.lang.Exception
+2022/06/28 11:20:25 INFO  [] Mapped "{[/restful/service/**],methods=[GET || POST || PATCH || PUT || DELETE]}" onto public java.lang.Object com.digiwin.gateway.controller.GatewayController.execute() throws java.lang.Exception
+2022/06/28 11:20:25 INFO  [] Mapped "{[/restful/standard/**]}" onto public java.lang.Object com.digiwin.gateway.controller.GatewayController.restful() throws java.lang.Exception
+2022/06/28 11:20:25 INFO  [] Mapped "{[/api/app/initialize],methods=[POST]}" onto public java.lang.Object com.digiwin.gateway.controller.DWInitializationController.initialize() throws java.lang.Exception
+2022/06/28 11:20:25 INFO  [] Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2022/06/28 11:20:25 INFO  [] Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2022/06/28 11:20:25 INFO  [] Mapped "{[/eai],methods=[POST],produces=[application/json]}" onto public java.lang.Object com.digiwin.gateway.controller.EaiController.eai()
+2022/06/28 11:20:25 INFO  [] Mapped "{[/eai/callback],methods=[POST],produces=[application/json]}" onto public java.lang.Object com.digiwin.gateway.controller.EaiController.callback() throws java.lang.Exception
+2022/06/28 11:20:25 INFO  [] Mapped "{[/eai/syncProd],methods=[POST],produces=[application/json]}" onto public java.lang.Object com.digiwin.gateway.controller.EaiController.syncProd() throws java.lang.Exception
+2022/06/28 11:20:26 INFO  [] Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2022/06/28 11:20:26 INFO  [] Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@7186333e: startup date [Tue Jun 28 11:20:09 CST 2022]; root of context hierarchy
+2022/06/28 11:20:26 INFO  [] Detected @ExceptionHandler methods in exceptionFilter
+2022/06/28 11:20:26 INFO  [] initializer namespace from System Property :null
+2022/06/28 11:20:26 INFO  [] initializer namespace from System Environment :null
+2022/06/28 11:20:26 INFO  [] initializer namespace from System Property :null
+2022/06/28 11:20:26 INFO  [] [settings] [req-serv] nacos-server port:8848
+2022/06/28 11:20:26 INFO  [] [settings] [http-client] connect timeout:1000
+2022/06/28 11:20:26 INFO  [] NACOS_CLIENT_VERSION: ${project.version}
+2022/06/28 11:20:26 INFO  [] PER_TASK_CONFIG_SIZE: 3000.0
+2022/06/28 11:20:27 INFO  [] Loading XML bean definitions from InputStream resource [resource loaded through InputStream]
+2022/06/28 11:20:27 INFO  [] Refreshing org.springframework.context.support.GenericXmlApplicationContext@52d181ed: startup date [Tue Jun 28 11:20:27 CST 2022]; parent: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@7186333e
+2022/06/28 11:20:27 INFO  [] JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2022/06/28 11:20:27 INFO  [] [DWMqttConfiguration] platform.properties:mqttSrvHost:, mqtt enabled=false
+2022/06/28 11:20:28 INFO  [] Initializing ExecutorService  'taskScheduler'
+2022/06/28 11:20:28 INFO  [] Exposing 3 endpoint(s) beneath base path '/actuator'
+2022/06/28 11:20:28 INFO  [] Mapped "{[/actuator/health],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+2022/06/28 11:20:28 INFO  [] Mapped "{[/actuator/info],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+2022/06/28 11:20:28 INFO  [] Mapped "{[/actuator/prometheus],methods=[GET],produces=[text/plain;version=0.0.4;charset=utf-8]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+2022/06/28 11:20:28 INFO  [] Mapped "{[/actuator],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto protected java.util.Map<java.lang.String, java.util.Map<java.lang.String, org.springframework.boot.actuate.endpoint.web.Link>> org.springframework.boot.actuate.endpoint.web.servlet.WebMvcEndpointHandlerMapping.links(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2022/06/28 11:20:28 INFO  [] Registering beans for JMX exposure on startup
+2022/06/28 11:20:28 INFO  [] Bean with name 'dw-dataSource' has been autodetected for JMX exposure
+2022/06/28 11:20:28 INFO  [] Located MBean 'dw-dataSource': registering with JMX server as MBean [org.apache.commons.dbcp2:name=dw-dataSource,type=BasicDataSource]
+2022/06/28 11:20:28 INFO  [] Starting beans in phase 0
+2022/06/28 11:20:28 INFO  [] Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2022/06/28 11:20:28 INFO  [] Channel 'frm.errorChannel' has 1 subscriber(s).
+2022/06/28 11:20:28 INFO  [] started _org.springframework.integration.errorLogger
+2022/06/28 11:20:29 INFO  [] Tomcat started on port(s): 8090 (http) with context path ''
+2022/06/28 11:20:29 INFO  [] Started DWApiGatewayApplication in 21.047 seconds (JVM running for 40.936)
+2022/06/28 11:20:29 INFO  [] Loading XML bean definitions from InputStream resource [resource loaded through InputStream]
+2022/06/28 11:20:29 INFO  [] Loading XML bean definitions from class path resource [spring-rabbitmq.xml]
+2022/06/28 11:20:29 INFO  [] Refreshing org.springframework.context.support.GenericXmlApplicationContext@5dc7881d: startup date [Tue Jun 28 11:20:29 CST 2022]; parent: org.springframework.context.support.GenericXmlApplicationContext@52d181ed
+2022/06/28 11:20:29 WARN  [] Skipping MapperFactoryBean with name 'frcDingdingUserMapper' and 'com.digiwin.app.frc.service.athena.app.mapper.FrcDingdingUserMapper' mapperInterface. Bean already defined with the same name!
+2022/06/28 11:20:29 WARN  [] Skipping MapperFactoryBean with name 'openSyncBizDataMapper' and 'com.digiwin.app.frc.service.athena.app.mapper.OpenSyncBizDataMapper' mapperInterface. Bean already defined with the same name!
+2022/06/28 11:20:29 WARN  [] Skipping MapperFactoryBean with name 'questionCardMapper' and 'com.digiwin.app.frc.service.athena.app.mapper.QuestionCardMapper' mapperInterface. Bean already defined with the same name!
+2022/06/28 11:20:29 INFO  [] JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2022/06/28 11:20:29 INFO  [] Bean 'com.digiwin.app.autoconfigure.DWModuleValidationAutoConfiguration' of type [com.digiwin.app.autoconfigure.DWModuleValidationAutoConfiguration$$EnhancerBySpringCGLIB$$d962f4c2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022/06/28 11:20:30 INFO  [] Bean 'dao-LocalValidatorFactoryBean' of type [org.springframework.validation.beanvalidation.LocalValidatorFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022/06/28 11:20:30 ERROR [] testWhileIdle is true, validationQuery not set
+2022/06/28 11:20:30 INFO  [] {dataSource-1} inited
+2022/06/28 11:20:34 INFO  [] Using default implementation for ThreadExecutor
+2022/06/28 11:20:34 INFO  [] Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2022/06/28 11:20:34 INFO  [] Quartz Scheduler v.2.3.0 created.
+2022/06/28 11:20:34 INFO  [] RAMJobStore initialized.
+2022/06/28 11:20:34 INFO  [] Scheduler meta-data: Quartz Scheduler (v2.3.0) 'taskScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 5 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2022/06/28 11:20:34 INFO  [] Quartz scheduler 'taskScheduler' initialized from an externally provided properties instance.
+2022/06/28 11:20:34 INFO  [] Quartz scheduler version: 2.3.0
+2022/06/28 11:20:34 INFO  [] JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@cf82c58
+2022/06/28 11:20:34 WARN  [] It is preferred to configure the message converter via the endpoint. See RabbitListenerEndpoint.setMessageConverter
+2022/06/28 11:20:34 INFO  [] Attempting to connect to: mq-test.digiwincloud.com.cn:5672
+2022/06/28 11:20:34 INFO  [] Created new connection: connectionFactory#37fc7e3c:0/SimpleConnection@77b0ff24 [delegate=amqp://ksc_user@47.102.215.110:5672/, localPort= 7722]
+2022/06/28 11:20:34 INFO  [] Starting beans in phase 2147483647
+2022/06/28 11:20:34 INFO  [] Starting Quartz Scheduler now
+2022/06/28 11:20:34 INFO  [] Scheduler taskScheduler_$_NON_CLUSTERED started.
+2022/06/28 11:20:38 INFO  [] FrameworkServlet 'dispatcherServlet': initialization started
+2022/06/28 11:20:38 INFO  [] FrameworkServlet 'dispatcherServlet': initialization completed in 35 ms
+2022/06/28 11:20:39 INFO  [b6af61a65824406ca739deef16ca848c] io>invoke[1656386439100]{35}>com.digiwin.app.frc.service.impl.athena.file.PdfService.getReportPdf(messageBody) input: ({
+  "question_result": [
+   {
+    "question_identify_info": {
+      "solution_name": "通用解决方案",
+      "liable_person_name": "李月(FRC905)",
+      "is_upload_kanban": 0,
+      "liable_person_id": "FRC005",
+      "solution_id": "SE003",
+      "repeat_times": 0
+    },
+    "reason_analysis": {
+      "reason_analysis_description": "https://esp-test.apps.digiwincloud.com.cn/CROSS/LogViewer.do?reqid=4c6c2162-26dd-4b73-acec-38c2f330e3d9&statecode=visual"
+    },
+    "attachment_info": [
+      {
+        "attachment_name": "QQ图片20220616102343.jpg",
+        "attachment_id": "394e8861-42bc-41a7-b050-7bca2a943178",
+        "upload_person_name": "李月(FRC905)",
+        "attachment_belong_stage": "QFL",
+        "upload_person_id": "FRC905"
+      }
+    ],
+    "question_confirm": {
+      "return_reason": "",
+      "return_step_no": "",
+      "status": "2"
+    },
+    "temporary_measure": [
+      {
+        "process_department_name": "生产部",
+        "expect_solve_date": "2022-06-28 09:21:04",
+        "liable_person_name": "李月(FRC905)",
+        "human_bottleneck_analysis": 205,
+        "process_department_id": "DIGI001",
+        "measure_content": "临时措施1",
+        "edit_type": 0,
+        "attachment_upload_flag": "N",
+        "liable_person_id": "FRC005",
+        "uuid": 1656379249890,
+        "human_bottleneck_analysis_desc": "当前人员有205个未处理任务"
+      }
+    ],
+    "temporary_measure_execute_verify": {
+      "liable_person_name": "李月(FRC905)",
+      "process_date": "2022-06-28",
+      "temporary_measure_execute_verify_detail": [
+        {
+          "verify_person_name": "李月(FRC905)",
+          "process_work_hours": "8.7",
+          "expect_solve_date": "2022-06-28 09:21:28",
+          "liable_person_name": "李月(FRC905)",
+          "human_bottleneck_analysis": 205,
+          "execute_status": "3",
+          "execute_illustrate": "https://esp-test.apps.digiwincloud.com.cn/CROSS/LogViewer.do?reqid=4c6c2162-26dd-4b73-acec-38c2f330e3d9&statecode=visual",
+          "process_department_id": "DIGI001",
+          "edit_type": 0,
+          "verify_illustrate": "https://esp-test.apps.digiwincloud.com.cn/CROSS/LogViewer.do?reqid=4c6c2162-26dd-4b73-acec-38c2f330e3d9&statecode=visual",
+          "attachment_upload_flag": "N",
+          "verify_date": "2022-06-28",
+          "uuid": 1656379249890,
+          "actual_finish_date": "2022-06-28",
+          "question_id": "1b11fd25f04a42d682d40bb4fb9d9ca0",
+          "human_bottleneck_analysis_desc": "当前人员有205个未处理任务",
+          "is_history_data": "N",
+          "process_department_name": "生产部",
+          "verify_person_id": "FRC005",
+          "measure_content": "临时措施1",
+          "verify_status": "Y",
+          "liable_person_id": "FRC005"
+        }
+      ],
+      "liable_person_id": "FRC005"
+    },
+    "question_basic_info": {
+      "question_proposer_id": "FRC005",
+      "question_source_name": "生产制造",
+      "expect_solve_date": "2022-07-01",
+      "question_source_oid": "fbdea022a6c54c91bc82d4037b84b765",
+      "risk_level_name": "I(重要-紧急)",
+      "occur_stage_name": "物料检测",
+      "defect_name": "套入的零件错误",
+      "risk_level_oid": "49bc4a6f8ba84113a32e550e97c9f24e",
+      "question_classification_no": "Q2",
+      "happen_date": "2022-06-28",
+      "defect_grade": "B",
+      "important": 1,
+      "question_classification_name": "物料异常",
+      "urgency": 1,
+      "occur_stage_no": "FS008",
+      "risk_level_no": "FX-002",
+      "question_picture": [
+        {
+          "picture_id": "083a7f84-7719-4863-a2bc-48349c826faa"
+        }
+      ],
+      "proposer_department_name": "生产部",
+      "question_description": "新电脑财务报表初始化报错：初始化失败，无法将类型的COM对象强制转换为接口类型。COM组件调用因以下错误而失败，加载类型库/dll时错误。",
+      "question_attribution_no": "1",
+      "question_proposer_name": "李月(FRC905)",
+      "question_source_no": "R-1002",
+      "question_classification_oid": "2a5efe82ee3445a29ffa2c8ba8d551f9",
+      "proposer_department_id": "DIGI001"
+    },
+    "plan_arrange_info": {
+      "liable_person_name": "李月(FRC905)",
+      "process_date": "2022-06-28",
+      "reason_analysis_description": "https://esp-test.apps.digiwincloud.com.cn/CROSS/LogViewer.do?reqid=4c6c2162-26dd-4b73-acec-38c2f330e3d9&statecode=visual",
+      "liable_person_id": "FRC005",
+      "plan_arrange": [
+        {
+          "process_department_name": "生产部",
+          "expect_solve_date": "2022-06-28 09:27:02",
+          "liable_person_name": "李月(FRC905)",
+          "human_bottleneck_analysis": 204,
+          "step_no": "SE003002",
+          "step_name": "D4-临时措施",
+          "process_department_id": "DIGI001",
+          "human_duj": true,
+          "attachment_upload_flag": "N",
+          "liable_person_id": "FRC005",
+          "human_bottleneck_analysis_desc": "当前人员有204个未处理任务"
+        },
+        {
+          "process_department_name": "生产部",
+          "expect_solve_date": "2022-06-28 14:45:02",
+          "liable_person_name": "李月(FRC905)",
+          "human_bottleneck_analysis": 204,
+          "step_no": "SE003006",
+          "step_name": "D5-恒久措施",
+          "process_department_id": "DIGI001",
+          "human_duj": true,
+          "attachment_upload_flag": "N",
+          "liable_person_id": "FRC005",
+          "human_bottleneck_analysis_desc": "当前人员有204个未处理任务"
+        },
+        {
+          "process_department_name": "生产部",
+          "expect_solve_date": "2022-06-28 09:03:02",
+          "liable_person_name": "李月(FRC905)",
+          "human_bottleneck_analysis": 204,
+          "step_no": "SE003009",
+          "step_name": "D6-处理确认",
+          "process_department_id": "DIGI001",
+          "human_duj": true,
+          "attachment_upload_flag": "N",
+          "liable_person_id": "FRC005",
+          "human_bottleneck_analysis_desc": "当前人员有204个未处理任务"
+        }
+      ]
+    },
+    "question_detail_info": {
+      "source_no": "B22222222",
+      "process_id": "7315e7661c8e415ca87c6233057c9414",
+      "workstation_name": "机器人弯管自动线",
+      "item_name": "FC0004B0002003P0R00",
+      "defect_name": "套入的零件错误",
+      "workstation_id": "H10-852",
+      "product_no": "GS600SUA",
+      "product_name": "双轨点胶机",
+      "item_no": "FC0004B0002003P0R00",
+      "project_no": "A1111111111",
+      "process_name": "装配OP12",
+      "defect_picture_id": "81edf071-e3b2-48b5-ab1d-3484058cf3cd",
+      "sn": "C3333333",
+      "batch_qty": 999,
+      "discover_question_qty": "9",
+      "defect_no": "QT-005"
+    },
+    "plan_arrange": [
+      {
+        "process_department_name": "生产部",
+        "expect_solve_date": "2022-06-28 09:27:02",
+        "liable_person_name": "李月(FRC905)",
+        "human_bottleneck_analysis": 204,
+        "step_no": "SE003002",
+        "step_name": "D4-临时措施",
+        "process_department_id": "DIGI001",
+        "human_duj": true,
+        "attachment_upload_flag": "N",
+        "liable_person_id": "FRC005",
+        "human_bottleneck_analysis_desc": "当前人员有204个未处理任务"
+      },
+      {
+        "process_department_name": "生产部",
+        "expect_solve_date": "2022-06-28 14:45:02",
+        "liable_person_name": "李月(FRC905)",
+        "human_bottleneck_analysis": 204,
+        "step_no": "SE003006",
+        "step_name": "D5-恒久措施",
+        "process_department_id": "DIGI001",
+        "human_duj": true,
+        "attachment_upload_flag": "N",
+        "liable_person_id": "FRC005",
+        "human_bottleneck_analysis_desc": "当前人员有204个未处理任务"
+      },
+      {
+        "process_department_name": "生产部",
+        "expect_solve_date": "2022-06-28 09:03:02",
+        "liable_person_name": "李月(FRC905)",
+        "human_bottleneck_analysis": 204,
+        "step_no": "SE003009",
+        "step_name": "D6-处理确认",
+        "process_department_id": "DIGI001",
+        "human_duj": true,
+        "attachment_upload_flag": "N",
+        "liable_person_id": "FRC005",
+        "human_bottleneck_analysis_desc": "当前人员有204个未处理任务"
+      }
+    ],
+    "short_term_verify": {
+      "inspector_id": "FRC005",
+      "inspector_name": "李月(FRC905)",
+      "print_report_id": "",
+      "verify_illustrate": "https://esp-test.apps.digiwincloud.com.cn/CROSS/LogViewer.do?reqid=4c6c2162-26dd-4b73-acec-38c2f330e3d9&statecode=visual",
+      "verify_date": "2022-06-28"
+    }
+  }
+  ]
+})
+2022/06/28 11:20:50 ERROR [b6af61a65824406ca739deef16ca848c] 报告生成失败：null
+2022/06/28 11:20:50 INFO  [b6af61a65824406ca739deef16ca848c] io>result[1656386439100]{35}>com.digiwin.app.service.DWServiceResult@6ca3ea7e
+2022/06/28 11:23:49 INFO  [] Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@7186333e: startup date [Tue Jun 28 11:20:09 CST 2022]; root of context hierarchy
+2022/06/28 11:23:49 INFO  [] Stopping beans in phase 0
+2022/06/28 11:23:49 INFO  [] Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2022/06/28 11:23:49 INFO  [] Channel 'frm.errorChannel' has 0 subscriber(s).
+2022/06/28 11:23:49 INFO  [] stopped _org.springframework.integration.errorLogger
+2022/06/28 11:23:49 INFO  [] Shutting down ExecutorService 'taskScheduler'
+2022/06/28 11:23:49 INFO  [] Unregistering JMX-exposed beans on shutdown
+2022/06/28 11:23:49 INFO  [] Unregistering JMX-exposed beans
+2022/06/28 11:23:49 WARN  [] Failed to unregister the JMX name: org.apache.commons.dbcp2:name=dw-dataSource,type=BasicDataSource
+javax.management.InstanceNotFoundException: org.apache.commons.dbcp2:name=dw-dataSource,type=BasicDataSource
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.getMBean(DefaultMBeanServerInterceptor.java:1095) ~[?:1.8.0_131]
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.exclusiveUnregisterMBean(DefaultMBeanServerInterceptor.java:427) ~[?:1.8.0_131]
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.unregisterMBean(DefaultMBeanServerInterceptor.java:415) ~[?:1.8.0_131]
+	at com.sun.jmx.mbeanserver.JmxMBeanServer.unregisterMBean(JmxMBeanServer.java:546) ~[?:1.8.0_131]
+	at org.apache.commons.dbcp2.BasicDataSource.close(BasicDataSource.java:1941) [commons-dbcp2-2.2.0.jar:2.2.0]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_131]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_131]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_131]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_131]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.invokeCustomDestroyMethod(DisposableBeanAdapter.java:337) [spring-beans-5.0.5.RELEASE.jar:5.0.5.RELEASE]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:271) [spring-beans-5.0.5.RELEASE.jar:5.0.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:577) [spring-beans-5.0.5.RELEASE.jar:5.0.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:549) [spring-beans-5.0.5.RELEASE.jar:5.0.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:957) [spring-beans-5.0.5.RELEASE.jar:5.0.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:510) [spring-beans-5.0.5.RELEASE.jar:5.0.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:964) [spring-beans-5.0.5.RELEASE.jar:5.0.5.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1041) [spring-context-5.0.5.RELEASE.jar:5.0.5.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1017) [spring-context-5.0.5.RELEASE.jar:5.0.5.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext$1.run(AbstractApplicationContext.java:937) [spring-context-5.0.5.RELEASE.jar:5.0.5.RELEASE]
+2022/06/28 11:23:49 INFO  [] com.alibaba.nacos.spring.factory.DelegatingNamingService@2ed0559d was destroying!
+2022/06/28 11:23:49 INFO  [] class com.alibaba.nacos.spring.beans.factory.annotation.AnnotationNacosInjectedBeanPostProcessor was destroying!
+2022/06/28 11:26:16 INFO  [] log level: INFO
+2022/06/28 11:26:17 WARN  [] app.id is not available from System Property and /META-INF/app.properties. It is set to null
+2022/06/28 11:26:17 INFO  [] Environment is set to null. Because it is not available in either (1) JVM system property 'env', (2) OS env variable 'ENV' nor (3) property 'env' from the properties InputStream.
+2022/06/28 11:26:17 WARN  [] Meta server address fallback to http://apollo.meta for env UNKNOWN, because it is not available in all MetaServerProviders
+2022/06/28 11:26:32 INFO  [] is hook remote log4j2.xml: true
+2022/06/28 11:26:32 INFO  [] LogFactory implement: commons-logging
+2022/06/28 11:26:32 INFO  [] Log implement: DWExtendedLogger
+2022/06/28 11:26:32 INFO  [] [ConfigPool] policy: LOCAL_FIRST, isRemoteConfigOn: false, isGroupConfigOn: false
+2022/06/28 11:26:32 INFO  [] config center url: 
+2022/06/28 11:26:32 INFO  [] config center app ID: 
+2022/06/28 11:26:32 INFO  [] platform version: 
+2022/06/28 11:26:32 INFO  [] application version: 
+2022/06/28 11:26:32 INFO  [] config center group app ID: 
+2022/06/28 11:26:32 INFO  [] appId=frm
+2022/06/28 11:26:32 INFO  [] appToken=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IkZSQyIsInNpZCI6Mzc0MzM4Mjc1NzQ2MzY4fQ.Y0uDwsN0eD6PyTwtCt3Wis-PkWG_xC28XgQ3PAzjILc
+2022/06/28 11:26:32 INFO  [] dw-server:serverHttpTokenmode:IAM
+2022/06/28 11:26:32 INFO  [] dw-server:tenantEnabled=true
+2022/06/28 11:26:32 INFO  [] dw-server:tenantColumnname=tenantsid
+2022/06/28 11:26:33 INFO  [] HV000001: Hibernate Validator 6.0.9.Final
+2022/06/28 11:26:33 INFO  [] Starting DWApiGatewayApplication v4.0.0.1001 on H-17783 with PID 20172 (D:\frc\frc_backend\running\app_backend\platform\lib\dwapiplatform-springboot-4.0.0.1001.jar started by Wj in D:\frc\frc_backend\running\app_backend)
+2022/06/28 11:26:33 INFO  [] The following profiles are active: Saas,Heartbeat,RestfulService,RestfulStandard,EAI,bio,tomcat
+2022/06/28 11:26:33 INFO  [] Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3f29e26: startup date [Tue Jun 28 11:26:33 CST 2022]; root of context hierarchy
+2022/06/28 11:26:37 INFO  [] Overriding bean definition for bean 'websocketContainerCustomizer' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.websocket.servlet.WebSocketServletAutoConfiguration$UndertowWebSocketConfiguration; factoryMethodName=websocketContainerCustomizer; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/websocket/servlet/WebSocketServletAutoConfiguration$UndertowWebSocketConfiguration.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.websocket.servlet.WebSocketServletAutoConfiguration$TomcatWebSocketConfiguration; factoryMethodName=websocketContainerCustomizer; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/websocket/servlet/WebSocketServletAutoConfiguration$TomcatWebSocketConfiguration.class]]
+2022/06/28 11:26:37 INFO  [] log level: INFO
+2022/06/28 11:26:37 INFO  [] DWModuleDWServiceProcessor start to search DWService...
+2022/06/28 11:26:38 INFO  [] >>> Found Header 1.group=frc, service name=ICallbackService, type=com.digiwin.app.frc.service.athena.app.dingding.ICallbackService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 2.group=frc, service name=IDingLoginServer, type=com.digiwin.app.frc.service.athena.app.service.IDingLoginServer
+2022/06/28 11:26:38 INFO  [] >>> Found Header 3.group=frc, service name=IDingRegisterServer, type=com.digiwin.app.frc.service.athena.app.service.IDingRegisterServer
+2022/06/28 11:26:38 INFO  [] >>> Found Header 4.group=frc, service name=IQuestionTaskService, type=com.digiwin.app.frc.service.athena.app.service.IQuestionTaskService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 5.group=frc, service name=IPdfService, type=com.digiwin.app.frc.service.athena.file.service.IPdfService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 6.group=frc, service name=ICraftDataService, type=com.digiwin.app.frc.service.athena.mtw.service.ICraftDataService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 7.group=frc, service name=ICustomerService, type=com.digiwin.app.frc.service.athena.mtw.service.ICustomerService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 8.group=frc, service name=IDefectCodeService, type=com.digiwin.app.frc.service.athena.mtw.service.IDefectCodeService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 9.group=frc, service name=IEquipmentService, type=com.digiwin.app.frc.service.athena.mtw.service.IEquipmentService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 10.group=frc, service name=IESPCraftDataService, type=com.digiwin.app.frc.service.athena.mtw.service.IESPCraftDataService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 11.group=frc, service name=IESPCustomerService, type=com.digiwin.app.frc.service.athena.mtw.service.IESPCustomerService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 12.group=frc, service name=IESPDefectCodeService, type=com.digiwin.app.frc.service.athena.mtw.service.IESPDefectCodeService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 13.group=frc, service name=IESPEquipmentService, type=com.digiwin.app.frc.service.athena.mtw.service.IESPEquipmentService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 14.group=frc, service name=IESPKanbanFoolproofService, type=com.digiwin.app.frc.service.athena.mtw.service.IESPKanbanFoolproofService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 15.group=frc, service name=IESPKeyBoardAuthorityService, type=com.digiwin.app.frc.service.athena.mtw.service.IESPKeyBoardAuthorityService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 16.group=frc, service name=IESPKeyBoardDisplayService, type=com.digiwin.app.frc.service.athena.mtw.service.IESPKeyBoardDisplayService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 17.group=frc, service name=IESPKeyBoardTemplateService, type=com.digiwin.app.frc.service.athena.mtw.service.IESPKeyBoardTemplateService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 18.group=frc, service name=IESPProductSeriesService, type=com.digiwin.app.frc.service.athena.mtw.service.IESPProductSeriesService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 19.group=frc, service name=IESPQuestionBackService, type=com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionBackService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 20.group=frc, service name=IESPQuestionClassificationService, type=com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionClassificationService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 21.group=frc, service name=IESPQuestionConfigInfoService, type=com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionConfigInfoService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 22.group=frc, service name=IESPQuestionIdentifyConfigService, type=com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionIdentifyConfigService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 23.group=frc, service name=IESPQuestionItemService, type=com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionItemService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 24.group=frc, service name=IESPQuestionReasonService, type=com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionReasonService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 25.group=frc, service name=IESPQuestionSolutionService, type=com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionSolutionService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 26.group=frc, service name=IESPQuestionSourceService, type=com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionSourceService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 27.group=frc, service name=IKanbanFoolproofService, type=com.digiwin.app.frc.service.athena.mtw.service.IKanbanFoolproofService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 28.group=frc, service name=IKeyBoardAuthorityService, type=com.digiwin.app.frc.service.athena.mtw.service.IKeyBoardAuthorityService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 29.group=frc, service name=IKeyBoardDisplayService, type=com.digiwin.app.frc.service.athena.mtw.service.IKeyBoardDisplayService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 30.group=frc, service name=IKeyBoardTemplateService, type=com.digiwin.app.frc.service.athena.mtw.service.IKeyBoardTemplateService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 31.group=frc, service name=IProductSeriesService, type=com.digiwin.app.frc.service.athena.mtw.service.IProductSeriesService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 32.group=frc, service name=IQuestionBackService, type=com.digiwin.app.frc.service.athena.mtw.service.IQuestionBackService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 33.group=frc, service name=IQuestionClassificationService, type=com.digiwin.app.frc.service.athena.mtw.service.IQuestionClassificationService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 34.group=frc, service name=IQuestionConfigInfoService, type=com.digiwin.app.frc.service.athena.mtw.service.IQuestionConfigInfoService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 35.group=frc, service name=IQuestionIdentifyConfigService, type=com.digiwin.app.frc.service.athena.mtw.service.IQuestionIdentifyConfigService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 36.group=frc, service name=IQuestionItemService, type=com.digiwin.app.frc.service.athena.mtw.service.IQuestionItemService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 37.group=frc, service name=IQuestionReasonService, type=com.digiwin.app.frc.service.athena.mtw.service.IQuestionReasonService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 38.group=frc, service name=IQuestionSolutionService, type=com.digiwin.app.frc.service.athena.mtw.service.IQuestionSolutionService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 39.group=frc, service name=IQuestionSourceService, type=com.digiwin.app.frc.service.athena.mtw.service.IQuestionSourceService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 40.group=frc, service name=IESPLiablePersonConfigService, type=com.digiwin.app.frc.service.athena.ppc.service.IESPLiablePersonConfigService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 41.group=frc, service name=IESPQuestionAcceptanceConfigService, type=com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionAcceptanceConfigService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 42.group=frc, service name=IESPQuestionAnalysisConfigService, type=com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionAnalysisConfigService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 43.group=frc, service name=IESPQuestionConfirmConfigService, type=com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionConfirmConfigService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 44.group=frc, service name=IESPQuestionLiablePersonDepartmentLatitudeConfigService, type=com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionLiablePersonDepartmentLatitudeConfigService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 45.group=frc, service name=IESPQuestionOccurStageService, type=com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionOccurStageService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 46.group=frc, service name=IESPQuestionProcessConfigService, type=com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionProcessConfigService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 47.group=frc, service name=IESPQuestionRiskLevelService, type=com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionRiskLevelService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 48.group=frc, service name=ILiablePersonConfigService, type=com.digiwin.app.frc.service.athena.ppc.service.ILiablePersonConfigService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 49.group=frc, service name=IQuestionAcceptanceConfigService, type=com.digiwin.app.frc.service.athena.ppc.service.IQuestionAcceptanceConfigService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 50.group=frc, service name=IQuestionAnalysisConfigService, type=com.digiwin.app.frc.service.athena.ppc.service.IQuestionAnalysisConfigService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 51.group=frc, service name=IQuestionConfirmConfigService, type=com.digiwin.app.frc.service.athena.ppc.service.IQuestionConfirmConfigService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 52.group=frc, service name=IQuestionLiablePersonDepartmentLatitudeConfigService, type=com.digiwin.app.frc.service.athena.ppc.service.IQuestionLiablePersonDepartmentLatitudeConfigService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 53.group=frc, service name=IQuestionOccurStageService, type=com.digiwin.app.frc.service.athena.ppc.service.IQuestionOccurStageService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 54.group=frc, service name=IQuestionProcessConfigService, type=com.digiwin.app.frc.service.athena.ppc.service.IQuestionProcessConfigService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 55.group=frc, service name=IQuestionRiskLevelService, type=com.digiwin.app.frc.service.athena.ppc.service.IQuestionRiskLevelService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 56.group=frc, service name=IESPService, type=com.digiwin.app.frc.service.athena.qdh.service.IESPService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 57.group=frc, service name=ITestService, type=com.digiwin.app.frc.service.athena.qdh.service.ITestService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 58.group=frc, service name=IESPKanbanInfoDisplayService, type=com.digiwin.app.frc.service.athena.rqi.service.IESPKanbanInfoDisplayService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 59.group=frc, service name=IESPReportQueryService, type=com.digiwin.app.frc.service.athena.rqi.service.IESPReportQueryService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 60.group=frc, service name=IFileOperationService, type=com.digiwin.app.frc.service.athena.rqi.service.IFileOperationService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 61.group=frc, service name=IKanbanInfoDisplayService, type=com.digiwin.app.frc.service.athena.rqi.service.IKanbanInfoDisplayService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 62.group=frc, service name=IReportQueryService, type=com.digiwin.app.frc.service.athena.rqi.service.IReportQueryService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 63.group=frc, service name=IESPServiceForIteration8D, type=com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D
+2022/06/28 11:26:38 INFO  [] >>> Found Header 64.group=frc, service name=IESPServiceForIterationUniversal, type=com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIterationUniversal
+2022/06/28 11:26:38 INFO  [] >>> Found Header 65.group=frc, service name=ITest8DService, type=com.digiwin.app.frc.service.athena.solutions.service.ITest8DService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 66.group=frc, service name=ITestUniversalService, type=com.digiwin.app.frc.service.athena.solutions.service.ITestUniversalService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 67.group=RequestHelper, service name=IModuleInfoService, type=com.digiwin.app.requesthelper.service.IModuleInfoService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 68.group=DWSys, service name=ILoginService, type=com.digiwin.dwapi.dwsys.service.ILoginService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 69.group=DWSys, service name=ITestJobService, type=com.digiwin.dwapi.dwsys.service.ITestJobService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 70.group=DWSys, service name=ISystemInfoService, type=com.digiwin.dwapi.dwsys.service.ISystemInfoService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 71.group=DWSys, service name=IOrgService, type=com.digiwin.dwapi.dwsys.service.IOrgService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 72.group=DWSys, service name=IQueryService, type=com.digiwin.dwapi.dwsys.service.IQueryService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 73.group=DWSys, service name=IFunctionPermissionService, type=com.digiwin.dwapi.dwsys.service.IFunctionPermissionService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 74.group=DWSys, service name=ICheckJob, type=com.digiwin.dwapi.dwsys.service.ICheckJob
+2022/06/28 11:26:38 INFO  [] >>> Found Header 75.group=DWSys, service name=IMyHomeService, type=com.digiwin.dwapi.dwsys.service.IMyHomeService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 76.group=DWSys, service name=IDMCService, type=com.digiwin.dwapi.dwsys.service.IDMCService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 77.group=DWSys, service name=IThemeService, type=com.digiwin.dwapi.dwsys.service.IThemeService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 78.group=DWSys, service name=IServiceInfoService, type=com.digiwin.dwapi.dwsys.service.IServiceInfoService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 79.group=DWSys, service name=IMetadataService, type=com.digiwin.dwapi.dwsys.service.IMetadataService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 80.group=DWSys, service name=IUserService, type=com.digiwin.dwapi.dwsys.service.IUserService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 81.group=DWSys, service name=IHealthCheckingService, type=com.digiwin.dwapi.dwsys.service.IHealthCheckingService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 82.group=DWSys, service name=IReportService, type=com.digiwin.dwapi.dwsys.service.IReportService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 83.group=DWSys, service name=IOnPremisesUpdateService, type=com.digiwin.dwapi.dwsys.service.IOnPremisesUpdateService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 84.group=DWSys, service name=IReleaseService, type=com.digiwin.dwapi.dwsys.service.IReleaseService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 85.group=DWSys, service name=IDocumentIdService, type=com.digiwin.dwapi.dwsys.service.IDocumentIdService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 86.group=DWSys, service name=ICheckResultReceiverService, type=com.digiwin.dwapi.dwsys.service.ICheckResultReceiverService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 87.group=DWSys, service name=IMenuService, type=com.digiwin.dwapi.dwsys.service.IMenuService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 88.group=DWSys, service name=IScheduleService, type=com.digiwin.dwapi.dwsys.service.IScheduleService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 89.group=DWSys, service name=ICustomColumnService, type=com.digiwin.dwapi.dwsys.service.ICustomColumnService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 90.group=DWSys, service name=ILogService, type=com.digiwin.dwapi.dwsys.service.ILogService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 91.group=DWSys, service name=ICustomizeFieldService, type=com.digiwin.dwapi.dwsys.service.ICustomizeFieldService
+2022/06/28 11:26:38 INFO  [] >>> Found Header 92.group=DWSys, service name=ITenantScheduleBatchService, type=com.digiwin.dwapi.dwsys.service.ITenantScheduleBatchService
+2022/06/28 11:26:38 INFO  [] Register DWLocalHeaderRepository, group name=frc, header count=66
+2022/06/28 11:26:38 INFO  [] Register DWLocalHeaderRepository, group name=RequestHelper, header count=1
+2022/06/28 11:26:38 INFO  [] Register DWLocalHeaderRepository, group name=DWSys, header count=25
+2022/06/28 11:26:38 INFO  [] Register DWRestfulHeaderRepository, group name=frc, header count=36
+2022/06/28 11:26:38 INFO  []   |_____com.digiwin.app.frc.service.athena.app.dingding.ICallbackService
+2022/06/28 11:26:38 INFO  []   |_____com.digiwin.app.frc.service.athena.app.service.IDingLoginServer
+2022/06/28 11:26:38 INFO  []   |_____com.digiwin.app.frc.service.athena.app.service.IDingRegisterServer
+2022/06/28 11:26:38 INFO  []   |_____com.digiwin.app.frc.service.athena.app.service.IQuestionTaskService
+2022/06/28 11:26:38 INFO  []   |_____com.digiwin.app.frc.service.athena.file.service.IPdfService
+2022/06/28 11:26:38 INFO  []   |_____com.digiwin.app.frc.service.athena.mtw.service.ICraftDataService
+2022/06/28 11:26:38 INFO  []   |_____com.digiwin.app.frc.service.athena.mtw.service.ICustomerService
+2022/06/28 11:26:38 INFO  []   |_____com.digiwin.app.frc.service.athena.mtw.service.IDefectCodeService
+2022/06/28 11:26:38 INFO  []   |_____com.digiwin.app.frc.service.athena.mtw.service.IEquipmentService
+2022/06/28 11:26:38 INFO  []   |_____com.digiwin.app.frc.service.athena.mtw.service.IKanbanFoolproofService
+2022/06/28 11:26:38 INFO  []   |_____com.digiwin.app.frc.service.athena.mtw.service.IKeyBoardAuthorityService
+2022/06/28 11:26:38 INFO  []   |_____com.digiwin.app.frc.service.athena.mtw.service.IKeyBoardDisplayService
+2022/06/28 11:26:38 INFO  []   |_____com.digiwin.app.frc.service.athena.mtw.service.IKeyBoardTemplateService
+2022/06/28 11:26:38 INFO  []   |_____com.digiwin.app.frc.service.athena.mtw.service.IProductSeriesService
+2022/06/28 11:26:38 INFO  []   |_____com.digiwin.app.frc.service.athena.mtw.service.IQuestionBackService
+2022/06/28 11:26:38 INFO  []   |_____com.digiwin.app.frc.service.athena.mtw.service.IQuestionClassificationService
+2022/06/28 11:26:38 INFO  []   |_____com.digiwin.app.frc.service.athena.mtw.service.IQuestionConfigInfoService
+2022/06/28 11:26:38 INFO  []   |_____com.digiwin.app.frc.service.athena.mtw.service.IQuestionIdentifyConfigService
+2022/06/28 11:26:38 INFO  []   |_____com.digiwin.app.frc.service.athena.mtw.service.IQuestionItemService
+2022/06/28 11:26:38 INFO  []   |_____com.digiwin.app.frc.service.athena.mtw.service.IQuestionReasonService
+2022/06/28 11:26:38 INFO  []   |_____com.digiwin.app.frc.service.athena.mtw.service.IQuestionSolutionService
+2022/06/28 11:26:38 INFO  []   |_____com.digiwin.app.frc.service.athena.mtw.service.IQuestionSourceService
+2022/06/28 11:26:38 INFO  []   |_____com.digiwin.app.frc.service.athena.ppc.service.ILiablePersonConfigService
+2022/06/28 11:26:38 INFO  []   |_____com.digiwin.app.frc.service.athena.ppc.service.IQuestionAcceptanceConfigService
+2022/06/28 11:26:38 INFO  []   |_____com.digiwin.app.frc.service.athena.ppc.service.IQuestionAnalysisConfigService
+2022/06/28 11:26:38 INFO  []   |_____com.digiwin.app.frc.service.athena.ppc.service.IQuestionConfirmConfigService
+2022/06/28 11:26:38 INFO  []   |_____com.digiwin.app.frc.service.athena.ppc.service.IQuestionLiablePersonDepartmentLatitudeConfigService
+2022/06/28 11:26:38 INFO  []   |_____com.digiwin.app.frc.service.athena.ppc.service.IQuestionOccurStageService
+2022/06/28 11:26:38 INFO  []   |_____com.digiwin.app.frc.service.athena.ppc.service.IQuestionProcessConfigService
+2022/06/28 11:26:38 INFO  []   |_____com.digiwin.app.frc.service.athena.ppc.service.IQuestionRiskLevelService
+2022/06/28 11:26:38 INFO  []   |_____com.digiwin.app.frc.service.athena.qdh.service.ITestService
+2022/06/28 11:26:38 INFO  []   |_____com.digiwin.app.frc.service.athena.rqi.service.IFileOperationService
+2022/06/28 11:26:38 INFO  []   |_____com.digiwin.app.frc.service.athena.rqi.service.IKanbanInfoDisplayService
+2022/06/28 11:26:38 INFO  []   |_____com.digiwin.app.frc.service.athena.rqi.service.IReportQueryService
+2022/06/28 11:26:38 INFO  []   |_____com.digiwin.app.frc.service.athena.solutions.service.ITest8DService
+2022/06/28 11:26:38 INFO  []   |_____com.digiwin.app.frc.service.athena.solutions.service.ITestUniversalService
+2022/06/28 11:26:38 INFO  [] Register DWEAIHeaderRepository, group name=frc, header count=169
+2022/06/28 11:26:38 INFO  []   |_____id=op.info.get, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPCraftDataService.getCraftDataInfo
+2022/06/28 11:26:38 INFO  []   |_____id=op.info.delete, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPCraftDataService.postDeleteCraftDataInfo
+2022/06/28 11:26:38 INFO  []   |_____id=op.info.update, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPCraftDataService.postUpdateCraftDataInfo
+2022/06/28 11:26:38 INFO  []   |_____id=op.info.create, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPCraftDataService.postAddCraftDataInfo
+2022/06/28 11:26:38 INFO  []   |_____id=dealer.contact.person.info.get, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPCustomerService.getCustomerServiceInfo
+2022/06/28 11:26:38 INFO  []   |_____id=dealer.contact.person.info.update, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPCustomerService.postUpdateCustomerServiceInfo
+2022/06/28 11:26:38 INFO  []   |_____id=dealer.contact.person.info.create, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPCustomerService.postAddCustomerServiceInfo
+2022/06/28 11:26:38 INFO  []   |_____id=dealer.contact.person.info.delete, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPCustomerService.postDeleteCustomerServiceInfo
+2022/06/28 11:26:38 INFO  []   |_____id=defect.info.update, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPDefectCodeService.postUpdateDefectCodeInfo
+2022/06/28 11:26:38 INFO  []   |_____id=defect.info.delete, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPDefectCodeService.postDeleteDefectCodeInfo
+2022/06/28 11:26:38 INFO  []   |_____id=defect.info.get, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPDefectCodeService.getDefectCodeInfo
+2022/06/28 11:26:38 INFO  []   |_____id=defect.info.create, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPDefectCodeService.postAddDefectCodeInfo
+2022/06/28 11:26:38 INFO  []   |_____id=workstation.info.get, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPEquipmentService.getEquipmentInfo
+2022/06/28 11:26:38 INFO  []   |_____id=workstation.info.update, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPEquipmentService.postUpdateEquipmentInfo
+2022/06/28 11:26:38 INFO  []   |_____id=workstation.info.create, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPEquipmentService.postAddEquipmentInfo
+2022/06/28 11:26:38 INFO  []   |_____id=workstation.info.delete, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPEquipmentService.postDeleteEquipmentInfo
+2022/06/28 11:26:38 INFO  []   |_____id=wait.delete.kanban.solution.info.get, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPKanbanFoolproofService.getKanbanFoolproofInfo
+2022/06/28 11:26:38 INFO  []   |_____id=kanban.permissions.info.delete, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPKeyBoardAuthorityService.postDeleteKeyBoardAuthorityInfo
+2022/06/28 11:26:38 INFO  []   |_____id=kanban.permissions.info.get, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPKeyBoardAuthorityService.getKeyBoardAuthorityInfo
+2022/06/28 11:26:38 INFO  []   |_____id=kanban.permissions.info.update, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPKeyBoardAuthorityService.postUpdateKeyBoardAuthorityInfo
+2022/06/28 11:26:38 INFO  []   |_____id=kanban.permissions.info.create, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPKeyBoardAuthorityService.postAddKeyBoardAuthorityInfo
+2022/06/28 11:26:38 INFO  []   |_____id=kanban.template.display.info.delete, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPKeyBoardDisplayService.postDeleteKeyBoardDisplayInfo
+2022/06/28 11:26:38 INFO  []   |_____id=kanban.template.display.info.update, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPKeyBoardDisplayService.postUpdateKeyBoardDisplayInfo
+2022/06/28 11:26:38 INFO  []   |_____id=kanban.template.display.info.get, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPKeyBoardDisplayService.getKeyBoardDisplayInfo
+2022/06/28 11:26:38 INFO  []   |_____id=kanban.template.display.info.create, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPKeyBoardDisplayService.postAddKeyBoardDisplayInfo
+2022/06/28 11:26:38 INFO  []   |_____id=kanban.template.field.info.create, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPKeyBoardTemplateService.postAddKeyBoardModelInfo
+2022/06/28 11:26:38 INFO  []   |_____id=kanban.template.field.info.update, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPKeyBoardTemplateService.postUpdateKeyBoardModeInfo
+2022/06/28 11:26:38 INFO  []   |_____id=kanban.template.field.info.get, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPKeyBoardTemplateService.getKeyBoardModeInfo
+2022/06/28 11:26:38 INFO  []   |_____id=kanban.template.field.info.delete, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPKeyBoardTemplateService.postDeleteKeyBoardModeInfo
+2022/06/28 11:26:38 INFO  []   |_____id=product.series.info.delete, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPProductSeriesService.postDeleteProductSeriesInfo
+2022/06/28 11:26:38 INFO  []   |_____id=product.series.info.get, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPProductSeriesService.getProductSeriesInfo
+2022/06/28 11:26:38 INFO  []   |_____id=product.series.info.update, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPProductSeriesService.postUpdateProductSeriesInfo
+2022/06/28 11:26:38 INFO  []   |_____id=product.series.info.create, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPProductSeriesService.postAddProductSeriesInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.return.info.get, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionBackService.getQuestionBackInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.return.info.create, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionBackService.postAddQuestionBackInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.return.info.delete, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionBackService.postDeleteQuestionBackInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.return.info.update, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionBackService.postUpdateQuestionBackInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.classification.info.delete, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionClassificationService.postDeleteQuestionClassificationInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.classification.info.create, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionClassificationService.postAddQuestionClassificationInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.classification.info.update, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionClassificationService.postUpdateQuestionClassificationInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.classification.info.get, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionClassificationService.getQuestionClassificationInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.liable.person.config.info.get, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionConfigInfoService.getQuestionLiablePersonConfigInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.identify.config.info.delete, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionIdentifyConfigService.postDeleteQuestionIdentifyConfigInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.identify.config.info.create, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionIdentifyConfigService.postAddQuestionIdentifyConfigInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.identify.config.info.update, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionIdentifyConfigService.postUpdateQuestionIdentifyConfigInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.identify.config.info.get, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionIdentifyConfigService.getQuestionIdentifyConfigInfo
+2022/06/28 11:26:38 INFO  []   |_____id=item.basic.info.create, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionItemService.postAddQuestionItemInfo
+2022/06/28 11:26:38 INFO  []   |_____id=item.basic.info.delete, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionItemService.postDeleteQuestionItemInfo
+2022/06/28 11:26:38 INFO  []   |_____id=item.basic.info.update, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionItemService.postUpdateQuestionItemInfo
+2022/06/28 11:26:38 INFO  []   |_____id=item.basic.info.get, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionItemService.getQuestionItemInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.reason.info.create, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionReasonService.postAddQuestionReasonInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.reason.info.delete, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionReasonService.postDeleteQuestionReasonInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.reason.info.update, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionReasonService.postUpdateQuestionReasonInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.reason.info.get, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionReasonService.getQuestionReasonInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.solution.info.delete, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionSolutionService.postDeleteQuestionSolutionInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.solution.info.update, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionSolutionService.postUpdateQuestionSolutionInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.solution.info.get, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionSolutionService.getQuestionSolutionInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.solution.info.create, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionSolutionService.postAddQuestionSolutionInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.source.info.delete, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionSourceService.postDeleteQuestionSourceInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.source.info.get, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionSourceService.getQuestionSourceInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.source.info.update, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionSourceService.postUpdateQuestionSourceInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.source.info.create, is callback=false, com.digiwin.app.frc.service.athena.mtw.service.IESPQuestionSourceService.postAddQuestionSourceInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.liable.person.question.latitude.config.info.delete, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPLiablePersonConfigService.postDeleteLiablePersonConfigInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.liable.person.question.latitude.config.info.get, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPLiablePersonConfigService.getLiablePersonConfigInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.liable.person.question.latitude.config.info.create, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPLiablePersonConfigService.postAddLiablePersonConfigInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.liable.person.question.latitude.config.info.update, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPLiablePersonConfigService.postUpdateLiablePersonConfigInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.acceptance.config.info.get, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionAcceptanceConfigService.getQuestionAcceptanceConfigInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.acceptance.config.info.update, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionAcceptanceConfigService.postUpdateQuestionAcceptanceConfigInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.acceptance.config.info.create, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionAcceptanceConfigService.postAddQuestionAcceptanceConfigInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.acceptance.config.info.delete, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionAcceptanceConfigService.postDeleteQuestionAcceptanceConfigInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.analysis.config.info.get, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionAnalysisConfigService.getQuestionAnalysisConfigInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.analysis.config.info.create, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionAnalysisConfigService.postAddQuestionAnalysisConfigInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.analysis.config.info.delete, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionAnalysisConfigService.postDeleteQuestionAnalysisConfigInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.analysis.config.info.update, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionAnalysisConfigService.postUpdateQuestionAnalysisConfigInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.confirm.config.info.get, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionConfirmConfigService.getQuestionConfirmConfigInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.confirm.config.info.create, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionConfirmConfigService.postAddQuestionConfirmConfigInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.confirm.config.info.delete, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionConfirmConfigService.postDeleteQuestionConfirmConfigInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.confirm.config.info.update, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionConfirmConfigService.postUpdateQuestionConfirmConfigInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.liable.person.department.latitude.config.info.create, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionLiablePersonDepartmentLatitudeConfigService.postAddQuestionLiablePersonDepartmentLatitudeConfigInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.liable.person.department.latitude.config.info.update, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionLiablePersonDepartmentLatitudeConfigService.postUpdateQuestionLiablePersonDepartmentLatitudeConfigInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.liable.person.department.latitude.config.info.get, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionLiablePersonDepartmentLatitudeConfigService.postGetQuestionLiablePersonDepartmentLatitudeConfigInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.liable.person.department.latitude.config.info.delete, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionLiablePersonDepartmentLatitudeConfigService.postDeleteQuestionLiablePersonDepartmentLatitudeConfigInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.occur.stage.info.create, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionOccurStageService.postAddQuestionOccurStageInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.occur.stage.info.get, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionOccurStageService.getQuestionOccurStageInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.occur.stage.info.delete, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionOccurStageService.postDeleteQuestionOccurStageInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.occur.stage.info.update, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionOccurStageService.postUpdateQuestionOccurStageInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.process.config.info.get, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionProcessConfigService.getUniversalSolutionInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.process.config.info.create, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionProcessConfigService.postAddQuestionProcessConfigInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.process.config.info.delete, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionProcessConfigService.postDeleteQuestionProcessConfigInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.process.config.info.update, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionProcessConfigService.postUpdateQuestionProcessConfigInfo
+2022/06/28 11:26:38 INFO  []   |_____id=risk.level.info.delete, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionRiskLevelService.postDeleteQuestionRiskLevelInfo
+2022/06/28 11:26:38 INFO  []   |_____id=risk.level.info.create, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionRiskLevelService.postAddQuestionRiskLevelInfo
+2022/06/28 11:26:38 INFO  []   |_____id=risk.level.info.get, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionRiskLevelService.getQuestionRiskLevelInfo
+2022/06/28 11:26:38 INFO  []   |_____id=risk.level.info.update, is callback=false, com.digiwin.app.frc.service.athena.ppc.service.IESPQuestionRiskLevelService.postUpdateQuestionRiskLevelInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.initiate.info.create, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.initQuestion
+2022/06/28 11:26:38 INFO  []   |_____id=question.record.info.get, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.getRecord
+2022/06/28 11:26:38 INFO  []   |_____id=solution.step.info.get, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.getSolutionStep
+2022/06/28 11:26:38 INFO  []   |_____id=curb.detail.info.get, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.getCurbDetail
+2022/06/28 11:26:38 INFO  []   |_____id=question.close.info.get, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.getCloseDetail
+2022/06/28 11:26:38 INFO  []   |_____id=data.change.get, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.dataChange
+2022/06/28 11:26:38 INFO  []   |_____id=question.close.info.update, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.postQuestionCloseUpdate
+2022/06/28 11:26:38 INFO  []   |_____id=question.record.info.update, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.postQuestionRecordUpdate
+2022/06/28 11:26:38 INFO  []   |_____id=curb.info.update, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.postQuestionCurbUpdate
+2022/06/28 11:26:38 INFO  []   |_____id=curb.verify.info.update, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.postQuestionCurbVerifyUpdate
+2022/06/28 11:26:38 INFO  []   |_____id=question.record.info.create, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.postQuestionRecord
+2022/06/28 11:26:38 INFO  []   |_____id=question.distribution.info.get, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.getDistributionDetail
+2022/06/28 11:26:38 INFO  []   |_____id=question.acceptance.detail.info.get, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.getAcceptanceDetail
+2022/06/28 11:26:38 INFO  []   |_____id=question.distribution.info.update, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.postQuestionDistributionUpdate
+2022/06/28 11:26:38 INFO  []   |_____id=question.identify.info.get, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.getIdentifyDetail
+2022/06/28 11:26:38 INFO  []   |_____id=pending.approve.question.info.create, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.postApprovedQuestion
+2022/06/28 11:26:38 INFO  []   |_____id=pending.approve.curb.info.create, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.postApprovedCurbQuestion
+2022/06/28 11:26:38 INFO  []   |_____id=curb.distribution.info.get, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.getCurbDistributionDetail
+2022/06/28 11:26:38 INFO  []   |_____id=question.acceptance.info.update, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.postQuestionAcceptanceUpdate
+2022/06/28 11:26:38 INFO  []   |_____id=question.feedback.info.update, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.postQuestionFeedbackUpdate
+2022/06/28 11:26:38 INFO  []   |_____id=question.identify.info.update, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.postQuestionIdentifyUpdate
+2022/06/28 11:26:38 INFO  []   |_____id=curb.verify.info.get, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.getCurbVerifyDetail
+2022/06/28 11:26:38 INFO  []   |_____id=question.feedback.detail.info.get, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.getFeedBackDetail
+2022/06/28 11:26:38 INFO  []   |_____id=curb.distribution.info.update, is callback=false, com.digiwin.app.frc.service.athena.qdh.service.IESPService.postQuestionCurbDistributionUpdate
+2022/06/28 11:26:38 INFO  []   |_____id=kanban.info.get, is callback=false, com.digiwin.app.frc.service.athena.rqi.service.IESPKanbanInfoDisplayService.getKanbanInfo
+2022/06/28 11:26:38 INFO  []   |_____id=kanban.search.field.info.get, is callback=false, com.digiwin.app.frc.service.athena.rqi.service.IESPKanbanInfoDisplayService.getKanbanSearchFieldInfo
+2022/06/28 11:26:38 INFO  []   |_____id=issue.management.matrix.get, is callback=false, com.digiwin.app.frc.service.athena.rqi.service.IESPKanbanInfoDisplayService.getIssueManagementMatrixInfo
+2022/06/28 11:26:38 INFO  []   |_____id=issue.management.matrix.overview.get, is callback=false, com.digiwin.app.frc.service.athena.rqi.service.IESPKanbanInfoDisplayService.getIssueManagementMatrixOverviewInfo
+2022/06/28 11:26:38 INFO  []   |_____id=processor.question.track.info.get, is callback=false, com.digiwin.app.frc.service.athena.rqi.service.IESPReportQueryService.getQuestionTrackProcessorInfo
+2022/06/28 11:26:38 INFO  []   |_____id=proposer.question.track.info.get, is callback=false, com.digiwin.app.frc.service.athena.rqi.service.IESPReportQueryService.getQuestionTrackProposerInfo
+2022/06/28 11:26:38 INFO  []   |_____id=responsible.question.track.info.get, is callback=false, com.digiwin.app.frc.service.athena.rqi.service.IESPReportQueryService.getQuestionTrackResponsibleInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.prevention.measure.verify.info.update, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.updateQuestionPreventionMeasureVerifyInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.key.reason.rectify.info.update, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.updateQuestionKeyReasonRectifyInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.containment.measure.execute.verify.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.getQuestionContainmentMeasureExecuteVerifyInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.prevention.measure.info.update, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.updateQuestionPreventionMeasureInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.prevention.measure.execute.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.getQuestionPreventionMeasureExecuteInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.prevention.measure.execute.info.update, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.updateQuestionPreventionMeasureExecuteInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.containment.measure.execute.info.update, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.updateContainmentMeasureExecuteInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.containment.measure.execute.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.getQuestionContainmentMeasureExecuteInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.prevention.measure.verify.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.getQuestionPreventionMeasureVerifyInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.containment.measure.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.getQuestionContainmentMeasureInfo
+2022/06/28 11:26:38 INFO  []   |_____id=generate.pending.question.info.process, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.postApprovedQuestion
+2022/06/28 11:26:38 INFO  []   |_____id=personnel.pending.question.count.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.getPersonPendingQuestionNumInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.rectify.verify.info.update, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.updateQuestionRectifyVerifyInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.confirm.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.getQuestionConfirmInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.containment.measure.info.update, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.updateContainmentMeasureInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.rectify.verify.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.getQuestionRectifyVerifyInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.confirm.info.update, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.updateQuestionConfirmInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.prevention.measure.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.getQuestionPreventionMeasureInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.team.building.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.getQuestionTeamBuildInfo
+2022/06/28 11:26:38 INFO  []   |_____id=containment.measure.feedback.person.verify.info.update, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.updateFeedBackPersonVerifyInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.rectify.execute.info.update, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.updateQuestionRectifyExecuteInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.key.reason.rectify.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.getQuestionKeyReasonRectifyInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.rectify.execute.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.getQuestionRectifyExecuteInfo
+2022/06/28 11:26:38 INFO  []   |_____id=containment.measure.feedback.person.verify.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.getFeedBackPersonVerifyInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.team.building.info.update, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.postQuestionTeamBuildUpdate
+2022/06/28 11:26:38 INFO  []   |_____id=question.containment.measure.execute.verify.info.update, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIteration8D.updateQuestionContainmentMeasureExecuteVerifyInfo
+2022/06/28 11:26:38 INFO  []   |_____id=general.solution.short.term.close.verify.info.update, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIterationUniversal.postSolutionShortTermCloseVerifyInfoUpdate
+2022/06/28 11:26:38 INFO  []   |_____id=question.lasting.measure.execute.verify.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIterationUniversal.getPermanentMeasureExecuteVerifyInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.temporary.measure.execute.info.update, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIterationUniversal.postTemporaryMeasureexEcuteInfoUpdate
+2022/06/28 11:26:38 INFO  []   |_____id=general.solution.short.term.close.verify.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIterationUniversal.getSolutionShortTermCloseVerifyInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.temporary.measure.execute.verify.info.update, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIterationUniversal.postTemporaryMeasureexEcuteVerifyInfoUpdate
+2022/06/28 11:26:38 INFO  []   |_____id=question.temporary.measure.execute.verify.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIterationUniversal.getTemporaryMeasureexEcuteVerifyInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.lasting.measure.execute.info.update, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIterationUniversal.updatePermanentMeasureExecuteInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.lasting.measure.execute.verify.info.update, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIterationUniversal.updatePermanentMeasureExecuteVerifyInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.lasting.measure.execute.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIterationUniversal.getPermanentMeasureExecuteInfo
+2022/06/28 11:26:38 INFO  []   |_____id=general.solution.plan.arrange.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIterationUniversal.getPlanArrangeInfo
+2022/06/28 11:26:38 INFO  []   |_____id=general.solution.plan.arrange.info.update, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIterationUniversal.postPlanArrangeInfoUpdate
+2022/06/28 11:26:38 INFO  []   |_____id=question.temporary.measure.info.update, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIterationUniversal.postTemporaryMeasureInfoUpdate
+2022/06/28 11:26:38 INFO  []   |_____id=question.temporary.measure.execute.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIterationUniversal.getTemporaryMeasureexEcuteInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.lasting.measure.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIterationUniversal.getPermanentMeasureInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.temporary.measure.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIterationUniversal.getTemporaryMeasureInfo
+2022/06/28 11:26:38 INFO  []   |_____id=question.lasting.measure.info.update, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIterationUniversal.updatePermanentMeasureInfo
+2022/06/28 11:26:38 INFO  []   |_____id=general.solution.confirm.info.update, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIterationUniversal.updateSolutionConfirmInfo
+2022/06/28 11:26:38 INFO  []   |_____id=general.solution.confirm.info.get, is callback=false, com.digiwin.app.frc.service.athena.solutions.service.IESPServiceForIterationUniversal.getSolutionConfirmInfo
+2022/06/28 11:26:38 INFO  [] Overriding bean definition for bean 'eaiController' with a different definition: replacing [Generic bean: class [com.digiwin.gateway.controller.EaiController]; scope=singleton; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in URL [jar:file:/D:/frc/frc_backend/running/app_backend/platform/lib/dwapiplatform-springboot-4.0.0.1001.jar!/com/digiwin/gateway/controller/EaiController.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=com.digiwin.app.autoconfigure.DWEAIRestfulUrlRegisterAutoConfiguration$BioConfiguration; factoryMethodName=eaiController; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/digiwin/app/autoconfigure/DWEAIRestfulUrlRegisterAutoConfiguration$BioConfiguration.class]]
+2022/06/28 11:26:38 INFO  [] Multiple Spring Data modules found, entering strict repository configuration mode!
+2022/06/28 11:26:38 INFO  [] No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2022/06/28 11:26:38 WARN  [] Cannot enhance @Configuration bean definition 'com.digiwin.app.autoconfigure.DWDefaultServiceAutoConfiguration' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+2022/06/28 11:26:38 WARN  [] Cannot enhance @Configuration bean definition 'com.digiwin.app.autoconfigure.DWRestfulStandardServiceAutoConfiguration' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+2022/06/28 11:26:38 WARN  [] Cannot enhance @Configuration bean definition 'com.digiwin.app.autoconfigure.DWEAIServiceAutoConfiguration' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+2022/06/28 11:26:39 INFO  [] -DWMobileInitializationEvent-check required property's key->mobileApiInit=
+2022/06/28 11:26:39 INFO  [] No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2022/06/28 11:26:39 INFO  [] No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2022/06/28 11:26:39 INFO  [] JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2022/06/28 11:26:39 INFO  [] Bean 'com.digiwin.app.autoconfigure.DWModuleValidationAutoConfiguration' of type [com.digiwin.app.autoconfigure.DWModuleValidationAutoConfiguration$$EnhancerBySpringCGLIB$$2d3bfa33] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022/06/28 11:26:39 INFO  [] Bean 'dao-LocalValidatorFactoryBean' of type [org.springframework.validation.beanvalidation.LocalValidatorFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022/06/28 11:26:39 INFO  [] Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$7f9a28e9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022/06/28 11:26:39 INFO  [] Bean 'com.digiwin.app.autoconfigure.DWDaoAutoConfiguration' of type [com.digiwin.app.autoconfigure.DWDaoAutoConfiguration$$EnhancerBySpringCGLIB$$d8043180] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022/06/28 11:26:39 INFO  [] Bean 'daoMultiTenancyInterceptor' of type [com.digiwin.app.dao.MultiTenancyInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022/06/28 11:26:39 INFO  [] Bean 'daoMultiTenancyAdvisor' of type [org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022/06/28 11:26:39 INFO  [] Bean 'com.digiwin.app.autoconfigure.DWCacheAutoConfiguration' of type [com.digiwin.app.autoconfigure.DWCacheAutoConfiguration$$EnhancerBySpringCGLIB$$352e6a50] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022/06/28 11:26:40 INFO  [] Bean 'dwCacheKeyGenerator' of type [org.springframework.beans.factory.support.NullBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022/06/28 11:26:40 INFO  [] Bean 'org.springframework.cache.jcache.config.ProxyJCacheConfiguration' of type [org.springframework.cache.jcache.config.ProxyJCacheConfiguration$$EnhancerBySpringCGLIB$$a1e1eb67] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022/06/28 11:26:40 INFO  [] Bean 'org.springframework.cache.annotation.ProxyCachingConfiguration' of type [org.springframework.cache.annotation.ProxyCachingConfiguration$$EnhancerBySpringCGLIB$$c8ac5f07] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022/06/28 11:26:40 INFO  [] Bean 'org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration' of type [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration$$EnhancerBySpringCGLIB$$bd2023ab] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022/06/28 11:26:40 INFO  [] Bean 'org.springframework.boot.context.properties.ConversionServiceDeducer$Factory' of type [org.springframework.boot.context.properties.ConversionServiceDeducer$Factory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022/06/28 11:26:40 INFO  [] Bean 'spring.cache-org.springframework.boot.autoconfigure.cache.CacheProperties' of type [org.springframework.boot.autoconfigure.cache.CacheProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022/06/28 11:26:40 INFO  [] Bean 'org.springframework.boot.autoconfigure.cache.NoOpCacheConfiguration' of type [org.springframework.boot.autoconfigure.cache.NoOpCacheConfiguration$$EnhancerBySpringCGLIB$$7a99ec5c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022/06/28 11:26:40 INFO  [] Bean 'cacheManager' of type [org.springframework.cache.support.NoOpCacheManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022/06/28 11:26:40 INFO  [] Bean 'cacheAutoConfigurationValidator' of type [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration$CacheManagerValidator] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022/06/28 11:26:40 INFO  [] Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration$$EnhancerBySpringCGLIB$$ea8be418] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022/06/28 11:26:41 INFO  [] Tomcat initialized with port(s): 8090 (http)
+2022/06/28 11:26:41 INFO  [] Root WebApplicationContext: initialization completed in 8008 ms
+2022/06/28 11:26:44 INFO  [] Mapping filter: 'sidecarProtocalFilter' to urls: [/sidecar/*]
+2022/06/28 11:26:44 INFO  [] Mapping filter: 'characterEncodingFilter' to: [/*]
+2022/06/28 11:26:44 INFO  [] Mapping filter: 'standardHeaderFilter' to urls: [/restful/*, /api/app/initialize, /api/app/tenant/expired/notices, /api/app/tenant/renew/notices, /api/app/tenant/datasource/update]
+2022/06/28 11:26:44 INFO  [] Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2022/06/28 11:26:44 INFO  [] Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2022/06/28 11:26:44 INFO  [] Mapping filter: 'requestContextFilter' to: [/*]
+2022/06/28 11:26:44 INFO  [] Mapping filter: 'serviceUrlRuleFilter' to urls: [/restful/service/*]
+2022/06/28 11:26:44 INFO  [] Mapping filter: 'DWMethodLocateFilter' to urls: [/restful/service/*]
+2022/06/28 11:26:44 INFO  [] Mapping filter: 'DWRestfulMethodLocateFilter' to urls: [/restful/standard/*]
+2022/06/28 11:26:44 INFO  [] Mapping filter: 'eaiHealthCheckFilter' to urls: [/eai]
+2022/06/28 11:26:44 INFO  [] Mapping filter: 'DWEaiServiceMethodLocateFilter' to urls: [/eai]
+2022/06/28 11:26:44 INFO  [] Mapping filter: 'DWEaiCallbackMethodLocateFilter' to urls: [/eai/callback]
+2022/06/28 11:26:44 INFO  [] Mapping filter: 'allowAnonymousFilter' to urls: [/restful/service/*, /restful/standard/*, /eai, /eai/callback]
+2022/06/28 11:26:44 INFO  [] Mapping filter: 'tokenFilter' to urls: [/restful/service/*, /restful/standard/*, /eai, /eai/callback]
+2022/06/28 11:26:44 INFO  [] Mapping filter: 'requestStandardizationFilter' to urls: [/restful/service/*]
+2022/06/28 11:26:44 INFO  [] Mapping filter: 'httpTraceFilter' to: [/*]
+2022/06/28 11:26:44 INFO  [] Mapping filter: 'webMvcMetricsFilter' to: [/*]
+2022/06/28 11:26:44 INFO  [] Servlet dispatcherServlet mapped to [/]
+2022/06/28 11:26:45 INFO  [] Mapped "{[/api/app/tenant/datasource/update],methods=[POST]}" onto public java.lang.Object com.digiwin.gateway.controller.DWTenantDataSourceController.updateDataSource() throws java.lang.Exception
+2022/06/28 11:26:45 INFO  [] Mapped "{[/api/app/tenant/expired/notices],methods=[POST]}" onto public java.lang.Object com.digiwin.gateway.controller.DWTenantScheduleController.stopSchedule() throws java.lang.Exception
+2022/06/28 11:26:45 INFO  [] Mapped "{[/api/app/tenant/renew/notices],methods=[POST]}" onto public java.lang.Object com.digiwin.gateway.controller.DWTenantScheduleController.startSchedule() throws java.lang.Exception
+2022/06/28 11:26:45 INFO  [] Mapped "{[/restful/service/**],methods=[GET || POST || PATCH || PUT || DELETE]}" onto public java.lang.Object com.digiwin.gateway.controller.GatewayController.execute() throws java.lang.Exception
+2022/06/28 11:26:45 INFO  [] Mapped "{[/restful/standard/**]}" onto public java.lang.Object com.digiwin.gateway.controller.GatewayController.restful() throws java.lang.Exception
+2022/06/28 11:26:45 INFO  [] Mapped "{[/api/app/initialize],methods=[POST]}" onto public java.lang.Object com.digiwin.gateway.controller.DWInitializationController.initialize() throws java.lang.Exception
+2022/06/28 11:26:45 INFO  [] Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2022/06/28 11:26:45 INFO  [] Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2022/06/28 11:26:45 INFO  [] Mapped "{[/eai],methods=[POST],produces=[application/json]}" onto public java.lang.Object com.digiwin.gateway.controller.EaiController.eai()
+2022/06/28 11:26:45 INFO  [] Mapped "{[/eai/callback],methods=[POST],produces=[application/json]}" onto public java.lang.Object com.digiwin.gateway.controller.EaiController.callback() throws java.lang.Exception
+2022/06/28 11:26:45 INFO  [] Mapped "{[/eai/syncProd],methods=[POST],produces=[application/json]}" onto public java.lang.Object com.digiwin.gateway.controller.EaiController.syncProd() throws java.lang.Exception
+2022/06/28 11:26:45 INFO  [] Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2022/06/28 11:26:45 INFO  [] Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3f29e26: startup date [Tue Jun 28 11:26:33 CST 2022]; root of context hierarchy
+2022/06/28 11:26:45 INFO  [] Detected @ExceptionHandler methods in exceptionFilter
+2022/06/28 11:26:45 INFO  [] initializer namespace from System Property :null
+2022/06/28 11:26:45 INFO  [] initializer namespace from System Environment :null
+2022/06/28 11:26:45 INFO  [] initializer namespace from System Property :null
+2022/06/28 11:26:45 INFO  [] [settings] [req-serv] nacos-server port:8848
+2022/06/28 11:26:45 INFO  [] [settings] [http-client] connect timeout:1000
+2022/06/28 11:26:45 INFO  [] NACOS_CLIENT_VERSION: ${project.version}
+2022/06/28 11:26:45 INFO  [] PER_TASK_CONFIG_SIZE: 3000.0
+2022/06/28 11:26:46 INFO  [] Loading XML bean definitions from InputStream resource [resource loaded through InputStream]
+2022/06/28 11:26:46 INFO  [] Refreshing org.springframework.context.support.GenericXmlApplicationContext@9a37591: startup date [Tue Jun 28 11:26:46 CST 2022]; parent: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3f29e26
+2022/06/28 11:26:46 INFO  [] JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2022/06/28 11:26:46 INFO  [] [DWMqttConfiguration] platform.properties:mqttSrvHost:, mqtt enabled=false
+2022/06/28 11:26:47 INFO  [] Initializing ExecutorService  'taskScheduler'
+2022/06/28 11:26:47 INFO  [] Exposing 3 endpoint(s) beneath base path '/actuator'
+2022/06/28 11:26:47 INFO  [] Mapped "{[/actuator/health],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+2022/06/28 11:26:47 INFO  [] Mapped "{[/actuator/info],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+2022/06/28 11:26:47 INFO  [] Mapped "{[/actuator/prometheus],methods=[GET],produces=[text/plain;version=0.0.4;charset=utf-8]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+2022/06/28 11:26:47 INFO  [] Mapped "{[/actuator],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto protected java.util.Map<java.lang.String, java.util.Map<java.lang.String, org.springframework.boot.actuate.endpoint.web.Link>> org.springframework.boot.actuate.endpoint.web.servlet.WebMvcEndpointHandlerMapping.links(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2022/06/28 11:26:47 INFO  [] Registering beans for JMX exposure on startup
+2022/06/28 11:26:47 INFO  [] Bean with name 'dw-dataSource' has been autodetected for JMX exposure
+2022/06/28 11:26:47 INFO  [] Located MBean 'dw-dataSource': registering with JMX server as MBean [org.apache.commons.dbcp2:name=dw-dataSource,type=BasicDataSource]
+2022/06/28 11:26:47 INFO  [] Starting beans in phase 0
+2022/06/28 11:26:47 INFO  [] Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2022/06/28 11:26:47 INFO  [] Channel 'frm.errorChannel' has 1 subscriber(s).
+2022/06/28 11:26:47 INFO  [] started _org.springframework.integration.errorLogger
+2022/06/28 11:26:47 INFO  [] Tomcat started on port(s): 8090 (http) with context path ''
+2022/06/28 11:26:47 INFO  [] Started DWApiGatewayApplication in 14.763 seconds (JVM running for 33.431)
+2022/06/28 11:26:47 INFO  [] Loading XML bean definitions from InputStream resource [resource loaded through InputStream]
+2022/06/28 11:26:47 INFO  [] Loading XML bean definitions from class path resource [spring-rabbitmq.xml]
+2022/06/28 11:26:47 INFO  [] Refreshing org.springframework.context.support.GenericXmlApplicationContext@2b5a04b0: startup date [Tue Jun 28 11:26:47 CST 2022]; parent: org.springframework.context.support.GenericXmlApplicationContext@9a37591
+2022/06/28 11:26:48 WARN  [] Skipping MapperFactoryBean with name 'frcDingdingUserMapper' and 'com.digiwin.app.frc.service.athena.app.mapper.FrcDingdingUserMapper' mapperInterface. Bean already defined with the same name!
+2022/06/28 11:26:48 WARN  [] Skipping MapperFactoryBean with name 'openSyncBizDataMapper' and 'com.digiwin.app.frc.service.athena.app.mapper.OpenSyncBizDataMapper' mapperInterface. Bean already defined with the same name!
+2022/06/28 11:26:48 WARN  [] Skipping MapperFactoryBean with name 'questionCardMapper' and 'com.digiwin.app.frc.service.athena.app.mapper.QuestionCardMapper' mapperInterface. Bean already defined with the same name!
+2022/06/28 11:26:48 INFO  [] JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2022/06/28 11:26:48 INFO  [] Bean 'com.digiwin.app.autoconfigure.DWModuleValidationAutoConfiguration' of type [com.digiwin.app.autoconfigure.DWModuleValidationAutoConfiguration$$EnhancerBySpringCGLIB$$2d3bfa33] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022/06/28 11:26:48 INFO  [] Bean 'dao-LocalValidatorFactoryBean' of type [org.springframework.validation.beanvalidation.LocalValidatorFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022/06/28 11:26:48 ERROR [] testWhileIdle is true, validationQuery not set
+2022/06/28 11:26:48 INFO  [] {dataSource-1} inited
+2022/06/28 11:26:52 INFO  [] FrameworkServlet 'dispatcherServlet': initialization started
+2022/06/28 11:26:52 INFO  [] FrameworkServlet 'dispatcherServlet': initialization completed in 55 ms
+2022/06/28 11:26:53 INFO  [] Using default implementation for ThreadExecutor
+2022/06/28 11:26:53 INFO  [] Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2022/06/28 11:26:53 INFO  [] Quartz Scheduler v.2.3.0 created.
+2022/06/28 11:26:53 INFO  [] RAMJobStore initialized.
+2022/06/28 11:26:53 INFO  [] Scheduler meta-data: Quartz Scheduler (v2.3.0) 'taskScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 5 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2022/06/28 11:26:53 INFO  [] Quartz scheduler 'taskScheduler' initialized from an externally provided properties instance.
+2022/06/28 11:26:53 INFO  [] Quartz scheduler version: 2.3.0
+2022/06/28 11:26:53 INFO  [] JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@5dcec8e9
+2022/06/28 11:26:53 WARN  [] It is preferred to configure the message converter via the endpoint. See RabbitListenerEndpoint.setMessageConverter
+2022/06/28 11:26:53 INFO  [] Attempting to connect to: mq-test.digiwincloud.com.cn:5672
+2022/06/28 11:26:53 INFO  [] Created new connection: connectionFactory#29ebaf2f:0/SimpleConnection@41d6d6c4 [delegate=amqp://ksc_user@47.102.215.110:5672/, localPort= 7974]
+2022/06/28 11:26:53 INFO  [] Starting beans in phase 2147483647
+2022/06/28 11:26:53 INFO  [] Starting Quartz Scheduler now
+2022/06/28 11:26:53 INFO  [] Scheduler taskScheduler_$_NON_CLUSTERED started.
+2022/06/28 11:26:53 INFO  [e47b179c56c94b3590eb95eb28e148ba] io>invoke[1656386813911]{35}>com.digiwin.app.frc.service.impl.athena.file.PdfService.getReportPdf(messageBody) input: ({
+  "question_result": [
+   {
+    "question_identify_info": {
+      "solution_name": "通用解决方案",
+      "liable_person_name": "李月(FRC905)",
+      "is_upload_kanban": 0,
+      "liable_person_id": "FRC005",
+      "solution_id": "SE003",
+      "repeat_times": 0
+    },
+    "reason_analysis": {
+      "reason_analysis_description": "https://esp-test.apps.digiwincloud.com.cn/CROSS/LogViewer.do?reqid=4c6c2162-26dd-4b73-acec-38c2f330e3d9&statecode=visual"
+    },
+    "attachment_info": [
+      {
+        "attachment_name": "QQ图片20220616102343.jpg",
+        "attachment_id": "394e8861-42bc-41a7-b050-7bca2a943178",
+        "upload_person_name": "李月(FRC905)",
+        "attachment_belong_stage": "QFL",
+        "upload_person_id": "FRC905"
+      }
+    ],
+    "question_confirm": {
+      "return_reason": "",
+      "return_step_no": "",
+      "status": "2"
+    },
+    "temporary_measure": [
+      {
+        "process_department_name": "生产部",
+        "expect_solve_date": "2022-06-28 09:21:04",
+        "liable_person_name": "李月(FRC905)",
+        "human_bottleneck_analysis": 205,
+        "process_department_id": "DIGI001",
+        "measure_content": "临时措施1",
+        "edit_type": 0,
+        "attachment_upload_flag": "N",
+        "liable_person_id": "FRC005",
+        "uuid": 1656379249890,
+        "human_bottleneck_analysis_desc": "当前人员有205个未处理任务"
+      }
+    ],
+    "temporary_measure_execute_verify": {
+      "liable_person_name": "李月(FRC905)",
+      "process_date": "2022-06-28",
+      "temporary_measure_execute_verify_detail": [
+        {
+          "verify_person_name": "李月(FRC905)",
+          "process_work_hours": "8.7",
+          "expect_solve_date": "2022-06-28 09:21:28",
+          "liable_person_name": "李月(FRC905)",
+          "human_bottleneck_analysis": 205,
+          "execute_status": "3",
+          "execute_illustrate": "https://esp-test.apps.digiwincloud.com.cn/CROSS/LogViewer.do?reqid=4c6c2162-26dd-4b73-acec-38c2f330e3d9&statecode=visual",
+          "process_department_id": "DIGI001",
+          "edit_type": 0,
+          "verify_illustrate": "https://esp-test.apps.digiwincloud.com.cn/CROSS/LogViewer.do?reqid=4c6c2162-26dd-4b73-acec-38c2f330e3d9&statecode=visual",
+          "attachment_upload_flag": "N",
+          "verify_date": "2022-06-28",
+          "uuid": 1656379249890,
+          "actual_finish_date": "2022-06-28",
+          "question_id": "1b11fd25f04a42d682d40bb4fb9d9ca0",
+          "human_bottleneck_analysis_desc": "当前人员有205个未处理任务",
+          "is_history_data": "N",
+          "process_department_name": "生产部",
+          "verify_person_id": "FRC005",
+          "measure_content": "临时措施1",
+          "verify_status": "Y",
+          "liable_person_id": "FRC005"
+        }
+      ],
+      "liable_person_id": "FRC005"
+    },
+    "question_basic_info": {
+      "question_proposer_id": "FRC005",
+      "question_source_name": "生产制造",
+      "expect_solve_date": "2022-07-01",
+      "question_source_oid": "fbdea022a6c54c91bc82d4037b84b765",
+      "risk_level_name": "I(重要-紧急)",
+      "occur_stage_name": "物料检测",
+      "defect_name": "套入的零件错误",
+      "risk_level_oid": "49bc4a6f8ba84113a32e550e97c9f24e",
+      "question_classification_no": "Q2",
+      "happen_date": "2022-06-28",
+      "defect_grade": "B",
+      "important": 1,
+      "question_classification_name": "物料异常",
+      "urgency": 1,
+      "occur_stage_no": "FS008",
+      "risk_level_no": "FX-002",
+      "question_picture": [
+        {
+          "picture_id": "083a7f84-7719-4863-a2bc-48349c826faa"
+        }
+      ],
+      "proposer_department_name": "生产部",
+      "question_description": "新电脑财务报表初始化报错：初始化失败，无法将类型的COM对象强制转换为接口类型。COM组件调用因以下错误而失败，加载类型库/dll时错误。",
+      "question_attribution_no": "1",
+      "question_proposer_name": "李月(FRC905)",
+      "question_source_no": "R-1002",
+      "question_classification_oid": "2a5efe82ee3445a29ffa2c8ba8d551f9",
+      "proposer_department_id": "DIGI001"
+    },
+    "plan_arrange_info": {
+      "liable_person_name": "李月(FRC905)",
+      "process_date": "2022-06-28",
+      "reason_analysis_description": "https://esp-test.apps.digiwincloud.com.cn/CROSS/LogViewer.do?reqid=4c6c2162-26dd-4b73-acec-38c2f330e3d9&statecode=visual",
+      "liable_person_id": "FRC005",
+      "plan_arrange": [
+        {
+          "process_department_name": "生产部",
+          "expect_solve_date": "2022-06-28 09:27:02",
+          "liable_person_name": "李月(FRC905)",
+          "human_bottleneck_analysis": 204,
+          "step_no": "SE003002",
+          "step_name": "D4-临时措施",
+          "process_department_id": "DIGI001",
+          "human_duj": true,
+          "attachment_upload_flag": "N",
+          "liable_person_id": "FRC005",
+          "human_bottleneck_analysis_desc": "当前人员有204个未处理任务"
+        },
+        {
+          "process_department_name": "生产部",
+          "expect_solve_date": "2022-06-28 14:45:02",
+          "liable_person_name": "李月(FRC905)",
+          "human_bottleneck_analysis": 204,
+          "step_no": "SE003006",
+          "step_name": "D5-恒久措施",
+          "process_department_id": "DIGI001",
+          "human_duj": true,
+          "attachment_upload_flag": "N",
+          "liable_person_id": "FRC005",
+          "human_bottleneck_analysis_desc": "当前人员有204个未处理任务"
+        },
+        {
+          "process_department_name": "生产部",
+          "expect_solve_date": "2022-06-28 09:03:02",
+          "liable_person_name": "李月(FRC905)",
+          "human_bottleneck_analysis": 204,
+          "step_no": "SE003009",
+          "step_name": "D6-处理确认",
+          "process_department_id": "DIGI001",
+          "human_duj": true,
+          "attachment_upload_flag": "N",
+          "liable_person_id": "FRC005",
+          "human_bottleneck_analysis_desc": "当前人员有204个未处理任务"
+        }
+      ]
+    },
+    "question_detail_info": {
+      "source_no": "B22222222",
+      "process_id": "7315e7661c8e415ca87c6233057c9414",
+      "workstation_name": "机器人弯管自动线",
+      "item_name": "FC0004B0002003P0R00",
+      "defect_name": "套入的零件错误",
+      "workstation_id": "H10-852",
+      "product_no": "GS600SUA",
+      "product_name": "双轨点胶机",
+      "item_no": "FC0004B0002003P0R00",
+      "project_no": "A1111111111",
+      "process_name": "装配OP12",
+      "defect_picture_id": "81edf071-e3b2-48b5-ab1d-3484058cf3cd",
+      "sn": "C3333333",
+      "batch_qty": 999,
+      "discover_question_qty": "9",
+      "defect_no": "QT-005"
+    },
+    "plan_arrange": [
+      {
+        "process_department_name": "生产部",
+        "expect_solve_date": "2022-06-28 09:27:02",
+        "liable_person_name": "李月(FRC905)",
+        "human_bottleneck_analysis": 204,
+        "step_no": "SE003002",
+        "step_name": "D4-临时措施",
+        "process_department_id": "DIGI001",
+        "human_duj": true,
+        "attachment_upload_flag": "N",
+        "liable_person_id": "FRC005",
+        "human_bottleneck_analysis_desc": "当前人员有204个未处理任务"
+      },
+      {
+        "process_department_name": "生产部",
+        "expect_solve_date": "2022-06-28 14:45:02",
+        "liable_person_name": "李月(FRC905)",
+        "human_bottleneck_analysis": 204,
+        "step_no": "SE003006",
+        "step_name": "D5-恒久措施",
+        "process_department_id": "DIGI001",
+        "human_duj": true,
+        "attachment_upload_flag": "N",
+        "liable_person_id": "FRC005",
+        "human_bottleneck_analysis_desc": "当前人员有204个未处理任务"
+      },
+      {
+        "process_department_name": "生产部",
+        "expect_solve_date": "2022-06-28 09:03:02",
+        "liable_person_name": "李月(FRC905)",
+        "human_bottleneck_analysis": 204,
+        "step_no": "SE003009",
+        "step_name": "D6-处理确认",
+        "process_department_id": "DIGI001",
+        "human_duj": true,
+        "attachment_upload_flag": "N",
+        "liable_person_id": "FRC005",
+        "human_bottleneck_analysis_desc": "当前人员有204个未处理任务"
+      }
+    ],
+    "short_term_verify": {
+      "inspector_id": "FRC005",
+      "inspector_name": "李月(FRC905)",
+      "print_report_id": "",
+      "verify_illustrate": "https://esp-test.apps.digiwincloud.com.cn/CROSS/LogViewer.do?reqid=4c6c2162-26dd-4b73-acec-38c2f330e3d9&statecode=visual",
+      "verify_date": "2022-06-28"
+    }
+  }
+  ]
+})
+2022/06/28 11:26:57 INFO  [e47b179c56c94b3590eb95eb28e148ba] 报告生成成功
+2022/06/28 11:26:57 INFO  [e47b179c56c94b3590eb95eb28e148ba] io>result[1656386813911]{35}>com.digiwin.app.service.DWServiceResult@54c11872
+2022/06/28 11:27:31 INFO  [] Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3f29e26: startup date [Tue Jun 28 11:26:33 CST 2022]; root of context hierarchy
+2022/06/28 11:27:31 INFO  [] Stopping beans in phase 0
+2022/06/28 11:27:31 INFO  [] Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2022/06/28 11:27:31 INFO  [] Channel 'frm.errorChannel' has 0 subscriber(s).
+2022/06/28 11:27:31 INFO  [] stopped _org.springframework.integration.errorLogger
+2022/06/28 11:27:31 INFO  [] Shutting down ExecutorService 'taskScheduler'
+2022/06/28 11:27:31 INFO  [] Unregistering JMX-exposed beans on shutdown
+2022/06/28 11:27:31 INFO  [] Unregistering JMX-exposed beans
+2022/06/28 11:27:31 WARN  [] Failed to unregister the JMX name: org.apache.commons.dbcp2:name=dw-dataSource,type=BasicDataSource
+javax.management.InstanceNotFoundException: org.apache.commons.dbcp2:name=dw-dataSource,type=BasicDataSource
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.getMBean(DefaultMBeanServerInterceptor.java:1095) ~[?:1.8.0_131]
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.exclusiveUnregisterMBean(DefaultMBeanServerInterceptor.java:427) ~[?:1.8.0_131]
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.unregisterMBean(DefaultMBeanServerInterceptor.java:415) ~[?:1.8.0_131]
+	at com.sun.jmx.mbeanserver.JmxMBeanServer.unregisterMBean(JmxMBeanServer.java:546) ~[?:1.8.0_131]
+	at org.apache.commons.dbcp2.BasicDataSource.close(BasicDataSource.java:1941) [commons-dbcp2-2.2.0.jar:2.2.0]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_131]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_131]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_131]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_131]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.invokeCustomDestroyMethod(DisposableBeanAdapter.java:337) [spring-beans-5.0.5.RELEASE.jar:5.0.5.RELEASE]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:271) [spring-beans-5.0.5.RELEASE.jar:5.0.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:577) [spring-beans-5.0.5.RELEASE.jar:5.0.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:549) [spring-beans-5.0.5.RELEASE.jar:5.0.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:957) [spring-beans-5.0.5.RELEASE.jar:5.0.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:510) [spring-beans-5.0.5.RELEASE.jar:5.0.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:964) [spring-beans-5.0.5.RELEASE.jar:5.0.5.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1041) [spring-context-5.0.5.RELEASE.jar:5.0.5.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1017) [spring-context-5.0.5.RELEASE.jar:5.0.5.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext$1.run(AbstractApplicationContext.java:937) [spring-context-5.0.5.RELEASE.jar:5.0.5.RELEASE]
+2022/06/28 11:27:31 INFO  [] com.alibaba.nacos.spring.factory.DelegatingNamingService@102f3a37 was destroying!
+2022/06/28 11:27:31 INFO  [] class com.alibaba.nacos.spring.beans.factory.annotation.AnnotationNacosInjectedBeanPostProcessor was destroying!

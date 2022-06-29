@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.digiwin.app.frc.service.athena.ppc.mapper.QuestionLiablePersonDepartmentLatitudeConfigMapper">
+
+    <sql id="Base_Column_List">
+        oid,
+        tenantsid,
+        config_flag,
+        attribution_no,
+        risk_level_id,
+        feedback_departments,
+        liable_person_id,
+        liable_person_name,
+        acceptance_role,
+        create_time,
+        create_name,
+        update_time,
+        update_name
+    </sql>
+
+    <insert id="addQuestionLiablePersonDepartmentLatitudeConfig">
+        insert into frc_liable_config_dept_latitude
+        (
+            <include refid="Base_Column_List">
+            </include>
+        )
+        values
+        <foreach collection="list" item="item" separator=",">
+            (
+                #{item.oid},
+                #{item.tenantsid},
+                #{item.configFlag},
+                #{item.attributionNo},
+                #{item.riskLevelId},
+                #{item.feedbackDepartments},
+                #{item.liablePersonId},
+                #{item.liablePersonName},
+                #{item.acceptanceRole},
+                #{item.createTime},
+                #{item.createName},
+                null,
+                null
+            )
+        </foreach>
+    </insert>
+
+    <delete id="deleteQuestionLiablePersonDepartmentLatitudeConfig">
+        DELETE FROM frc_liable_config_dept_latitude
+        where tenantsid = #{tenantsid}
+        and oid in
+        <foreach collection="oids" item="oid" open="(" close=")" separator="," >
+            #{oid}
+        </foreach>
+    </delete>
+
+    <update id="updateQuestionLiablePersonDepartmentLatitudeConfig">
+        <foreach collection="list" item="item" separator=";">
+            update frc_liable_config_dept_latitude
+            <set>
+                config_flag = #{item.configFlag},
+                attribution_no = #{item.attributionNo},
+                risk_level_id = #{item.riskLevelId},
+                <if test="item.feedbackDepartments != null and item.feedbackDepartments != ''">
+                    feedback_departments = #{item.feedbackDepartments},
+                </if>
+                liable_person_id = #{item.liablePersonId},
+                liable_person_name = #{item.liablePersonName},
+                <if test="item.acceptanceRole != null and item.acceptanceRole != ''">
+                    acceptance_role = #{item.acceptanceRole},
+                </if>
+                update_time = #{item.updateTime},
+                update_name = #{item.updateName}
+            </set>
+            where oid = #{item.oid} and tenantsid = #{item.tenantsid}
+        </foreach>
+    </update>
+
+    <select id="getQuestionLiablePersonDepartmentLatitudeConfig"
+            resultType="com.digiwin.app.frc.service.athena.ppc.domain.entity.QuestionLiablePersonDepartmentLatitudeConfigEntity">
+            select * from frc_liable_config_dept_latitude
+            where tenantsid = #{tenantsid}
+            <if test="configFlag != null and configFlag != ''" >
+                and config_flag = #{configFlag}
+            </if>
+            <if test="attributionNo != null and attributionNo != ''">
+                and attribution_no = #{attributionNo}
+            </if>
+            <if test="riskLevelId != null and riskLevelId != ''">
+                and risk_level_id = #{riskLevelId}
+            </if>
+            <if test="feedbackDepartmentId != null and feedbackDepartmentId != ''">
+                and feedback_departments like '%${feedbackDepartmentId}%'
+            </if>
+            <if test="acceptanceRole != null and acceptanceRole != ''">
+                and acceptance_role = #{acceptanceRole}
+            </if>
+    </select>
+
+    <resultMap id="liablePersonMessage" type="Map">
+        <result column="liable_person_id" property="liablePersonId"></result>
+        <result column="liable_person_name" property="liablePersonName"></result>
+    </resultMap>
+    
+    <select id="getLiablePersonDepartmentLatitudeMessage" resultMap="liablePersonMessage">
+        select liable_person_id,liable_person_name from frc_liable_config_dept_latitude
+        where tenantsid = #{tenantsid}
+        <if test="attributionNo != null and attributionNo != ''">
+            and attribution_no = #{attributionNo}
+        </if>
+        <if test="riskLevelOid != null and riskLevelOid != ''">
+        and risk_level_id = #{riskLevelOid}
+        </if>
+        <if test="feedbackDepartmentOid != null and feedbackDepartmentOid != ''">
+            and feedback_departments like '%${feedbackDepartmentOid}%'
+        </if>
+    </select>
+
+    <select id="getLiablePersonMessage" resultMap="liablePersonMessage">
+        SELECT
+        c.liable_person_id as liablePersonId,
+        c.liable_person_name as liablePersonName
+        FROM
+        frc_liable_person_config c
+        LEFT JOIN frc_question_classification_liable_person_config q ON q.liable_person_config_oid = c.oid
+        WHERE c.tenantsid = #{tenantSid}
+        <if test="attributionNo != null and '' != attributionNo">
+            AND c.attribution_no = #{attributionNo}
+        </if>
+        <if test="riskLevelId != null and '' != riskLevelId">
+            AND c.risk_level_id = #{riskLevelId}
+        </if>
+        <if test="sourceId != null and '' != sourceId">
+            AND c.source_oid = #{sourceId}
+        </if>
+        <if test="solutionId != null and solutionId != ''">
+            AND c.solution_oid = #{solutionId}
+        </if>
+        <if test="classificationId != null and '' != classificationId">
+            AND q.classification_oid = #{classificationId}
+        </if>
+    </select>
+</mapper>

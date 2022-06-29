@@ -1,0 +1,29 @@
+
+p
+java:S1192¹"TDefine a constant instead of duplicating this literal "classification_info" 3 times.(§“ì†ùÿÿÿÿ
+g
+java:S1192«"PDefine a constant instead of duplicating this literal "risk_level_info" 4 times.(›˜Â˜
+`
+java:S1192•"IDefine a constant instead of duplicating this literal "notExist" 5 times.(ôò§£
+r
+java:S1192k"\Define a constant instead of duplicating this literal "feedback_department_message" 5 times.(§æŠä
+`
+java:S11926"JDefine a constant instead of duplicating this literal "tenantSid" 4 times.(ïäÁÀ
+r
+java:S1192x"WDefine a constant instead of duplicating this literal "feedback_department_id" 3 times.(õ˜áâÿÿÿÿÿ
+t
+java:S1192y"YDefine a constant instead of duplicating this literal "feedback_department_name" 3 times.(öÀıøÿÿÿÿ
+t
+java:S1128"^Remove this unused import 'com.digiwin.app.frc.service.athena.mtw.common.enums.EffectiveEnum'.(ç„ûÉ
+`
+java:S3252}"EUse static access with "com.alibaba.fastjson.JSON" for "parseObject".(Ë›Öºúÿÿÿÿ
+n
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(Û¿‹œúÿÿÿÿ
+ˆ
+java:S1130"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(Û¿‹œúÿÿÿÿ
+n
+java:S3776×"RRefactor this method to reduce its Cognitive Complexity from 31 to the 15 allowed.(¹ôÖÜıÿÿÿÿ
+ˆ
+java:S1130×"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(¹ôÖÜıÿÿÿÿ
+\
+java:S3252¥"EUse static access with "com.alibaba.fastjson.JSON" for "parseObject".(€¹ÓÂ

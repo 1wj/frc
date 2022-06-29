@@ -1,0 +1,40 @@
+
+o
+java:S1192ª"LDefine a constant instead of duplicating this literal "verify_date" 3 times.(‘ç”€ûÿÿÿÿ8Ô§Ÿ0
+w
+java:S2293’"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÏŸˆ´8Ô§Ÿ0
+q
+java:S1192š"NDefine a constant instead of duplicating this literal "å¤„ç†æ—¶é—´:" 6 times.(îÉêùÿÿÿÿ8Ô§Ÿ0
+h	java:S112”"FDefine and throw a dedicated exception instead of using a generic one.(ÜÙ„Ùøÿÿÿÿ8Ô§Ÿ0
+h	java:S112§"FDefine and throw a dedicated exception instead of using a generic one.(–Î±øÿÿÿÿ8æÄò»‹0
+Z
+java:S1155x">Use isEmpty() to check whether the collection is empty or not.(°…ã<8æÄò»‹0
+w
+java:S1192™"TDefine a constant instead of duplicating this literal "liable_person_name" 11 times.(»ï¸şÿÿÿÿ8Ô§Ÿ0
+Q	java:S1254"<This block of commented-out lines of code should be removed.(ùà×ƒ
+p
+java:S1192š"MDefine a constant instead of duplicating this literal "process_date" 6 times.(îÉêùÿÿÿÿ8Ô§Ÿ0
+w
+java:S2293©"YReplace the type specification in this constructor call with the diamond operator ("<>").(øüĞÙ8æÄò»‹0
+h	java:S112¸"FDefine and throw a dedicated exception instead of using a generic one.(èİÎÑşÿÿÿÿ8Ô§Ÿ0
+w
+java:S2293ç"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÏŸˆ´8Ô§Ÿ0
+w
+java:S2293™"YReplace the type specification in this constructor call with the diamond operator ("<>").(øüĞÙ8Ô§Ÿ0
+h	java:S112…"FDefine and throw a dedicated exception instead of using a generic one.(èİÎÑşÿÿÿÿ8æÄò»‹0
+u
+java:S1192ª"RDefine a constant instead of duplicating this literal "verify_illustrate" 3 times.(‘ç”€ûÿÿÿÿ8Ô§Ÿ0
+V	java:S125N"<This block of commented-out lines of code should be removed.(µÍ·—úÿÿÿÿ
+v
+java:S1192Ç"SDefine a constant instead of duplicating this literal "é¢„è®¡å®Œæˆæ—¶é—´" 4 times.(Ğñ³«şÿÿÿÿ8Ô§Ÿ0
+b	java:S112İ"FDefine and throw a dedicated exception instead of using a generic one.(ƒ¶¶.8æÄò»‹0
+h	java:S112â"FDefine and throw a dedicated exception instead of using a generic one.(èİÎÑşÿÿÿÿ8Ô§Ÿ0
+l
+java:S1192«"NDefine a constant instead of duplicating this literal "verify_status" 3 times.(îİ¾ó8Ô§Ÿ0
+g	java:S112r"FDefine and throw a dedicated exception instead of using a generic one.(èİÎÑşÿÿÿÿ8æÄò»‹0
+h	java:S112¾"FDefine and throw a dedicated exception instead of using a generic one.(ÜÙ„Ùøÿÿÿÿ8Ô§Ÿ0
+w
+java:S2293Å"YReplace the type specification in this constructor call with the diamond operator ("<>").(øüĞÙ8Ô§Ÿ0
+p
+java:S1192Ì"RDefine a constant instead of duplicating this literal "expect_solve_date" 7 times.(¾ßŸÇ8Ô§Ÿ0
+h	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(èİÎÑşÿÿÿÿ8Ô§Ÿ0

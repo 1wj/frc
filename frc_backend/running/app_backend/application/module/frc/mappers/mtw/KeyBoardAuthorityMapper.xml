@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.digiwin.app.frc.service.athena.mtw.mapper.KeyBoardAuthorityMapper">
+
+    <sql id="Base_Column_List">
+        oid,
+        tenantsid,
+        model_oid,
+        model_name,
+        specify_viewer,
+        create_time,
+        create_name,
+        update_time,
+        update_name
+    </sql>
+
+    <insert id="addKeyBoardAuthorityInfo" parameterType="java.util.List">
+        INSERT INTO frc_keyboard_authority_config
+        (
+        <include refid="Base_Column_List"/>
+        )
+        VALUES
+        <foreach collection="list" item="item" index="index"
+                 separator=",">
+        (
+            #{item.oid},
+            #{item.tenantSid},
+            #{item.modelOid},
+            #{item.modelName},
+            #{item.specifyViewer},
+            #{item.createTime},
+            #{item.createName},
+            #{item.updateTime},
+            #{item.updateName}
+        )
+        </foreach>
+    </insert>
+
+    <delete id="deleteKeyBoardAuthorityInfo" parameterType="java.util.List">
+        DELETE FROM frc_keyboard_authority_config
+        WHERE oid IN
+        <foreach collection="list" item="oid" index="index" open="(" close=")" separator=",">
+            #{oid}
+        </foreach>
+    </delete>
+
+
+    <update id="updateBatch" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            UPDATE frc_keyboard_authority_config
+            <set>
+                <if test="item.modelOid != null and '' != item.modelOid">
+                    model_name = #{item.modelOid},
+                </if>
+                <if test="item.modelName != null and '' != item.modelName">
+                    model_name = #{item.modelName},
+                </if>
+                <if test="item.specifyViewer != null and '' != item.specifyViewer">
+                    specify_viewer = #{item.specifyViewer},
+                </if>
+                update_name = #{item.updateName},
+                update_time = #{item.updateTime}
+            </set>
+            WHERE oid = #{item.oid} AND tenantsid = #{item.tenantSid}
+        </foreach>
+    </update>
+
+
+    <select id="getKeyBoardAuthorityInfo"
+            resultType="com.digiwin.app.frc.service.athena.mtw.domain.entity.KeyBoardAuthorityEntity">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM frc_keyboard_authority_config
+        WHERE tenantsid = #{tenantSid}
+        <if test="null != templateName and '' != templateName">
+            AND  model_name LIKE '%${templateName}%'
+        </if>
+        <if test="null != specifyViewer and '' != specifyViewer">
+            AND specify_viewer LIKE '%${specifyViewer}%'
+        </if>
+        ORDER BY create_time ASC
+    </select>
+
+    <select id="queryAllTemplateIds" resultType="string">
+        SELECT model_oid FROM frc_keyboard_authority_config WHERE tenantsid = #{tenantSid}
+    </select>
+
+    <update id="updateRelatedKanbanInfoByModelOid">
+        UPDATE frc_keyboard_authority_config
+        <set>
+            <if test="modelName != null and '' != modelName">
+                model_name = #{modelName}
+            </if>
+        </set>
+        WHERE model_oid = #{modelOid} AND tenantsid = #{tenantSid}
+    </update>
+
+    <delete id="deleteKeyBoardAuthorityInfoByModelOid">
+        DELETE FROM frc_keyboard_authority_config
+        WHERE model_oid = #{modelOid}
+    </delete>
+
+    <select id="querySpecifyViewerByTemplateId" resultType="string">
+        SELECT specify_viewer FROM frc_keyboard_authority_config
+        WHERE tenantsid = #{tenantSid} AND model_oid = #{templateId}
+    </select>
+
+    <select id="querySpecifyViewer" resultType="com.digiwin.app.frc.service.athena.mtw.domain.entity.KeyBoardAuthorityEntity">
+        SELECT * FROM frc_keyboard_authority_config
+        WHERE tenantsid = #{tenantSid}
+    </select>
+</mapper>

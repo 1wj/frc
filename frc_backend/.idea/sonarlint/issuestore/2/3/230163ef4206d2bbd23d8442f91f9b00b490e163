@@ -1,0 +1,44 @@
+
+•
+java:S1130Î"yRemove the declaration of thrown exception 'java.net.MalformedURLException' which is a subclass of 'java.io.IOException'.(¼Šøÿÿÿÿ
+R	java:S107İ"<Method has 8 parameters, which is greater than 7 authorized.(ƒºËÿ
+o
+java:S11041"TMake maxWidth a static final constant or non-public and provide accessors if needed.(±û’İşÿÿÿÿ
+o	java:S115/"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ğ¡õŞ
+q
+java:S11046"VMake markSymbol a static final constant or non-public and provide accessors if needed.(şÿÇÿÿÿÿÿ
+•
+java:S1130É"yRemove the declaration of thrown exception 'java.net.MalformedURLException' which is a subclass of 'java.io.IOException'.(£ÂÜ”øÿÿÿÿ
+[
+java:S2184÷"DCast one of the operands of this subtraction operation to a "float".(á£Èõ
+b
+java:S2184­"DCast one of the operands of this subtraction operation to a "float".(á£Èõ8Îéæœ0
+_	java:S107©"=Method has 12 parameters, which is greater than 7 authorized.(·Ò÷†üÿÿÿÿ8Îéæœ0
+=
+java:S1172İ"&Remove these unused method parameters.(ƒºËÿ
+=
+java:S1172’"&Remove these unused method parameters.(ü‹¬¯
+R	java:S107’"<Method has 8 parameters, which is greater than 7 authorized.(ü‹¬¯
+f
+java:S1192>"KDefine a constant instead of duplicating this literal "/FZYTK.TTF" 3 times.(»ºÛöøÿÿÿÿ
+=
+java:S1172ş"&Remove these unused method parameters.(ü‹¬¯
+I
+java:S1172©"&Remove these unused method parameters.(·Ò÷†üÿÿÿÿ8ÆÀ±0
+
+java:S1130ê"yRemove the declaration of thrown exception 'java.net.MalformedURLException' which is a subclass of 'java.io.IOException'.(£É§Š
+U
+java:S1118(":Add a private constructor to hide the implicit public one.(¯Œİëıÿÿÿÿ
+K
+java:S14446"0Make this "public static markSymbol" field final(şÿÇÿÿÿÿÿ
+•
+java:S1130¢"yRemove the declaration of thrown exception 'java.net.MalformedURLException' which is a subclass of 'java.io.IOException'.(ÔûÅÉÿÿÿÿÿ
+j
+java:S1104-"TMake fontName a static final constant or non-public and provide accessors if needed.(Ùì¯¯
+
+java:S1130‰"yRemove the declaration of thrown exception 'java.net.MalformedURLException' which is a subclass of 'java.io.IOException'.(ÛûØ»
+D
+java:S1444-".Make this "public static fontName" field final(Ùì¯¯
+I
+java:S14441".Make this "public static maxWidth" field final(±û’İşÿÿÿÿ
+X	java:S107ó"=Method has 11 parameters, which is greater than 7 authorized.(Ë±•“şÿÿÿÿ

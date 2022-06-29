@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.digiwin.app.frc.service.athena.qdh.mapper.AttachmentMapper">
+    <sql id="Base_Column_List">
+                oid,
+                tenantsid,
+                data_instance_oid,
+                question_no,
+                attachment_title,
+                extension_name,
+                attachment_description,
+                attachment_type,
+                dmc_id
+    </sql>
+
+    <resultMap id="BaseResultMap" type="com.digiwin.app.frc.service.athena.qdh.domain.entity.AttachmentEntity" >
+        <result column="oid" property="oid" />
+        <result column="tenantsid" property="tenantsid" />
+        <result column="data_instance_oid" property="dataInstanceOid" />
+        <result column="question_no" property="questionNo" />
+        <result column="attachment_title" property="attachmentTitle" />
+        <result column="extension_name" property="extensionName" />
+        <result column="attachment_description" property="attachmentDescription" />
+        <result column="attachment_type" property="attachmentType" />
+        <result column="dmc_id" property="dmcId" />
+    </resultMap>
+
+
+    <insert id="insertAttachment" useGeneratedKeys="true" keyColumn="id" keyProperty="id" parameterType="com.digiwin.app.frc.service.athena.qdh.domain.entity.AttachmentEntity">
+        INSERT INTO frc_attachments
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="null != oid and '' != oid">
+                oid,
+            </if>
+            <if test="null != tenantsid and '' != tenantsid">
+                tenantsid,
+            </if>
+            <if test="null != dataInstanceOid and '' != dataInstanceOid">
+                data_instance_oid,
+            </if>
+            <if test="null != questionNo and '' != questionNo">
+                question_no,
+            </if>
+            <if test="null != attachmentTitle and '' != attachmentTitle">
+                attachment_title,
+            </if>
+            <if test="null != extensionName and '' != extensionName">
+                extension_name,
+            </if>
+            <if test="null != attachmentDescription and '' != attachmentDescription">
+                attachment_description,
+            </if>
+            <if test="null != attachmentType and '' != attachmentType">
+                attachment_type,
+            </if>
+            <if test="null != dmcId and '' != dmcId">
+                dmc_id
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="null != oid and '' != oid">
+                #{oid},
+            </if>
+            <if test="null != tenantsid and '' != tenantsid">
+                #{tenantsid},
+            </if>
+            <if test="null != dataInstanceOid and '' != dataInstanceOid">
+                #{dataInstanceOid},
+            </if>
+            <if test="null != questionNo and '' != questionNo">
+                #{questionNo},
+            </if>
+            <if test="null != attachmentTitle and '' != attachmentTitle">
+                #{attachmentTitle},
+            </if>
+            <if test="null != extensionName and '' != extensionName">
+                #{extensionName},
+            </if>
+            <if test="null != attachmentDescription and '' != attachmentDescription">
+                #{attachmentDescription},
+            </if>
+            <if test="null != attachmentType and '' != attachmentType">
+                #{attachmentType},
+            </if>
+            <if test="null != dmcId and '' != dmcId">
+                #{dmcId}
+            </if>
+        </trim>
+    </insert>
+
+    <insert id="insertBatchAttachment" parameterType="java.util.List">
+        insert into frc_attachments
+        (
+        <include refid="Base_Column_List"/>
+        )
+        values
+        <foreach collection="list" item="item" index="index"
+                 separator=",">
+            (
+            #{item.oid},
+            #{item.tenantsid},
+            #{item.dataInstanceOid},
+            #{item.questionNo},
+            #{item.attachmentTitle},
+            #{item.extensionName},
+            #{item.attachmentDescription},
+            #{item.attachmentType},
+            #{item.dmcId}
+            )
+        </foreach>
+    </insert>
+
+    <select id="getAttachments" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List" />
+        FROM frc_attachments
+        <where>
+            <if test="tenantsid != null">
+                and  tenantsid = #{tenantsid,jdbcType = BIGINT}
+            </if>
+            <if test="dataInstanceOid != null and '' != dataInstanceOid">
+                and  data_instance_oid = #{dataInstanceOid}
+            </if>
+        </where>
+    </select>
+</mapper>

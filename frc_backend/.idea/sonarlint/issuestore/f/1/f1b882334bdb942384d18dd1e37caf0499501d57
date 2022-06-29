@@ -1,0 +1,13 @@
+
+`
+java:S11920"JDefine a constant instead of duplicating this literal "tenantSid" 3 times.(ïäÁÀ
+d
+java:S1192}"IDefine a constant instead of duplicating this literal "dealerId" 3 times.(ª¢õ©ùÿÿÿÿ
+_
+java:S1192w"IDefine a constant instead of duplicating this literal "notExist" 5 times.(‡ÔûÖ
+m
+java:S3776o"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(êš©šûÿÿÿÿ
+i
+java:S3252‚"MUse static access with "cn.hutool.core.collection.CollUtil" for "isNotEmpty".(Çï¤ëûÿÿÿÿ
+\
+java:S3252Ê"EUse static access with "com.alibaba.fastjson.JSON" for "parseObject".(€¹ÓÂ

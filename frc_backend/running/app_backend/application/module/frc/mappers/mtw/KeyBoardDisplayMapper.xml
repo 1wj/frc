@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.digiwin.app.frc.service.athena.mtw.mapper.KeyBoardDisplayMapper">
+
+    <sql id="Base_Column_List">
+        oid,
+        tenantsid,
+        model_oid,
+        model_name,
+        solution_no,
+        solution_name,
+        field_id,
+        field_name,
+        measure_no,
+        measure_name,
+        create_time,
+        create_name,
+        update_time,
+        update_name
+    </sql>
+
+    <insert id="addKeyBoardDisplayInfo" parameterType="java.util.List">
+        INSERT INTO frc_keyboard_config
+        (
+            <include refid="Base_Column_List"/>
+        )
+        VALUES
+        <foreach collection="list" item="item" index="index"
+                 separator=",">
+        (
+            #{item.oid},
+            #{item.tenantSid},
+            #{item.modelOid},
+            #{item.modelName},
+            #{item.solutionNo},
+            #{item.solutionName},
+            #{item.fieldId},
+            #{item.fieldName},
+            #{item.measureNo},
+            #{item.measureName},
+            #{item.createTime},
+            #{item.createName},
+            #{item.updateTime},
+            #{item.updateName}
+         )
+        </foreach>
+    </insert>
+
+    <delete id="deleteKeyBoardDisplayInfo" parameterType="java.util.List">
+        DELETE FROM frc_keyboard_config
+        WHERE oid IN
+        <foreach collection="list" item="oid" index="index" open="(" close=")" separator=",">
+            #{oid}
+        </foreach>
+    </delete>
+
+
+    <update id="updateBatch" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            UPDATE frc_keyboard_config
+            <set>
+                <if test="item.modelOid != null and '' != item.modelOid">
+                    model_oid = #{item.modelOid},
+                </if>
+                <if test="item.modelName != null and '' != item.modelName">
+                    model_name = #{item.modelName},
+                </if>
+                <if test="item.solutionNo != null and '' != item.solutionNo">
+                    solution_no = #{item.solutionNo},
+                </if>
+                <if test="item.solutionName != null and '' != item.solutionName">
+                    solution_name = #{item.solutionName},
+                </if>
+                <if test="item.fieldId != null and '' != item.fieldId">
+                    field_id = #{item.fieldId},
+                </if>
+                <if test="item.fieldName != null and '' != item.fieldName">
+                    field_name = #{item.fieldName},
+                </if>
+                <if test="item.measureNo != null and '' != item.measureNo">
+                    measure_no = #{item.measureNo},
+                </if>
+                <if test="item.measureName != null and '' != item.measureName">
+                    measure_name = #{item.measureName},
+                </if>
+                update_name = #{item.updateName},
+                update_time = #{item.updateTime}
+            </set>
+            WHERE oid = #{item.oid} AND tenantsid = #{item.tenantSid}
+        </foreach>
+    </update>
+
+
+    <select id="getKeyBoardDisplayInfo"
+            resultType="com.digiwin.app.frc.service.athena.mtw.domain.entity.KeyBoardDisplayEntity">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM frc_keyboard_config
+        WHERE tenantsid = #{tenantSid}
+        <if test="null != kanbanTemplateId and '' != kanbanTemplateId">
+            AND model_oid = #{kanbanTemplateId}
+        </if>
+        <if test="null != solutionId and '' != solutionId">
+            AND solution_no = #{solutionId}
+        </if>
+        ORDER BY create_time ASC
+    </select>
+
+    <select id="getKeyBoardDisplayInfoBySolutionNo"
+            resultType="com.digiwin.app.frc.service.athena.mtw.domain.entity.KeyBoardDisplayEntity">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM frc_keyboard_config
+        WHERE tenantsid = #{tenantSid} AND solution_no = #{solutionNo}
+        GROUP BY model_oid
+    </select>
+
+    <select id="getAllKeyBoardDisplayInfo"
+            resultType="com.digiwin.app.frc.service.athena.mtw.domain.entity.KeyBoardDisplayEntity">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM frc_keyboard_config
+        WHERE tenantsid = #{tenantSid}
+    </select>
+
+
+    <select id="getSolutionNamesByDeletedModelOid" resultType="string">
+        SELECT
+            solution_name
+        FROM
+            frc_keyboard_config
+        WHERE
+            model_oid = #{modelOid} AND tenantsid = #{tenantSid}
+        GROUP BY
+            solution_no
+    </select>
+
+
+    <select id="getModelNamesByDeletedSolutionNo" resultType="string">
+        SELECT
+            model_name
+        FROM
+            frc_keyboard_config
+        WHERE
+            solution_no = #{solutionNo} AND tenantsid = #{tenantSid}
+        GROUP BY
+            model_oid
+    </select>
+
+
+    <update id="updateDisplayInfoBySolutionNo">
+        UPDATE frc_keyboard_config
+        <set>
+            <if test="solutionName != null and '' != solutionName">
+                solution_name = #{solutionName},
+            </if>
+            <if test="measureName != null and '' != measureName">
+                measure_name = #{measureName}
+            </if>
+        </set>
+        WHERE solution_no = #{solutionNo} and tenantsid = #{tenantSid}
+        <if test="measureNo != null and '' != measureNo">
+            AND measure_no = #{measureNo}
+        </if>
+    </update>
+
+    <update id="updateDisplayInfoByModelOid" >
+        UPDATE frc_keyboard_config
+        <set>
+            <if test="modelName != null and '' != modelName">
+                model_name = #{modelName},
+            </if>
+            <if test="fieldName != null and '' != fieldName">
+                field_name = #{fieldName}
+            </if>
+        </set>
+        WHERE model_oid = #{modelOid} and tenantsid = #{tenantSid}
+        <if test="fieldId != null and '' != fieldId">
+            AND  field_id = #{fieldId}
+        </if>
+    </update>
+
+</mapper>

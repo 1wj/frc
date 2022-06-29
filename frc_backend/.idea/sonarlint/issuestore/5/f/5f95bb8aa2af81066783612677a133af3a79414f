@@ -1,0 +1,8 @@
+
+\
+java:S34571"AFormat specifiers should be used instead of string concatenation.(ÇÍ£şÿÿÿÿ
+`
+java:S32520"EUse static access with "com.alibaba.fastjson.JSON" for "parseObject".(ğ  ïşÿÿÿÿ
+w
+java:S26291"\Invoke method(s) only conditionally. Use the built-in formatting to construct this argument.(ÇÍ£şÿÿÿÿ
+g	java:S112."FDefine and throw a dedicated exception instead of using a generic one.(Áó¡Şúÿÿÿÿ8©üÃıŒ0

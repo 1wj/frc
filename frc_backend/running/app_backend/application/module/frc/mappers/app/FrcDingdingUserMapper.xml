@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.digiwin.app.frc.service.athena.app.mapper.FrcDingdingUserMapper">
+  <resultMap id="BaseResultMap" type="com.digiwin.app.frc.service.athena.app.entity.FrcDingdingUser">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <id column="crop_Id" jdbcType="VARCHAR" property="cropId" />
+    <id column="crop_name" jdbcType="VARCHAR" property="cropName" />
+    <result column="iam_id" jdbcType="VARCHAR" property="iamId" />
+    <result column="nick" jdbcType="VARCHAR" property="nick" />
+    <result column="avatarUrl" jdbcType="VARCHAR" property="avatarurl" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="openId" jdbcType="VARCHAR" property="openid" />
+    <result column="unionId" jdbcType="VARCHAR" property="unionid" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="stateCode" jdbcType="VARCHAR" property="statecode" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="tenantsid" jdbcType="BIGINT" property="tenantsid" />
+    <result column="tenantid" jdbcType="VARCHAR" property="tenantid" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, crop_Id,crop_name, iam_id, nick, avatarUrl, mobile, openId, unionId, email, stateCode,password,
+    type, tenantsid,tenantid,create_time,update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from frc_dingding_user
+    where id = #{id,jdbcType=VARCHAR}
+      and crop_Id = #{cropId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from frc_dingding_user
+    where id = #{id,jdbcType=VARCHAR}
+      and crop_Id = #{cropId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.digiwin.app.frc.service.athena.app.entity.FrcDingdingUser">
+    insert into frc_dingding_user (id, crop_Id, crop_name, iam_id,
+      nick, avatarUrl, mobile, 
+      openId, unionId, email, 
+      stateCode, password, type,tenantsid,tenantid,create_time,update_time)
+    values (#{id,jdbcType=VARCHAR}, #{cropId,jdbcType=VARCHAR}, #{cropName,jdbcType=VARCHAR}, #{iamId,jdbcType=VARCHAR},
+      #{nick,jdbcType=VARCHAR}, #{avatarurl,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
+      #{openid,jdbcType=VARCHAR}, #{unionid,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{statecode,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, #{tenantsid,jdbcType=BIGINT},
+      #{tenantsid,jdbcType=VARCHAR},#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.digiwin.app.frc.service.athena.app.entity.FrcDingdingUser">
+    insert into frc_dingding_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="cropId != null">
+        crop_Id,
+      </if>
+      <if test="cropName != null">
+        crop_name,
+      </if>
+      <if test="iamId != null">
+        iam_id,
+      </if>
+      <if test="nick != null">
+        nick,
+      </if>
+      <if test="avatarurl != null">
+        avatarUrl,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="openid != null">
+        openId,
+      </if>
+      <if test="unionid != null">
+        unionId,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="statecode != null">
+        stateCode,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="tenantsid != null">
+        tenantsid,
+      </if>
+      <if test="tenantid != null">
+        tenantid,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="cropId != null">
+        #{cropId,jdbcType=VARCHAR},
+      </if>
+      <if test="cropName != null">
+        #{cropName,jdbcType=VARCHAR},
+      </if>
+      <if test="iamId != null">
+        #{iamId,jdbcType=VARCHAR},
+      </if>
+      <if test="nick != null">
+        #{nick,jdbcType=VARCHAR},
+      </if>
+      <if test="avatarurl != null">
+        #{avatarurl,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="openid != null">
+        #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="unionid != null">
+        #{unionid,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="statecode != null">
+        #{statecode,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="tenantsid != null">
+        #{tenantsid,jdbcType=BIGINT},
+      </if>
+      <if test="tenantid != null">
+        #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.digiwin.app.frc.service.athena.app.entity.FrcDingdingUser">
+    update frc_dingding_user
+    <set>
+        <if test="cropName != null">
+        crop_name = #{cropName,jdbcType=VARCHAR},
+        </if>
+      <if test="iamId != null">
+        iam_id = #{iamId,jdbcType=VARCHAR},
+      </if>
+      <if test="nick != null">
+        nick = #{nick,jdbcType=VARCHAR},
+      </if>
+      <if test="avatarurl != null">
+        avatarUrl = #{avatarurl,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="openid != null">
+        openId = #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="unionid != null">
+        unionId = #{unionid,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="statecode != null">
+        stateCode = #{statecode,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="tenantsid != null">
+        tenantsid = #{tenantsid,jdbcType=BIGINT},
+      </if>
+      <if test="tenantid != null">
+        tenantid = #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+      and crop_Id = #{cropId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.digiwin.app.frc.service.athena.app.entity.FrcDingdingUser">
+    update frc_dingding_user
+    set iam_id = #{iamId,jdbcType=VARCHAR},
+        crop_name = #{cropName,jdbcType=VARCHAR},
+      nick = #{nick,jdbcType=VARCHAR},
+      avatarUrl = #{avatarurl,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      openId = #{openid,jdbcType=VARCHAR},
+      unionId = #{unionid,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      stateCode = #{statecode,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      type = #{type,jdbcType=INTEGER},
+      tenantsid = #{tenantsid,jdbcType=BIGINT},
+      tenantid = #{tenantid,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+      and crop_Id = #{cropId,jdbcType=VARCHAR}
+  </update>
+
+  <select id="selectCorpId" parameterType="map" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from frc_dingding_user
+    where id = #{id,jdbcType=VARCHAR}
+    and tenantsid = #{tenantsid,jdbcType=BIGINT}
+  </select>
+  <select id="selectUserByCorpId" parameterType="map" resultType="java.lang.String">
+    select
+    id
+    from frc_dingding_user
+    where crop_Id = #{cropId}
+    <if test="type != null">
+      and type = #{type}
+    </if>
+  </select>
+
+  <select id="selectAdminMessage" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from frc_dingding_user
+    <where>
+      <if test="cropId != null and '' != cropId">
+        and crop_Id = #{cropId}
+      </if>
+      and type = 1
+    </where>
+  </select>
+
+  <select id="selectByIdAndCropId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from frc_dingding_user
+    <where>
+      <if test="id != null and '' != id">
+        and id = #{id}
+      </if>
+      <if test="cropId != null and '' != cropId">
+        and crop_Id = #{cropId}
+      </if>
+    </where>
+  </select>
+</mapper>

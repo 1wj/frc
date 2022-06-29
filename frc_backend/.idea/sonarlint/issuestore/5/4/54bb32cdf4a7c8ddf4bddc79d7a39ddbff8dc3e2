@@ -1,0 +1,49 @@
+
+\
+java:S3252«"EUse static access with "com.alibaba.fastjson.JSON" for "parseObject".(ïô£
+g	java:S117«"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ïô£
+y
+java:S1128"^Remove this unused import 'com.digiwin.app.frc.service.athena.qdh.domain.vo.QuestionDetailVo'.(¤²í¤úÿÿÿÿ
+€
+java:S1128"jRemove this unused import 'com.digiwin.app.frc.service.athena.solutions.domain.model.eightD.ConfirmModel'.(Ñ‡Íô
+f
+java:S1192‚"JDefine a constant instead of duplicating this literal "tenantSid" 4 times.(şÍÑÚùÿÿÿÿ
+j
+java:S1192´"SDefine a constant instead of duplicating this literal "liable_person_name" 4 times.(êúÅë
+w
+java:S1192°"[Define a constant instead of duplicating this literal "containment_measure_verify" 6 times.(Î³÷åûÿÿÿÿ
+–
+java:S1128	"{Remove this unused import 'com.digiwin.app.frc.service.athena.common.Const.solutions.eightD.PreventionMeasureExecuteConst'.(±ş¡ûÿÿÿÿ
+g	java:S117‘"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Çï‹ë
+a
+java:S3252‹"EUse static access with "com.alibaba.fastjson.JSON" for "parseObject".(ùäğ˜øÿÿÿÿ
+E
+java:S3740h"/Provide the parametrized type for this generic.(½Îó
+•
+java:S1128"Remove this unused import 'com.digiwin.app.frc.service.athena.solutions.domain.model.eightD.PreventionMeasureExecuteInfoModel'.(ÏÙ’ı
+m
+java:S1192³"QDefine a constant instead of duplicating this literal "liable_person_id" 4 times.(òß˜ùÿÿÿÿ
+i
+java:S1192j"NDefine a constant instead of duplicating this literal "attachment_id" 3 times.(Î«¹ûÿÿÿÿ
+f
+java:S1192R"PDefine a constant instead of duplicating this literal "attachment_info" 6 times.(ñéØœ
+a
+java:S3252Ş"EUse static access with "com.alibaba.fastjson.JSON" for "parseObject".(ËÚºÎûÿÿÿÿ
+]
+java:S3252Ê"FUse static access with "com.alibaba.fastjson.JSON" for "toJSONString".(­æ®ê
+J
+java:S3740e"/Provide the parametrized type for this generic.(è‡ô–ûÿÿÿÿ
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(»¶®Êùÿÿÿÿ
+W	java:S125â"<This block of commented-out lines of code should be removed.(ú–Ğ£şÿÿÿÿ
+f
+java:S1192Q"PDefine a constant instead of duplicating this literal "process_confirm" 4 times.(·¹ÙË
+R	java:S125÷"<This block of commented-out lines of code should be removed.(ÖÒ™‡
+F
+java:S3740ˆ"/Provide the parametrized type for this generic.(ï×¶ 
+~
+java:S1192§"bDefine a constant instead of duplicating this literal "prevention_measure_execute_verify" 3 times.(Úƒşÿÿÿÿ
+\
+java:S3252Ÿ"EUse static access with "com.alibaba.fastjson.JSON" for "parseObject".(—æ¹
+d
+java:S1192¸"MDefine a constant instead of duplicating this literal "process_date" 4 times.(ÎÑÙ©
+g	java:S117¡"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ç¿¹€

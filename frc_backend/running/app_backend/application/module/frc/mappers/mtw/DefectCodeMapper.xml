@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.digiwin.app.frc.service.athena.mtw.mapper.DefectCodeMapper">
+
+
+    <sql id="Base_Column_List">
+        oid,
+        tenantsid,
+        defect_type_no,
+        defect_type_name,
+        defect_code,
+        defect_name,
+        defect_grade,
+        manage_status,
+        image_dmc_id,
+        remarks,
+        create_time,
+        create_name,
+        update_time,
+        update_name
+    </sql>
+
+
+    <insert id="addDefectCodeInfo"
+            parameterType="java.util.List">
+        INSERT INTO frc_defect_code
+        (
+        <include refid="Base_Column_List"/>
+        )
+        VALUES
+        <foreach collection="list" item="item" index="index"
+                 separator=",">
+            (
+            #{item.oid},
+            #{item.tenantSid},
+            #{item.defectTypeNo},
+            #{item.defectTypeName},
+            #{item.defectCode},
+            #{item.defectName},
+            #{item.defectGrade},
+            #{item.manageStatus},
+            #{item.imageDmcId},
+            #{item.remarks},
+            #{item.createTime},
+            #{item.createName},
+            #{item.updateTime},
+            #{item.updateName}
+            )
+        </foreach>
+    </insert>
+
+
+    <delete id="deleteDefectCodeInfo"
+            parameterType="java.util.List">
+        DELETE FROM frc_defect_code
+        WHERE oid IN
+        <foreach collection="list" item="oid" index="index" open="(" close=")" separator=",">
+            #{oid}
+        </foreach>
+    </delete>
+
+
+
+    <update id="updateBatch"  parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" close="" open="" separator=";">
+            UPDATE frc_defect_code
+            <set>
+                <if test="item.defectTypeNo != null and '' != item.defectTypeNo">
+                    defect_type_no = #{item.defectTypeNo},
+                </if>
+                <if test="item.defectTypeName != null and '' != item.defectTypeName">
+                    defect_type_name = #{item.defectTypeName},
+                </if>
+                <if test="item.defectCode != null and '' != item.defectCode">
+                    defect_code = #{item.defectCode},
+                </if>
+                <if test="item.defectName != null and '' != item.defectName">
+                    defect_name = #{item.defectName},
+                </if>
+                <if test="item.defectGrade != null and '' != item.defectGrade">
+                    defect_grade = #{item.defectGrade},
+                </if>
+                <if test='item.manageStatus != null and "" != item.manageStatus and (item.manageStatus == "Y" || item.manageStatus == "V")'>
+                    manage_status = #{item.manageStatus},
+                </if>
+                <if test="item.imageDmcId != null and '' != item.imageDmcId">
+                    image_dmc_id = #{item.imageDmcId},
+                </if>
+                <if test="item.remarks != null">
+                    remarks = #{item.remarks},
+                </if>
+                update_name = #{item.updateName},
+                update_time = #{item.updateTime}
+            </set>
+            WHERE oid = #{item.oid} AND tenantsid = #{item.tenantSid}
+        </foreach>
+    </update>
+
+
+    <select id="getDefectCodeInfo"
+            resultType="com.digiwin.app.frc.service.athena.mtw.domain.entity.DefectCodeEntity">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM frc_defect_code
+        WHERE tenantsid = #{tenantSid}
+        <if test="null != defectTypeNo and '' != defectTypeNo">
+            AND defect_type_no  LIKE '%${defectTypeNo}%'
+        </if>
+        <if test="null != defectTypeName and '' != defectTypeName">
+            AND defect_type_name LIKE '%${defectTypeName}%'
+        </if>
+        <if test="null != defectCode and '' != defectCode">
+            AND defect_code  LIKE '%${defectCode}%'
+        </if>
+        <if test="null != defectName and '' != defectName">
+            AND defect_name LIKE '%${defectName}%'
+        </if>
+        <if test="null != defectGrade and '' != defectGrade">
+            AND defect_grade LIKE '%${defectGrade}%'
+        </if>
+        <if test="null != manageStatus and '' != manageStatus">
+            AND manage_status = #{manageStatus}
+        </if>
+        <if test="null != remarks and '' != remarks">
+            AND remarks LIKE '%${remarks}%'
+        </if>
+        ORDER BY create_time ASC
+    </select>
+
+
+    <select id="queryAllCategoryNo" resultType="string">
+        SELECT defect_type_no FROM frc_defect_code WHERE tenantsid = #{tenantSid}
+    </select>
+
+    <select id="queryAllDefectNos" resultType="string">
+        SELECT defect_code FROM frc_defect_code WHERE tenantsid = #{tenantSid}
+    </select>
+</mapper>

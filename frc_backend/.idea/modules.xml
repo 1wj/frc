@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/develop/module/demo/app-service-impl-demo/app-service-impl-demo.iml" filepath="$PROJECT_DIR$/develop/module/demo/app-service-impl-demo/app-service-impl-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/develop/module/frc/app-service-impl-frc/app-service-impl-frc.iml" filepath="$PROJECT_DIR$/develop/module/frc/app-service-impl-frc/app-service-impl-frc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/develop/module/frm/app-service-impl-frm/app-service-impl-frm.iml" filepath="$PROJECT_DIR$/develop/module/frm/app-service-impl-frm/app-service-impl-frm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/develop/module/demo/app-service-interface-demo/app-service-interface-demo.iml" filepath="$PROJECT_DIR$/develop/module/demo/app-service-interface-demo/app-service-interface-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/develop/module/frc/app-service-interface-frc/app-service-interface-frc.iml" filepath="$PROJECT_DIR$/develop/module/frc/app-service-interface-frc/app-service-interface-frc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/develop/module/frm/app-service-interface-frm/app-service-interface-frm.iml" filepath="$PROJECT_DIR$/develop/module/frm/app-service-interface-frm/app-service-interface-frm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/running/app_backend.iml" filepath="$PROJECT_DIR$/running/app_backend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/develop/module/demo/demo.iml" filepath="$PROJECT_DIR$/develop/module/demo/demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/develop/DWThirdPartyLibrary/dwapiplatform-thirdpartylibrary.iml" filepath="$PROJECT_DIR$/develop/DWThirdPartyLibrary/dwapiplatform-thirdpartylibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/develop/module/frc/frc.iml" filepath="$PROJECT_DIR$/develop/module/frc/frc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/develop/module/frm/frm.iml" filepath="$PROJECT_DIR$/develop/module/frm/frm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/develop/module/module.iml" filepath="$PROJECT_DIR$/develop/module/module.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,51 @@
+
+V
+java:S3252ñ"?Use static access with "com.alibaba.fastjson.JSON" for "parse".(Æ¬¥¬
+Q
+java:S3740"/Provide the parametrized type for this generic.(¯îİüÿÿÿÿ8†·Êâ‹0
+R
+java:S3740ò"/Provide the parametrized type for this generic.(â–…ÿÿÿÿÿ8†·Êâ‹0
+M
+java:S3740—"/Provide the parametrized type for this generic.(ì£óş8†·Êâ‹0
+R
+java:S3740¾"/Provide the parametrized type for this generic.(çÕ†Ëúÿÿÿÿ8†·Êâ‹0
+o
+java:S1192¥"SDefine a constant instead of duplicating this literal "liable_person_name" 5 times.(©‡N8†·Êâ‹0
+o
+java:S1192Â"QDefine a constant instead of duplicating this literal "return_flag_name" 4 times.(®—Üû8†·Êâ‹0
+q
+java:S1192¼"NDefine a constant instead of duplicating this literal "return_reason" 4 times.(Ş¬ƒ±ıÿÿÿÿ8†·Êâ‹0
+o
+java:S1192Ñ"LDefine a constant instead of duplicating this literal "question_no" 3 times.(šÊŠÿÿÿÿÿ8†·Êâ‹0
+m
+java:S1192¨"JDefine a constant instead of duplicating this literal "tenantSid" 5 times.(şÍÑÚùÿÿÿÿ8†·Êâ‹0
+f
+java:S1192Ş"HDefine a constant instead of duplicating this literal "urgency" 3 times.(Öş¤™8†·Êâ‹0
+o
+java:S1192¤"QDefine a constant instead of duplicating this literal "liable_person_id" 5 times.(Î÷Šé8†·Êâ‹0
+z
+java:S1192·"\Define a constant instead of duplicating this literal "pending_approve_question_id" 3 times.(ÆÖˆî8†·Êâ‹0
+t
+java:S1192¨"QDefine a constant instead of duplicating this literal "return_reason_no" 3 times.(ù¾‚úÿÿÿÿÿ8†·Êâ‹0
+x
+java:S1192Ó"UDefine a constant instead of duplicating this literal "question_description" 3 times.(¢¢½Åùÿÿÿÿ8†·Êâ‹0
+s	java:S117•"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(áğÅ³ùÿÿÿÿ8†·Êâ‹0
+s	java:S117–"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ëşÜúÿÿÿÿ8†·Êâ‹0
+R
+java:S3416A"5Update this logger to use "ActionTraceBizImpl.class".(ÙÅôÃ8†·Êâ‹0
+b
+java:S3252n"EUse static access with "com.alibaba.fastjson.JSON" for "parseObject".(´Ñìˆ8†·Êâ‹0
+]
+java:S3252¯"?Use static access with "com.alibaba.fastjson.JSON" for "parse".(±‡‚æ8†·Êâ‹0
+P
+java:S1135ï"2Complete the task associated to this TODO comment.(Åğ™•8†·Êâ‹0
+U
+java:S1135‹"2Complete the task associated to this TODO comment.(²ÿ êüÿÿÿÿ8†·Êâ‹0
+h
+java:S3252À"EUse static access with "com.alibaba.fastjson.JSON" for "parseObject".(‹àğ˜şÿÿÿÿ8†·Êâ‹0
+h
+java:S3252‰"EUse static access with "com.alibaba.fastjson.JSON" for "parseObject".(”Ÿşüÿÿÿÿ8†·Êâ‹0
+d
+java:S3252«"FUse static access with "com.alibaba.fastjson.JSON" for "toJSONString".(­æ®ê8†·Êâ‹0
+U
+java:S1135½"2Complete the task associated to this TODO comment.(ÿäÒ¯ıÿÿÿÿ8†·Êâ‹0

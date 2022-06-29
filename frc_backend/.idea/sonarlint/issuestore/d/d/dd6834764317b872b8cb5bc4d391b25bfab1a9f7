@@ -1,0 +1,81 @@
+
+J
+java:S3740u"/Provide the parametrized type for this generic.(³ä²Îüÿÿÿÿ
+K
+java:S3740"/Provide the parametrized type for this generic.(è‡ô–ûÿÿÿÿ
+F
+java:S3740‘"/Provide the parametrized type for this generic.(½Îó
+K
+java:S3740á"/Provide the parametrized type for this generic.(ü›Ôúÿÿÿÿ
+j
+java:S1192¯"SDefine a constant instead of duplicating this literal "liable_person_name" 4 times.(¢”È¸
+p
+java:S1192\"ZDefine a constant instead of duplicating this literal "temporary_measure_execute" 4 times.(ç ì¤
+f
+java:S1192¬"JDefine a constant instead of duplicating this literal "tenantSid" 5 times.(µÈ°Çÿÿÿÿÿ
+m
+java:S1192®"QDefine a constant instead of duplicating this literal "liable_person_id" 6 times.(Îğ½Æøÿÿÿÿ
+i
+java:S1192ƒ"RDefine a constant instead of duplicating this literal "expect_solve_date" 5 times.(áèÃş
+h
+java:S1192n"RDefine a constant instead of duplicating this literal "temporary_measure" 3 times.(ƒ†½Ò
+l
+java:S1192º"PDefine a constant instead of duplicating this literal "is_history_data" 4 times.(şšªÁøÿÿÿÿ
+F
+java:S1066ª"/Merge this if statement with the enclosing one.(¡³‡
+x
+java:S2629­"\Invoke method(s) only conditionally. Use the built-in formatting to construct this argument.(ƒÓÔ…şÿÿÿÿ
+x
+java:S2629¿"\Invoke method(s) only conditionally. Use the built-in formatting to construct this argument.(¨ª—ûûÿÿÿÿ
+s
+java:S2629Í"\Invoke method(s) only conditionally. Use the built-in formatting to construct this argument.(ñÓÎÂ
+U
+java:S1155ª">Use isEmpty() to check whether the collection is empty or not.(¡³‡
+U
+java:S1155­">Use isEmpty() to check whether the collection is empty or not.(Áüİ„
+l	java:S117®"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Îğ½Æøÿÿÿÿ
+g	java:S117¯"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢”È¸
+z
+java:S1488_"dImmediately return this expression instead of assigning it to the temporary variable "resultObject".(¥Õ®¸
+}
+java:S1488 "fImmediately return this expression instead of assigning it to the temporary variable "questionResult".(…µ¥Å
+^
+java:S3416L"CUpdate this logger to use "QuestionTemporaryMeasuresExecute.class".(’ğé“ÿÿÿÿÿ
+`
+java:S3252P"EUse static access with "com.alibaba.fastjson.JSON" for "parseObject".(‚ï€áşÿÿÿÿ
+Y
+java:S2230f"CMake this method "public" or remove the "@Transactional" annotation(Ü‡Š†
+h
+java:S3776f"RRefactor this method to reduce its Cognitive Complexity from 31 to the 15 allowed.(Ü‡Š†
+`
+java:S3252j"EUse static access with "com.alibaba.fastjson.JSON" for "parseObject".(ÙÆÈ«üÿÿÿÿ
+P
+java:S2864¤"4Iterate over the "entrySet" instead of the "keySet".(—æ§µşÿÿÿÿ
+H
+java:S1602Ê",Remove useless curly braces around statement(°ï‘úÿÿÿÿ
+T	java:S106Ë"9Replace this use of System.out or System.err by a logger.(ü¨éúùÿÿÿÿ
+_
+java:S2230"CMake this method "public" or remove the "@Transactional" annotation(²¶ÿüÿÿÿÿ
+\
+java:S3252"EUse static access with "com.alibaba.fastjson.JSON" for "parseObject".(çü‰Ã
+[
+java:S3252œ"DUse static access with "com.alibaba.fastjson.JSON" for "parseArray".(Æ„Ï˜
+K
+java:S2864£"4Iterate over the "entrySet" instead of the "keySet".(¸éŸ‹
+]
+java:S3457­"AFormat specifiers should be used instead of string concatenation.(ƒÓÔ…şÿÿÿÿ
+\
+java:S3252³"EUse static access with "com.alibaba.fastjson.JSON" for "parseObject".(·Á¨³
+]
+java:S3457¿"AFormat specifiers should be used instead of string concatenation.(¨ª—ûûÿÿÿÿ
+X
+java:S3457Í"AFormat specifiers should be used instead of string concatenation.(ñÓÎÂ
+`
+java:S3252Î"DUse static access with "com.alibaba.fastjson.JSON" for "parseArray".(ÑÍÁüÿÿÿÿ
+]
+java:S3252Ñ"FUse static access with "com.alibaba.fastjson.JSON" for "toJSONString".(­æ®ê
+H
+java:S1602",Remove useless curly braces around statement(°ï‘úÿÿÿÿ
+T	java:S106‘"9Replace this use of System.out or System.err by a logger.(ü¨éúùÿÿÿÿ
+@
+java:S1068ë"*Remove this unused "filter" private field.(“¨„v

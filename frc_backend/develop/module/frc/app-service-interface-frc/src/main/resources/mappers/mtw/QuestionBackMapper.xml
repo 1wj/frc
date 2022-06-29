@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.digiwin.app.frc.service.athena.mtw.mapper.QuestionBackMapper">
+
+    <sql id="Base_Column_List" >
+        oid,
+        tenantsid,
+        back_id,
+        back_reason,
+        node_id,
+        node_name,
+        remarks,
+        create_time,
+        create_name,
+        update_time,
+        update_name
+    </sql>
+
+    <insert id="addQuestionBackInfo" parameterType="java.util.List">
+        INSERT INTO frc_question_back
+        (
+            <include refid="Base_Column_List"/>
+        )
+        VALUES
+        <foreach collection="list" item="item" index="index"
+                 separator=",">
+            (
+            #{item.oid},
+            #{item.tenantSid},
+            #{item.backId},
+            #{item.backReason},
+            #{item.nodeId},
+            #{item.nodeName},
+            #{item.remarks},
+            #{item.createTime},
+            #{item.createName},
+            #{item.updateTime},
+            #{item.updateName}
+            )
+        </foreach>
+
+    </insert>
+
+
+    <delete id="deleteQuestionBackInfo" parameterType="java.util.List">
+        DELETE FROM frc_question_back
+        WHERE oid IN
+        <foreach collection="list" item="oid" index="index" open="(" close=")" separator=",">
+            #{oid}
+        </foreach>
+    </delete>
+
+
+    <update id="updateBatch"  parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" close="" open="" separator=";">
+            UPDATE frc_question_back
+            <set>
+                <if test="item.backId != null and '' != item.backId">
+                    back_id = #{item.backId},
+                </if>
+                <if test="item.backReason != null and '' != item.backReason">
+                    back_reason = #{item.backReason},
+                </if>
+                <if test="item.nodeId != null and '' != item.nodeId">
+                    node_id = #{item.nodeId},
+                </if>
+                <if test="item.nodeName != null and '' != item.nodeName">
+                    node_name = #{item.nodeName},
+                </if>
+                <if test="item.remarks != null">
+                    remarks = #{item.remarks},
+                </if>
+                update_name = #{item.updateName},
+                update_time = #{item.updateTime}
+            </set>
+            WHERE oid = #{item.oid} AND tenantsid = #{item.tenantSid}
+        </foreach>
+    </update>
+
+
+    <select id="getQuestionBackInfo"
+                resultType="com.digiwin.app.frc.service.athena.mtw.domain.entity.QuestionBackEntity">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM frc_question_back
+        WHERE tenantsid = #{tenantSid}
+        <if test="null != backId and '' != backId">
+            AND back_id = #{backId}
+        </if>
+        <if test="null != backReason and '' != backReason">
+            AND back_reason LIKE '%${backReason}%'
+        </if>
+        <if test="null != nodeName and '' != nodeName">
+            AND node_name IN
+            <foreach collection="nodeName.split(',')" item="item" index="index" open="(" separator="," close=")"> #{item} </foreach>
+        </if>
+        <if test="null != nodeId and '' != nodeId ">
+            AND node_id IN
+            <foreach collection="nodeId.split(',')" item="item" index="index" open="(" separator="," close=")"> #{item} </foreach>
+        </if>
+        ORDER BY create_time ASC
+    </select>
+
+    <select id="queryAllReturnNos" resultType="string">
+        SELECT back_id FROM frc_question_back WHERE tenantsid = #{tenantSid}
+    </select>
+
+
+
+
+</mapper>

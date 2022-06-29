@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.digiwin.app.frc.service.athena.ppc.mapper.QuestionProcessConfigMapper">
+
+    <sql id="Base_Column_List">
+        oid,
+        tenantsid,
+        attribution_no,
+        source_oid,
+        solution_oid,
+        liable_person_id,
+        liable_person_name,
+        create_time,
+        create_name,
+        update_time,
+        update_name
+    </sql>
+
+
+    <insert id="addQuestionProcessConfigInfo" >
+        INSERT INTO frc_question_process_config
+        (
+        <include refid="Base_Column_List"/>
+        )
+        VALUES
+        <foreach collection="list" item="item" index="index"
+                 separator=",">
+            (
+            #{item.oid},
+            #{item.tenantSid},
+            #{item.attributionNo},
+            #{item.sourceId},
+            #{item.solutionStepId},
+            #{item.liablePersonId},
+            #{item.liablePersonName},
+            #{item.createTime},
+            #{item.createName},
+            #{item.updateTime},
+            #{item.updateName}
+            )
+        </foreach>
+    </insert>
+
+    <delete id="deleteQuestionProcessConfigInfo">
+        DELETE FROM frc_question_process_config
+        WHERE tenantsid = #{tenantSid}
+        AND oid IN
+        <foreach collection="oidList" item="oid" index="index" open="(" close=")" separator=",">
+            #{oid}
+        </foreach>
+    </delete>
+
+
+    <update id="updateBatch">
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            UPDATE frc_question_process_config
+            <set>
+                <if test="item.attributionNo != null and '' != item.attributionNo">
+                    attribution_no = #{item.attributionNo},
+                </if>
+                <if test="item.sourceId != null and '' != item.sourceId">
+                    source_oid = #{item.sourceId},
+                </if>
+                <if test="item.solutionStepId != null and '' != item.solutionStepId">
+                    solution_oid = #{item.solutionStepId},
+                </if>
+                <if test="item.liablePersonId != null and '' != item.liablePersonId">
+                    liable_person_id = #{item.liablePersonId},
+                </if>
+                <if test="item.liablePersonName != null and '' != item.liablePersonName">
+                    liable_person_name = #{item.liablePersonName},
+                </if>
+                update_name = #{item.updateName},
+                update_time = #{item.updateTime}
+            </set>
+            WHERE oid = #{item.oid} AND tenantsid = #{item.tenantSid}
+        </foreach>
+    </update>
+
+
+
+    <resultMap id="processRiskClassificationResultMap"
+               type="com.digiwin.app.frc.service.athena.ppc.domain.vo.QuestionProcessConfigVo">
+        <id property="oid" column="processConfigOid" />
+        <result property="attributionNo" column="attributionNo" />
+        <result property="sourceId" column="sourceId" />
+        <result property="sourceName" column="sourceName" />
+        <result property="liablePersonId" column="liablePersonId" />
+        <result property="liablePersonName" column="liablePersonName" />
+        <result property="solutionStepId" column="solutionStepId" />
+        <result property="solutionStepName" column="solutionStepName" />
+        <!-- 配置一对多的关系 -->
+        <collection property="riskVos" javaType="list"
+                    ofType="com.digiwin.app.frc.service.athena.ppc.domain.vo.RiskLevelVo">
+            <!-- 配置主键，是关联风险等级表的唯一标识 -->
+            <id property="riskLevelId" column="riskLevelOid" />
+            <result property="riskLevelName" column="riskLevelName" />
+        </collection>
+        <!-- 配置一对多的关系 -->
+        <collection property="classificationVos" javaType="list"
+                    ofType="com.digiwin.app.frc.service.athena.ppc.domain.vo.ClassificationVo">
+            <!-- 配置主键，是关联风险等级表的唯一标识 -->
+            <id property="classificationId" column="classificationId" />
+            <result property="classificationName" column="classificationName" />
+        </collection>
+    </resultMap>
+
+
+    <select id="getQuestionProcessConfig" resultMap="processRiskClassificationResultMap">
+        SELECT
+            c.oid as processConfigOid,
+            c.attribution_no as attributionNo,
+            s.oid as sourceId,
+            s.source_name as  sourceName,
+            a.oid as classificationId,
+            a.classification_name as classificationName,
+            c.liable_person_id as liablePersonId,
+            c.liable_person_name as liablePersonName,
+            r.oid as riskLevelOid,
+            r.risk_level_name as riskLevelName,
+            e.oid as solutionStepId,
+            e.solution_name as solutionStepName
+        FROM
+        frc_question_process_config c
+        LEFT JOIN frc_question_risk_level r ON c.oid = r.question_process_config_oid
+        LEFT JOIN frc_question_source s ON c.source_oid = s.oid
+        LEFT JOIN frc_question_classification a ON c.oid = a.question_process_config_oid
+        LEFT JOIN frc_solution_edit e ON c.solution_oid = e.oid
+        WHERE c.tenantsid = #{tenantSid}
+        <if test="model.riskLevelId != null and '' != model.riskLevelId">
+            AND r.oid = #{model.riskLevelId}
+        </if>
+        <if test="model.attributionNo != null and '' != model.attributionNo">
+            AND c.attribution_no = #{model.attributionNo}
+        </if>
+        <if test="model.sourceId != null and '' != model.sourceId">
+            AND c.source_oid = #{model.sourceId}
+        </if>
+        <if test="model.classificationId != null and '' != model.classificationId">
+            AND a.oid = #{model.classificationId}
+        </if>
+        <if test="model.solutionStepId != null and '' != model.solutionStepId">
+            AND c.solution_oid = #{model.solutionStepId}
+        </if>
+        ORDER BY c.create_time ASC
+    </select>
+</mapper>

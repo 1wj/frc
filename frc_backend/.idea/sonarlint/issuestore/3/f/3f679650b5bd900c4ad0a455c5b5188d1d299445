@@ -1,0 +1,33 @@
+
+W
+java:S2259Œ"@A "NullPointerException" could be thrown; "os" is nullable here.(œñŽÑ
+M
+java:S1135i"2Complete the task associated to this TODO comment.(¸Î²ùýÿÿÿÿ
+E
+java:S3740u"/Provide the parametrized type for this generic.(Ì¼½¿
+J
+java:S3740K"/Provide the parametrized type for this generic.(Ø¶’îýÿÿÿÿ
+K
+java:S1191"5Use classes from the Java API instead of Sun classes.(¯’Ý³
+w
+java:S2629c"\Invoke method(s) only conditionally. Use the built-in formatting to construct this argument.(î­¢èúÿÿÿÿ
+E
+java:S2093<"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ
+P
+java:S1118":Add a private constructor to hide the implicit public one.(ºöÿÜ
+F
+java:S2093ƒ"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ
+E
+java:S3740s"/Provide the parametrized type for this generic.(©ê¢Í
+[	java:S112!"FDefine and throw a dedicated exception instead of using a generic one.(™›Ÿñ
+_
+java:S2259v"DA "NullPointerException" could be thrown; "result" is nullable here.(ýéÐ ûÿÿÿÿ
+G
+java:S3011R",This accessibility update should be removed.(íË©¶úÿÿÿÿ
+d
+java:S2095="NUse try-with-resources or close this "RandomAccessFile" in a "finally" clause.(™Ãõ«
+\
+java:S3457c"AFormat specifiers should be used instead of string concatenation.(î­¢èúÿÿÿÿ
+[	java:S112,"FDefine and throw a dedicated exception instead of using a generic one.(—íÞì
+`	java:S112x"FDefine and throw a dedicated exception instead of using a generic one.(öœ¢¡ùÿÿÿÿ
+Q	java:S125N"<This block of commented-out lines of code should be removed.(ì«¦ª

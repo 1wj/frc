@@ -1,0 +1,113 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:task="http://www.springframework.org/schema/tool"
+	   xsi:schemaLocation="http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd  http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd  http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd  http://www.springframework.org/schema/aop     http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/tool http://www.springframework.org/schema/tool/spring-tool.xsd">
+
+	<context:property-placeholder location="classpath:module.properties" ignore-unresolvable="true"/>
+
+	<import resource="classpath:spring-rabbitmq.xml"/>
+	<!--<import resource="classpath:spring-quartz.xml"/>-->
+
+	<!-- spring context -->
+	<context:annotation-config/>
+
+	<!-- spring context -->
+	<context:component-scan base-package="com.digiwin.app.frc.service.athena.*.biz.impl"/>
+	<context:component-scan base-package="com.digiwin.app.frc.service.athena.config"/>
+	<context:component-scan base-package="com.digiwin.app.frc.service.athena.util.mtw"/>
+	<context:component-scan base-package="com.digiwin.app.frc.service.athena.meta"/>
+	<context:component-scan base-package="com.digiwin.app.frc.service.athena.*.util"/>
+	<context:component-scan base-package="com.digiwin.app.frc.service.athena.app"/>
+	<context:component-scan base-package="com.digiwin.app.frc.service.athena.file"/>
+
+
+
+	<!--开启spring开启注解AOP支持-->
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+
+	<!--将SpringContextHolder加入到ioc容器中，用于手动注入 -->
+	<bean id="springContextUtils" class="com.digiwin.app.frc.service.athena.util.qdh.SpringContextHolder" />
+
+	<!-- config utils -->
+	<bean class="com.digiwin.app.module.DWModuleConfigUtils" id="DWModuleConfigUtils"/>
+
+	<!-- service input out aop -->
+	<bean class="com.digiwin.app.container.ServicePublicMethodLogInterceptor" id="serviceInputOutputInterceptor"/>
+
+	<bean id="dw-dataSource" class="com.alibaba.druid.pool.DruidDataSource"
+		  init-method="init" destroy-method="close">
+		<property name="url" value="jdbc:mariadb://localhost:3307/test" />
+		<property name="username" value="root" />
+		<property name="password" value="123asd." />
+	</bean>
+
+	<!--================== 配置和MyBatis的整合=============== -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- 指定mybatis全局配置文件的位置 -->
+		<property name="configLocation" value="classpath:conf/mybatis-config.xml"></property>
+		<!--注入数据库连接池,注入平台配置-->
+		<property name="dataSource" ref="dw-dataSource"></property>
+		<!-- 指定mybatis，mapper文件的位置 -->
+		<property name="mapperLocations" value="classpath:mappers/**/*.xml"></property>
+	</bean>
+	<!-- 配置扫描器，将mybatis接口的实现加入到ioc容器中 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<!-- 扫描所有dao接口的实现，加入到ioc容器中 -->
+		<property name="basePackage" value="com.digiwin.app.frc.service.athena.*.mapper,
+											com.digiwin.app.frc.service.athena.app.mapper"></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+	</bean>
+	<!-- 配置一个可以执行批量的sqlSession -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
+		<constructor-arg name="executorType" value="BATCH"></constructor-arg>
+	</bean>
+
+	<!-- ===============事务控制的配置 ================ -->
+	<bean id="dw-transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dw-dataSource" />
+	</bean>
+
+	<tx:annotation-driven proxy-target-class="true" transaction-manager="dw-transactionManager" />
+
+
+	<aop:config proxy-target-class="true">
+        <aop:pointcut expression="execution(* com.digiwin.app.frc.service.impl..*.*(..))" id="logInputOutPointCut"/>
+        <aop:advisor advice-ref="serviceInputOutputInterceptor" pointcut-ref="logInputOutPointCut"/>
+    </aop:config>
+	<!-- 任务调度相关配置 -->
+	<!-- job -->
+	<bean id="createNoticeJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="createNoticeHandler"></property>
+		<property name="targetMethod" value="run"></property>
+	</bean>
+	<!-- trigger -->
+	<!--<bean id="createNoticeTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="createNoticeJob"></property>
+		<property name="cronExpression" value="${frc.createNotice.cronExpression}"></property>
+		<property name="startDelay" value="${frc.createNotice.startDelay}"></property>
+	</bean>-->
+	<bean id="createNoticeTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="createNoticeJob"></property>
+		<property name="cronExpression" value="0 0 0 13 * ? *"></property>
+		<property name="startDelay" value="0"></property>
+	</bean>
+
+	<!-- 任务调度器 -->
+	<bean id="taskScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean" lazy-init="false" autowire="no">
+		<property name="triggers">
+			<list>
+				<ref bean="createNoticeTrigger"/>
+			</list>
+		</property>
+		<property name="startupDelay" value="0"></property>
+		<property name="quartzProperties">
+			<props>
+				<prop key="org.quartz.threadPool.class">org.quartz.simpl.SimpleThreadPool</prop>
+				<prop key="org.quartz.threadPool.threadCount">5</prop>
+			</props>
+		</property>
+	</bean>
+</beans>

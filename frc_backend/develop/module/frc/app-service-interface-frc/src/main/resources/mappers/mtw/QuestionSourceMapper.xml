@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.digiwin.app.frc.service.athena.mtw.mapper.QuestionSourceMapper">
+
+    <sql id="Base_Column_List">
+        oid,
+        tenantsid,
+        source_no,
+        source_name,
+        source_category,
+        manage_status,
+        remarks,
+        create_time,
+        create_name,
+        update_time,
+        update_name
+    </sql>
+
+    <insert id="addQuestionSourceInfo" parameterType="java.util.List">
+        INSERT INTO frc_question_source
+        (
+        <include refid="Base_Column_List"/>
+        )
+        VALUES
+        <foreach collection="list" item="item" index="index"
+                 separator=",">
+            (
+            #{item.oid},
+            #{item.tenantSid},
+            #{item.sourceNo},
+            #{item.sourceName},
+            #{item.sourceCategory},
+            #{item.manageStatus},
+            #{item.remarks},
+            #{item.createTime},
+            #{item.createName},
+            #{item.updateTime},
+            #{item.updateName}
+            )
+        </foreach>
+    </insert>
+
+    <delete id="deleteQuestionSourceInfo"
+            parameterType="java.util.List">
+        DELETE FROM frc_question_source
+        WHERE oid IN
+        <foreach collection="list" item="oid" index="index" open="(" close=")" separator=",">
+            #{oid}
+        </foreach>
+    </delete>
+
+    <update id="updateBatch" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" close="" open="" separator=";">
+            UPDATE frc_question_source
+            <set>
+                <if test="item.sourceNo != null and '' != item.sourceNo">
+                    source_no = #{item.sourceNo},
+                </if>
+                <if test="item.sourceName != null and '' != item.sourceName">
+                    source_name = #{item.sourceName},
+                </if>
+                <if test='item.sourceCategory != null and "" != item.sourceCategory and (item.sourceCategory == "1" || item.sourceCategory == "2" || item.sourceCategory == "3")'>
+                    source_category = #{item.sourceCategory},
+                </if>
+                <if test='item.manageStatus != null and "" != item.manageStatus and (item.manageStatus == "Y" || item.manageStatus == "V")'>
+                    manage_status = #{item.manageStatus},
+                </if>
+                <if test="item.remarks != null">
+                    remarks = #{item.remarks},
+                </if>
+                update_name = #{item.updateName},
+                update_time = #{item.updateTime}
+            </set>
+            WHERE oid = #{item.oid} AND tenantsid = #{item.tenantSid}
+        </foreach>
+    </update>
+
+    <resultMap id="classificationSourceResultMap"
+               type="com.digiwin.app.frc.service.athena.mtw.domain.vo.QuestionSourceQueryVo">
+        <id property="oid" column="sourceId" />
+        <result property="sourceNo" column="sourceNo" />
+        <result property="sourceName" column="sourceName" />
+        <result property="sourceCategory" column="sourceCategory" />
+        <result property="manageStatus" column="manageStatus" />
+        <result property="remarks" column="remarks" />
+        <!-- 配置一对多的关系 -->
+        <collection property="classificationVos" javaType="list"
+                    ofType="com.digiwin.app.frc.service.athena.mtw.domain.vo.ClassificationDetailVo">
+            <!-- 配置主键，是关联问题来源的唯一标识 -->
+            <id property="classificationId" column="classificationId" />
+            <result property="classificationName" column="classificationName" />
+            <result property="classificationNo" column="classificationNo" />
+        </collection>
+    </resultMap>
+
+    <select id="getQuestionSourceInfo"
+            resultMap="classificationSourceResultMap">
+        SELECT
+        s.oid as sourceId,
+        s.source_no as sourceNo,
+        s.source_name as sourceName,
+        s.source_category as sourceCategory,
+        s.manage_status as manageStatus,
+        s.remarks as remarks,
+        c.oid as classificationId,
+        c.classification_name as classificationName,
+        c.classification_no as classificationNo
+        FROM
+        frc_question_source s
+        LEFT JOIN   frc_question_classification_source qc ON qc.source_oid = s.oid
+        LEFT JOIN frc_question_classification c ON qc.classification_oid = c.oid
+        WHERE s.tenantsid = #{tenantSid}
+        <if test="null != vo.sourceNo and '' != vo.sourceNo">
+            AND s.source_no LIKE '%${vo.sourceNo}%'
+        </if>
+        <if test="null != vo.sourceName and '' != vo.sourceName">
+            AND s.source_name LIKE '%${vo.sourceName}%'
+        </if>
+        <if test="null != vo.sourceCategory and '' != vo.sourceCategory">
+            AND s.source_category IN
+            <foreach collection="vo.sourceCategory.split(',')" item="item" index="index" open="(" separator="," close=")"> #{item} </foreach>
+        </if>
+        <if test='vo.manageStatus != null and "" != vo.manageStatus and (vo.manageStatus == "Y" || vo.manageStatus == "V")'>
+            AND s.manage_status = #{vo.manageStatus}
+        </if>
+        <if test="null != vo.remarks ">
+            AND s.remarks LIKE '%${vo.remarks}%'
+        </if>
+        <if test="null != vo.classificationName and '' != vo.classificationName">
+            AND c.source_name LIKE '%${vo.classificationName}%'
+        </if>
+        ORDER BY s.create_time ASC
+    </select>
+
+
+    <select id="queryAllSourceNos" resultType="string">
+        SELECT source_no FROM frc_question_source WHERE tenantsid = #{tenantSid}
+    </select>
+
+
+    <select id="queryAll" resultType="com.digiwin.app.frc.service.athena.mtw.domain.entity.QuestionSourceEntity">
+        select <include refid="Base_Column_List"></include>
+        from frc_question_source
+        where tenantsid = #{tenantSid}
+    </select>
+</mapper>

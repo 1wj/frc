@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="lib_backend">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/running/app_backend/platform/lib" />
+      <root url="file://$PROJECT_DIR$/running/app_backend/platform/conf" />
+      <root url="file://$PROJECT_DIR$/running/app_backend/platform/lang" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ideaLibSources/validation-api-2.0.1.Final-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.ideaLibSources/hibernate-validator-6.0.9.Final-sources.jar!/" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/running/app_backend/platform/lib" recursive="false" />
+  </library>
+</component>

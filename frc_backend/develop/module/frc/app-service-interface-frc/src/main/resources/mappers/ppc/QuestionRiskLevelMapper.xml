@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.digiwin.app.frc.service.athena.ppc.mapper.QuestionRiskLevelMapper">
+
+
+    <sql id="Base_Column_List">
+        oid,
+        tenantsid,
+        risk_level_no,
+        risk_level_name,
+        important,
+        urgency,
+        is_modify,
+        is_upload,
+        question_confirm_config_oid,
+        question_analysis_config_oid,
+        question_process_config_oid,
+        question_acceptance_config_oid,
+        manage_status,
+        remarks,
+        create_time,
+        create_name,
+        update_time,
+        update_name
+    </sql>
+
+
+
+    <insert id="addQuestionRiskLevelInfo" parameterType="java.util.List">
+        INSERT INTO frc_question_risk_level
+        (
+        <include refid="Base_Column_List"/>
+        )
+        VALUES
+        <foreach collection="list" item="item" index="index"
+                 separator=",">
+            (
+            #{item.oid},
+            #{item.tenantSid},
+            #{item.riskLevelNo},
+            #{item.riskLevelName},
+            #{item.important},
+            #{item.urgency},
+            #{item.isModify},
+            #{item.isUpload},
+            #{item.questionConfirmConfigOid},
+            #{item.questionAnalysisConfigOid},
+            #{item.questionProcessConfigOid},
+            #{item.questionAcceptanceConfigOid},
+            #{item.manageStatus},
+            #{item.remarks},
+            #{item.createTime},
+            #{item.createName},
+            #{item.updateTime},
+            #{item.updateName}
+            )
+        </foreach>
+    </insert>
+
+
+
+    <delete id="deleteQuestionRiskLevelInfo" >
+        DELETE FROM frc_question_risk_level
+        WHERE tenantsid = #{tenantSid}
+        AND oid IN
+        <foreach collection="oidList" item="oid" index="index" open="(" close=")" separator=",">
+            #{oid}
+        </foreach>
+    </delete>
+
+    <update id="updateBatch" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            UPDATE frc_question_risk_level
+            <set>
+                <if test="item.riskLevelNo != null and '' != item.riskLevelNo">
+                    risk_level_no = #{item.riskLevelNo},
+                </if>
+                <if test="item.riskLevelName != null and '' != item.riskLevelName">
+                    risk_level_name = #{item.riskLevelName},
+                </if>
+                <if test='item.important != null and (item.important == 1 || item.important == 2) '>
+                    important = #{item.important},
+                </if>
+                <if test='item.urgency != null and (item.urgency == 1 || item.urgency == 2) '>
+                    urgency = #{item.urgency},
+                </if>
+                <if test='item.manageStatus != null and "" != item.manageStatus and (item.manageStatus == "Y" || item.manageStatus == "V")'>
+                    manage_status = #{item.manageStatus},
+                </if>
+                <if test='item.isModify != null and "" != item.isModify and (item.isModify == "Y" || item.isModify == "N")'>
+                    is_modify = #{item.isModify},
+                </if>
+                <if test='item.isUpload != null and "" != item.isUpload and (item.isUpload == "1" || item.isUpload == "0")'>
+                    is_upload = #{item.isUpload},
+                </if>
+                <if test="item.remarks != null">
+                    remarks = #{item.remarks},
+                </if>
+                update_name = #{item.updateName},
+                update_time = #{item.updateTime}
+            </set>
+            WHERE oid = #{item.oid} AND tenantsid = #{item.tenantSid}
+        </foreach>
+    </update>
+
+    <select id="getQuestionRiskLevelInfo"
+            resultType="com.digiwin.app.frc.service.athena.ppc.domain.entity.QuestionRiskLevelEntity">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM frc_question_risk_level
+        WHERE tenantsid = #{tenantSid}
+        <if test="null != riskLevelNo and '' != riskLevelNo">
+            AND risk_level_no LIKE '%${riskLevelNo}%'
+        </if>
+        <if test="null != riskLevelName and '' != riskLevelName">
+            AND risk_level_name LIKE '%${riskLevelName}%'
+        </if>
+        <if test="null != isModify and '' != isModify">
+            AND is_modify = #{isModify}
+        </if>
+        <if test="null != manageStatus and '' != manageStatus">
+            AND manage_status = #{manageStatus}
+        </if>
+        <if test="null != isUpload and '' != isUpload">
+            AND is_upload = #{isUpload}
+        </if>
+        ORDER BY create_time ASC
+    </select>
+
+
+
+    <select id="queryAllRiskLevelNos" resultType="string">
+        SELECT risk_level_no FROM frc_question_risk_level WHERE tenantsid = #{tenantSid}
+    </select>
+
+    <select id="queryAllRiskLevelNames" resultType="string">
+        SELECT risk_level_name FROM frc_question_risk_level WHERE tenantsid = #{tenantSid}
+    </select>
+
+
+    <update id="updateConfirmConfigId" >
+        UPDATE frc_question_risk_level
+        SET question_confirm_config_oid = #{confirmConfigId}
+        WHERE tenantsid = #{tenantSid} AND oid in
+        <foreach collection="levelIds" item="oid" index="index" open="(" close=")" separator=",">
+            #{oid}
+        </foreach>
+    </update>
+
+
+    <update id="deleteConfirmConfigIds">
+        UPDATE frc_question_risk_level
+        SET question_confirm_config_oid = NULL
+        WHERE tenantsid = #{tenantSid} AND question_confirm_config_oid in
+        <foreach collection="oidList" item="oid" index="index" open="(" close=")" separator=",">
+            #{oid}
+        </foreach>
+    </update>
+
+    <update id="updateConfirmConfigIdInfo">
+        UPDATE frc_question_risk_level
+        SET question_confirm_config_oid = NULL
+        WHERE tenantsid = #{tenantSid} AND question_confirm_config_oid = #{confirmConfigId}
+    </update>
+
+    <update id="updateAnalysisConfigId">
+        UPDATE frc_question_risk_level
+        SET question_analysis_config_oid = #{analysisConfigId}
+        WHERE tenantsid = #{tenantSid} AND oid in
+        <foreach collection="levelIds" item="oid" index="index" open="(" close=")" separator=",">
+            #{oid}
+        </foreach>
+    </update>
+
+    <update id="updateAnalysisConfigIdInfo">
+        UPDATE frc_question_risk_level
+        SET question_analysis_config_oid = NULL
+        WHERE tenantsid = #{tenantSid} AND question_analysis_config_oid = #{analysisConfigId}
+    </update>
+
+
+    <update id="deleteAnalysisConfigIds">
+        UPDATE frc_question_risk_level
+        SET question_analysis_config_oid = NULL
+        WHERE tenantsid = #{tenantSid} AND question_analysis_config_oid in
+        <foreach collection="oidList" item="oid" index="index" open="(" close=")" separator=",">
+            #{oid}
+        </foreach>
+    </update>
+
+    <update id="updateAcceptanceConfigId">
+        UPDATE frc_question_risk_level
+        SET question_acceptance_config_oid = #{acceptanceConfigId}
+        WHERE tenantsid = #{tenantSid} AND oid in
+        <foreach collection="levelIds" item="oid" index="index" open="(" close=")" separator=",">
+            #{oid}
+        </foreach>
+    </update>
+
+
+    <update id="deleteAcceptanceConfigIds">
+        UPDATE frc_question_risk_level
+        SET question_acceptance_config_oid = NULL
+        WHERE tenantsid = #{tenantSid} AND question_acceptance_config_oid in
+        <foreach collection="oidList" item="oid" index="index" open="(" close=")" separator=",">
+            #{oid}
+        </foreach>
+    </update>
+
+    <update id="updateAcceptanceConfigIdInfo">
+        UPDATE frc_question_risk_level
+        SET question_acceptance_config_oid = NULL
+        WHERE tenantsid = #{tenantSid} AND question_acceptance_config_oid = #{acceptanceConfigId}
+    </update>
+
+    <update id="updateProcessConfigId" >
+        UPDATE frc_question_risk_level
+        SET question_process_config_oid = #{processConfigId}
+        WHERE tenantsid = #{tenantSid} AND oid in
+        <foreach collection="levelIds" item="oid" index="index" open="(" close=")" separator=",">
+            #{oid}
+        </foreach>
+    </update>
+
+    <update id="updateProcessConfigIdInfo">
+        UPDATE frc_question_risk_level
+        SET question_process_config_oid = NULL
+        WHERE tenantsid = #{tenantSid} AND question_process_config_oid = #{processConfigId}
+    </update>
+
+    <update id="updateProcessConfigIdByDelete">
+        UPDATE frc_question_risk_level
+        SET question_process_config_oid = NULL
+        WHERE tenantsid = #{tenantSid} AND question_process_config_oid in
+        <foreach collection="oidList" item="oid" index="index" open="(" close=")" separator=",">
+            #{oid}
+        </foreach>
+    </update>
+
+</mapper>

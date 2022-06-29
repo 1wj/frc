@@ -1,0 +1,41 @@
+
+K
+java:S3740‰"/Provide the parametrized type for this generic.(Œ·œ“üÿÿÿÿ
+E
+java:S3740á"/Provide the parametrized type for this generic.(•ÍW
+e
+java:S1192y"ODefine a constant instead of duplicating this literal "selectSuccess" 10 times.(…ô±î
+s
+java:S1192ß"\Define a constant instead of duplicating this literal "insertUnapprovedDataSuccess" 3 times.(¶Í†Ê
+_
+java:S1192¾"HDefine a constant instead of duplicating this literal "success" 3 times.(ÆĞö
+l
+java:S1192Ì"PDefine a constant instead of duplicating this literal "update Success!" 8 times.(´™ıÿÿÿÿ
+h
+java:S1192Ü"LDefine a constant instead of duplicating this literal "return_data" 4 times.(ïÏ½ùÿÿÿÿ
+l	java:S117˜"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ï„úÿÿÿÿ
+y
+java:S4144¥"bUpdate this method so that its implementation is not identical to "getFeedBackDetail" on line 130.(ÕÙÑĞ
+y
+java:S4144µ"bUpdate this method so that its implementation is not identical to "getFeedBackDetail" on line 130.(’ÒîÌ
+~
+java:S4144Õ"bUpdate this method so that its implementation is not identical to "getFeedBackDetail" on line 130.(†Ûûÿÿÿÿ
+x
+java:S4144å"bUpdate this method so that its implementation is not identical to "getFeedBackDetail" on line 130.(Ô‚
+~
+java:S4144õ"bUpdate this method so that its implementation is not identical to "getFeedBackDetail" on line 130.(ÀåÛıÿÿÿÿ
+~
+java:S4144…"bUpdate this method so that its implementation is not identical to "getFeedBackDetail" on line 130.(ìûÓäÿÿÿÿÿ
+~
+java:S4144•"bUpdate this method so that its implementation is not identical to "getFeedBackDetail" on line 130.(¦›‚¦üÿÿÿÿ
+G
+java:S1135*"2Complete the task associated to this TODO comment.(£°§\
+Z
+java:S3252t"?Use static access with "com.alibaba.fastjson.JSON" for "parse".(¬™¿Ùùÿÿÿÿ
+^
+java:S5361w"HReplace this call to "replaceAll()" by a call to the "replace()" method.(‘‹¤Á
+\
+java:S3252–"EUse static access with "com.alibaba.fastjson.JSON" for "parseObject".(¹Óş–
+W	java:S125‚"<This block of commented-out lines of code should be removed.(·ú¨íşÿÿÿÿ
+N
+java:S1135š"2Complete the task associated to this TODO comment.(Ë‚æªşÿÿÿÿ

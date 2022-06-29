@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.digiwin.app.frc.service.athena.rqi.mapper.KanbanInfoMapper">
+
+
+    <select id="getKanbanInfo"
+            resultType="com.digiwin.app.frc.service.athena.rqi.domain.entity.KanbanInfoEntity">
+        SELECT
+        t.oid  AS questionId,
+        t.question_no AS questionNo,
+        t.question_process_step AS questionProcessStep,
+        t.question_solve_step AS questionSolveStep,
+        t.question_description AS questionDescription,
+        t.question_process_status AS questionProcessStatus,
+        t.question_process_result AS questionProcessResult,
+        t.expect_complete_date AS  exceptCompleteDate,
+        t.actual_complete_date AS actualCompleteDate,
+        t.liable_person_id AS liablePersonId,
+        t.liable_person_name AS liablePersonName,
+        t.create_date AS createDate,
+        i.data_content AS dataContent,
+        t.principal_step AS principalStep,
+        t.update_date AS updateDate,
+        t.return_flag_id AS returnFlagId
+        FROM frc_question_action_trace t
+        INNER JOIN frc_data_instance i ON t.oid = i.question_trace_oid
+        WHERE t.tenantsid = #{tenantSid}  AND question_process_step = 'QS'
+    </select>
+
+
+
+    <select id="getHappenTimeByQuestionNo" resultType="date">
+        SELECT MIN(create_date) FROM frc_question_action_trace
+        WHERE tenantsid = #{tenantSid} AND question_process_step = 'QF' AND question_no = #{questionNo}
+    </select>
+
+
+    <select id="queryHandleDateAndIssueCountByTimeAndDemand"
+            resultType="com.digiwin.app.frc.service.athena.rqi.domain.entity.IssueManagementEntity">
+        SELECT
+        create_date AS createDate,
+        actual_end_date AS actualEndDate,
+        current_question_process_status AS processStatus,
+        important AS important,
+        urgency AS urgency,
+        project_no AS projectNo
+        FROM
+        frc_question_record
+        WHERE tenantsid = #{tenantSid}
+        <if test="startTime != null">
+            AND  create_date &gt;= #{startTime}
+        </if>
+        <if test="endTime != null">
+            AND  create_date &lt;=  #{endTime}
+        </if>
+        <if test="projectNo != null and '' != projectNo">
+            AND project_no = #{projectNo}
+        </if>
+    </select>
+
+
+
+    <select id="queryIssueManageDetailInfoByCondition"
+            resultType="com.digiwin.app.frc.service.athena.rqi.domain.entity.IssueManagementDetailEntity">
+
+        SELECT
+        r.project_no AS projectNo,
+        s.source_name AS sourceName,
+        c.classification_name AS classificationName,
+        r.important AS important,
+        r.actual_end_date AS actualEndDate,
+        r.create_date AS createDate,
+        expect_finish_time AS expectFinishTime,
+        r.question_no AS questionNo,
+        r.task_expect_finish_days AS taskFinishTime
+        FROM
+        frc_question_record r
+        LEFT JOIN frc_question_source s on r.question_source_oid = s.oid
+        LEFT JOIN frc_question_classification c on r.question_classification_oid = c.oid
+        WHERE r.tenantsid = #{tenantSid}
+        AND  r.create_date &gt;= #{startTime}  AND  r.create_date &lt;=  #{endTime}
+        AND r.important = #{importantFlag} AND r.urgency = #{urgencyFlag}
+        <if test="projectNo != null and '' != projectNo">
+            AND r.project_no = #{projectNo}
+        </if>
+        <if test="issueStatus != null and '' != issueStatus">
+            AND r.current_question_process_status = #{issueStatus}
+        </if>
+    </select>
+</mapper>
+

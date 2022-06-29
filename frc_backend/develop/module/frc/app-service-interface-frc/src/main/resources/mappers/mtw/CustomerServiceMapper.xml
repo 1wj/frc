@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.digiwin.app.frc.service.athena.mtw.mapper.CustomerServiceMapper">
+
+    <sql id="Base_Column_List">
+        oid,
+        tenantsid,
+        customer_service_id,
+        customer_service_name,
+        supplier_id,
+        supplier_name,
+        create_time,
+        create_name,
+        update_time,
+        update_name
+    </sql>
+
+    <insert id="addCustomerServiceInfo">
+        INSERT INTO frc_customer_service
+        (
+        <include refid="Base_Column_List"/>
+        )
+        VALUES
+        <foreach collection="list" item="item" index="index"
+                 separator=",">
+            (
+            #{item.oid},
+            #{item.tenantSid},
+            #{item.customerServiceId},
+            #{item.customerServiceName},
+            #{item.supplierId},
+            #{item.supplierName},
+            #{item.createTime},
+            #{item.createName},
+            #{item.updateTime},
+            #{item.updateName}
+            )
+        </foreach>
+    </insert>
+
+
+    <delete id="deleteCustomerServiceInfo"
+            parameterType="java.util.List">
+        DELETE FROM frc_customer_service
+        WHERE oid IN
+        <foreach collection="list" item="oid" index="index" open="(" close=")" separator=",">
+            #{oid}
+        </foreach>
+    </delete>
+
+    <update id="updateBatch" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" close="" open="" separator=";">
+            UPDATE frc_customer_service
+            <set>
+                <if test="item.customerServiceId != null and '' != item.customerServiceId">
+                    customer_service_id = #{item.customerServiceId},
+                </if>
+                <if test="item.customerServiceName != null and '' != item.customerServiceName">
+                    customer_service_name = #{item.customerServiceName},
+                </if>
+                <if test="item.supplierId != null and '' != item.supplierId">
+                    supplier_id = #{item.supplierId},
+                </if>
+                <if test="item.supplierName != null and '' != item.supplierName">
+                    supplier_name = #{item.supplierName},
+                </if>
+                update_name = #{item.updateName},
+                update_time = #{item.updateTime}
+            </set>
+            WHERE oid = #{item.oid} AND tenantsid = #{item.tenantSid}
+        </foreach>
+    </update>
+
+
+    <select id="getCustomerServiceInfo"
+            resultType="com.digiwin.app.frc.service.athena.mtw.domain.entity.CustomerServiceEntity">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM frc_customer_service
+        WHERE tenantsid = #{tenantSid}
+        <if test="null != customerServiceId and '' != customerServiceId">
+            AND customer_service_id = #{customerServiceId}
+        </if>
+        <if test="null != customerServiceName and '' != customerServiceName">
+            AND customer_service_name LIKE '%${customerServiceName}%'
+        </if>
+        <if test="null != supplierId and '' != supplierId">
+            AND supplier_id = #{supplierId}
+        </if>
+        <if test="null != supplierName and '' != supplierName">
+            AND supplier_name LIKE '%${supplierName}%'
+        </if>
+        ORDER BY create_time ASC
+    </select>
+
+    <select id="queryAllDealerIds" resultType="string">
+        SELECT supplier_id FROM frc_customer_service WHERE tenantsid = #{tenantSid}
+    </select>
+
+</mapper>

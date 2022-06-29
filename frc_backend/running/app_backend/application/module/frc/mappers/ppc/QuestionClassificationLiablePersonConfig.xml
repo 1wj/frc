@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.digiwin.app.frc.service.athena.ppc.mapper.QuestionClassificationLiablePersonConfigMapper">
+
+    <sql id="Base_Column_List">
+        oid,
+        tenantsid,
+        classification_oid,
+        liable_person_config_oid,
+        create_time,
+        create_name,
+        update_time,
+        update_name
+    </sql>
+
+
+    <insert id="addQuestionClassificationLiablePersonConfig">
+        INSERT INTO frc_question_classification_liable_person_config
+        (
+        <include refid="Base_Column_List"/>
+        )
+        VALUES
+        <foreach collection="list" item="item" index="index"
+                 separator=",">
+            (
+            #{item.oid},
+            #{item.tenantSid},
+            #{item.classificationOid},
+            #{item.liablePersonConfigOid},
+            #{item.createTime},
+            #{item.createName},
+            #{item.updateTime},
+            #{item.updateName}
+            )
+        </foreach>
+
+    </insert>
+
+    <delete id="deleteQuestionClassificationLiablePersonConfigByLiablePersonId">
+        delete from frc_question_classification_liable_person_config
+        WHERE tenantsid = #{tenantsid}
+        AND liable_person_config_oid IN
+        <foreach collection="oidList" item="oid" index="index" open="(" close=")" separator=",">
+            #{oid}
+        </foreach>
+    </delete>
+</mapper>

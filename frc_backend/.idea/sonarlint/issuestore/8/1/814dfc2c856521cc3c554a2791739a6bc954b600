@@ -1,0 +1,8 @@
+
+}
+java:S1128"]Remove this unused import 'com.digiwin.app.frc.service.athena.app.common.DingCallbackCrypto'.(Ş—Ûúÿÿÿÿ8’§œ‘0
+c
+java:S1192"HDefine a constant instead of duplicating this literal "encrypt" 3 times.(»¸² 8œ¡‘0
+X	java:S106"9Replace this use of System.out or System.err by a logger.(ˆä¨Ìûÿÿÿÿ8œ¡‘0
+V	java:S125"<This block of commented-out lines of code should be removed.(¸´ĞÇ8åĞÍ‘0
+S	java:S106"9Replace this use of System.out or System.err by a logger.(®„¤è8¦ô•‘0

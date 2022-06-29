@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.digiwin.app.frc.service.athena.ppc.mapper.LiablePersonConfigMapper">
+
+    <sql id="Base_Column_List">
+        oid,
+        tenantsid,
+        config_flag,
+        attribution_no,
+        risk_level_id,
+        source_oid,
+        solution_oid,
+        liable_person_id,
+        liable_person_name,
+        acceptance_role,
+        create_time,
+        create_name,
+        update_time,
+        update_name
+    </sql>
+
+    <insert id="addLiablePersonConfigInfo" parameterType="java.util.List">
+        INSERT INTO frc_liable_person_config
+        (
+        <include refid="Base_Column_List"/>
+        )
+        VALUES
+        <foreach collection="list" item="item" index="index"
+                 separator=",">
+            (
+            #{item.oid},
+            #{item.tenantSid},
+            #{item.configFlag},
+            #{item.attributionNo},
+            #{item.riskLevelId},
+            #{item.sourceOid},
+            #{item.solutionOid},
+            #{item.liablePersonId},
+            #{item.liablePersonName},
+            #{item.acceptanceRole},
+            #{item.createTime},
+            #{item.createName},
+            #{item.updateTime},
+            #{item.updateName}
+            )
+        </foreach>
+    </insert>
+
+    <delete id="deleteLiablePersonConfigInfo">
+        DELETE FROM frc_liable_person_config
+        WHERE tenantsid = #{tenantSid}
+        AND oid IN
+        <foreach collection="oidList" item="oid" index="index" open="(" close=")" separator=",">
+            #{oid}
+        </foreach>
+    </delete>
+
+    <update id="updateBatch" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            UPDATE frc_liable_person_config
+            <set>
+                <if test="item.attributionNo != null and '' != item.attributionNo">
+                    attribution_no = #{item.attributionNo},
+                </if>
+                <if test="item.riskLevelId != null and '' != item.riskLevelId">
+                    risk_level_id = #{item.riskLevelId},
+                </if>
+                <if test="item.sourceOid != null and '' != item.sourceOid">
+                    source_oid = #{item.sourceOid},
+                </if>
+                <if test="item.solutionOid != null and '' != item.solutionOid">
+                    solution_oid = #{item.solutionOid},
+                </if>
+                <if test="item.liablePersonId != null and '' != item.liablePersonId">
+                    liable_person_id = #{item.liablePersonId},
+                </if>
+                <if test="item.liablePersonName != null and '' != item.liablePersonName">
+                    liable_person_name = #{item.liablePersonName},
+                </if>
+                <if test="item.acceptanceRole != null and '' != item.acceptanceRole">
+                    acceptance_role = #{item.acceptanceRole},
+                </if>
+                update_name = #{item.updateName},
+                update_time = #{item.updateTime}
+            </set>
+            WHERE oid = #{item.oid} AND config_flag = #{item.configFlag} AND tenantsid = #{item.tenantSid}
+        </foreach>
+    </update>
+
+    <resultMap id="liableConfigClassificationSolutionStepResultMap"
+               type="com.digiwin.app.frc.service.athena.ppc.domain.vo.LiablePersonConfigVo">
+        <id property="oid" column="configId" />
+        <result property="configFlag" column="configFlag" />
+        <result property="attributionNo" column="attributionNo" />
+        <result property="sourceId" column="sourceId" />
+        <result property="riskLevelId" column="riskLevelId" />
+        <result property="solutionId" column="solutionId" />
+        <result property="solutionName" column="solutionName" />
+        <result property="liablePersonId" column="liablePersonId" />
+        <result property="liablePersonName" column="liablePersonName" />
+        <result property="acceptanceRole" column="acceptanceRole"/>
+        <!-- 配置一对多的关系 -->
+        <collection property="classificationInfo" javaType="list"
+                    ofType="com.digiwin.app.frc.service.athena.ppc.domain.vo.ClassificationVo">
+            <!-- 配置主键，是关联风险等级表的唯一标识 -->
+            <id property="classificationId" column="classificationId" />
+            <result property="classificationName" column="classificationName" />
+        </collection>
+    </resultMap>
+
+    <select id="getLiablePersonConfigInfo" resultMap="liableConfigClassificationSolutionStepResultMap" >
+        SELECT
+        c.oid as configId,
+        c.config_flag as configFlag,
+        c.attribution_no as attributionNo,
+        c.risk_level_id as riskLevelId,
+        c.source_oid as sourceId,
+        c.solution_oid as solutionId,
+        s.solution_name as solutionName,
+        c.acceptance_role as acceptanceRole,
+        c.liable_person_id as liablePersonId,
+        c.liable_person_name as liablePersonName,
+        q.oid as classificationId,
+        q.classification_name as classificationName
+        FROM
+        frc_liable_person_config c
+        LEFT JOIN frc_solution_edit s ON c.solution_oid = s.oid
+        LEFT JOIN frc_question_classification_liable_person_config ql ON ql.liable_person_config_oid = c.oid
+        LEFT JOIN frc_question_classification q ON q.oid = ql.classification_oid
+        WHERE c.tenantsid = #{tenantSid}
+        <if test="configFlag != null and '' != configFlag">
+            AND c.config_flag = #{configFlag}
+        </if>
+        <if test="attributionNo != null and '' != attributionNo">
+            AND c.attribution_no = #{attributionNo}
+        </if>
+        <if test="riskLevelId != null and '' != riskLevelId">
+            AND c.risk_level_id = #{riskLevelId}
+        </if>
+        <if test="sourceId != null and '' != sourceId">
+            AND c.source_oid = #{sourceId}
+        </if>
+        <if test="classificationId != null and '' != classificationId">
+            AND q.oid = #{classificationId}
+        </if>
+        <if test="solutionId != null and '' != solutionId">
+            AND s.oid = #{solutionId}
+        </if>
+        ORDER BY c.create_time ASC
+    </select>
+
+    <resultMap id="liablePersonMessage" type="Map">
+        <result property="liablePersonId" column="liablePersonId" />
+        <result property="liablePersonName" column="liablePersonName" />
+    </resultMap>
+
+    <select id="getLiablePersonMessage" resultMap="liablePersonMessage">
+        SELECT
+        c.liable_person_id as liablePersonId,
+        c.liable_person_name as liablePersonName
+        FROM
+        frc_liable_person_config c
+        LEFT JOIN frc_question_classification q ON q.liable_person_config_oid = c.oid
+        WHERE c.tenantsid = #{tenantSid}
+        <if test="attributionNo != null and '' != attributionNo">
+            AND c.attribution_no = #{attributionNo}
+        </if>
+        <if test="riskLevelId != null and '' != riskLevelId">
+            AND c.risk_level_id = #{riskLevelId}
+        </if>
+        <if test="sourceId != null and '' != sourceId">
+            AND c.source_oid = #{sourceId}
+        </if>
+        <if test="classificationId != null and '' != classificationId">
+            AND q.oid = #{classificationId}
+        </if>
+    </select>
+</mapper>

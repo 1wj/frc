@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.digiwin.app.frc.service.athena.qdh.mapper.RecordMapper">
+
+    <resultMap id="BaseResultMap" type="com.digiwin.app.frc.service.athena.qdh.domain.entity.QuestionRecordEntity" >
+        <result column="oid" property="oid" />
+        <result column="tenantsid" property="tenantsid" />
+        <result column="question_no" property="questionNo" />
+        <result column="question_process_stage" property="questionProcessStage" />
+        <result column="question_source_no" property="questionSourceNo" />
+        <result column="question_description" property="questionDescription" />
+        <result column="current_question_process_status" property="currentQuestionProcessStatus" />
+        <result column="liable_person_id" property="liablePersonId" />
+        <result column="liable_person_name" property="liablePersonName" />
+        <result column="liable_person_position_id" property="liablePersonPositionId" />
+        <result column="liable_person_position_name" property="liablePersonPositionName" />
+        <result column="start_time" property="startTime" />
+        <result column="actual_end_date" property="actualEndDate" />
+        <result column="is_knowledge_base" property="isKnowledgeBase" />
+        <result column="is_keyboard" property="isKeyboard" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        oid,
+        tenantsid,
+        question_no,
+        question_process_stage,
+        question_source_no,
+        question_description,
+        current_question_process_status,
+        liable_person_id,
+        liable_person_name,
+        liable_person_position_id,
+        liable_person_position_name,
+        start_time,
+        actual_end_date,
+        is_knowledge_base,
+        is_keyboard
+    </sql>
+
+
+    <update id="updateRecord" parameterType="com.digiwin.app.frc.service.athena.qdh.domain.entity.QuestionRecordEntity">
+        UPDATE frc_question_record
+        <set>
+            <if test="null != oid and '' != oid">oid = #{oid},</if>
+            <if test="null != tenantsid and '' != tenantsid">tenantsid = #{tenantsid},</if>
+            <if test="null != questionNo and '' != questionNo">question_no = #{questionNo},</if>
+            <if test="null != questionProcessStage and '' != questionProcessStage">question_process_stage = #{questionProcessStage},</if>
+            <if test="null != questionSourceNo and '' != questionSourceNo">question_source_no = #{questionSourceNo},</if>
+            <if test="null != questionSourceType and '' != questionSourceType">question_source_type = #{questionSourceType},</if>
+            <if test="null != questionSourceOId and '' != questionSourceOId">question_source_oid = #{questionSourceOId},</if>
+            <if test="null != questionClassificationOId and '' != questionClassificationOId">question_classification_oid = #{questionClassificationOId},</if>
+            <if test="null != riskLevelOId and '' != riskLevelOId">risk_level_oid = #{riskLevelOId},</if>
+            <if test="-1 != important ">important = #{important},</if>
+            <if test="-1 != urgency">urgency = #{urgency},</if>
+            <if test="null != expectFinishTime ">expect_finish_time = #{expectFinishTime},</if>
+            <if test="null != projectNo and '' != projectNo">project_no = #{projectNo},</if>
+            <if test="null != questionDescription and '' != questionDescription">question_description = #{questionDescription},</if>
+            <if test="-1 != currentQuestionProcessStatus">current_question_process_status = #{currentQuestionProcessStatus},</if>
+            <if test="null != liablePersonId and '' != liablePersonId">liable_person_id = #{liablePersonId},</if>
+            <if test="null != liablePersonName and '' != liablePersonName">liable_person_name = #{liablePersonName},</if>
+            <if test="null != liablePersonPositionId and '' != liablePersonPositionId">liable_person_position_id = #{liablePersonPositionId},</if>
+            <if test="null != liablePersonPositionName and '' != liablePersonPositionName">liable_person_position_name = #{liablePersonPositionName},</if>
+            <if test="startTime != null">start_time = #{startTime},</if>
+            <if test="actualEndDate != null">actual_end_date = #{actualEndDate},</if>
+            <if test="-1 != isKnowledgeBase and '' != isKnowledgeBase">is_knowledge_base = #{isKnowledgeBase},</if>
+            <if test="-1 != isKeyboard and '' != isKeyboard">is_keyboard = #{isKeyboard},</if>
+            <if test=" createTime != null">create_date = #{createTime},</if>
+            <if test="null != createName and '' != createName">create_name = #{createName},</if>
+            <if test="null != updateId and '' != updateId">update_id = #{updateId},</if>
+            <if test="updateTime != null">update_date = #{updateTime},</if>
+            <if test="null != updateName and '' != updateName">update_name = #{updateName}</if>
+        </set>
+        WHERE oid = #{oid} and tenantsid = #{tenantsid}
+    </update>
+
+    <update id="updateRecordForQF" parameterType="com.digiwin.app.frc.service.athena.qdh.domain.entity.QuestionRecordEntity">
+        UPDATE frc_question_record
+        <set>
+            <if test="null != oid and '' != oid">oid = #{oid},</if>
+            <if test="null != tenantsid and '' != tenantsid">tenantsid = #{tenantsid},</if>
+            <if test="null != questionNo and '' != questionNo">question_no = #{questionNo},</if>
+            <if test="null != questionSourceNo and '' != questionSourceNo">question_source_no = #{questionSourceNo},</if>
+            <if test="null != questionSourceType and '' != questionSourceType">question_source_type = #{questionSourceType},</if>
+            <if test="null != questionSourceOId and '' != questionSourceOId">question_source_oid = #{questionSourceOId},</if>
+            <if test="null != questionClassificationOId and '' != questionClassificationOId">question_classification_oid = #{questionClassificationOId},</if>
+            <if test="null != riskLevelOId and '' != riskLevelOId">risk_level_oid = #{riskLevelOId},</if>
+            <if test="-1 != important ">important = #{important},</if>
+            <if test="-1 != urgency">urgency = #{urgency},</if>
+            <if test="null != projectNo and '' != projectNo">project_no = #{projectNo},</if>
+            <if test="null != questionDescription and '' != questionDescription">question_description = #{questionDescription},</if>
+            <if test="-1 != currentQuestionProcessStatus">current_question_process_status = #{currentQuestionProcessStatus},</if>
+            <if test="null != updateId and '' != updateId">update_id = #{updateId},</if>
+            <if test="updateTime != null">update_date = #{updateTime},</if>
+            <if test="null != updateName and '' != updateName">update_name = #{updateName}</if>
+        </set>
+        WHERE oid = #{oid} and tenantsid = #{tenantsid}
+    </update>
+
+    <insert id="insertRecord"  parameterType="com.digiwin.app.frc.service.athena.qdh.domain.entity.QuestionRecordEntity">
+        INSERT INTO frc_question_record
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="null != oid and '' != oid">
+                oid,
+            </if>
+            <if test="null != tenantsid and '' != tenantsid">
+                tenantsid,
+            </if>
+            <if test="null != questionNo and '' != questionNo">
+                question_no,
+            </if>
+            <if test="null != questionProcessStage and '' != questionProcessStage">
+                question_process_stage,
+            </if>
+            <if test="null != questionSourceNo and '' != questionSourceNo">
+                question_source_no,
+            </if>
+            <if test="null != questionSourceType and '' != questionSourceType">
+                question_source_type,
+            </if>
+
+            <if test="null != questionSourceOId and '' != questionSourceOId">
+                question_source_oid,
+            </if>
+            <if test="null != questionClassificationOId and '' != questionClassificationOId">
+                question_classification_oid,
+            </if>
+            <if test="null != riskLevelOId and '' != riskLevelOId">
+                risk_level_oid,
+            </if>
+            <if test="-1 != important">
+                important,
+            </if>
+
+            <if test="-1 != urgency">
+                urgency,
+            </if>
+            <if test="null != expectFinishTime">
+                expect_finish_time,
+            </if>
+            <if test="null != questionDescription and '' != questionDescription">
+                question_description,
+            </if>
+            <if test="-1 != currentQuestionProcessStatus">
+                current_question_process_status,
+            </if>
+            <if test="null != liablePersonId and '' != liablePersonId">
+                liable_person_id,
+            </if>
+            <if test="null != liablePersonName and '' != liablePersonName">
+                liable_person_name,
+            </if>
+            <if test="null != liablePersonPositionId and '' != liablePersonPositionId">
+                liable_person_position_id,
+            </if>
+            <if test="null != liablePersonPositionName and '' != liablePersonPositionName">
+                liable_person_position_name,
+            </if>
+            <if test="startTime != null ">
+                start_time,
+            </if>
+            <if test="actualEndDate != null">
+                actual_end_date,
+            </if>
+            <if test="taskExpectFinishDays != null">
+                task_expect_finish_days,
+            </if>
+            <if test="-1 != isKnowledgeBase">
+                is_knowledge_base,
+            </if>
+            <if test="-1 != isKeyboard ">
+                is_keyboard,
+            </if>
+            <if test="null != projectNo and '' != projectNo">
+                project_no,
+            </if>
+            <if test="createTime != null">
+                create_date,
+            </if>
+            <if test="createName != null">
+                create_name
+            </if>
+
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="null != oid and '' != oid">
+                #{oid},
+            </if>
+            <if test="null != tenantsid and '' != tenantsid">
+                #{tenantsid},
+            </if>
+            <if test="null != questionNo and '' != questionNo">
+                #{questionNo},
+            </if>
+            <if test="null != questionProcessStage and '' != questionProcessStage">
+                #{questionProcessStage},
+            </if>
+            <if test="null != questionSourceNo and '' != questionSourceNo">
+                #{questionSourceNo},
+            </if>
+            <if test="null != questionSourceType and '' != questionSourceType">
+                #{questionSourceType},
+            </if>
+
+            <if test="null != questionSourceOId and '' != questionSourceOId">
+                #{questionSourceOId},
+            </if>
+            <if test="null != questionClassificationOId and '' != questionClassificationOId">
+                #{questionClassificationOId},
+            </if>
+            <if test="null != riskLevelOId and '' != riskLevelOId">
+                #{riskLevelOId},
+            </if>
+            <if test="-1 != important">
+                #{important},
+            </if>
+
+            <if test="-1 != urgency">
+                #{urgency},
+            </if>
+
+            <if test="null != expectFinishTime">
+                #{expectFinishTime},
+            </if>
+
+            <if test="null != questionDescription and '' != questionDescription">
+                #{questionDescription},
+            </if>
+            <if test="-1 != currentQuestionProcessStatus">
+                #{currentQuestionProcessStatus},
+            </if>
+            <if test="null != liablePersonId and '' != liablePersonId">
+                #{liablePersonId},
+            </if>
+            <if test="null != liablePersonName and '' != liablePersonName">
+                #{liablePersonName},
+            </if>
+            <if test="null != liablePersonPositionId and '' != liablePersonPositionId">
+                #{liablePersonPositionId},
+            </if>
+            <if test="null != liablePersonPositionName and '' != liablePersonPositionName">
+                #{liablePersonPositionName},
+            </if>
+            <if test="startTime != null ">
+                #{startTime},
+            </if>
+            <if test="actualEndDate != null">
+                #{actualEndDate},
+            </if>
+            <if test="taskExpectFinishDays != null">
+                #{taskExpectFinishDays},
+            </if>
+            <if test="-1 != isKnowledgeBase">
+                #{isKnowledgeBase},
+            </if>
+            <if test="-1 != isKeyboard ">
+                #{isKeyboard},
+            </if>
+            <if test="null != projectNo and '' != projectNo">
+                #{projectNo},
+            </if>
+            <if test="createTime != null">
+                #{createTime},
+            </if>
+            <if test="createName != null">
+                #{createName}
+            </if>
+
+        </trim>
+    </insert>
+
+
+
+
+
+
+
+
+
+
+    <select id="getPendingRecordMsg"  resultType="com.digiwin.app.frc.service.athena.qdh.domain.vo.RecordMessageVo">
+        SELECT a.oid as questionId,a.question_no as questionNo,a.liable_person_name as liablePersonName,a.question_process_step as questionProcessStep, a.question_solve_step as questionSolveStep,a.question_process_result as questionProcessResult,a.actual_complete_date as actualCompleteDate,a.expect_complete_date as expectCompleteDate,d.data_content as dataContent
+        FROM frc_question_record r
+        LEFT JOIN frc_question_action_trace a on r.oid = a.question_record_oid
+        INNER JOIN  frc_data_instance d on d.question_trace_oid = a.oid
+        WHERE
+        a.question_process_result = 1  and a.question_process_status = 2
+        <if test="processStep != null and '' != processStep">
+            and a.question_process_step = #{processStep}
+        </if>
+        <if test="questionSolveStep != null and '' != questionSolveStep">
+            and a.question_solve_step = #{questionSolveStep}
+        </if>
+        <if test="questionRecordId != null and '' != questionRecordId">
+            and r.oid = #{questionRecordId}
+        </if>
+        <if test="tenantsid != null">
+            and r.tenantsid = #{tenantsid,jdbcType = BIGINT}
+        </if>
+        order by a.create_date asc
+    </select>
+
+
+    <select id="getRecordMsg"  resultType="com.digiwin.app.frc.service.athena.qdh.domain.vo.RecordMessageVo">
+        SELECT a.oid as questionId,a.question_no as questionNo,a.question_process_step as questionProcessStep,a.liable_person_name as liablePersonName, a.question_solve_step as questionSolveStep,a.question_process_result as questionProcessResult,a.actual_complete_date as actualCompleteDate,a.expect_complete_date as expectCompleteDate,d.data_content as dataContent
+        FROM frc_question_record r
+        LEFT JOIN frc_question_action_trace a on r.oid = a.question_record_oid
+        INNER JOIN  frc_data_instance d on d.question_trace_oid = a.oid
+        WHERE
+        ( a.question_process_status = 4 or a.question_process_status = 5 or a.question_process_status = 6 or a.question_process_status = 8 )
+        AND ( a.question_process_result = 2 or a.question_process_result = 3 or a.question_process_result = 5 )
+        <if test="processStep != null and '' != processStep">
+            and a.question_process_step = #{processStep}
+        </if>
+        <if test="questionSolveStep != null and '' != questionSolveStep">
+            and a.question_solve_step = #{questionSolveStep}
+        </if>
+        <if test="questionRecordId != null and '' != questionRecordId" >
+            and r.oid = #{questionRecordId}
+        </if>
+        <if test="tenantsid != null">
+            and r.tenantsid = #{tenantsid,jdbcType = BIGINT}
+        </if>
+        order by a.create_date asc
+    </select>
+
+    <select id="getQuestionRecordByNos" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM frc_question_record
+        <where>
+            question_no
+            IN
+            <if test="questionNos != null and questionNos.size>0 ">
+                <foreach collection="questionNos" item="item" index="index" open="(" separator="," close=")"> #{item} </foreach>
+            </if>
+            <if test="tenantsid != null">
+                and tenantsid = #{tenantsid,jdbcType = BIGINT}
+            </if>
+        </where>
+    </select>
+</mapper>

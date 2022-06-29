@@ -1,0 +1,23 @@
+
+i
+java:S1192f"NDefine a constant instead of duplicating this literal "å¤„ç†æ—¶é—´:" 3 times.(îŞ¯ïùÿÿÿÿ
+a	java:S112ˆ"FDefine and throw a dedicated exception instead of using a generic one.(èİÎÑşÿÿÿÿ
+a	java:S112»"FDefine and throw a dedicated exception instead of using a generic one.(èİÎÑşÿÿÿÿ
+o
+java:S1192e"TDefine a constant instead of duplicating this literal "process_person_name" 5 times.(ÄÒ®äùÿÿÿÿ
+S
+java:S1155a">Use isEmpty() to check whether the collection is empty or not.(ÉÂèD
+T
+java:S1155Œ">Use isEmpty() to check whether the collection is empty or not.(ÉÂèD
+Z
+java:S1155¿">Use isEmpty() to check whether the collection is empty or not.(ïÆ›îıÿÿÿÿ
+p
+java:S1192u"UDefine a constant instead of duplicating this literal "expect_complete_date" 4 times.(ö«Ù…ùÿÿÿÿ
+`	java:S112]"FDefine and throw a dedicated exception instead of using a generic one.(èİÎÑşÿÿÿÿ
+r
+java:S1128"PRemove this unused import 'org.springframework.scheduling.annotation.Scheduled'.(‚¡®Üûÿÿÿÿ8Í”ãœ0
+h
+java:S1192f"MDefine a constant instead of duplicating this literal "process_date" 3 times.(îŞ¯ïùÿÿÿÿ
+t
+java:S1128
+"WRemove this unused import 'org.springframework.scheduling.annotation.EnableScheduling'.(‹æ¬‹8Í”ãœ0

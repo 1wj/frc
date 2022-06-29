@@ -1,0 +1,68 @@
+<Configuration status="INFO" packages="com.digiwin.app.log">
+	<Properties>
+		<Property name="LOG_PATTERN">
+			%d{yyyy/MM/dd HH:mm:ss} %-5p [%X{traceId}] %m%n
+		</Property>
+	</Properties>
+	<Appenders>
+		<Console name="consoleAppender" target="SYSTEM_OUT" follow="true">
+			<PatternLayout pattern="${LOG_PATTERN}" />
+		</Console>
+
+		<RollingFile name="rollingfileAppender" fileName="platform/log/Digiwin${sys:logFileIdentifier}.log"
+			filePattern="platform/log/Digiwin${sys:logFileIdentifier}-%d{yyyy-MM-dd}.log" append="true">
+			<PatternLayout pattern="${LOG_PATTERN}" />
+			<Filters>
+				<ThresholdFilter level="fatal" onMatch="ACCEPT"
+					onMismatch="NEUTRAL" />
+				<ThresholdFilter level="error" onMatch="ACCEPT"
+					onMismatch="NEUTRAL" />
+				<ThresholdFilter level="warn" onMatch="ACCEPT"
+					onMismatch="NEUTRAL" />
+				<ThresholdFilter level="info" onMatch="ACCEPT"
+					onMismatch="NEUTRAL" />
+				<ThresholdFilter level="debug" onMatch="ACCEPT"
+					onMismatch="DENY" />
+			</Filters>
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+			</Policies>
+			<DefaultRolloverStrategy>
+				<Delete basePath="platform/log/" maxDepth="1">
+					<IfFileName glob="Digiwin-*.log" />
+					<IfLastModified age="7d" />					
+				</Delete>
+			</DefaultRolloverStrategy>
+		</RollingFile>
+		
+		<!-- DwMongoDBAppender name="logServiceLogAppender" databaseName="dap" collectionName="logs" server="@logMongodbServer@" port="@logMongodbPort@">
+        	<PatternLayout pattern="${LOG_PATTERN}" />
+        </DwMongoDBAppender>
+        <DwMongoDBAppender name="logServiceTraceAppender" databaseName="dap" collectionName="traces" server="@logMongodbServer@" port="@logMongodbPort@">
+        	<PatternLayout pattern="${LOG_PATTERN}" />
+        </DwMongoDBAppender>
+        
+    	<DwLogMongoAppender name="mongoSysAppender" databaseName="dap" collectionName="logs" server="@logMongodbServer@" port="@logMongodbPort@">
+        	<PatternLayout pattern="${LOG_PATTERN}" />
+        </DwLogMongoAppender>
+        <Async name="asyncSysAppender">
+      		<AppenderRef ref="mongoSysAppender"/>
+    	</Async-->
+	</Appenders>
+	<Loggers>		
+		<Root level="INFO">		
+			<appender-ref ref="consoleAppender" />
+			<appender-ref ref="rollingfileAppender" />
+			<!-- appender-ref ref="asyncSysAppender" /-->
+		</Root>    	
+		<!-- Logger name="com.digiwin.dwsys.service.impl.LogLogger" level="INFO" additivity="false">
+			<appender-ref ref="logServiceLogAppender" />
+    	</Logger>
+		<Logger name="com.digiwin.dwsys.service.impl.TraceLogger" level="INFO" additivity="false">
+			<appender-ref ref="logServiceTraceAppender" />
+    	</Logger>    	
+    	<Logger name="org.mongodb.driver" level="ERROR" additivity="false">  
+			<appender-ref ref="rollingfileAppender" />
+    	</Logger-->
+	</Loggers>
+</Configuration>

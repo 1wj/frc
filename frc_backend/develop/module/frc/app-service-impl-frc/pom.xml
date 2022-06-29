@@ -1,0 +1,54 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.digiwin.app</groupId>
+		<artifactId>frc</artifactId>
+		<version>1.0.0</version>
+	</parent>
+	
+	<artifactId>app-service-impl-frc</artifactId>
+	<packaging>jar</packaging>
+	
+	<name>app-service-impl-frc</name>
+	<url>http://maven.apache.org</url>
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<module.basedir>${project.parent.basedir}</module.basedir>
+		<module.name>frc</module.name>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.digiwin.app</groupId>
+			<artifactId>app-service-interface-frc</artifactId>			
+		</dependency>
+	</dependencies>
+
+	<build>
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<plugins>			
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>genernate-module-impl</id>
+						<phase>package</phase>
+						<configuration>
+							<tasks>								
+								<copy todir="D:\frc\frc_backend\running\app_backend\application\module/${module.name}">
+									<fileset dir="${basedir}/target">
+										<include name="*.jar"/>
+									</fileset>
+								</copy>														
+							</tasks>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>			
+		</plugins>
+	</build>
+</project>
