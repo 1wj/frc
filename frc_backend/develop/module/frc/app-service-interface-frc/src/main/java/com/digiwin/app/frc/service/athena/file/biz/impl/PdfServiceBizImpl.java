@@ -116,6 +116,7 @@ public class PdfServiceBizImpl implements IPdfServiceBiz {
         } catch (Exception e) {
             e.printStackTrace();
             log.error("报告生成失败："+e.getMessage());
+            System.out.println("hahh");
         }finally {
             //处理异常退出流关闭
             if(document != null){
